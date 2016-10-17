@@ -1,0 +1,52 @@
+{
+    "instance": {
+        "engine": "symfoware",
+        "links": [
+            {
+                "href": "http://database.{region-name}.tps5.fujitsu.com/v1.0/1234/ instances/44b277eb-39be-4921-be31-3d61b43651d7",
+                "rel": "self"
+            }
+        ],
+        "readReplicaSrcDBInstanceIdentifier ": "qawsertb-39be-492-be31-3d6fewab43d7",
+        "autoMinorVersionUpgrade": true,
+        "flavor": {
+            "id": "1",
+            "links": [
+                {
+                    "href": "http://database.{region-name}.tps5.fujitsu.com/v1.0/1234/ flavors/1",
+                    "rel": "self"
+                }
+            ]
+        },
+        "port": 26500,
+        "subnetGroupId": "subnetGroup1",
+        "id": "44b277eb-39be-4921-be31-3d61b43651d7",
+        "collate": "C",
+        "engineVersion": "12.1",
+        "privateAddress": "fujitsu.s5.dbaas.a23w4e5r6tg7yuhjik",
+        "status": "BUILD",
+        "multiAZ": true,
+        "availabilityZone": "jp-east-1a",
+        "parameterGroupId": "paramid1",
+        "privateIp": "10.125.52.214",
+        "preferredBackupWindow": "17:00-18:00",
+        "charcterSet": "UTF-8",
+        "backupRetentionPeriod": 10,
+        "preferredMaintenanceWindow": "Sun:19:00-Sun:20:00",
+        "volume": {
+            "type": "M1",
+            "size": 20
+        },
+        "name": "json-rack-instance",
+        "publiclyAccessible": true,
+        "created": "2013-03-18T19:09:17",
+        "securityGroupIds": [
+            {
+                "securityGroupId": "secid1"
+            },
+            {
+                "securityGroupId": "secid2"
+            }
+        ]
+    }
+}

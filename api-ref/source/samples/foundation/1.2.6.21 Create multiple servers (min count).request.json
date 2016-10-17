@@ -1,0 +1,11 @@
+{
+    "server": {
+        "min_count": 1,
+        "flavorRef": "08ef25d1-9616-46b6-bad3-3835efccf3a5",
+        "name": "new-server-test",
+        "imageRef": "9f033140-ea8c-41fe-a432-e832799aa47f",
+        "metadata": {
+            "My Server Name": "Apache1"
+        }
+    }
+}

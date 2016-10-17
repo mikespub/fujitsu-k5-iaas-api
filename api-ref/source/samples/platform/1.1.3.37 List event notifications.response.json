@@ -1,0 +1,14 @@
+{
+    "marker": "event1192",
+    "events": [
+        {
+            " date": "2013-03-18T19:09:17",
+            "message": "Finished DB Instance backup",
+            "eventCategories": [
+                "backup"
+            ],
+            "sourceIdentifier": "dbinst_678yuhyhih",
+            "sourceType": "db-instance"
+        }
+    ]
+}

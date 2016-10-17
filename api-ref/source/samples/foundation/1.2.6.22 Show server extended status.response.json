@@ -1,0 +1,57 @@
+{
+    "server": {
+        "status": "ACTIVE",
+        "updated": "2013-02-07T19:35:10Z",
+        "OS-EXT-STS:task_state": null,
+        "user_id": "fake",
+        "addresses": {
+            "private": [
+                {
+                    "version": 4,
+                    "addr": "192.168.0.3"
+                }
+            ]
+        },
+        "links": [
+            {
+                "href": "http://openstack.example.com/v2/openstack/servers/ecb5e433- fa75-4db2-af3d-a29ae8618edc",
+                "rel": "self"
+            },
+            {
+                "href": "http://openstack.example.com/openstack/servers/ecb5e433- fa75-4db2-af3d-a29ae8618edc",
+                "rel": "bookmark"
+            }
+        ],
+        "created": "2013-02-07T19:35:09Z",
+        "name": "new-server-test",
+        "image": {
+            "id": "70a599e0-31e7-49b7-b260-868f441e862b",
+            "links": [
+                {
+                    "href": "http://openstack.example.com/openstack/ images/70a599e0-31e7-49b7-b260-868f441e862b",
+                    "rel": "bookmark"
+                }
+            ]
+        },
+        "id": "ecb5e433-fa75-4db2-af3d-a29ae8618edc",
+        "accessIPv4": "",
+        "accessIPv6": "",
+        "OS-EXT-STS:vm_state": "active",
+        "tenant_id": "openstack",
+        "progress": 0,
+        "OS-EXT-STS:power_state": 1,
+        "flavor": {
+            "id": "1",
+            "links": [
+                {
+                    "href": "http://openstack.example.com/openstack/flavors/1",
+                    "rel": "bookmark"
+                }
+            ]
+        },
+        "hostId": "570eff4776ab310707d11d181037337197086998a8b3305c90bf87c8",
+        "metadata": {
+            "My Server Name": "Apache1"
+        }
+    }
+}

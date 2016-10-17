@@ -1,0 +1,11 @@
+{
+    "login_id": "fujitsu123",
+    "user_status": "1",
+    "user_description": "User description",
+    "user_first_name": "John",
+    "role_code": "00",
+    "user_last_name": "Smith",
+    "language_code": "ja",
+    "password": "Abcdefgh12345678",
+    "mailaddress": "abc@xyz.com"
+}

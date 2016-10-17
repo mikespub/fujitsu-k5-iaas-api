@@ -1,0 +1,30 @@
+{
+    "parameterGroup": {
+        "parameters": [
+            {
+                "anllowedValues": "16-1073741823",
+                "applyMethod": "pending-reboot",
+                "name": "shared_buffers",
+                "denscription": "(8kB) Sets the number of shared memory buffers used by the server.",
+                "dataType": "integer",
+                "value": "65536",
+                "source": "engine",
+                "isModifiable": "true",
+                "minimumEngineVersion": "12.1",
+                "applyType": "static"
+            },
+            {
+                "applyMethod": "pending-reboot",
+                "name": " shared_preload_libraries",
+                "dataType": "string",
+                "value": "",
+                "allowedValues": "",
+                "source": "system",
+                "isModifiable": "false",
+                "minimumEngineVersion": "12.1",
+                "applyType": "static",
+                "description": "Lists shared libraries to preload into server."
+            }
+        ]
+    }
+}

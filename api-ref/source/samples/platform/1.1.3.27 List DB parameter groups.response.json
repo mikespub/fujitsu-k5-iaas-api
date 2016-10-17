@@ -1,0 +1,24 @@
+{
+    "parameterGroups": [
+        {
+            "appliedInstances": [
+                "dbinst_f587389gre",
+                "dbinst_8489y3qre"
+            ],
+            "description": "test",
+            " parameterGroupFamily": "symfoware_12.1",
+            "name": "paramgroup1",
+            "id": "paramgroup_w34e5r6t7yu89"
+        },
+        {
+            "appliedInstances": [
+                "dbinst_fet904utjhf",
+                "dbinst_p9ufejowre"
+            ],
+            "description": "test",
+            " parameterGroupFamily": "symfoware_12.1",
+            "name": "paramgroup2",
+            "id": "paramgroup_w34e5r6t7ew89"
+        }
+    ]
+}

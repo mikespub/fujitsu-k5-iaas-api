@@ -1,0 +1,8 @@
+{
+    "CreateLBCookieStickinessPolicyResponse": {
+        "CreateLBCookieStickinessPolicyResult": {},
+        "ResponseMetadata": {
+            "RequestId": "99a693e9-12b8-11e3-9ad6-bf3e4EXAMPLE"
+        }
+    }
+}

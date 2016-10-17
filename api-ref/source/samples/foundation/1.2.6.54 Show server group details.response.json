@@ -1,0 +1,12 @@
+{
+    "server_group": {
+        "policies": [
+            "anti-affinity"
+        ],
+        "availability_zone": "jp-east-1a",
+        "name": "test",
+        "members": [],
+        "id": "616fb98f-46ca-475e-917e-2563e5a8cd19",
+        "metadata": {}
+    }
+}

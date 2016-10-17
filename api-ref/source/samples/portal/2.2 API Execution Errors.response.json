@@ -1,0 +1,11 @@
+{
+    "framework": {
+        "systemErrorCode": ""
+    },
+    "business": {
+        "businessErrorInfo": "Cannot create token from the specified user information.",
+        "responseErrorCode": "RCM301802",
+        "embeddedString": []
+    },
+    "errorLevel": "888"
+}

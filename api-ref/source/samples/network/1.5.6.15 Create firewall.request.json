@@ -1,0 +1,8 @@
+{
+    "firewall": {
+        "router_id": "fe00194c-d73c-4b46-b94a-622bf28fc9e2",
+        "availability_zone": "AZ1",
+        "firewall_policy_id": "c69933c1-b472-44f9-8226-30dc4ffd454c",
+        "admin_state_up": true
+    }
+}

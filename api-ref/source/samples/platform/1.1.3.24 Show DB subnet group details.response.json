@@ -1,0 +1,16 @@
+{
+    "subnetgroup": {
+        "status": " Available",
+        "subnetIds ": [
+            {
+                "subnetId": "subnetid1"
+            },
+            {
+                "subnetId": "subnetid2"
+            }
+        ],
+        "id": "subnet_edrtfyuhijko01",
+        "name ": "subnetGroup1",
+        "description": "this is test"
+    }
+}

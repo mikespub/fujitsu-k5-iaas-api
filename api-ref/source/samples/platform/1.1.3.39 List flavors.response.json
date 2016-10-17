@@ -1,0 +1,24 @@
+{
+    "flavors": [
+        {
+            "id": "11",
+            "links": [
+                {
+                    "href": " http://database.{region-name}.tps5.fujitsu.com/v1.0/1234/ flavors/11",
+                    "rel": "SELF"
+                }
+            ],
+            "name": "economy"
+        },
+        {
+            "id": "12",
+            "links": [
+                {
+                    "href": " http://database.{region-name}.tps5.fujitsu.com/v1.0/1234/ flavors/12",
+                    "rel": "SELF"
+                }
+            ],
+            "name": "standard"
+        }
+    ]
+}

@@ -1,0 +1,12 @@
+{
+    "network_connector_endpoint": {
+        "interfaces": [
+            {
+                "port_id": "5fd5b822-c400-46dc-bc68-ea8c0dd20876"
+            },
+            {
+                "port_id": "8df2a059-2851-4938-b989-51ce156d6b29"
+            }
+        ]
+    }
+}

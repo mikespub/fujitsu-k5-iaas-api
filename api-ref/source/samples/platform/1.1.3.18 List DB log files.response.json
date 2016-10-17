@@ -1,0 +1,16 @@
+{
+    "describeDBLogFilesResult": {
+        "descriveDBLogFileDetails": [
+            {
+                "logFileName": "logfile1",
+                "lastWritten": "1414330786",
+                "size": 10000000
+            },
+            {
+                "logFileName": "logfile2",
+                "lastWritten": "1449109892",
+                "size": 330000000
+            }
+        ]
+    }
+}

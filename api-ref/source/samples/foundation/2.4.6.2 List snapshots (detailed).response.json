@@ -1,0 +1,30 @@
+{
+    "snapshots": [
+        {
+            "status": "available",
+            "os-extended-snapshot-attributes:progress": "100%",
+            "description": "Daily backup",
+            "name": "snap-001",
+            "availability_zone": "jp-east-1a",
+            "created_at": "2013-02-25T07:30:12.000000",
+            "id": "43f20e0e-2c2c-4770-9d4e-c3d769ae5470",
+            "volume_id": "5aa119a8-d25b-45a7-8d1b-88e127885635",
+            "size": 30,
+            "os-extended-snapshot-attributes:project_id": "0c2eba2c5af04d3f9e9d0d410b371fde",
+            "metadata": {}
+        },
+        {
+            "status": "available",
+            "os-extended-snapshot-attributes:progress": "100%",
+            "description": "Weekly backup",
+            "name": "snap-002",
+            "availability_zone": "jp-east-1a",
+            "created_at": "2013-02-25T07:20:38.000000",
+            "id": "e820db06-58b5-439d-bac6-c01faa3f6499",
+            "volume_id": "806092e3-7551-4fff-a005-49016f4943b1",
+            "size": 1,
+            "os-extended-snapshot-attributes:project_id": "0c2eba2c5af04d3f9e9d0d410b371fde",
+            "metadata": {}
+        }
+    ]
+}

@@ -1,0 +1,16 @@
+{
+    "volume": {
+        "displayDescription": "Another volume.",
+        "availabilityZone": "us-east1",
+        "displayName": "vol-001",
+        "attachments": [],
+        "volumeType": "289da7f8-6440-407c-9fb4-7db01ec49164",
+        "snapshotId": null,
+        "size": 30,
+        "id": "521752a6-acf6-4b2d-bc7a-119f9148cd8c",
+        "createdAt": "2012-02-14T20:53:07Z",
+        "metadata": {
+            "contents": "junk"
+        }
+    }
+}

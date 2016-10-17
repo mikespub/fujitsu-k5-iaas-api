@@ -1,0 +1,11 @@
+{
+    "network_connector": {
+        "tenant_id": "29320d5e-dd29-425c-b386-3cbb2754ad03",
+        "network_connector_pool_id": "78380271-954a-4c1a-a76d-43033c7fc9bf",
+        "id": "07993b1c-79e1-4cf6-a663-dc42b9ce37d4",
+        "network_connector_endpoints": [
+            "0e521ed5-62d0-44c9-9c04-2e880b5add21"
+        ],
+        "name": "connector2"
+    }
+}

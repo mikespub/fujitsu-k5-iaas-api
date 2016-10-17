@@ -1,0 +1,26 @@
+{
+    "eventSubscription": {
+        "sourceType": "db-instance",
+        "created": "2013-03-18T19:09:17",
+        " enabled ": true,
+        "description": " this is test ",
+        "eventCategories ": [
+            {
+                "eventCategory": "backup"
+            },
+            {
+                "eventCategory": "creation"
+            }
+        ],
+        "sourceIds": [
+            {
+                "sourceId": "dbinst1"
+            },
+            {
+                "sourceId": "dbinst2"
+            }
+        ],
+        "subsciptionId": "suscription1",
+        "name": " mysubscription1"
+    }
+}

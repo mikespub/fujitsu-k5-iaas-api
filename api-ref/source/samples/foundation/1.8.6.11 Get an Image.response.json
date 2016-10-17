@@ -1,0 +1,17 @@
+{
+    "status": "active",
+    "name": "cirros-0.3.0-x86_64-uec-ramdisk",
+    "tags": [
+        "ping",
+        "pong"
+    ],
+    "checksum": "2cec138d7dae2aa59038ef8c9aec2390",
+    "created_at": "2012-08-10T19:23:50Z",
+    "updated_at": "2012-08-10T19:23:50Z",
+    "visibility": "public",
+    "self": "/v2/images/da3b75d9-3f4a-40e7-8a2c-bfab23927dea",
+    "file": "/v2/images/da3b75d9-3f4a-40e7-8a2c-bfab23927dea/file",
+    "schema": "/v2/schemas/image",
+    "id": "da3b75d9-3f4a-40e7-8a2c-bfab23927dea",
+    "size": 2254249
+}

@@ -1,0 +1,11 @@
+{
+    "server": {
+        "key_name": "keypair1",
+        "flavorRef": "2",
+        "name": "new-server-test",
+        "imageRef": "b5660a6e-4b46-4be3-9707-6b47221b454f",
+        "metadata": {
+            "My Server Name": "Apache1"
+        }
+    }
+}

@@ -1,0 +1,9 @@
+{
+    "volumeAttachment": {
+        "device": "/dev/sda1",
+        "serverId": "ed61f75a-ccf4-4b58-b9a0-5a51a3f51aee",
+        "availability_zone": "jp-east-1b",
+        "id": "d3b6498f-46f0-48b8-8209-7633ba62a3da",
+        "volumeId": "d3b6498f-46f0-48b8-8209-7633ba62a3da"
+    }
+}

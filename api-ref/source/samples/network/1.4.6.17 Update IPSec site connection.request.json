@@ -1,0 +1,5 @@
+{
+    "ipsec_site_connection": {
+        "description": "to datacenter2"
+    }
+}

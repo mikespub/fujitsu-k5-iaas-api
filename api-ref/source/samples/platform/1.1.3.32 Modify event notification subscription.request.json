@@ -1,0 +1,15 @@
+{
+    "action": {
+        "modify": ""
+    },
+    "eventnotification": {
+        "eventCategories": [
+            {
+                "eventCategory": "backup"
+            }
+        ],
+        "enabled": true,
+        "sourceType": "db-snapshot",
+        "subscriptionName": "modsubscription2"
+    }
+}

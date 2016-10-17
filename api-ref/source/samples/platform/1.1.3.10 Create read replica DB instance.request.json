@@ -1,0 +1,28 @@
+{
+    "action": {
+        "readreplica": ""
+    },
+    "instance": {
+        "preferredBackupWindow": "17:00-18:00",
+        "availabilityZone": "jp-east-1a",
+        "name": "json_rack_instance",
+        "subnetGroupId": "subnetGroup1",
+        "publiclyAccessible": true,
+        "flavorRef": "1",
+        "securityGroupIds": [
+            {
+                "securityGroupId": "secid1"
+            },
+            {
+                "securityGroupId": "secid2"
+            }
+        ],
+        "volume": {
+            "type": "M1",
+            "size": 20
+        },
+        "parameterGroupId": "paramid1",
+        "port": 1234,
+        "preferredMaintenanceWindow": "Sun:19:00-Sun:20:00"
+    }
+}

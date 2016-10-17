@@ -1,0 +1,15 @@
+{
+    "AttachLoadBalancerToSubnetsResponse": {
+        "AttachLoadBalancerToSubnetsResult": {
+            "Subnets": {
+                "member": [
+                    "subnet-119f0078",
+                    "subnet-3561b05e"
+                ]
+            }
+        },
+        "ResponseMetadata": {
+            "RequestId": "07b1ecbc-1100-11e3-acaf-dd7edEXAMPLE"
+        }
+    }
+}

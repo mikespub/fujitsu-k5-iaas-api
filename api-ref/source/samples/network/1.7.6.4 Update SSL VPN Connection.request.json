@@ -1,0 +1,6 @@
+{
+    "ssl_vpn_connection": {
+        "name": "conn1A",
+        "admin_state_up": false
+    }
+}

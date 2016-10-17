@@ -1,0 +1,11 @@
+{
+    "rebuild": {
+        "accessIPv4": "1.2.3.4",
+        "metadata": {
+            "meta var": "meta val"
+        },
+        "accessIPv6": "fe80::100",
+        "name": "foobar",
+        "adminPass": "seekr3t"
+    }
+}

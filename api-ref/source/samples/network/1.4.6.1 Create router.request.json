@@ -1,0 +1,7 @@
+{
+    "router": {
+        "availability_zone": "AZ1",
+        "name": "another_router",
+        "admin_state_up": true
+    }
+}

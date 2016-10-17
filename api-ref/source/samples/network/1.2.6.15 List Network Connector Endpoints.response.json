@@ -1,0 +1,20 @@
+{
+    "network_connector_endpoints": [
+        {
+            "name": "endponit_for_az1",
+            "network_connector_id": "07993b1c-79e1-4cf6-a663-dc42b9ce37d4",
+            "tenant_id": "29320d5e-dd29-425c-b386-3cbb2754ad03",
+            "endpoint_type": "availability_zone",
+            "location": "east-jp-az1",
+            "id": "6ed3561f-087f-43f9-9a51-bf71f666b80f"
+        },
+        {
+            "name": "endponit_for_az2",
+            "network_connector_id": "75e3507f-8fb6-4b0f-9f0c-00ce011e4a51",
+            "tenant_id": "29320d5e-dd29-425c-b386-3cbb2754ad03",
+            "endpoint_type": "availability_zone",
+            "location": "east-jp-az2",
+            "id": "1e71eee6-a7e5-4b05-93c6-e6e8bf02f2e5"
+        }
+    ]
+}

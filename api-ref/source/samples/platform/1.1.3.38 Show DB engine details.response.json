@@ -1,0 +1,11 @@
+{
+    "dBEngineVersions": [
+        {
+            "engine": "symfoware",
+            "dBEngineVersionDescription": "symfoware v12.1",
+            "dBParameterGroupFamily": "symfoware v12.1",
+            "dBEngineDescription": "Fujitsu software symfoware",
+            "engineVersion": "12.1.1"
+        }
+    ]
+}

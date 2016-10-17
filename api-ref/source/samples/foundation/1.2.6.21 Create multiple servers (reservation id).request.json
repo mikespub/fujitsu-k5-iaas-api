@@ -1,0 +1,12 @@
+{
+    "server": {
+        "name": "new-server-test",
+        "imageRef": "9f033140-ea8c-41fe-a432-e832799aa47f",
+        "key_name": "keypair1",
+        "flavorRef": "1",
+        "return_reservation_id": true,
+        "metadata": {
+            "My Server Name": "Apache1"
+        }
+    }
+}

@@ -1,0 +1,26 @@
+{
+    "resource": {
+        "resource_name": "web_server_group",
+        "description": "",
+        "links": [
+            {
+                "href": "http://heatServiceIpAddress:portNumber/v1/ a0b06965de4a43569795bb0feadb0856/stacks/test_stack/0cc8b90c-0163-42fe- a261-4b005fd89b2a/resources/web_server_group",
+                "rel": "self"
+            },
+            {
+                "href": "http://heatServiceIpAddress:portNumber/v1/ a0b06965de4a43569795bb0feadb0856/stacks/test_stack/0cc8b90c-0163-42fe- a261-4b005fd89b2a",
+                "rel": "stack"
+            }
+        ],
+        "logical_resource_id": "web_server_group",
+        "resource_status": "CREATE_COMPLETE",
+        "updated_time": "2014-09-16T15:41:42Z",
+        "required_by": [
+            "web_server_scaleout_policy",
+            "web_server_scalein_policy"
+        ],
+        "resource_status_reason": "state changed",
+        "physical_resource_id": "f4ff3753-a52c-4b2f-bd95-600344922a1a",
+        "resource_type": "OS::Heat::AutoScalingGroup"
+    }
+}

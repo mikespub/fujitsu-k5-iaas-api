@@ -1,0 +1,13 @@
+{
+    "ssl_vpn_connection": {
+        "status": "DOWN",
+        "client_address_pool_cidr": "10.8.0.0/24",
+        "name": "conn1",
+        "admin_state_up": true,
+        "tenant_id": "1219ecaa01e0254dac4f08c9123aefcd",
+        "availability_zone": "AZ1",
+        "credential_id": "434a9843-ecc0-4653-8f3a-e604d9d7aadc",
+        "vpnservice_id": "cc91b7af-8304-4aff-ad07-86bdbaae2e93",
+        "id": "76ee7216-5eef-470c-a7d2-ce4a7461b046"
+    }
+}

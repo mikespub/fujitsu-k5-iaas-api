@@ -1,0 +1,16 @@
+{
+    "snapshots": [
+        {
+            "instanceId": "instance_r67fg9uj0kfp",
+            "snapshotType": "automated",
+            "name": "snapshot1",
+            "id": "snapshot_dfrtgy3h2uj5ik"
+        },
+        {
+            "instanceId": "instance_r67rftyufrp",
+            "snapshotType": "automated",
+            "name": "snapshot2",
+            "id": "snapshot_dftgyfewaj5ik"
+        }
+    ]
+}

@@ -1,0 +1,13 @@
+{
+    "auth": {
+        "identity": {
+            "password": {
+                "user": {
+                    "password": "user-password",
+                    "contract_number": "xxxxxxxx",
+                    "name": "user-name"
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,12 @@
+{
+    "network_connector_pools": [
+        {
+            "id": "78380271-954a-4c1a-a76d-43033c7fc9bf",
+            "name": "mpls-vpn-pool1"
+        },
+        {
+            "id": "ddd0271-954a-4c1a-a76d-43033c7fc9bf",
+            "name": "mpls-vpn-pool2"
+        }
+    ]
+}

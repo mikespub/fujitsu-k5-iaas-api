@@ -1,0 +1,10 @@
+{
+    "token": {
+        "scope": "paas",
+        "user": {
+            "contract_number": "xxxxxxxx",
+            "name": "user-name"
+        },
+        "expires_at": "2016-05-16T03:20:42"
+    }
+}

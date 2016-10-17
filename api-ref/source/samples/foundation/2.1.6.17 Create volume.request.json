@@ -1,0 +1,13 @@
+{
+    "volume": {
+        "name": "my_volume",
+        "imageRef": null,
+        "availability_zone": null,
+        "description": null,
+        "source_volid": null,
+        "volume_type": null,
+        "snapshot_id": null,
+        "metadata": {},
+        "size": 10
+    }
+}

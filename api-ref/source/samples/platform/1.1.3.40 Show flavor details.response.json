@@ -1,0 +1,16 @@
+{
+    "flavor": {
+        "name": "economy",
+        "links": [
+            {
+                "href": " http://database.{region-name}.tps5.fujitsu.com/v1.0/1234/ flavors/11",
+                "rel": "SELF"
+            }
+        ],
+        "ram": "1700",
+        "vcpus": "1",
+        "swap": null,
+        "disk": "0",
+        "id": "11"
+    }
+}

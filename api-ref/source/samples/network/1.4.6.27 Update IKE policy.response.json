@@ -1,0 +1,18 @@
+{
+    "ikepolicy": {
+        "phase1_negotiation_mode": "main",
+        "availability_zone": "AZ1",
+        "tenant_id": "ccb81365fe36411a9011e90491fe1330",
+        "description": "",
+        "auth_algorithm": "sha1",
+        "encryption_algorithm": "aes-256",
+        "pfs": "group5",
+        "lifetime": {
+            "units": "seconds",
+            "value": 3600
+        },
+        "ike_version": "v1",
+        "id": "5522aff7-1b3c-48dd-9c3c-b50f016b73db",
+        "name": "ikepolicy1"
+    }
+}

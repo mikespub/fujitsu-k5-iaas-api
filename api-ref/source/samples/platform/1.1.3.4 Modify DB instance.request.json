@@ -1,0 +1,56 @@
+{
+    "instance": {
+        "securityGroupIds.": [
+            {
+                "securityGroupId": "secid1"
+            },
+            {
+                "securityGroupId": "secid2"
+            }
+        ],
+        "masterUserPassword": "***",
+        "autoMinorVersionUpgrade": true,
+        "preferredBackupWindow": "17:00-18:00",
+        "character_set": "utf8",
+        "port": 1234,
+        "collate": "C",
+        "engineVersion": "12.1",
+        "engine": "symfoware",
+        "multiAZ": true,
+        "availabilityZone": "jp-east-1a",
+        "users": [
+            {
+                "password": "demopassword",
+                "name": "demouser",
+                "databases": [
+                    {
+                        "name": "sampledb"
+                    }
+                ]
+            }
+        ],
+        "parameterGroupId": "paramid1",
+        "flavorRef": "1",
+        "volume": {
+            "size": 2
+        },
+        "autoMaintenance": true,
+        "backupRetentionPeriod": 10,
+        "preferredMaintenanceWindow": "Sun:19:00-Sun:20:00",
+        "subnetGroupId.": "subnetGroup1",
+        "multi": true,
+        "name": "json-rack-instance",
+        "publiclyAccessible": true,
+        "preferredRecoveryTime": {
+            "time": "01:00"
+        },
+        "databases": [
+            {
+                "name": "sampledb"
+            },
+            {
+                "name": "nextround"
+            }
+        ]
+    }
+}

@@ -1,0 +1,13 @@
+{
+    "network": {
+        "status": "ACTIVE",
+        "subnets": [],
+        "name": "sample_network_5_updated",
+        "router:external": false,
+        "tenant_id": "4fd44f30292945e481c7b8a0c8908869",
+        "admin_state_up": true,
+        "availability_zone": "AZ1",
+        "shared": false,
+        "id": "1f370095-98f6-4079-be64-6d3d4a6adcc6"
+    }
+}

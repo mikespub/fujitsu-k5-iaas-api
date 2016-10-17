@@ -1,0 +1,7 @@
+{
+    "parametergroup": {
+        "parameterGroupFamily": "symfoware_v12.1",
+        "name": "dbparam1",
+        "description": "this is test"
+    }
+}

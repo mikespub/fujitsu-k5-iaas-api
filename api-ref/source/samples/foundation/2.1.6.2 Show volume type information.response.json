@@ -1,0 +1,10 @@
+{
+    "volume_type": {
+        "availability_zone": "jp-east-1a",
+        "extra_specs": {
+            "capabilities": "gpu"
+        },
+        "id": "6685584b-1eac-4da6-b5c3-555430cf68ff",
+        "name": "SSD"
+    }
+}

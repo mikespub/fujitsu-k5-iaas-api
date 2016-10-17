@@ -1,0 +1,20 @@
+{
+    "RegisterInstancesWithLoadBalancerResponse": {
+        "RegisterInstancesWithLoadBalancerResult": {
+            "Instances": {
+                "member": [
+                    {
+                        "InstanceId": "i-712cde1e"
+                    },
+                    {
+                        "InstanceId": "i-315b7e51",
+                        "PortId": "p-315b7e51"
+                    }
+                ]
+            }
+        },
+        "ResponseMetadata": {
+            "RequestId": "83c88b9d-12b7-11e3-8b82-87b12EXAMPLE"
+        }
+    }
+}

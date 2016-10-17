@@ -1,0 +1,10 @@
+{
+    "snapshot": {
+        "status": "Available",
+        "description": "sample snapshot",
+        "created": "2013-03-18T19:09:17",
+        "instanceId": "instance-r67fg9uj0kfp",
+        "Id": "snapshot-dfrtgy3h2uj5ik",
+        "name": "snapshot1"
+    }
+}

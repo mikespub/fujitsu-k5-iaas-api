@@ -1,0 +1,7 @@
+{
+    "url": " http://orchestration.jp-east-1.cloud.global.fujitsu.com/ v1/2801e5de00d142a388b17b65256f7ad4/stacks/s1_step2/0ffc2720- a7ba-4e0f-8ca6-82142f14f6eb/resources/web_server_scaleup_policy/signal",
+    "method": "POST",
+    "project_id": "2801e5de00d142a388b17b65256f7ad4",
+    "name": "sample2",
+    "time": "*/5 * * * *"
+}

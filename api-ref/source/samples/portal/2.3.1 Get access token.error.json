@@ -1,0 +1,13 @@
+{
+    "framework": {
+        "systemErrorCode": ""
+    },
+    "business": {
+        "businessErrorInfo": "BECSA000113",
+        "responseErrorCode": "RCS100001",
+        "embeddedString": [
+            "Internal Server Error"
+        ]
+    },
+    "errorLevel": "888"
+}

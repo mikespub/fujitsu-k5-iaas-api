@@ -1,0 +1,6 @@
+{
+    "port": {
+        "name": "private-port",
+        "admin_state_up": true
+    }
+}

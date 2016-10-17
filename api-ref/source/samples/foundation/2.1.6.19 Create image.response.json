@@ -1,0 +1,22 @@
+{
+    "os-volume_upload_image": {
+        "status": "uploading",
+        "container_format": "bare",
+        "disk_format": "raw",
+        "image_name": "20150430_volume_to_image-003",
+        "volume_type": {
+            "name": "M1",
+            "qos_specs_id": null,
+            "deleted": false,
+            "created_at": "2014-10-11T11:26:56.000000",
+            "updated_at": null,
+            "deleted_at": null,
+            "id": "13a0247c-9363-401d-acd3-c5d07ccd1a45"
+        },
+        "updated_at": "2015-04-30T06:31:31.000000",
+        "image_id": "3dc6c4d9-95e9-4cdb-a076-cc3ed50b9654",
+        "display_description": null,
+        "id": "52102306-e352-4c84-9233-2ac2b511d29b",
+        "size": 2
+    }
+}

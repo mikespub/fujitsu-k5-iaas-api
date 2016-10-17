@@ -1,0 +1,15 @@
+{
+    "ApplySecurityGroupsToLoadBalancerResponse": {
+        "ApplySecurityGroupsToLoadBalancerResult": {
+            "SecurityGroups": {
+                "member": [
+                    "MySecurityGroup-XXXXX",
+                    "MySecurityGroup-YYYYY"
+                ]
+            }
+        },
+        "ResponseMetadata": {
+            "RequestId": "06b5decc-102a-11e3-9ad6-bf3e4EXAMPLE"
+        }
+    }
+}

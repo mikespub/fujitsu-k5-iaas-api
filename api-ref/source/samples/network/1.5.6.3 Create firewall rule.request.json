@@ -1,0 +1,10 @@
+{
+    "firewall_rule": {
+        "protocol": "tcp",
+        "name": "ALLOW_HTTP",
+        "availability_zone": "AZ1",
+        "enabled": true,
+        "action": "allow",
+        "destination_port": "80"
+    }
+}

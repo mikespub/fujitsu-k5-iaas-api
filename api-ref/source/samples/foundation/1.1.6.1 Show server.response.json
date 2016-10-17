@@ -1,0 +1,55 @@
+{
+    "server": {
+        "status": "ACTIVE",
+        "updated": "2013-01-30T13:38:49Z",
+        "hostId": "d38ea49a033b0efaf80c165de63f4805c886dfb94dc0fe731227eccb",
+        "user_id": "fake",
+        "addresses": {
+            "private": [
+                {
+                    "version": 4,
+                    "addr": "192.168.0.3"
+                }
+            ]
+        },
+        "links": [
+            {
+                "href": "http://openstack.example.com/v2/openstack/servers/fb7babfd- e1a1-4add-90e6-3558180983c7",
+                "rel": "self"
+            },
+            {
+                "href": "http://openstack.example.com/openstack/servers/fb7babfd- e1a1-4add-90e6-3558180983c7",
+                "rel": "bookmark"
+            }
+        ],
+        "created": "2013-01-30T13:38:47Z",
+        "tenant_id": "openstack",
+        "image": {
+            "id": "70a599e0-31e7-49b7-b260-868f441e862b",
+            "links": [
+                {
+                    "href": "http://openstack.example.com/openstack/ images/70a599e0-31e7-49b7-b260-868f441e862b",
+                    "rel": "bookmark"
+                }
+            ]
+        },
+        "name": "new-server-test",
+        "accessIPv4": "",
+        "accessIPv6": "",
+        "progress": 0,
+        "flavor": {
+            "id": "1",
+            "links": [
+                {
+                    "href": "http://openstack.example.com/openstack/flavors/1",
+                    "rel": "bookmark"
+                }
+            ]
+        },
+        "OS-EXT-AZ:availability_zone": "nova",
+        "id": "fb7babfd-e1a1-4add-90e6-3558180983c7",
+        "metadata": {
+            "My Server Name": "Apache1"
+        }
+    }
+}

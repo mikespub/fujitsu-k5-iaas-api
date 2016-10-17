@@ -1,0 +1,62 @@
+{
+    "DescribeLoadBalancersResponse": {
+        "DescribeLoadBalancersResult": {
+            "LoadBalancerDescriptions": {
+                "member": [
+                    {
+                        "Subnets": {
+                            "member": "MySubnet"
+                        },
+                        "ListenerDescriptions": {
+                            "member": {
+                                "Listener": {
+                                    "InstancePort": "80",
+                                    "SSLCertificateId": "1232d7bf-8f28-4cc7-a63d-44e218853c6d",
+                                    "LoadBalancerPort": "443",
+                                    "Protocol": "HTTPS",
+                                    "InstanceProtocol": "HTTP"
+                                },
+                                "PolicyNames": {
+                                    "member": "MyPolicy"
+                                }
+                            }
+                        },
+                        "Grade": "Standard",
+                        "HealthCheck": {
+                            "HealthyThreshold": "2",
+                            "Interval": "90",
+                            "Target": "HTTP:80",
+                            "Timeout": "60",
+                            "UnhealthyThreshold": "10"
+                        },
+                        "Instances": {
+                            "member": {
+                                "InstanceId": "i-e4cbe38d",
+                                "PortId": "p-e4cbe38d"
+                            }
+                        },
+                        "State": "InService",
+                        "DNSName": "MyLB01-3b9c2b0f028f40e09d6306887646c28b.loadbalancing-jp- east-1.cloud.global.fujitsu.com",
+                        "SecurityGroups": {
+                            "member": "MySecurityGroup"
+                        },
+                        "Policies": {
+                            "LBCookieStickinessPolicies": {
+                                "member": {
+                                    "PolicyName": "MyLoadBalancerCookieStickinessPolicy",
+                                    "CookieExpirationPeriod": "60"
+                                }
+                            }
+                        },
+                        "LoadBalancerName": "MyLB01",
+                        "CreatedTime": "2014-06-01T21:15:31.280Z",
+                        "Scheme": "Internal"
+                    }
+                ]
+            }
+        },
+        "ResponseMetadata": {
+            "RequestId": "83c88b9d-12b7-11e3-8b82-87b12EXAMPLE"
+        }
+    }
+}

@@ -1,0 +1,11 @@
+{
+    "ssl_vpn_connection": {
+        "client_address_pool_cidr": "10.8.0.0/24",
+        "protocol": "tcp",
+        "name": "conn1",
+        "availability_zone": "AZ1",
+        "admin_state_up": true,
+        "credential_id": "434a9843-ecc0-4653-8f3a-e604d9d7aadc",
+        "vpnservice_id": "cc91b7af-8304-4aff-ad07-86bdbaae2e93"
+    }
+}

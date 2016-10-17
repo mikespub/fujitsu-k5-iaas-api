@@ -1,0 +1,31 @@
+{
+    "eventCategoriesMaps": [
+        {
+            "eventCategories": [
+                "availability",
+                "failover",
+                "recovery",
+                "low storage",
+                "creation",
+                "notification",
+                "backup",
+                "configuration change",
+                "restoration",
+                "maintenance",
+                "deletion",
+                "failure"
+            ],
+            "sourceType": "db-instance"
+        },
+        {
+            "eventCategories": [
+                "deletion",
+                "restoration",
+                "notification",
+                "failure",
+                "creation"
+            ],
+            "sourceType": "db-snapshot"
+        }
+    ]
+}

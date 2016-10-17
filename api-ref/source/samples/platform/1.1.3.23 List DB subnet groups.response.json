@@ -1,0 +1,14 @@
+{
+    " subnetGroups ": [
+        {
+            "status": "Available",
+            "id": "subnetGroupid1",
+            "name": "subnetGroupid1"
+        },
+        {
+            "status": "Available",
+            "id": "subnetGroupid2",
+            "name": "subnetGroupid2"
+        }
+    ]
+}

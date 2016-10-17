@@ -1,0 +1,17 @@
+{
+    "parametergroup": {
+        "resetAllparameters": false,
+        "parameters": [
+            {
+                "applyMethod": "pending-reboot",
+                "name ": "shared_buffers",
+                "value ": "65536"
+            },
+            {
+                "applyMethod": "immediate",
+                "name ": "work_mem",
+                "value ": "8192"
+            }
+        ]
+    }
+}

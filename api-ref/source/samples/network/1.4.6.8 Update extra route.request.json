@@ -1,0 +1,10 @@
+{
+    "router": {
+        "routes": [
+            {
+                "destination": "40.0.1.0/24",
+                "nexthop": "10.1.0.10"
+            }
+        ]
+    }
+}

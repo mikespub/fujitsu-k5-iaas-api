@@ -1,0 +1,8 @@
+{
+    "os-volume_upload_image": {
+        "container_format": "bare",
+        "force": "True",
+        "disk_format": "raw",
+        "image_name": "my_image"
+    }
+}

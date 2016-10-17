@@ -1,0 +1,14 @@
+{
+    "subnetgroup": {
+        "subnetIds ": [
+            {
+                "subnetId": "subnetid1"
+            },
+            {
+                "subnetId": "subnetid2"
+            }
+        ],
+        "description": "this is test",
+        "name ": "subnetGroup1"
+    }
+}

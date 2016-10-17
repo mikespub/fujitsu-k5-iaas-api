@@ -1,0 +1,10 @@
+{
+    "network_connector_endpoint": {
+        "name": "endponit_for_az1",
+        "network_connector_id": "07993b1c-79e1-4cf6-a663-dc42b9ce37d4",
+        "tenant_id": "29320d5e-dd29-425c-b386-3cbb2754ad03",
+        "endpoint_type": "availability_zone",
+        "location": "east-jp-az1",
+        "id": "6ed3561f-087f-43f9-9a51-bf71f666b80f"
+    }
+}

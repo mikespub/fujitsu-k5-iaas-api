@@ -1,0 +1,2427 @@
+{
+  "basePath": "/", 
+  "consumes": [
+    "application/json"
+  ], 
+  "definitions": {
+    "createGroup_201": {
+      "properties": {
+        "name": {
+          "description": "The name of the group.", 
+          "format": "", 
+          "type": "string"
+        }
+      }, 
+      "required": [
+        "name"
+      ], 
+      "type": "object"
+    }, 
+    "createKey_201": {
+      "properties": {
+        "generation": {
+          "description": "A unique integer value that identifies the key. The generation\nvalue changes only if you set a new key. If the request sets the\nkey to the same value that already exists, the response shows the\nexisting generation value, which makes the request idempotent.", 
+          "format": "", 
+          "type": "integer"
+        }, 
+        "name": {
+          "description": "The name of the party that is associated with the key.", 
+          "format": "", 
+          "type": "string"
+        }
+      }, 
+      "required": [
+        "name", 
+        "generation"
+      ], 
+      "type": "object"
+    }, 
+    "createTrust": {
+      "example": {
+        "application/json": {
+          "trust": {
+            "expires_at": "2014-12-30T23:59:59.999999Z", 
+            "impersonation": false, 
+            "project_id": "'$PROJECT_ID'", 
+            "roles": [
+              {
+                "name": "admin"
+              }
+            ], 
+            "trustee_user_id": "'$DEMO_USER_ID'", 
+            "trustor_user_id": "'$ADMIN_USER_ID'"
+          }
+        }
+      }, 
+      "properties": {
+        "impersonation": {
+          "description": "The impersonation flag. Default is false.", 
+          "format": "", 
+          "type": "boolean"
+        }, 
+        "name": {
+          "description": "The role name.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "oauth_expires_at": {
+          "description": "The date and time when a request token expires.\n\nThe date and time stamp format is `ISO 8601\n<https://en.wikipedia.org/wiki/ISO_8601>`_:\n\n::\n\n   CCYY-MM-DDThh:mm:ss\u00b1hh:mm\n\nThe ``\u00b1hh:mm`` value, if included, is the time zone as an offset\nfrom UTC.\n\nFor example, ``2015-08-27T09:49:58-05:00``.\n\nIf the Identity API does not include this attribute or its value is\n``null``, the token never expires.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "project_id": {
+          "description": "The ID of the project.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "remaining_uses": {
+          "description": "Remaining uses flag. Default is null.", 
+          "format": "", 
+          "type": "boolean"
+        }, 
+        "roles": {
+          "description": "A roles object.", 
+          "format": "", 
+          "items": {
+            "type": "string"
+          }, 
+          "type": "array"
+        }, 
+        "trust": {
+          "description": "A trust object.", 
+          "format": "", 
+          "type": "object"
+        }, 
+        "trustee_user_id": {
+          "description": "The trustee user ID.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "trustor_user_id": {
+          "description": "The trustor user ID.", 
+          "format": "", 
+          "type": "string"
+        }
+      }, 
+      "required": [
+        "trust", 
+        "project_id", 
+        "roles", 
+        "name", 
+        "trustee_user_id", 
+        "trustor_user_id"
+      ], 
+      "type": "object"
+    }, 
+    "createTrust_201": {
+      "properties": {
+        "id": {
+          "description": "The UUID of the role.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "impersonation": {
+          "description": "The impersonation flag.", 
+          "format": "", 
+          "type": "boolean"
+        }, 
+        "links": {
+          "description": "The links related to the role.", 
+          "format": "", 
+          "type": "object"
+        }, 
+        "name": {
+          "description": "The name of the role.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "oauth_expires_at": {
+          "description": "The date and time when a request token expires.\n\nThe date and time stamp format is `ISO 8601\n<https://en.wikipedia.org/wiki/ISO_8601>`_:\n\n::\n\n   CCYY-MM-DDThh:mm:ss\u00b1hh:mm\n\nThe ``\u00b1hh:mm`` value, if included, is the time zone as an offset\nfrom UTC.\n\nFor example, ``2015-08-27T09:49:58-05:00``.\n\nIf the Identity API does not include this attribute or its value is\n``null``, the token never expires.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "project_id": {
+          "description": "The ID of the project.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "remaining_uses": {
+          "description": "Remaining uses flag.", 
+          "format": "", 
+          "type": "boolean"
+        }, 
+        "roles": {
+          "description": "A list of ``role`` objects. Includes ``id``, ``name``, and\n``links`` for any roles. Roles define which actions users can\nperform.", 
+          "format": "", 
+          "items": {
+            "type": "string"
+          }, 
+          "type": "array"
+        }, 
+        "roles_links": {
+          "description": "A roles links object. Includes ``next``, ``previous``, and ``self``\nlinks for roles.", 
+          "format": "", 
+          "type": "object"
+        }, 
+        "trust": {
+          "description": "A trust object.", 
+          "format": "", 
+          "type": "object"
+        }, 
+        "trustee_user_id": {
+          "description": "The trustee user ID.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "trustor_user_id": {
+          "description": "The trustor user ID.", 
+          "format": "", 
+          "type": "string"
+        }
+      }, 
+      "required": [
+        "trust", 
+        "id", 
+        "impersonation", 
+        "links", 
+        "project_id", 
+        "remaining_uses", 
+        "roles", 
+        "name", 
+        "roles_links", 
+        "trustee_user_id", 
+        "trustor_user_id"
+      ], 
+      "type": "object"
+    }, 
+    "generateTicket": {
+      "example": {
+        "application/json": {
+          "metadata": "Zhn8yhasf8hihkf...", 
+          "signature": "c2lnbmF0dXJl..."
+        }
+      }, 
+      "properties": {
+        "generation": {
+          "description": "A unique integer value that identifies the key. The generation\nvalue changes only if you set a new key. If the request sets the\nkey to the same value that already exists, the response shows the\nexisting generation value, which makes the request idempotent.", 
+          "format": "", 
+          "type": "integer"
+        }, 
+        "metadata": {
+          "description": "A Base64-encoded JSON object that contains these key and value\npairs:\n\n- ``source``. The identity who is requesting a ticket.\n\n- ``destination``. The target for which the ticket will be valid.\n\n- ``timestamp``. The current time stamp from the requester.\n\n- ``nonce``. Random, single-use data. See `Cryptographic nonce\n  <https://en.wikipedia.org/wiki/Cryptographic_nonce>`_.\n\nThe time stamp and nonce are required to prevent replay attacks.\n\nFor example:\n\n.. code-block:: json\n\n   {\n       \"source\": \"scheduler.host.example.com\",\n       \"destination\": \"compute.host.example.com\",\n       \"timestamp\": \"2012-03-26T10:01:01.720000\",\n       \"nonce\": 1234567890\n   }", 
+          "format": "", 
+          "type": "object"
+        }, 
+        "signature": {
+          "description": "A Base64-encoded HMAC signature over the Base64-encoded request\nmetadata object. For example:\n\n``Base64encode(HMAC(SigningKey, RequestMetadata))``\n\nThe long-term key of the requester is used for the signature. When\nthe request is received, the KDS must verify the signature. To do\nso, the KDS must access the ``source`` from the request metadata to\nlook up the associated long-term key to use to verify the\nsignature. The KDS should not access any other data contained in\nthe request metadata before verifying the signature. If the KDS\nfails to verify the signature, it risks issuing a ticket to a party\nwho is impersonating the source.", 
+          "format": "", 
+          "type": "string"
+        }
+      }, 
+      "required": [
+        "metadata", 
+        "signature", 
+        "generation"
+      ], 
+      "type": "object"
+    }, 
+    "generateTicket_201": {
+      "properties": {
+        "metadata": {
+          "description": "A Base64-encoded JSON object that contains these key and value\npairs:\n\n- ``source``. The identity who requests the ticket.\n\n- ``destination``. The target for which the ticket will be valid.\n\n- ``timestamp``. The current time stamp from the requester.\n\n- ``nonce``. Random, single-use data.\n\nThe time stamp and nonce are required to prevent replay attacks.\n\nFor example:\n\n.. code-block:: json\n\n   {\n       \"source\": \"scheduler.host.example.com\",\n       \"destination\": \"compute.host.example.com\",\n       \"timestamp\": \"2012-03-26T10:01:01.720000\",\n       \"nonce\": 1234567890\n   }", 
+          "format": "", 
+          "type": "object"
+        }, 
+        "signature": {
+          "description": "A Base64-encoded HMAC signature over the Base64-encoded request\nmetadata object. For example:\n\n``Base64encode(HMAC(SigningKey, RequestMetadata))``\n\nThe long-term key of the requester is used for the signature. When\nthe KDS receives the request, the KDS must access the ``source``\nvalue from the request metadata to look up the associated long-term\nkey to use to verify the signature. The KDS should not access any\nother data that is contained in the request metadata before\nverifying the signature. If the KDS fails to verify the signature,\nit risks issuing a ticket to a party who is impersonating the\nsource.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "ticket": {
+          "description": "The ticket is encrypted with the long-term key of the source and\ncontains a Base64-encoded JSON object containing the following key\nand value pairs:\n\n- ``skey``. The newly-generated Base64-encoded message signing key.\n\n- ``ekey``. The newly-generated Base64-encoded message encryption\n  key.\n\n- ``esek``. Encrypted signing and encryption key pair for the\n  receiver.\n\nFor example:\n\n.. code-block:: json\n\n   {\n       \"skey\": \"ZjhkuYZH8y87rzhgi7...\",\n       \"ekey\": \"Fk8yksa8z8zKtakc8s...\",\n       \"esek\": \"KBo8fajfo8ysad5hq2...\"\n   }\n\nThe long-term key of the destination is used to encrypt the\n``esek`` value. The ``esek`` value contains a Base64-encoded JSON\nobject that contains the following key and value pairs:\n\n- ``key``. The Base64-encoded random key that is used to generate\n  the signing and encryption keys.\n\n- ``timestamp``. The time stamp when the key was created.\n\n- ``ttl``. An integer value that specifies the validity length of\n  the key, in seconds.\n\nFor example:\n\n.. code-block:: json\n\n   {\n       \"key\": \"Afa8sad2hgsd7asv7ad...\",\n       \"timestamp\": \"2012-03-26T10:01:01.720000\",\n       \"ttl\": 28800\n   }\n\nThe ``key`` and ``timestamp`` values are used as inputs to the HKDF\n``expand`` function to generate the signing and encryption keys, as\ndescribed in the overview on this page.\n\nThe ``timestamp`` and ``ttl`` values must equal the ``expiration``\ntime stamp value that is contained in the response metadata.", 
+          "format": "", 
+          "type": "string"
+        }
+      }, 
+      "required": [
+        "metadata", 
+        "ticket", 
+        "signature"
+      ], 
+      "type": "object"
+    }, 
+    "listPolicyEndpointAssociations_200": {
+      "properties": {
+        "endpoints": {
+          "description": "An ``endpoints`` object.", 
+          "format": "", 
+          "items": {
+            "type": "string"
+          }, 
+          "type": "array"
+        }, 
+        "id": {
+          "description": "The endpoint UUID.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "interface": {
+          "description": "The interface type, which describes the visibility of the endpoint.\n\nValue is:\n\n- ``public``. Visible by end users on a publicly available network\n  interface.\n\n- ``internal``. Visible by end users on an unmetered internal\n  network interface.\n\n- ``admin``. Visible by administrative users on a secure network\n  interface.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "links": {
+          "description": "The links for the ``endpoints`` resource.", 
+          "format": "", 
+          "type": "object"
+        }, 
+        "next": {
+          "description": "The ``next`` relative link for the ``endpoints`` resource.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "previous": {
+          "description": "The ``previous`` relative link for the ``endpoints`` resource.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "region": {
+          "description": "(Deprecated in v3.2) The geographic location of the service\nendpoint.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "self": {
+          "description": "The ``self`` relative link for the ``endpoints`` resource.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "service_id": {
+          "description": "The UUID of the service to which the endpoint belongs.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "url": {
+          "description": "The endpoint URL.", 
+          "format": "", 
+          "type": "string"
+        }
+      }, 
+      "required": [
+        "endpoints", 
+        "id", 
+        "interface", 
+        "links", 
+        "region", 
+        "service_id", 
+        "url", 
+        "next", 
+        "previous", 
+        "self"
+      ], 
+      "type": "object"
+    }, 
+    "showGroupKey_201": {
+      "properties": {
+        "name": {
+          "description": "The name of the group.", 
+          "format": "", 
+          "type": "string"
+        }
+      }, 
+      "required": [
+        "name"
+      ], 
+      "type": "object"
+    }, 
+    "showPolicyForEndpoint_200": {
+      "properties": {
+        "blob": {
+          "description": "The policy rule itself, as a serialized blob.", 
+          "format": "", 
+          "type": "object"
+        }, 
+        "id": {
+          "description": "The ID of the policy.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "links": {
+          "description": "The links for the ``policy`` resource.", 
+          "format": "", 
+          "type": "object"
+        }, 
+        "policy": {
+          "description": "A ``policy`` object.", 
+          "format": "", 
+          "type": "object"
+        }, 
+        "type": {
+          "description": "The MIME media type of the serialized policy blob. From the\nperspective of the Identity API, a policy blob can be based on any\ntechnology. In OpenStack, the ``policy.json`` blob\n(``type=\"application/json\"``) is the conventional solution.\nHowever, you might want to use an alternative policy engine that\nuses a different policy language type. For example,\n``type=\"application/xacml+xml\"``.", 
+          "format": "", 
+          "type": "string"
+        }
+      }, 
+      "required": [
+        "policy", 
+        "blob", 
+        "id", 
+        "links", 
+        "type"
+      ], 
+      "type": "object"
+    }
+  }, 
+  "externalDocs": {
+    "description": "OpenStack Docs", 
+    "url": "http://docs.openstack.org"
+  }, 
+  "host": "developer.openstack.org", 
+  "info": {
+    "license": {
+      "name": "Apache 2.0", 
+      "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+    }, 
+    "title": "Identity extensions", 
+    "version": "v3", 
+    "x-service": "identity-extensions"
+  }, 
+  "paths": {
+    "/v3/OS-INHERIT/domains/{domain_id}/groups/{group_id}/roles/inherited_to_projects": {
+      "get": {
+        "consumes": [
+          "application/json"
+        ], 
+        "description": "", 
+        "operationId": "listRolesForGroup-domain", 
+        "parameters": [
+          {
+            "description": "The UUID of the domain.", 
+            "format": "", 
+            "in": "path", 
+            "name": "domain_id", 
+            "required": true, 
+            "type": "string"
+          }, 
+          {
+            "description": "The UUID of the group.", 
+            "format": "", 
+            "in": "path", 
+            "name": "group_id", 
+            "required": true, 
+            "type": "string"
+          }
+        ], 
+        "produces": [
+          "application/json"
+        ], 
+        "responses": {
+          "200": {
+            "description": "", 
+            "examples": {
+              "application/json": {
+                "links": {
+                  "next": null, 
+                  "previous": null, 
+                  "self": "http://identity:35357/v3/OS-INHERIT/domains/1234/groups/5678/roles/inherited_to_projects"
+                }, 
+                "roles": [
+                  {
+                    "id": "91011", 
+                    "links": {
+                      "self": "http://identity:35357/v3/roles/91011"
+                    }, 
+                    "name": "admin"
+                  }, 
+                  {
+                    "id": "91011", 
+                    "links": {
+                      "self": "http://identity:35357/v3/roles/91011"
+                    }, 
+                    "name": "admin"
+                  }
+                ]
+              }
+            }, 
+            "headers": {}, 
+            "schema": {}
+          }
+        }, 
+        "summary": "Lists the project roles that a group inherits from a parent project in a domain.", 
+        "tags": [
+          "inherit"
+        ], 
+        "x-title": "List project roles for group in domain"
+      }
+    }, 
+    "/v3/OS-INHERIT/domains/{domain_id}/groups/{group_id}/roles/{role_id}/inherited_to_projects": {
+      "delete": {
+        "consumes": [], 
+        "description": "", 
+        "operationId": "revokeRoleFromGroup-domain", 
+        "parameters": [
+          {
+            "description": "The UUID of the domain.", 
+            "format": "", 
+            "in": "path", 
+            "name": "domain_id", 
+            "required": true, 
+            "type": "string"
+          }, 
+          {
+            "description": "The UUID of the group.", 
+            "format": "", 
+            "in": "path", 
+            "name": "group_id", 
+            "required": true, 
+            "type": "string"
+          }, 
+          {
+            "description": "The UUID of the role.", 
+            "format": "", 
+            "in": "path", 
+            "name": "role_id", 
+            "required": true, 
+            "type": "string"
+          }
+        ], 
+        "produces": [], 
+        "responses": {
+          "204": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }
+        }, 
+        "summary": "Revokes an inherited project role from a group in a domain.", 
+        "tags": [
+          "inherit"
+        ], 
+        "x-title": "Revoke project role from group in domain"
+      }, 
+      "head": {
+        "consumes": [], 
+        "description": "", 
+        "operationId": "checkRoleForGroup-domain", 
+        "parameters": [
+          {
+            "description": "The UUID of the domain.", 
+            "format": "", 
+            "in": "path", 
+            "name": "domain_id", 
+            "required": true, 
+            "type": "string"
+          }, 
+          {
+            "description": "The UUID of the group.", 
+            "format": "", 
+            "in": "path", 
+            "name": "group_id", 
+            "required": true, 
+            "type": "string"
+          }, 
+          {
+            "description": "The UUID of the role.", 
+            "format": "", 
+            "in": "path", 
+            "name": "role_id", 
+            "required": true, 
+            "type": "string"
+          }
+        ], 
+        "produces": [], 
+        "responses": {
+          "200": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }
+        }, 
+        "summary": "Checks whether a group has an inherited project role in a domain.", 
+        "tags": [
+          "inherit"
+        ], 
+        "x-title": "Check project role for group in domain"
+      }, 
+      "put": {
+        "consumes": [], 
+        "description": "The API applies the inherited role to owned projects, both existing\nand future. The inherited role does not appear as a role in a\ndomain-scoped token.", 
+        "operationId": "assignRoleToGroup-domain", 
+        "parameters": [
+          {
+            "description": "The UUID of the domain.", 
+            "format": "", 
+            "in": "path", 
+            "name": "domain_id", 
+            "required": true, 
+            "type": "string"
+          }, 
+          {
+            "description": "The UUID of the group.", 
+            "format": "", 
+            "in": "path", 
+            "name": "group_id", 
+            "required": true, 
+            "type": "string"
+          }, 
+          {
+            "description": "The UUID of the role.", 
+            "format": "", 
+            "in": "path", 
+            "name": "role_id", 
+            "required": true, 
+            "type": "string"
+          }
+        ], 
+        "produces": [], 
+        "responses": {
+          "204": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }
+        }, 
+        "summary": "Assigns a role to a group in projects owned by a domain.", 
+        "tags": [
+          "inherit"
+        ], 
+        "x-title": "Assign role to group in domain projects"
+      }
+    }, 
+    "/v3/OS-INHERIT/domains/{domain_id}/users/{user_id}/roles/inherited_to_projects": {
+      "get": {
+        "consumes": [
+          "application/json"
+        ], 
+        "description": "", 
+        "operationId": "listRolesForUser-domain", 
+        "parameters": [
+          {
+            "description": "The UUID of the user.", 
+            "format": "", 
+            "in": "path", 
+            "name": "user_id", 
+            "required": true, 
+            "type": "string"
+          }, 
+          {
+            "description": "The UUID of the domain.", 
+            "format": "", 
+            "in": "path", 
+            "name": "domain_id", 
+            "required": true, 
+            "type": "string"
+          }
+        ], 
+        "produces": [
+          "application/json"
+        ], 
+        "responses": {
+          "200": {
+            "description": "", 
+            "examples": {
+              "application/json": {
+                "links": {
+                  "next": null, 
+                  "previous": null, 
+                  "self": "http://identity:35357/v3/OS-INHERIT/domains/1234/users/5678/roles/inherited_to_projects"
+                }, 
+                "roles": [
+                  {
+                    "id": "91011", 
+                    "links": {
+                      "self": "http://identity:35357/v3/roles/91011"
+                    }, 
+                    "name": "admin"
+                  }, 
+                  {
+                    "id": "91011", 
+                    "links": {
+                      "self": "http://identity:35357/v3/roles/91011"
+                    }, 
+                    "name": "admin"
+                  }
+                ]
+              }
+            }, 
+            "headers": {}, 
+            "schema": {}
+          }
+        }, 
+        "summary": "Lists the project roles that a user inherits from a parent project in a domain.", 
+        "tags": [
+          "inherit"
+        ], 
+        "x-title": "List project roles for user in domain"
+      }
+    }, 
+    "/v3/OS-INHERIT/domains/{domain_id}/users/{user_id}/roles/{role_id}/inherited_to_projects": {
+      "delete": {
+        "consumes": [], 
+        "description": "", 
+        "operationId": "revokeRoleFromUser-domain", 
+        "parameters": [
+          {
+            "description": "The UUID of the user.", 
+            "format": "", 
+            "in": "path", 
+            "name": "user_id", 
+            "required": true, 
+            "type": "string"
+          }, 
+          {
+            "description": "The UUID of the domain.", 
+            "format": "", 
+            "in": "path", 
+            "name": "domain_id", 
+            "required": true, 
+            "type": "string"
+          }, 
+          {
+            "description": "The UUID of the role.", 
+            "format": "", 
+            "in": "path", 
+            "name": "role_id", 
+            "required": true, 
+            "type": "string"
+          }
+        ], 
+        "produces": [], 
+        "responses": {
+          "204": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }
+        }, 
+        "summary": "Revokes an inherited project role from a user in a domain.", 
+        "tags": [
+          "inherit"
+        ], 
+        "x-title": "Revoke project role from user in domain"
+      }, 
+      "head": {
+        "consumes": [], 
+        "description": "", 
+        "operationId": "checkRoleForUser-domain", 
+        "parameters": [
+          {
+            "description": "The UUID of the user.", 
+            "format": "", 
+            "in": "path", 
+            "name": "user_id", 
+            "required": true, 
+            "type": "string"
+          }, 
+          {
+            "description": "The UUID of the domain.", 
+            "format": "", 
+            "in": "path", 
+            "name": "domain_id", 
+            "required": true, 
+            "type": "string"
+          }, 
+          {
+            "description": "The UUID of the role.", 
+            "format": "", 
+            "in": "path", 
+            "name": "role_id", 
+            "required": true, 
+            "type": "string"
+          }
+        ], 
+        "produces": [], 
+        "responses": {
+          "200": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }
+        }, 
+        "summary": "Checks whether a user has an inherited project role in a domain.", 
+        "tags": [
+          "inherit"
+        ], 
+        "x-title": "Check project role for user in domain"
+      }, 
+      "put": {
+        "consumes": [], 
+        "description": "The API applies the inherited role to the existing and future owned\nprojects. The inherited role does not appear as a role in a domain-\nscoped token.", 
+        "operationId": "assignRoleToUser-domain", 
+        "parameters": [
+          {
+            "description": "The UUID of the user.", 
+            "format": "", 
+            "in": "path", 
+            "name": "user_id", 
+            "required": true, 
+            "type": "string"
+          }, 
+          {
+            "description": "The UUID of the domain.", 
+            "format": "", 
+            "in": "path", 
+            "name": "domain_id", 
+            "required": true, 
+            "type": "string"
+          }, 
+          {
+            "description": "The UUID of the role.", 
+            "format": "", 
+            "in": "path", 
+            "name": "role_id", 
+            "required": true, 
+            "type": "string"
+          }
+        ], 
+        "produces": [], 
+        "responses": {
+          "204": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }
+        }, 
+        "summary": "Assigns a role to a user in projects owned by a domain.", 
+        "tags": [
+          "inherit"
+        ], 
+        "x-title": "Assign role to user owned by domain projects"
+      }
+    }, 
+    "/v3/OS-INHERIT/projects/{project_id}/groups/{group_id}/roles/inherited_to_projects": {
+      "get": {
+        "consumes": [
+          "application/json"
+        ], 
+        "description": "The list shows only roles that the group project inherits from the\nparent project.", 
+        "operationId": "listRolesForGroup", 
+        "parameters": [
+          {
+            "description": "The UUID of the group.", 
+            "format": "", 
+            "in": "path", 
+            "name": "group_id", 
+            "required": true, 
+            "type": "string"
+          }, 
+          {
+            "description": "The UUID of the project.", 
+            "format": "", 
+            "in": "path", 
+            "name": "project_id", 
+            "required": true, 
+            "type": "string"
+          }
+        ], 
+        "produces": [
+          "application/json"
+        ], 
+        "responses": {
+          "200": {
+            "description": "", 
+            "examples": {
+              "application/json": {
+                "links": {
+                  "next": null, 
+                  "previous": null, 
+                  "self": "http://identity:35357/v3/OS-INHERIT/projects/1234/groups/5678/roles/inherited_to_projects"
+                }, 
+                "roles": [
+                  {
+                    "id": "91011", 
+                    "links": {
+                      "self": "http://identity:35357/v3/roles/91011"
+                    }, 
+                    "name": "admin"
+                  }, 
+                  {
+                    "id": "91011", 
+                    "links": {
+                      "self": "http://identity:35357/v3/roles/91011"
+                    }, 
+                    "name": "admin"
+                  }
+                ]
+              }
+            }, 
+            "headers": {}, 
+            "schema": {}
+          }
+        }, 
+        "summary": "Lists the project roles that a group in a project inherits from a parent project.", 
+        "tags": [
+          "inherit"
+        ], 
+        "x-title": "List roles for group"
+      }
+    }, 
+    "/v3/OS-INHERIT/projects/{project_id}/groups/{group_id}/roles/{role_id}/inherited_to_projects": {
+      "delete": {
+        "consumes": [], 
+        "description": "", 
+        "operationId": "revokeRoleFromGroup", 
+        "parameters": [
+          {
+            "description": "The UUID of the group.", 
+            "format": "", 
+            "in": "path", 
+            "name": "group_id", 
+            "required": true, 
+            "type": "string"
+          }, 
+          {
+            "description": "The UUID of the role.", 
+            "format": "", 
+            "in": "path", 
+            "name": "role_id", 
+            "required": true, 
+            "type": "string"
+          }, 
+          {
+            "description": "The UUID of the project.", 
+            "format": "", 
+            "in": "path", 
+            "name": "project_id", 
+            "required": true, 
+            "type": "string"
+          }
+        ], 
+        "produces": [], 
+        "responses": {
+          "204": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }
+        }, 
+        "summary": "Revokes an inherited role from a group in a project.", 
+        "tags": [
+          "inherit"
+        ], 
+        "x-title": "Revoke role from group"
+      }, 
+      "head": {
+        "consumes": [], 
+        "description": "", 
+        "operationId": "checkRoleForGroup", 
+        "parameters": [
+          {
+            "description": "The UUID of the group.", 
+            "format": "", 
+            "in": "path", 
+            "name": "group_id", 
+            "required": true, 
+            "type": "string"
+          }, 
+          {
+            "description": "The UUID of the role.", 
+            "format": "", 
+            "in": "path", 
+            "name": "role_id", 
+            "required": true, 
+            "type": "string"
+          }, 
+          {
+            "description": "The UUID of the project.", 
+            "format": "", 
+            "in": "path", 
+            "name": "project_id", 
+            "required": true, 
+            "type": "string"
+          }
+        ], 
+        "produces": [], 
+        "responses": {
+          "200": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }
+        }, 
+        "summary": "Checks whether a group has a role assignment with the ``inherited_to_projects`` flag in a project.", 
+        "tags": [
+          "inherit"
+        ], 
+        "x-title": "Check role for group"
+      }, 
+      "put": {
+        "consumes": [], 
+        "description": "The API anchors the inherited role assignment to a project and\napplies it to its subtree in the projects hierarchy to both\nexisting and future projects.\n\nA group can have both a regular, non-inherited role assignment and\nan inherited role assignment in the same project.", 
+        "operationId": "assignRoleToGroup", 
+        "parameters": [
+          {
+            "description": "The UUID of the group.", 
+            "format": "", 
+            "in": "path", 
+            "name": "group_id", 
+            "required": true, 
+            "type": "string"
+          }, 
+          {
+            "description": "The UUID of the role.", 
+            "format": "", 
+            "in": "path", 
+            "name": "role_id", 
+            "required": true, 
+            "type": "string"
+          }, 
+          {
+            "description": "The UUID of the project.", 
+            "format": "", 
+            "in": "path", 
+            "name": "project_id", 
+            "required": true, 
+            "type": "string"
+          }
+        ], 
+        "produces": [], 
+        "responses": {
+          "204": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }
+        }, 
+        "summary": "Assigns a role to a group in projects in a subtree.", 
+        "tags": [
+          "inherit"
+        ], 
+        "x-title": "Assign role to group"
+      }
+    }, 
+    "/v3/OS-INHERIT/projects/{project_id}/users/{user_id}/roles/inherited_to_projects": {
+      "get": {
+        "consumes": [
+          "application/json"
+        ], 
+        "description": "The list shows only roles that the user project inherits from the\nparent project.", 
+        "operationId": "listRolesForUser", 
+        "parameters": [
+          {
+            "description": "The UUID of the user.", 
+            "format": "", 
+            "in": "path", 
+            "name": "user_id", 
+            "required": true, 
+            "type": "string"
+          }, 
+          {
+            "description": "The UUID of the project.", 
+            "format": "", 
+            "in": "path", 
+            "name": "project_id", 
+            "required": true, 
+            "type": "string"
+          }
+        ], 
+        "produces": [
+          "application/json"
+        ], 
+        "responses": {
+          "200": {
+            "description": "", 
+            "examples": {
+              "application/json": {
+                "links": {
+                  "next": null, 
+                  "previous": null, 
+                  "self": "http://identity:35357/v3/OS-INHERIT/projects/1234/users/5678/roles/inherited_to_projects"
+                }, 
+                "roles": [
+                  {
+                    "id": "91011", 
+                    "links": {
+                      "self": "http://identity:35357/v3/roles/91011"
+                    }, 
+                    "name": "admin"
+                  }, 
+                  {
+                    "id": "91011", 
+                    "links": {
+                      "self": "http://identity:35357/v3/roles/91011"
+                    }, 
+                    "name": "admin"
+                  }
+                ]
+              }
+            }, 
+            "headers": {}, 
+            "schema": {}
+          }
+        }, 
+        "summary": "Lists the project roles that a user in a project inherits from a parent project.", 
+        "tags": [
+          "inherit"
+        ], 
+        "x-title": "List roles for user"
+      }
+    }, 
+    "/v3/OS-INHERIT/projects/{project_id}/users/{user_id}/roles/{role_id}/inherited_to_projects": {
+      "delete": {
+        "consumes": [], 
+        "description": "", 
+        "operationId": "revokeRoleFromUser", 
+        "parameters": [
+          {
+            "description": "The UUID of the user.", 
+            "format": "", 
+            "in": "path", 
+            "name": "user_id", 
+            "required": true, 
+            "type": "string"
+          }, 
+          {
+            "description": "The UUID of the role.", 
+            "format": "", 
+            "in": "path", 
+            "name": "role_id", 
+            "required": true, 
+            "type": "string"
+          }, 
+          {
+            "description": "The UUID of the project.", 
+            "format": "", 
+            "in": "path", 
+            "name": "project_id", 
+            "required": true, 
+            "type": "string"
+          }
+        ], 
+        "produces": [], 
+        "responses": {
+          "204": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }
+        }, 
+        "summary": "Revokes an inherited role from a user in a project.", 
+        "tags": [
+          "inherit"
+        ], 
+        "x-title": "Revoke role from user"
+      }, 
+      "head": {
+        "consumes": [], 
+        "description": "", 
+        "operationId": "checkRoleForUser", 
+        "parameters": [
+          {
+            "description": "The UUID of the user.", 
+            "format": "", 
+            "in": "path", 
+            "name": "user_id", 
+            "required": true, 
+            "type": "string"
+          }, 
+          {
+            "description": "The UUID of the role.", 
+            "format": "", 
+            "in": "path", 
+            "name": "role_id", 
+            "required": true, 
+            "type": "string"
+          }, 
+          {
+            "description": "The UUID of the project.", 
+            "format": "", 
+            "in": "path", 
+            "name": "project_id", 
+            "required": true, 
+            "type": "string"
+          }
+        ], 
+        "produces": [], 
+        "responses": {
+          "200": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }
+        }, 
+        "summary": "Checks whether a user has a role assignment with the ``inherited_to_projects`` flag in a project.", 
+        "tags": [
+          "inherit"
+        ], 
+        "x-title": "Check role for user"
+      }, 
+      "put": {
+        "consumes": [], 
+        "description": "The API anchors the inherited role assignment to a project and\napplies it to its subtree in the projects hierarchy to both\nexisting and future projects.\n\nA user can have both a regular, non-inherited role assignment and\nan inherited role assignment in the same project.", 
+        "operationId": "assignRoleToUser", 
+        "parameters": [
+          {
+            "description": "The UUID of the user.", 
+            "format": "", 
+            "in": "path", 
+            "name": "user_id", 
+            "required": true, 
+            "type": "string"
+          }, 
+          {
+            "description": "The UUID of the role.", 
+            "format": "", 
+            "in": "path", 
+            "name": "role_id", 
+            "required": true, 
+            "type": "string"
+          }, 
+          {
+            "description": "The UUID of the project.", 
+            "format": "", 
+            "in": "path", 
+            "name": "project_id", 
+            "required": true, 
+            "type": "string"
+          }
+        ], 
+        "produces": [], 
+        "responses": {
+          "204": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }
+        }, 
+        "summary": "Assigns a role to a user in projects in a subtree.", 
+        "tags": [
+          "inherit"
+        ], 
+        "x-title": "Assign role to user"
+      }
+    }, 
+    "/v3/OS-TRUST/trusts": {
+      "post": {
+        "consumes": [
+          "application/json"
+        ], 
+        "description": "", 
+        "operationId": "createTrust", 
+        "parameters": [
+          {
+            "description": "", 
+            "in": "body", 
+            "name": "body", 
+            "required": false, 
+            "schema": {
+              "$ref": "#/definitions/createTrust"
+            }
+          }
+        ], 
+        "produces": [
+          "application/json"
+        ], 
+        "responses": {
+          "201": {
+            "description": "", 
+            "examples": {
+              "application/json": {
+                "trust": {
+                  "expires_at": "2014-12-30T23:59:59.999999Z", 
+                  "id": "394998fa61f14736b1f0c1f322882949", 
+                  "impersonation": false, 
+                  "links": {
+                    "self": "http://localhost:5000/v3/OS-TRUST/trusts/394998fa61f14736b1f0c1f322882949"
+                  }, 
+                  "project_id": "3d4c2c82bd5948f0bcab0cf3a7c9b48c", 
+                  "remaining_uses": null, 
+                  "roles": [
+                    {
+                      "id": "c703057be878458588961ce9a0ce686b", 
+                      "links": {
+                        "self": "http://localhost:5000/v3/roles/c703057be878458588961ce9a0ce686b"
+                      }, 
+                      "name": "admin"
+                    }
+                  ], 
+                  "roles_links": {
+                    "next": null, 
+                    "previous": null, 
+                    "self": "http: //localhost:5000/v3/OS-TRUST/trusts/394998fa61f14736b1f0c1f322882949/roles"
+                  }, 
+                  "trustee_user_id": "269348fdd9374b8885da1418e0730af1", 
+                  "trustor_user_id": "3ec3164f750146be97f21559ee4d9c51"
+                }
+              }
+            }, 
+            "headers": {}, 
+            "schema": {
+              "$ref": "#/definitions/createTrust_201"
+            }
+          }, 
+          "400": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "401": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "403": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "404": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "405": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "409": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "413": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "415": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "503": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }
+        }, 
+        "summary": "Creates a trust.", 
+        "tags": [
+          "trust"
+        ], 
+        "x-title": "Create trust"
+      }
+    }, 
+    "/v3/groups": {
+      "get": {
+        "consumes": [
+          "application/json"
+        ], 
+        "description": "When a ticket is requested where the destination is a group, a\ngroup key is generated that is valid for a predetermined amount of\ntime. Any member of the group can get the key as long as it is\nstill valid. Group keys are necessary to verify signatures and\ndecrypt messages that have a group name as the target.", 
+        "operationId": "showGroupKey", 
+        "parameters": [], 
+        "produces": [
+          "application/json"
+        ], 
+        "responses": {
+          "201": {
+            "description": "", 
+            "examples": {
+              "application/json": {
+                "name": "--group-name--"
+              }
+            }, 
+            "headers": {}, 
+            "schema": {
+              "$ref": "#/definitions/showGroupKey_201"
+            }
+          }, 
+          "400": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "401": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "403": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "404": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "405": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "413": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "503": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }
+        }, 
+        "summary": "Shows the key for a group in the KDS.", 
+        "tags": [
+          "kds"
+        ], 
+        "x-title": "Show group key"
+      }
+    }, 
+    "/v3/groups/{name}": {
+      "delete": {
+        "consumes": [], 
+        "description": "", 
+        "operationId": "deleteGroup", 
+        "parameters": [
+          {
+            "description": "The name of the group.", 
+            "format": "", 
+            "in": "path", 
+            "name": "name", 
+            "required": true, 
+            "type": "string"
+          }
+        ], 
+        "produces": [], 
+        "responses": {
+          "204": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "400": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "401": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "403": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "404": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "405": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "409": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "413": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "415": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "503": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }
+        }, 
+        "summary": "Deletes a group from the KDS.", 
+        "tags": [
+          "kds"
+        ], 
+        "x-title": "Delete group"
+      }, 
+      "post": {
+        "consumes": [
+          "application/json"
+        ], 
+        "description": "Membership in groups is based on the party name. For example, a\n``scheduler`` group implicitly includes any party name that starts\nwith ``scheduler``. For example, a member named\n``scheduler.host.example.com``.", 
+        "operationId": "createGroup", 
+        "parameters": [
+          {
+            "description": "The name of the group.", 
+            "format": "", 
+            "in": "path", 
+            "name": "name", 
+            "required": true, 
+            "type": "string"
+          }
+        ], 
+        "produces": [
+          "application/json"
+        ], 
+        "responses": {
+          "201": {
+            "description": "", 
+            "examples": {
+              "application/json": {
+                "name": "--group-name--"
+              }
+            }, 
+            "headers": {}, 
+            "schema": {
+              "$ref": "#/definitions/createGroup_201"
+            }
+          }, 
+          "400": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "401": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "403": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "404": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "405": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "409": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "413": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "415": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "503": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }
+        }, 
+        "summary": "Creates a group in the KDS.", 
+        "tags": [
+          "kds"
+        ], 
+        "x-title": "Create group"
+      }
+    }, 
+    "/v3/keys/{name}": {
+      "delete": {
+        "consumes": [], 
+        "description": "", 
+        "operationId": "deleteKey", 
+        "parameters": [
+          {
+            "description": "The name of the group.", 
+            "format": "", 
+            "in": "path", 
+            "name": "name", 
+            "required": true, 
+            "type": "string"
+          }
+        ], 
+        "produces": [], 
+        "responses": {
+          "204": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }
+        }, 
+        "summary": "Deletes a long-term key from the KDS.", 
+        "tags": [
+          "kds"
+        ], 
+        "x-title": "Delete key"
+      }, 
+      "post": {
+        "consumes": [
+          "application/json"
+        ], 
+        "description": "The request body contains the key.\n\nThe response shows the key name and generation value.", 
+        "operationId": "createKey", 
+        "parameters": [
+          {
+            "description": "The name of the group.", 
+            "format": "", 
+            "in": "path", 
+            "name": "name", 
+            "required": true, 
+            "type": "string"
+          }
+        ], 
+        "produces": [
+          "application/json"
+        ], 
+        "responses": {
+          "201": {
+            "description": "", 
+            "examples": {
+              "application/json": {
+                "generation": 2, 
+                "name": "TXkgcHJlY2lvdXNzcy4u..."
+              }
+            }, 
+            "headers": {}, 
+            "schema": {
+              "$ref": "#/definitions/createKey_201"
+            }
+          }, 
+          "400": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "401": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "403": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "404": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "405": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "409": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "413": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "415": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "503": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }
+        }, 
+        "summary": "Creates a long-term key in the KDS.", 
+        "tags": [
+          "kds"
+        ], 
+        "x-title": "Create key"
+      }
+    }, 
+    "/v3/policies/{policy_id}/OS-ENDPOINT-POLICY/endpoints": {
+      "get": {
+        "consumes": [
+          "application/json"
+        ], 
+        "description": "", 
+        "operationId": "listPolicyEndpointAssociations", 
+        "parameters": [
+          {
+            "description": "The policy ID.", 
+            "format": "", 
+            "in": "path", 
+            "name": "policy_id", 
+            "required": true, 
+            "type": "string"
+          }
+        ], 
+        "produces": [
+          "application/json"
+        ], 
+        "responses": {
+          "200": {
+            "description": "", 
+            "examples": {
+              "application/json": {
+                "endpoints": [
+                  {
+                    "id": "1", 
+                    "interface": "public", 
+                    "links": {
+                      "self": "http://identity:35357/v3/endpoints/1"
+                    }, 
+                    "region": "north", 
+                    "service_id": "9242e05f0c23467bbd1cf1f7a6e5e596", 
+                    "url": "http://identity:35357/"
+                  }, 
+                  {
+                    "id": "1", 
+                    "interface": "internal", 
+                    "links": {
+                      "self": "http://identity:35357/v3/endpoints/1"
+                    }, 
+                    "region": "south", 
+                    "service_id": "9242e05f0c23467bbd1cf1f7a6e5e596", 
+                    "url": "http://identity:35357/"
+                  }
+                ], 
+                "links": {
+                  "next": null, 
+                  "previous": null, 
+                  "self": "http://identity:35357/v3/OS-ENDPOINT-POLICY/policies/13c92821e4c4476a878d3aae7444f52f/endpoints"
+                }
+              }
+            }, 
+            "headers": {}, 
+            "schema": {
+              "$ref": "#/definitions/listPolicyEndpointAssociations_200"
+            }
+          }
+        }, 
+        "summary": "Lists all the endpoints that are currently associated with a policy through any of the association methods.", 
+        "tags": [
+          "identity_v3_OS-ENDPOINT-POLICY-ext"
+        ], 
+        "x-title": "List policy and service endpoint associations"
+      }
+    }, 
+    "/v3/policies/{policy_id}/OS-ENDPOINT-POLICY/endpoints/{endpoint_id}": {
+      "delete": {
+        "consumes": [], 
+        "description": "", 
+        "operationId": "deletePolicyAndEndpointAssociation", 
+        "parameters": [
+          {
+            "description": "The endpoint ID.", 
+            "format": "", 
+            "in": "path", 
+            "name": "endpoint_id", 
+            "required": true, 
+            "type": "string"
+          }, 
+          {
+            "description": "The policy ID.", 
+            "format": "", 
+            "in": "path", 
+            "name": "policy_id", 
+            "required": true, 
+            "type": "string"
+          }
+        ], 
+        "produces": [], 
+        "responses": {
+          "204": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }
+        }, 
+        "summary": "Deletes an association between a policy and an endpoint.", 
+        "tags": [
+          "identity_v3_OS-ENDPOINT-POLICY-ext"
+        ], 
+        "x-title": "Delete a policy and endpoint association"
+      }, 
+      "get": {
+        "consumes": [], 
+        "description": "A HEAD version of this API is also supported.", 
+        "operationId": "getPolicyAndEndpointAssociation", 
+        "parameters": [
+          {
+            "description": "The endpoint ID.", 
+            "format": "", 
+            "in": "path", 
+            "name": "endpoint_id", 
+            "required": true, 
+            "type": "string"
+          }, 
+          {
+            "description": "The policy ID.", 
+            "format": "", 
+            "in": "path", 
+            "name": "policy_id", 
+            "required": true, 
+            "type": "string"
+          }
+        ], 
+        "produces": [], 
+        "responses": {
+          "204": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }
+        }, 
+        "summary": "Verifies an association between a policy and an endpoint.", 
+        "tags": [
+          "identity_v3_OS-ENDPOINT-POLICY-ext"
+        ], 
+        "x-title": "Verify a policy and endpoint association"
+      }, 
+      "put": {
+        "consumes": [], 
+        "description": "If an association already exists between the endpoint and another\npolicy, this call replaces that association.", 
+        "operationId": "associatePolicyAndEndpoint", 
+        "parameters": [
+          {
+            "description": "The endpoint ID.", 
+            "format": "", 
+            "in": "path", 
+            "name": "endpoint_id", 
+            "required": true, 
+            "type": "string"
+          }, 
+          {
+            "description": "The policy ID.", 
+            "format": "", 
+            "in": "path", 
+            "name": "policy_id", 
+            "required": true, 
+            "type": "string"
+          }
+        ], 
+        "produces": [], 
+        "responses": {
+          "204": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }
+        }, 
+        "summary": "Associates a policy and an endpoint.", 
+        "tags": [
+          "identity_v3_OS-ENDPOINT-POLICY-ext"
+        ], 
+        "x-title": "Associate policy and endpoint"
+      }
+    }, 
+    "/v3/policies/{policy_id}/OS-ENDPOINT-POLICY/policy": {
+      "get": {
+        "consumes": [
+          "application/json"
+        ], 
+        "description": "The extension finds the policy by traversing the ordered sequence\nof methods of association. The extension shows the policy for the\nfirst association that it finds. If the region of the endpoint has\na parent, the extension examines the region associations up the\nregion tree in ascending order.", 
+        "operationId": "showPolicyForEndpoint", 
+        "parameters": [
+          {
+            "description": "The policy ID.", 
+            "format": "", 
+            "in": "path", 
+            "name": "policy_id", 
+            "required": true, 
+            "type": "string"
+          }
+        ], 
+        "produces": [
+          "application/json"
+        ], 
+        "responses": {
+          "200": {
+            "description": "", 
+            "examples": {
+              "application/json": {
+                "policy": {
+                  "blob": {
+                    "foobar_user": [
+                      "role:compute-user"
+                    ]
+                  }, 
+                  "id": "13c92821e4c4476a878d3aae7444f52f", 
+                  "links": {
+                    "self": "http://identity:35357/v3/policies/13c92821e4c4476a878d3aae7444f52f"
+                  }, 
+                  "type": "application/json"
+                }
+              }
+            }, 
+            "headers": {}, 
+            "schema": {
+              "$ref": "#/definitions/showPolicyForEndpoint_200"
+            }
+          }
+        }, 
+        "summary": "Shows a policy for an endpoint.", 
+        "tags": [
+          "identity_v3_OS-ENDPOINT-POLICY-ext"
+        ], 
+        "x-title": "Show policy for endpoint"
+      }, 
+      "head": {
+        "consumes": [], 
+        "description": "", 
+        "operationId": "checkPolicyForEndpoint", 
+        "parameters": [
+          {
+            "description": "The policy ID.", 
+            "format": "", 
+            "in": "path", 
+            "name": "policy_id", 
+            "required": true, 
+            "type": "string"
+          }
+        ], 
+        "produces": [], 
+        "responses": {
+          "200": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }
+        }, 
+        "summary": "Checks whether a policy is associated with an endpoint.", 
+        "tags": [
+          "identity_v3_OS-ENDPOINT-POLICY-ext"
+        ], 
+        "x-title": "Check policy and service endpoint association"
+      }
+    }, 
+    "/v3/policies/{policy_id}/OS-ENDPOINT-POLICY/services/regions/{region_id}": {
+      "delete": {
+        "consumes": [], 
+        "description": "", 
+        "operationId": "deletePolicyAndServiceRegionAssociation", 
+        "parameters": [
+          {
+            "description": "The policy ID.", 
+            "format": "", 
+            "in": "path", 
+            "name": "policy_id", 
+            "required": true, 
+            "type": "string"
+          }, 
+          {
+            "description": "The region ID.", 
+            "format": "", 
+            "in": "path", 
+            "name": "region_id", 
+            "required": true, 
+            "type": "string"
+          }
+        ], 
+        "produces": [], 
+        "responses": {
+          "204": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }
+        }, 
+        "summary": "Deletes an association between a policy and service-type endpoint in a region.", 
+        "tags": [
+          "identity_v3_OS-ENDPOINT-POLICY-ext"
+        ], 
+        "x-title": "Delete a policy and service-type endpoint in a region association"
+      }, 
+      "get": {
+        "consumes": [], 
+        "description": "A HEAD version of this API is also supported.", 
+        "operationId": "getPolicyAndServiceRegionAssociation", 
+        "parameters": [
+          {
+            "description": "The policy ID.", 
+            "format": "", 
+            "in": "path", 
+            "name": "policy_id", 
+            "required": true, 
+            "type": "string"
+          }, 
+          {
+            "description": "The region ID.", 
+            "format": "", 
+            "in": "path", 
+            "name": "region_id", 
+            "required": true, 
+            "type": "string"
+          }
+        ], 
+        "produces": [], 
+        "responses": {
+          "204": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }
+        }, 
+        "summary": "Verifies an association between a policy and service-type endpoint in a region.", 
+        "tags": [
+          "identity_v3_OS-ENDPOINT-POLICY-ext"
+        ], 
+        "x-title": "Verify a policy and service-type endpoint in a region association"
+      }, 
+      "put": {
+        "consumes": [], 
+        "description": "If an association already exists between the service in a region\nand another policy, this call replaces that association.", 
+        "operationId": "associatePolicyAndServiceRegion", 
+        "parameters": [
+          {
+            "description": "The policy ID.", 
+            "format": "", 
+            "in": "path", 
+            "name": "policy_id", 
+            "required": true, 
+            "type": "string"
+          }, 
+          {
+            "description": "The region ID.", 
+            "format": "", 
+            "in": "path", 
+            "name": "region_id", 
+            "required": true, 
+            "type": "string"
+          }
+        ], 
+        "produces": [], 
+        "responses": {
+          "204": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }
+        }, 
+        "summary": "Associates a policy and an endpoint of a service type in a region.", 
+        "tags": [
+          "identity_v3_OS-ENDPOINT-POLICY-ext"
+        ], 
+        "x-title": "Associate policy and service-type endpoint in a region"
+      }
+    }, 
+    "/v3/policies/{policy_id}/OS-ENDPOINT-POLICY/services/{service_id}": {
+      "delete": {
+        "consumes": [], 
+        "description": "", 
+        "operationId": "deletePolicyAndServiceAssociation", 
+        "parameters": [
+          {
+            "description": "The policy ID.", 
+            "format": "", 
+            "in": "path", 
+            "name": "policy_id", 
+            "required": true, 
+            "type": "string"
+          }, 
+          {
+            "description": "The service ID.", 
+            "format": "", 
+            "in": "path", 
+            "name": "service_id", 
+            "required": true, 
+            "type": "string"
+          }
+        ], 
+        "produces": [], 
+        "responses": {
+          "204": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }
+        }, 
+        "summary": "Deletes an association between a policy and an endpoint of a service type.", 
+        "tags": [
+          "identity_v3_OS-ENDPOINT-POLICY-ext"
+        ], 
+        "x-title": "Delete a policy and service-type endpoint association"
+      }, 
+      "get": {
+        "consumes": [], 
+        "description": "A HEAD version of this API is also supported.", 
+        "operationId": "getPolicyAndServiceAssociation", 
+        "parameters": [
+          {
+            "description": "The policy ID.", 
+            "format": "", 
+            "in": "path", 
+            "name": "policy_id", 
+            "required": true, 
+            "type": "string"
+          }, 
+          {
+            "description": "The service ID.", 
+            "format": "", 
+            "in": "path", 
+            "name": "service_id", 
+            "required": true, 
+            "type": "string"
+          }
+        ], 
+        "produces": [], 
+        "responses": {
+          "204": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }
+        }, 
+        "summary": "Verifies an association between a policy and an endpoint of a service type.", 
+        "tags": [
+          "identity_v3_OS-ENDPOINT-POLICY-ext"
+        ], 
+        "x-title": "Verify a policy and service-type endpoint association"
+      }, 
+      "put": {
+        "consumes": [], 
+        "description": "If an association already exists between the endpoint of a service\ntype and another policy, this call replaces that association.", 
+        "operationId": "associatePolicyAndService", 
+        "parameters": [
+          {
+            "description": "The policy ID.", 
+            "format": "", 
+            "in": "path", 
+            "name": "policy_id", 
+            "required": true, 
+            "type": "string"
+          }, 
+          {
+            "description": "The service ID.", 
+            "format": "", 
+            "in": "path", 
+            "name": "service_id", 
+            "required": true, 
+            "type": "string"
+          }
+        ], 
+        "produces": [], 
+        "responses": {
+          "204": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }
+        }, 
+        "summary": "Associates a policy and any endpoint of a service type.", 
+        "tags": [
+          "identity_v3_OS-ENDPOINT-POLICY-ext"
+        ], 
+        "x-title": "Associate policy and service-type endpoint"
+      }
+    }, 
+    "/v3/role_assignments": {
+      "get": {
+        "consumes": [
+          "application/json"
+        ], 
+        "description": "The scope section in the list response is extended to allow the\nrepresentation of role assignments that are inherited to projects.\n\nThe list of all role assignments can be long. To filter the list,\nuse the query parameters.\n\nSome typical examples are:\n\n``GET /role_assignments?user.id={user_id}`` lists all role\nassignments for a user.\n\n``GET /role_assignments?scope.project.id={project_id}`` lists all\nrole assignments for a project.\n\nEach role assignment entity in the collection contains a link to\nthe assignment that created this entity.\n\nUse the ``effective`` query parameter to list effective assignments\nat the user, project, and domain level. This parameter allows for\nthe effects of group membership as well as inheritance from the\nparent domain or project, for role assignments that were made using\nOS-INHERIT assignment APIs.\n\nThe group role assignment entities themselves are not returned in\nthe collection. Because, like group membership, the effects of\ninheritance have already been allowed for, the role assignment\nentities themselves that specify the inheritance are not returned\nin the collection. This represents the effective role assignments\nthat would be included in a scoped token. You can use the other\nquery parameters with the ``effective`` parameter.\n\nFor example, to determine what a user can actually do, issue this\nrequest: ``GET /role_assignments?user.id={user_id} & effective``\n\nTo get the equivalent set of role assignments that would be\nincluded in the token response of a project-scoped token, issue\n``GET /role_assignments?user.id={user_id} &\nscope.project.id={project_id} & effective``\n\nIn the response, the entity ``links`` section for entities that are\nincluded by virtue of group members also contains a url that you\ncan use to access the membership of the group.\n\nUse the ``scope.OS-INHERIT:inherited_to`` query parameter to filter\nthe response by inherited role assignments. The ``scope.OS-\nINHERIT:inherited_to`` value of ``projects`` is currently\nsupported. This value indicates that this role is inherited to all\nprojects of the owning domain or parent project.\n\nAn example response for an API call with the ``effective`` query\nstring:", 
+        "operationId": "listRoleAssignments", 
+        "parameters": [], 
+        "produces": [
+          "application/json"
+        ], 
+        "responses": {
+          "200": {
+            "description": "", 
+            "examples": {
+              "application/json": {
+                "links": {
+                  "next": null, 
+                  "previous": null, 
+                  "self": "http://identity:35357/v3/role_assignments?effective"
+                }, 
+                "role_assignments": [
+                  {
+                    "links": {
+                      "assignment": "http://identity:35357/v3/OS-INHERIT/domains/12131/users/41516/roles/91011/inherited_to_projects"
+                    }, 
+                    "role": {
+                      "id": "91011"
+                    }, 
+                    "scope": {
+                      "project": {
+                        "id": "1234"
+                      }
+                    }, 
+                    "user": {
+                      "id": "41516"
+                    }
+                  }, 
+                  {
+                    "links": {
+                      "assignment": "http://identity:35357/v3/projects/1234/groups/5678/roles/91011", 
+                      "membership": "http://identity:35357/v3/groups/5678/users/41516"
+                    }, 
+                    "role": {
+                      "id": "91011"
+                    }, 
+                    "scope": {
+                      "project": {
+                        "id": "1234"
+                      }
+                    }, 
+                    "user": {
+                      "id": "41516"
+                    }
+                  }
+                ]
+              }
+            }, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "400": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "401": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "403": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "404": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "405": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "413": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "503": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }
+        }, 
+        "summary": "Lists role assignments.", 
+        "tags": [
+          "inherit"
+        ], 
+        "x-title": "List role assignments"
+      }
+    }, 
+    "/v3/tickets": {
+      "post": {
+        "consumes": [
+          "application/json"
+        ], 
+        "description": "A generate ticket request contains metadata that you specify as a\nBase64-encoded JSON object and a signature.\n\nThe response shows the metadata, encrypted ticket, and signature.", 
+        "operationId": "generateTicket", 
+        "parameters": [
+          {
+            "description": "", 
+            "in": "body", 
+            "name": "body", 
+            "required": false, 
+            "schema": {
+              "$ref": "#/definitions/generateTicket"
+            }
+          }
+        ], 
+        "produces": [
+          "application/json"
+        ], 
+        "responses": {
+          "201": {
+            "description": "", 
+            "examples": {
+              "application/json": {
+                "destination": "compute.host.example.com", 
+                "nonce": 1234567890, 
+                "source": "scheduler.host.example.com", 
+                "timestamp": "2012-03-26T10:01:01.720000"
+              }
+            }, 
+            "headers": {}, 
+            "schema": {
+              "$ref": "#/definitions/generateTicket_201"
+            }
+          }, 
+          "400": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "401": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "403": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "404": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "405": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "409": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "413": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "415": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "503": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }
+        }, 
+        "summary": "Generates a ticket to facilitate messaging between a source and destination.", 
+        "tags": [
+          "kds"
+        ], 
+        "x-title": "Generate ticket"
+      }
+    }
+  }, 
+  "produces": [
+    "application/json"
+  ], 
+  "swagger": "2.0", 
+  "tags": [
+    {
+      "description": "OS-ENDPOINT-POLICY extension (OS-ENDPOINT-POLICY)", 
+      "name": "identity_v3_OS-ENDPOINT-POLICY-ext", 
+      "x-summary": "Creates, verifies, and deletes associations between service\nendpoints and policies. Such associations enable an endpoint to\nrequest its policy.\n\nTo create, check, or delete an association, you reference a policy\nby its ID in the Identity server.\n\nThe extension supports these associations:\n\n- A policy and endpoint association.\n\n- A policy and service-type endpoint in a region association.\n\n- A policy and service-type endpoint association.\n\nThis order reflects policies in their most to least-specific order.\n\nWhen an endpoint requests the appropriate policy for itself, the\nextension finds the policy by traversing the ordered sequence of\nmethods of association. The extension shows the policy for the\nfirst association that it finds.\n\nIf the region of the endpoint has a parent, the extension examines\nthe region associations up the region tree in ascending order. For\nregion associations, the extension examines any parent regions in\nascending order. The extension does not combine polices."
+    }, 
+    {
+      "description": "OS-INHERIT extension (OS-INHERIT)", 
+      "name": "inherit", 
+      "x-summary": "Enables projects to inherit role assignments from either their\nowning domain or projects that are higher in the hierarchy.\n\n(Since API v3.4) The OS-INHERIT extension allows inheritance from\nboth projects and domains. To access project inheritance, the\nIdentity service server must run at least API v3.4."
+    }, 
+    {
+      "description": "Key Distribution Server (KDS) extension (OS-KDS)", 
+      "name": "kds", 
+      "x-summary": "The Key Distribution Server (KDS) is a trusted third party that\ngenerates and securely distributes signing and encryption keys to\ncommunicating parties. These shared keys enable parties to exchange\nauthenticated, confidential messages. KDS is an integral part of\nthe RPC message security implementation. To establish a trusted\nrelationship between the party and the KDS, a properly authorized\nuser, such as a cloud administrator, must assign a long-term shared\nkey to the communicating party. Assigning a key to a party requires\nassigning an identity to that party in the KDS. An identity\nincludes a unique party name and the associated long-term shared\nkey. This party name is used to identify a party when it\ncommunicates with KDS or another party.\n\nThe KDS enables two individual parties or one individual party and\na group party to exchange secure messages. To get keys so that it\ncan communicate with another party, a party makes an authenticated\nrequest to KDS for a ticket. The KDS returns an encrypted ticket to\nthe requesting party. The KDS encrypts the ticket with the long-\nterm shared key that is associated with that party. Only the\nassociated party or the KDS itself can decrypt the ticket.\n\nThe KDS issues a ticket that contains a copy of the shared\nencryption and signing keys. These keys are for the source party,\nwhich is the party that requests the ticket. The ticket also\ncontains a payload that is intended for the destination party,\nwhich is the party with whom the source party wants to communicate.\nThis payload contains the information that the destination party\ncan use to derive the shared encryption and signing keys. When the\ndestination party is:\n\n- An individual. The payload is encrypted with the long-term shared\n  key that is associated with the destination party.\n\n- A group. The payload is encrypted with a shared group key that the\n  KDS makes available to all members of the group. This encryption\n  enables the destination party to trust that the information in\n  the payload was supplied by the KDS.\n\nWhen the source party is ready to communicate with the destination\nparty, it sends this encrypted payload to the destination party\nalong with whatever data it has protected with the shared signing\nand encryption keys. The destination party can decrypt the payload\nand derive the shared encryption and signing keys by using the\npayload information. Both parties have a copy of the shared signing\nand encryption keys that are trusted as being issued by the KDS.\nThe destination party uses these shared keys to authenticate and\ndecrypt the data sent by the source party.\n\nOther guidelines:\n\n- When a source party must send secure messages to multiple\n  recipients, an authorized user can define a KDS group for the\n  recipients. Membership in a group is determined by comparing a\n  party name with the group name. The party is considered a member\n  if the party name matches ``< group name > .*``. For example, a\n  party named ``scheduler.host.example.com`` is considered a member\n  of the ``scheduler`` group. This method is the same method that\n  is used to name message queues in OpenStack.\n\n- When a source party requests a ticket for a destination party that\n  is a group, KDS generates a short-lived group key and assigns it\n  to the group. This group key is used to encrypt the payload in\n  the ticket, which contains the information that the destination\n  party uses to derive the shared signing and encryption keys.\n\n- When an individual destination party must decrypt the payload that\n  it receives from the source party as a part of a group message,\n  it makes an authenticated request to KDS to get the short-lived\n  group key. If the requester is a member of the target group, KDS\n  provides the short-lived group key encrypted with the long-term\n  shared key associated with the individual destination party. The\n  individual destination party can then decrypt the group key,\n  which enables it to decrypt the payload and derive the shared\n  signing and encryption keys to use to authenticate and decrypt\n  the data sent by the source party.\n\n- When a sender gets keys to send a message to a group, all group\n  members and the sender share the signing and encryption keys,\n  which makes it impossible for an individual destination party to\n  determine whether a message was sent by the source party or by\n  another destination party who is a group member. The destination\n  party can confirm only that the message was sent by a party who\n  has the shared signing and encryption keys. When a sender uses\n  keys to send a message to a group, all group members must trust\n  other members to operate in good faith.\n\nThe signing and encryption keys that communicating parties share\nare short-lived. The life span of these keys is defined by a\nvalidity period that is set by the KDS when it issues the ticket. A\nsuggested reasonable default validity period is 15 minutes, though\nthe implementation determines the appropriate validity period.\n\nAfter the validity period for the keys expires, a party should\nrefuse to use those keys to prevent the use of compromised keys.\nThis requires the source party to request a new ticket from the KDS\nto get a new set of keys. An implementation can implement a grace\nperiod to account for clock skew between parties. This grace period\nenables a destination party to accept messages that use recently\nexpired keys. If you use a grace period, its duration should be\nfive or fewer minutes.\n\nA key server, unlike a pure public key-based system, can regulate\nthe encryption and signing key exchange. When keys are requested,\nthe key server actively distributes keys to communicating parties,\napplies access control, and denies communication between arbitrary\npeers in the system. This enables centralized access control,\nprevents unauthorized communication, and eliminates the need to\nperform post-authentication access control and policy lookups on\nthe receiving side.\n\nThe KDS requires that all ticket requests are authenticated and,\nwhere appropriate, data is encrypted. You must pass any time stamp\nvalue to the API as a `UTC\n<https://en.wikipedia.org/wiki/ISO_8601#UTC>`_ `ISO 8601\n<https://en.wikipedia.org/wiki/ISO_8601>`_ date and time string\nthat includes microseconds. For example,\n``2012-03-26T10:01:01.720000``.\n\nThe default algorithms for message authentication and encryption\nare, respectively, HMAC-SHA-256 and AES-128-CBC. Therefore, the\ndefault block size is 128 bit.\n\nThe source party that requests a ticket must send the encrypted\n``esek`` payload to the destination party. The source and\ndestination strings used when requesting the ticket also must be\nsent to the destination party to enable it to derive the shared\nsigning end encryption keys. The messaging implementation is\nresponsible for transferring this data to the destination party.\n\nThe key derivation used to generate the shared signing and\nencryption keys uses the Hashed Message Authentication Code\n(HMAC)-based key derivation function (HKDF) standard, as described\nin RFC 5869. The destination party must use the HKDF ``expand``\nfunction by using the information that it receives from the source\nparty to complete derivation of the shared signing and encryption\nkeys. The inputs to the HKDF ``expand`` function are:\n\n::\n\n   HKDF-Expand(esek.key, info, 256)\n\nThe ``info`` input for the HKDF ``expand`` function is a string\nthat concatenates the source, destination, and ``esek.timestamp``\nstrings by using a comma (``,``) separator between each element.\nThe following example shows a valid ``info`` string where\n``scheduler.host.example.com`` is the source,\n``compute.host.example.com`` is the destination, and\n``2012-03-26T10:01:01.720000`` is the ``esek.timestamp``:\n\n::\n\n   scheduler.host.example.com,compute.host.example.com,2012-03-26T10:01:01.720000\n\nThe output of the HKDF expand function is an array of bytes of 256\nbit length. The first half is the signing key, and the second half\nis the encryption key.\n\nCreate and delete requests for long-term keys are restricted to\nauthorized users, such as cloud administrators. The authentication\nand authorization for these requests is left up to the\nimplementation, though the implementation should leverage the\nIdentity API for these purposes."
+    }, 
+    {
+      "description": "Trust extension (OS-TRUST)", 
+      "name": "trust", 
+      "x-summary": "Creates a trust.\n\nA trust is an OpenStack Identity extension that enables delegation\nand, optionally, impersonation through ``keystone``. A trust\nextension defines a relationship between a trustor and trustee. A\ntrustor is the user who delegates a limited set of their own rights\nto another user, known as the trustee, for a limited time.\n\nThe trust can eventually enable the trustee to impersonate the\ntrustor. For security reasons, some safety measures are added. For\nexample, if a trustor loses a given role, the API automatically\nrevokes any trusts and the related tokens that the user issued with\nthat role.\n\nFor more information, see `Use trusts <http://docs.openstack.org\n/admin-guide/keystone_use_trusts.html>`_."
+    }
+  ]
+}

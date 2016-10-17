@@ -1,0 +1,5064 @@
+{
+  "basePath": "/", 
+  "consumes": [
+    "application/json"
+  ], 
+  "definitions": {
+    "createService_201": {
+      "properties": {
+        "description": {
+          "description": "Description about the service.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "id": {
+          "description": "The UUID of the service.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "name": {
+          "description": "The service name.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "type": {
+          "description": "The type of the service.", 
+          "format": "", 
+          "type": "string"
+        }
+      }, 
+      "required": [
+        "id", 
+        "name", 
+        "description", 
+        "type"
+      ], 
+      "type": "object"
+    }, 
+    "createTenant_201": {
+      "properties": {
+        "description": {
+          "description": "Description about the tenant.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "enabled": {
+          "description": "Indicates whether the tenant is enabled or disabled. Default is\n``true``.", 
+          "format": "", 
+          "type": "boolean"
+        }, 
+        "id": {
+          "description": "The tenant ID.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "name": {
+          "description": "The tenant name.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "tenant": {
+          "description": "The ``tenant`` object.", 
+          "format": "", 
+          "type": "object"
+        }
+      }, 
+      "required": [
+        "tenant", 
+        "id", 
+        "name", 
+        "description", 
+        "enabled"
+      ], 
+      "type": "object"
+    }, 
+    "createUser": {
+      "example": {
+        "application/json": {
+          "user": {
+            "OS-KSADM:password": "secretsecret", 
+            "email": "john.smith@example.org", 
+            "enabled": true, 
+            "name": "jqsmith"
+          }
+        }
+      }, 
+      "properties": {
+        "email": {
+          "description": "The user email.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "enabled": {
+          "description": "Indicates whether the user is enabled (``true``) or\ndisabled(``false``). The default value is ``true``.", 
+          "format": "", 
+          "type": "boolean"
+        }, 
+        "id": {
+          "description": "The user ID.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "name": {
+          "description": "The user name.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "user": {
+          "description": "The ``user`` object.", 
+          "format": "", 
+          "items": {
+            "type": "string"
+          }, 
+          "type": "array"
+        }, 
+        "users_links": {
+          "description": "The ``users_links`` object.", 
+          "format": "", 
+          "items": {
+            "type": "string"
+          }, 
+          "type": "array"
+        }
+      }, 
+      "required": [
+        "user", 
+        "users_links", 
+        "id", 
+        "name", 
+        "email", 
+        "enabled"
+      ], 
+      "type": "object"
+    }, 
+    "createUser_201": {
+      "properties": {
+        "email": {
+          "description": "The user email.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "enabled": {
+          "description": "Indicates whether the user is enabled (``true``) or\ndisabled(``false``). The default value is ``true``.", 
+          "format": "", 
+          "type": "boolean"
+        }, 
+        "id": {
+          "description": "The user ID.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "name": {
+          "description": "The user name.", 
+          "format": "", 
+          "type": "string"
+        }
+      }, 
+      "required": [
+        "id", 
+        "name", 
+        "email", 
+        "enabled"
+      ], 
+      "type": "object"
+    }, 
+    "enableUser_200": {
+      "properties": {
+        "email": {
+          "description": "The user email.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "enabled": {
+          "description": "Indicates whether the user is enabled (``true``) or\ndisabled(``false``). The default value is ``true``.", 
+          "format": "", 
+          "type": "boolean"
+        }, 
+        "id": {
+          "description": "The user ID.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "name": {
+          "description": "The user name.", 
+          "format": "", 
+          "type": "string"
+        }
+      }, 
+      "required": [
+        "id", 
+        "name", 
+        "email", 
+        "enabled"
+      ], 
+      "type": "object"
+    }, 
+    "listRoles_200": {
+      "properties": {
+        "description": {
+          "description": "The role description.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "id": {
+          "description": "The role ID.", 
+          "format": "", 
+          "type": "integer"
+        }, 
+        "name": {
+          "description": "The role name.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "roles": {
+          "description": "A ``roles`` object.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "roles_links": {
+          "description": "Role links.", 
+          "format": "", 
+          "type": "object"
+        }
+      }, 
+      "required": [
+        "roles", 
+        "id", 
+        "name", 
+        "description", 
+        "roles_links"
+      ], 
+      "type": "object"
+    }, 
+    "listServices_203": {
+      "properties": {
+        "description": {
+          "description": "Description about the service.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "id": {
+          "description": "The UUID of the service.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "name": {
+          "description": "The service name.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "type": {
+          "description": "The type of the service.", 
+          "format": "", 
+          "type": "string"
+        }
+      }, 
+      "required": [
+        "id", 
+        "name", 
+        "description", 
+        "type"
+      ], 
+      "type": "object"
+    }, 
+    "listUsers_200": {
+      "properties": {
+        "email": {
+          "description": "The user email.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "enabled": {
+          "description": "Indicates whether the user is enabled (``true``) or\ndisabled(``false``). The default value is ``true``.", 
+          "format": "", 
+          "type": "boolean"
+        }, 
+        "id": {
+          "description": "The user ID.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "name": {
+          "description": "The user name.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "users": {
+          "description": "The ``users`` object.", 
+          "format": "", 
+          "items": {
+            "type": "string"
+          }, 
+          "type": "array"
+        }
+      }, 
+      "required": [
+        "users", 
+        "id", 
+        "name", 
+        "email", 
+        "enabled"
+      ], 
+      "type": "object"
+    }, 
+    "showRoleByID_200": {
+      "properties": {
+        "description": {
+          "description": "The role description.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "id": {
+          "description": "The role ID.", 
+          "format": "", 
+          "type": "integer"
+        }, 
+        "name": {
+          "description": "The role name.", 
+          "format": "", 
+          "type": "string"
+        }
+      }, 
+      "required": [
+        "id", 
+        "name", 
+        "description"
+      ], 
+      "type": "object"
+    }, 
+    "showRoleByName_200": {
+      "properties": {
+        "description": {
+          "description": "The role description.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "id": {
+          "description": "The role ID.", 
+          "format": "", 
+          "type": "integer"
+        }, 
+        "name": {
+          "description": "The role name.", 
+          "format": "", 
+          "type": "string"
+        }
+      }, 
+      "required": [
+        "id", 
+        "name", 
+        "description"
+      ], 
+      "type": "object"
+    }, 
+    "showServiceByID_200": {
+      "properties": {
+        "description": {
+          "description": "Description about the service.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "id": {
+          "description": "The UUID of the service.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "name": {
+          "description": "The service name.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "type": {
+          "description": "The type of the service.", 
+          "format": "", 
+          "type": "string"
+        }
+      }, 
+      "required": [
+        "id", 
+        "name", 
+        "description", 
+        "type"
+      ], 
+      "type": "object"
+    }, 
+    "showServiceByName_200": {
+      "properties": {
+        "description": {
+          "description": "Description about the service.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "id": {
+          "description": "The UUID of the service.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "name": {
+          "description": "The service name.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "type": {
+          "description": "The type of the service.", 
+          "format": "", 
+          "type": "string"
+        }
+      }, 
+      "required": [
+        "id", 
+        "name", 
+        "description", 
+        "type"
+      ], 
+      "type": "object"
+    }, 
+    "updateTenant": {
+      "example": {
+        "application/json": {
+          "tenant": {
+            "description": "A description ...", 
+            "enabled": true, 
+            "id": "1234", 
+            "name": "ACME corp"
+          }
+        }
+      }, 
+      "properties": {
+        "description": {
+          "description": "Description about the tenant.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "enabled": {
+          "description": "Indicates whether the tenant is enabled or disabled. Default is\n``true``.", 
+          "format": "", 
+          "type": "boolean"
+        }, 
+        "id": {
+          "description": "The tenant ID.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "name": {
+          "description": "The tenant name.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "tenant": {
+          "description": "The ``tenant`` object.", 
+          "format": "", 
+          "type": "object"
+        }
+      }, 
+      "required": [
+        "tenant", 
+        "id", 
+        "name", 
+        "description", 
+        "enabled"
+      ], 
+      "type": "object"
+    }, 
+    "updateTenant_200": {
+      "properties": {
+        "description": {
+          "description": "Description about the tenant.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "enabled": {
+          "description": "Indicates whether the tenant is enabled or disabled. Default is\n``true``.", 
+          "format": "", 
+          "type": "boolean"
+        }, 
+        "id": {
+          "description": "The tenant ID.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "name": {
+          "description": "The tenant name.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "tenant": {
+          "description": "The ``tenant`` object.", 
+          "format": "", 
+          "type": "object"
+        }
+      }, 
+      "required": [
+        "tenant", 
+        "id", 
+        "name", 
+        "description", 
+        "enabled"
+      ], 
+      "type": "object"
+    }, 
+    "updateUser_200": {
+      "properties": {
+        "email": {
+          "description": "The user email.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "enabled": {
+          "description": "Indicates whether the user is enabled (``true``) or\ndisabled(``false``). The default value is ``true``.", 
+          "format": "", 
+          "type": "boolean"
+        }, 
+        "id": {
+          "description": "The user ID.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "name": {
+          "description": "The user name.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "users": {
+          "description": "The ``users`` object.", 
+          "format": "", 
+          "items": {
+            "type": "string"
+          }, 
+          "type": "array"
+        }
+      }, 
+      "required": [
+        "users", 
+        "id", 
+        "name", 
+        "email", 
+        "enabled"
+      ], 
+      "type": "object"
+    }
+  }, 
+  "externalDocs": {
+    "description": "OpenStack Docs", 
+    "url": "http://docs.openstack.org"
+  }, 
+  "host": "developer.openstack.org", 
+  "info": {
+    "license": {
+      "name": "Apache 2.0", 
+      "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+    }, 
+    "title": "Identity extensions", 
+    "version": "v2", 
+    "x-service": "identity-extensions"
+  }, 
+  "paths": {
+    "/v2.0/OS-KSADM": {
+      "post": {
+        "consumes": [
+          "application/json"
+        ], 
+        "description": "", 
+        "operationId": "createRole", 
+        "parameters": [], 
+        "produces": [
+          "application/json"
+        ], 
+        "responses": {
+          "201": {
+            "description": "", 
+            "examples": {
+              "application/json": {
+                "role": {
+                  "description": "Guest Access", 
+                  "id": "123", 
+                  "name": "Guest"
+                }
+              }
+            }, 
+            "headers": {
+              "Location": {
+                "description": "The location.", 
+                "format": "uri", 
+                "type": "string"
+              }
+            }, 
+            "schema": {}
+          }, 
+          "400": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "401": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "403": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "404": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "405": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "409": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "413": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "415": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "503": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }
+        }, 
+        "summary": "Creates a role.", 
+        "tags": [
+          "ksadm-admin"
+        ], 
+        "x-title": "Create role"
+      }
+    }, 
+    "/v2.0/OS-KSADM/": {
+      "get": {
+        "consumes": [
+          "application/json"
+        ], 
+        "description": "", 
+        "operationId": "listRoles", 
+        "parameters": [], 
+        "produces": [
+          "application/json"
+        ], 
+        "responses": {
+          "200": {
+            "description": "", 
+            "examples": {
+              "application/json": {
+                "roles": [
+                  {
+                    "description": "Nova Administrator", 
+                    "id": "123", 
+                    "name": "compute:admin"
+                  }
+                ], 
+                "roles_links": []
+              }
+            }, 
+            "headers": {}, 
+            "schema": {
+              "$ref": "#/definitions/listRoles_200"
+            }
+          }, 
+          "203": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "400": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "401": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "403": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "404": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "405": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "413": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "503": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }
+        }, 
+        "summary": "Lists all roles.", 
+        "tags": [
+          "ksadm-admin"
+        ], 
+        "x-title": "List roles"
+      }
+    }, 
+    "/v2.0/OS-KSADM/roles/{role_name}": {
+      "get": {
+        "consumes": [
+          "application/json"
+        ], 
+        "description": "", 
+        "operationId": "showRoleByName", 
+        "parameters": [], 
+        "produces": [
+          "application/json"
+        ], 
+        "responses": {
+          "200": {
+            "description": "", 
+            "examples": {
+              "application/json": {
+                "role": {
+                  "description": "Guest Access", 
+                  "id": "123", 
+                  "name": "Guest"
+                }
+              }
+            }, 
+            "headers": {
+              "Location": {
+                "description": "The location.", 
+                "format": "uri", 
+                "type": "string"
+              }
+            }, 
+            "schema": {
+              "$ref": "#/definitions/showRoleByName_200"
+            }
+          }, 
+          "203": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "400": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "401": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "403": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "404": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "405": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "409": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "413": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "415": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "503": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }
+        }, 
+        "summary": "Shows information for a role, by name.", 
+        "tags": [
+          "ksadm-admin"
+        ], 
+        "x-title": "Show role information by name"
+      }
+    }, 
+    "/v2.0/OS-KSADM/{roleId}": {
+      "delete": {
+        "consumes": [], 
+        "description": "", 
+        "operationId": "deleteRole", 
+        "parameters": [
+          {
+            "description": "The role ID.", 
+            "format": "", 
+            "in": "path", 
+            "name": "roleId", 
+            "required": true, 
+            "type": "string"
+          }
+        ], 
+        "produces": [], 
+        "responses": {
+          "204": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "400": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "401": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "403": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "404": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "405": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "409": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "413": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "415": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "503": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }
+        }, 
+        "summary": "Deletes a role.", 
+        "tags": [
+          "ksadm-admin"
+        ], 
+        "x-title": "Delete role"
+      }, 
+      "get": {
+        "consumes": [
+          "application/json"
+        ], 
+        "description": "", 
+        "operationId": "showRoleByID", 
+        "parameters": [
+          {
+            "description": "The role ID.", 
+            "format": "", 
+            "in": "path", 
+            "name": "roleId", 
+            "required": true, 
+            "type": "string"
+          }
+        ], 
+        "produces": [
+          "application/json"
+        ], 
+        "responses": {
+          "200": {
+            "description": "", 
+            "examples": {
+              "application/json": {
+                "role": {
+                  "description": "Guest Access", 
+                  "id": "123", 
+                  "name": "Guest"
+                }
+              }
+            }, 
+            "headers": {
+              "Location": {
+                "description": "The location.", 
+                "format": "uri", 
+                "type": "string"
+              }
+            }, 
+            "schema": {
+              "$ref": "#/definitions/showRoleByID_200"
+            }
+          }, 
+          "203": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "400": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "401": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "403": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "404": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "405": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "409": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "413": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "415": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "503": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }
+        }, 
+        "summary": "Shows details for a role, by ID.", 
+        "tags": [
+          "ksadm-admin"
+        ], 
+        "x-title": "Show role details, by ID"
+      }
+    }, 
+    "/v2.0/OS-KSCATALOG/endpointTemplates": {
+      "post": {
+        "consumes": [
+          "application/json"
+        ], 
+        "description": "", 
+        "operationId": "createEndpointTemplate", 
+        "parameters": [], 
+        "produces": [
+          "application/json"
+        ], 
+        "responses": {
+          "201": {
+            "description": "", 
+            "examples": {
+              "application/json": {
+                "OS-KSCATALOG:endpointTemplate": {
+                  "enabled": true, 
+                  "global": true, 
+                  "id": 1, 
+                  "internalURL": "https://compute.north.internal.com/v1", 
+                  "publicURL": "https://compute.north.public.com/v1", 
+                  "region": "North", 
+                  "type": "compute"
+                }
+              }
+            }, 
+            "headers": {
+              "Location": {
+                "description": "", 
+                "format": "uri", 
+                "type": "string"
+              }
+            }, 
+            "schema": {}
+          }, 
+          "400": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "401": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "403": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "404": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "405": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "409": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "413": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "415": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "503": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }
+        }, 
+        "summary": "Creates endpoint template.", 
+        "tags": [
+          "kscatalog"
+        ], 
+        "x-title": "Create endpoint template"
+      }, 
+      "x-get-getEndpointTemplate": {
+        "consumes": [
+          "application/json"
+        ], 
+        "description": "", 
+        "operationId": "getEndpointTemplate", 
+        "parameters": [], 
+        "produces": [
+          "application/json"
+        ], 
+        "responses": {
+          "200": {
+            "description": "", 
+            "examples": {
+              "application/json": {
+                "OS-KSCATALOG:endpointTemplate": {
+                  "enabled": true, 
+                  "global": true, 
+                  "id": 1, 
+                  "internalURL": "https://compute.north.internal.com/v1", 
+                  "publicURL": "https://compute.north.public.com/v1", 
+                  "region": "North", 
+                  "type": "compute"
+                }
+              }
+            }, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "203": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "400": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "401": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "403": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "404": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "405": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "413": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "503": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }
+        }, 
+        "summary": "Gets endpoint templates.", 
+        "tags": [
+          "kscatalog"
+        ], 
+        "x-title": "Get endpoint template"
+      }, 
+      "x-get-listEndpointTemplates": {
+        "consumes": [
+          "application/json"
+        ], 
+        "description": "", 
+        "operationId": "listEndpointTemplates", 
+        "parameters": [], 
+        "produces": [
+          "application/json"
+        ], 
+        "responses": {
+          "200": {
+            "description": "", 
+            "examples": {
+              "application/json": {
+                "OS-KSCATALOG:endpointsTemplates": [
+                  {
+                    "enabled": true, 
+                    "global": true, 
+                    "id": 1, 
+                    "internalURL": "https://compute.north.internal.com/v1", 
+                    "publicURL": "https://compute.north.public.com/v1", 
+                    "region": "North", 
+                    "type": "compute"
+                  }, 
+                  {
+                    "enabled": false, 
+                    "id": 2, 
+                    "internalURL": "https://compute.south.internal.com/v1", 
+                    "publicURL": "https://compute.south.public.com/v1", 
+                    "region": "South", 
+                    "type": "compute"
+                  }, 
+                  {
+                    "enabled": true, 
+                    "global": true, 
+                    "id": 3, 
+                    "publicURL": "https://object-store.north.public.com/v1.0", 
+                    "region": "North", 
+                    "type": "object-store"
+                  }, 
+                  {
+                    "enabled": true, 
+                    "id": 4, 
+                    "publicURL": "https://object-store.south.public.com/v2", 
+                    "region": "South", 
+                    "type": "object-store"
+                  }, 
+                  {
+                    "enabled": true, 
+                    "global": true, 
+                    "id": 5, 
+                    "publicURL": "https://dns.public.com/v3.2", 
+                    "type": "OS-DNS:DNS"
+                  }
+                ], 
+                "OS-KSCATALOG:endpointsTemplates_links": []
+              }
+            }, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "203": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "400": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "401": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "403": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "404": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "405": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "413": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "503": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }
+        }, 
+        "summary": "Lists endpoint templates.", 
+        "tags": [
+          "kscatalog"
+        ], 
+        "x-title": "List endpoint templates"
+      }
+    }, 
+    "/v2.0/OS-KSCATALOG/endpointTemplates/{endpointTemplateId}": {
+      "delete": {
+        "consumes": [], 
+        "description": "", 
+        "operationId": "deleteEndpointTemplate", 
+        "parameters": [
+          {
+            "description": "The endpoint template ID.", 
+            "format": "", 
+            "in": "path", 
+            "name": "endpointTemplateId", 
+            "required": true, 
+            "type": "string"
+          }
+        ], 
+        "produces": [], 
+        "responses": {
+          "204": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "400": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "401": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "403": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "404": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "405": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "409": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "413": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "415": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "503": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }
+        }, 
+        "summary": "Deletes an endpoint template.", 
+        "tags": [
+          "kscatalog"
+        ], 
+        "x-title": "Delete endpoint template."
+      }, 
+      "put": {
+        "consumes": [
+          "application/json"
+        ], 
+        "description": "", 
+        "operationId": "updateEndpointTemplate", 
+        "parameters": [
+          {
+            "description": "The endpoint template ID.", 
+            "format": "", 
+            "in": "path", 
+            "name": "endpointTemplateId", 
+            "required": true, 
+            "type": "string"
+          }
+        ], 
+        "produces": [
+          "application/json"
+        ], 
+        "responses": {
+          "200": {
+            "description": "", 
+            "examples": {
+              "application/json": {
+                "OS-KSCATALOG:endpointTemplate": {
+                  "enabled": true, 
+                  "global": true, 
+                  "id": 1, 
+                  "internalURL": "https://compute.north.internal.com/v1", 
+                  "publicURL": "https://compute.north.public.com/v1", 
+                  "region": "North", 
+                  "type": "compute"
+                }
+              }
+            }, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "400": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "401": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "403": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "404": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "405": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "409": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "413": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "415": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "503": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }
+        }, 
+        "summary": "Updates endpoint template.", 
+        "tags": [
+          "kscatalog"
+        ], 
+        "x-title": "Update endpoint template"
+      }
+    }, 
+    "/v2.0/OS-KSVALIDATE/token/endpoints": {
+      "get": {
+        "consumes": [
+          "application/json"
+        ], 
+        "description": "", 
+        "operationId": "listEndpointsForToken", 
+        "parameters": [], 
+        "produces": [
+          "application/json"
+        ], 
+        "responses": {
+          "200": {
+            "description": "", 
+            "examples": {
+              "application/json": {
+                "endpoints": [
+                  {
+                    "adminURL": "https://compute.north.internal.com/v1", 
+                    "id": 1, 
+                    "internalURL": "https://compute.north.internal.com/v1", 
+                    "publicURL": "https://compute.north.public.com/v1", 
+                    "region": "North", 
+                    "tenantId": "1", 
+                    "type": "compute"
+                  }, 
+                  {
+                    "adminURL": "https://compute.north.internal.com/v1", 
+                    "id": 2, 
+                    "internalURL": "https://compute.north.internal.com/v1", 
+                    "publicURL": "https://compute.north.public.com/v1", 
+                    "region": "South", 
+                    "tenantId": "1", 
+                    "type": "compute"
+                  }, 
+                  {
+                    "adminURL": "https://compute.north.internal.com/v1", 
+                    "id": 3, 
+                    "internalURL": "https://compute.north.internal.com/v1", 
+                    "publicURL": "https://compute.north.public.com/v1", 
+                    "region": "East", 
+                    "tenantId": "1", 
+                    "type": "compute"
+                  }, 
+                  {
+                    "adminURL": "https://compute.north.internal.com/v1", 
+                    "id": 4, 
+                    "internalURL": "https://compute.north.internal.com/v1", 
+                    "publicURL": "https://compute.north.public.com/v1", 
+                    "region": "West", 
+                    "tenantId": "1", 
+                    "type": "compute"
+                  }, 
+                  {
+                    "adminURL": "https://compute.north.internal.com/v1", 
+                    "id": 5, 
+                    "internalURL": "https://compute.north.internal.com/v1", 
+                    "publicURL": "https://compute.north.public.com/v1", 
+                    "region": "Global", 
+                    "tenantId": "1", 
+                    "type": "compute"
+                  }
+                ], 
+                "endpoints_links": []
+              }
+            }, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "203": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "400": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "401": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "403": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "404": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "405": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "413": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "503": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }
+        }, 
+        "summary": "Lists endpoints for a token.", 
+        "tags": [
+          "ksvalidate"
+        ], 
+        "x-title": "List endpoints for token"
+      }
+    }, 
+    "/v2.0/OS-KSVALIDATE/token/validate": {
+      "get": {
+        "consumes": [
+          "application/json"
+        ], 
+        "description": "Behavior is similar to ``/tokens/{tokenId}``. If the token is not\nvalid, the call returns the ``itemNotFound (404)`` response code.\n\nThis extension might decrypt the ``X-Subject-Token`` header and\ninternally call and pass in all headers and query parameters to the\nnormal validation code for Identity. Consequently, this extension\nmust support all existing ``/tokens/{tokenId}`` calls including\nextensions such as HP-IDM.", 
+        "operationId": "validateToken", 
+        "parameters": [], 
+        "produces": [
+          "application/json"
+        ], 
+        "responses": {
+          "200": {
+            "description": "", 
+            "examples": {
+              "application/json": {
+                "access": {
+                  "token": {
+                    "expires": "2010-11-01T03:32:15-05:00", 
+                    "id": "ab48a9efdfedb23ty3494", 
+                    "tenant": {
+                      "id": "345", 
+                      "name": "My Project"
+                    }
+                  }, 
+                  "user": {
+                    "id": "123", 
+                    "name": "jqsmith", 
+                    "roles": [
+                      {
+                        "id": "234", 
+                        "name": "compute:admin"
+                      }, 
+                      {
+                        "id": "234", 
+                        "name": "object-store:admin", 
+                        "tenantId": "1"
+                      }
+                    ], 
+                    "roles_links": []
+                  }
+                }
+              }
+            }, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "203": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "400": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "401": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "403": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "404": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "405": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "413": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "503": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }
+        }, 
+        "summary": "Checks that a token is valid and that it belongs to the tenant and any service IDs. Returns the permissions for a particular client.", 
+        "tags": [
+          "ksvalidate"
+        ], 
+        "x-title": "Validate token"
+      }, 
+      "head": {
+        "consumes": [], 
+        "description": "Behavior is similar to ``/tokens/{tokenId}``. If the token is not\nvalid, the call returns the ``itemNotFound (404)`` response code.\n\nThis extension might decrypt the ``X-Subject-Token`` header and\ninternally call and pass in all headers and query parameters to the\nnormal validation code for Identity. Consequently, this extension\nmust support all existing ``/tokens/{tokenId}`` calls including\nextensions such as HP-IDM.", 
+        "operationId": "checkToken", 
+        "parameters": [], 
+        "produces": [], 
+        "responses": {
+          "200": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "203": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "400": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "401": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "403": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "404": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "405": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "413": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "503": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }
+        }, 
+        "summary": "Checks that a token is valid and that it belongs to the tenant and any service IDs, for performance.", 
+        "tags": [
+          "ksvalidate"
+        ], 
+        "x-title": "Check token"
+      }
+    }, 
+    "/v2.0/services": {
+      "get": {
+        "consumes": [
+          "application/json"
+        ], 
+        "description": "", 
+        "operationId": "listServices", 
+        "parameters": [], 
+        "produces": [
+          "application/json"
+        ], 
+        "responses": {
+          "200": {
+            "description": "", 
+            "examples": {
+              "application/json": {
+                "OS-KSADM:services": [
+                  {
+                    "description": "OpenStack Compute Service", 
+                    "id": "123", 
+                    "name": "nova", 
+                    "type": "compute"
+                  }, 
+                  {
+                    "description": "OpenStack Image Service", 
+                    "id": "234", 
+                    "name": "glance", 
+                    "type": "image"
+                  }
+                ], 
+                "OS-KSADM:services_links": []
+              }
+            }, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "203": {
+            "description": "", 
+            "examples": {
+              "application/json": {
+                "OS-KSADM:services": [
+                  {
+                    "description": "OpenStack Compute Service", 
+                    "id": "123", 
+                    "name": "nova", 
+                    "type": "compute"
+                  }, 
+                  {
+                    "description": "OpenStack Image Service", 
+                    "id": "234", 
+                    "name": "glance", 
+                    "type": "image"
+                  }
+                ], 
+                "OS-KSADM:services_links": []
+              }
+            }, 
+            "headers": {}, 
+            "schema": {
+              "$ref": "#/definitions/listServices_203"
+            }
+          }, 
+          "400": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "401": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "403": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "404": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "405": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "413": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "503": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }
+        }, 
+        "summary": "Lists all services.", 
+        "tags": [
+          "ksadm-admin"
+        ], 
+        "x-title": "List services"
+      }, 
+      "post": {
+        "consumes": [
+          "application/json"
+        ], 
+        "description": "", 
+        "operationId": "createService", 
+        "parameters": [], 
+        "produces": [
+          "application/json"
+        ], 
+        "responses": {
+          "201": {
+            "description": "", 
+            "examples": {
+              "application/json": {
+                "OS-KSADM:service": {
+                  "description": "OpenStack Compute Service", 
+                  "id": "123", 
+                  "name": "nova", 
+                  "type": "compute"
+                }
+              }
+            }, 
+            "headers": {
+              "Location": {
+                "description": "The location.", 
+                "format": "uri", 
+                "type": "string"
+              }
+            }, 
+            "schema": {
+              "$ref": "#/definitions/createService_201"
+            }
+          }, 
+          "400": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "401": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "403": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "404": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "405": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "409": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "413": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "415": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "503": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }
+        }, 
+        "summary": "Creates a service.", 
+        "tags": [
+          "ksadm-admin"
+        ], 
+        "x-title": "Create service"
+      }
+    }, 
+    "/v2.0/services/{serviceId}": {
+      "delete": {
+        "consumes": [], 
+        "description": "", 
+        "operationId": "deleteService", 
+        "parameters": [
+          {
+            "description": "The service ID.", 
+            "format": "", 
+            "in": "path", 
+            "name": "serviceId", 
+            "required": true, 
+            "type": "string"
+          }
+        ], 
+        "produces": [], 
+        "responses": {
+          "204": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "400": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "401": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "403": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "404": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "405": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "409": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "413": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "415": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "503": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }
+        }, 
+        "summary": "Deletes a service.", 
+        "tags": [
+          "ksadm-admin"
+        ], 
+        "x-title": "Delete service"
+      }, 
+      "get": {
+        "consumes": [
+          "application/json"
+        ], 
+        "description": "", 
+        "operationId": "showServiceByID", 
+        "parameters": [
+          {
+            "description": "The service ID.", 
+            "format": "", 
+            "in": "path", 
+            "name": "serviceId", 
+            "required": true, 
+            "type": "string"
+          }
+        ], 
+        "produces": [
+          "application/json"
+        ], 
+        "responses": {
+          "200": {
+            "description": "", 
+            "examples": {
+              "application/json": {
+                "OS-KSADM:service": {
+                  "description": "OpenStack Compute Service", 
+                  "id": "123", 
+                  "name": "nova", 
+                  "type": "compute"
+                }
+              }
+            }, 
+            "headers": {}, 
+            "schema": {
+              "$ref": "#/definitions/showServiceByID_200"
+            }
+          }, 
+          "203": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "400": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "401": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "403": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "404": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "405": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "413": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "503": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }
+        }, 
+        "summary": "Shows information for a service, by ID.", 
+        "tags": [
+          "ksadm-admin"
+        ], 
+        "x-title": "Shows service information by ID"
+      }
+    }, 
+    "/v2.0/services/{serviceName}": {
+      "get": {
+        "consumes": [
+          "application/json"
+        ], 
+        "description": "", 
+        "operationId": "showServiceByName", 
+        "parameters": [], 
+        "produces": [
+          "application/json"
+        ], 
+        "responses": {
+          "200": {
+            "description": "", 
+            "examples": {
+              "application/json": {
+                "OS-KSADM:service": {
+                  "description": "OpenStack Compute Service", 
+                  "id": "123", 
+                  "name": "nova", 
+                  "type": "compute"
+                }
+              }
+            }, 
+            "headers": {}, 
+            "schema": {
+              "$ref": "#/definitions/showServiceByName_200"
+            }
+          }, 
+          "203": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "400": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "401": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "403": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "404": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "405": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "413": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "503": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }
+        }, 
+        "summary": "Shows information for a service, by name.", 
+        "tags": [
+          "ksadm-admin"
+        ], 
+        "x-title": "Show service information by name"
+      }
+    }, 
+    "/v2.0/tenants": {
+      "post": {
+        "consumes": [
+          "application/json"
+        ], 
+        "description": "", 
+        "operationId": "createTenant", 
+        "parameters": [], 
+        "produces": [
+          "application/json"
+        ], 
+        "responses": {
+          "201": {
+            "description": "", 
+            "examples": {
+              "application/json": {
+                "tenant": {
+                  "description": "A description ...", 
+                  "enabled": true, 
+                  "id": "1234", 
+                  "name": "ACME corp"
+                }
+              }
+            }, 
+            "headers": {}, 
+            "schema": {
+              "$ref": "#/definitions/createTenant_201"
+            }
+          }, 
+          "400": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "401": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "403": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "404": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "405": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "409": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "413": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "415": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "503": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }
+        }, 
+        "summary": "Creates a tenant.", 
+        "tags": [
+          "ksadm-admin"
+        ], 
+        "x-title": "Create tenant"
+      }
+    }, 
+    "/v2.0/tenants/{tenantId}": {
+      "delete": {
+        "consumes": [], 
+        "description": "", 
+        "operationId": "deleteTenant", 
+        "parameters": [
+          {
+            "description": "The tenant ID.", 
+            "format": "", 
+            "in": "path", 
+            "name": "tenantId", 
+            "required": true, 
+            "type": "string"
+          }
+        ], 
+        "produces": [], 
+        "responses": {
+          "204": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "400": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "401": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "403": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "404": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "405": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "409": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "413": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "415": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "503": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }
+        }, 
+        "summary": "Deletes a tenant.", 
+        "tags": [
+          "ksadm-admin"
+        ], 
+        "x-title": "Delete tenant"
+      }, 
+      "post": {
+        "consumes": [
+          "application/json"
+        ], 
+        "description": "", 
+        "operationId": "updateTenant", 
+        "parameters": [
+          {
+            "description": "", 
+            "in": "body", 
+            "name": "body", 
+            "required": false, 
+            "schema": {
+              "$ref": "#/definitions/updateTenant"
+            }
+          }, 
+          {
+            "description": "The tenant ID.", 
+            "format": "", 
+            "in": "path", 
+            "name": "tenantId", 
+            "required": true, 
+            "type": "string"
+          }
+        ], 
+        "produces": [
+          "application/json"
+        ], 
+        "responses": {
+          "200": {
+            "description": "", 
+            "examples": {
+              "application/json": {
+                "tenant": {
+                  "description": "A description ...", 
+                  "enabled": true, 
+                  "id": "1234", 
+                  "name": "ACME corp"
+                }
+              }
+            }, 
+            "headers": {}, 
+            "schema": {
+              "$ref": "#/definitions/updateTenant_200"
+            }
+          }, 
+          "400": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "401": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "403": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "404": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "405": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "409": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "413": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "415": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "503": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }
+        }, 
+        "summary": "Updates a tenant.", 
+        "tags": [
+          "ksadm-admin"
+        ], 
+        "x-title": "Update tenant"
+      }
+    }, 
+    "/v2.0/tenants/{tenantId}/OS-KSCATALOG/endpoints": {
+      "post": {
+        "consumes": [
+          "application/json"
+        ], 
+        "description": "", 
+        "operationId": "createEndpoint", 
+        "parameters": [], 
+        "produces": [
+          "application/json"
+        ], 
+        "responses": {
+          "201": {
+            "description": "", 
+            "examples": {
+              "application/json": {
+                "endpoint": {
+                  "adminURL": "https://compute.north.internal.com/v1", 
+                  "id": 1, 
+                  "internalURL": "https://compute.north.internal.com/v1", 
+                  "publicURL": "https://compute.north.public.com/v1", 
+                  "region": "North", 
+                  "tenantId": 1, 
+                  "type": "compute"
+                }
+              }
+            }, 
+            "headers": {
+              "Location": {
+                "description": "", 
+                "format": "uri", 
+                "type": "string"
+              }
+            }, 
+            "schema": {}
+          }, 
+          "400": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "401": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "403": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "404": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "405": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "409": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "413": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "415": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "503": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }
+        }, 
+        "summary": "Creates endpoint to a tenant.", 
+        "tags": [
+          "kscatalog"
+        ], 
+        "x-title": "Create endpoint"
+      }, 
+      "x-get-getEndpoint": {
+        "consumes": [
+          "application/json"
+        ], 
+        "description": "", 
+        "operationId": "getEndpoint", 
+        "parameters": [], 
+        "produces": [
+          "application/json"
+        ], 
+        "responses": {
+          "200": {
+            "description": "", 
+            "examples": {
+              "application/json": {
+                "endpoint": {
+                  "adminURL": "https://compute.north.internal.com/v1", 
+                  "id": 1, 
+                  "internalURL": "https://compute.north.internal.com/v1", 
+                  "publicURL": "https://compute.north.public.com/v1", 
+                  "region": "North", 
+                  "tenantId": 1, 
+                  "type": "compute"
+                }
+              }
+            }, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "203": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "400": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "401": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "403": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "404": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "405": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "413": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "503": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }
+        }, 
+        "summary": "Gets endpoint for a tenant.", 
+        "tags": [
+          "kscatalog"
+        ], 
+        "x-title": "Get endpoint"
+      }, 
+      "x-get-listEndpoints": {
+        "consumes": [
+          "application/json"
+        ], 
+        "description": "", 
+        "operationId": "listEndpoints", 
+        "parameters": [], 
+        "produces": [
+          "application/json"
+        ], 
+        "responses": {
+          "200": {
+            "description": "", 
+            "examples": {
+              "application/json": {
+                "endpoints": [
+                  {
+                    "adminURL": "https://compute.north.internal.com/v1", 
+                    "id": 1, 
+                    "internalURL": "https://compute.north.internal.com/v1", 
+                    "publicURL": "https://compute.north.public.com/v1", 
+                    "region": "North", 
+                    "tenantId": "1", 
+                    "type": "compute"
+                  }, 
+                  {
+                    "adminURL": "https://compute.north.internal.com/v1", 
+                    "id": 2, 
+                    "internalURL": "https://compute.north.internal.com/v1", 
+                    "publicURL": "https://compute.north.public.com/v1", 
+                    "region": "South", 
+                    "tenantId": "1", 
+                    "type": "compute"
+                  }, 
+                  {
+                    "adminURL": "https://compute.north.internal.com/v1", 
+                    "id": 3, 
+                    "internalURL": "https://compute.north.internal.com/v1", 
+                    "publicURL": "https://compute.north.public.com/v1", 
+                    "region": "East", 
+                    "tenantId": "1", 
+                    "type": "compute"
+                  }, 
+                  {
+                    "adminURL": "https://compute.north.internal.com/v1", 
+                    "id": 4, 
+                    "internalURL": "https://compute.north.internal.com/v1", 
+                    "publicURL": "https://compute.north.public.com/v1", 
+                    "region": "West", 
+                    "tenantId": "1", 
+                    "type": "compute"
+                  }, 
+                  {
+                    "adminURL": "https://compute.north.internal.com/v1", 
+                    "id": 5, 
+                    "internalURL": "https://compute.north.internal.com/v1", 
+                    "publicURL": "https://compute.north.public.com/v1", 
+                    "region": "Global", 
+                    "tenantId": "1", 
+                    "type": "compute"
+                  }
+                ], 
+                "endpoints_links": []
+              }
+            }, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "203": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "400": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "401": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "403": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "404": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "405": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "413": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "503": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }
+        }, 
+        "summary": "Lists endpoints for a tenant.", 
+        "tags": [
+          "kscatalog"
+        ], 
+        "x-title": "List endpoints"
+      }
+    }, 
+    "/v2.0/tenants/{tenantId}/OS-KSCATALOG/endpoints/{endpointId}": {
+      "delete": {
+        "consumes": [], 
+        "description": "", 
+        "operationId": "deleteEndpoint", 
+        "parameters": [], 
+        "produces": [], 
+        "responses": {
+          "204": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "400": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "401": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "403": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "404": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "405": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "409": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "413": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "415": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "503": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }
+        }, 
+        "summary": "Deletes an endpoint from a tenant.", 
+        "tags": [
+          "kscatalog"
+        ], 
+        "x-title": "Delete endpoint"
+      }
+    }, 
+    "/v2.0/tenants/{tenantId}/users": {
+      "get": {
+        "consumes": [
+          "application/json"
+        ], 
+        "description": "", 
+        "operationId": "listUsersForTenant", 
+        "parameters": [
+          {
+            "description": "The tenant ID.", 
+            "format": "", 
+            "in": "path", 
+            "name": "tenantId", 
+            "required": true, 
+            "type": "string"
+          }
+        ], 
+        "produces": [
+          "application/json"
+        ], 
+        "responses": {
+          "200": {
+            "description": "", 
+            "examples": {
+              "application/json": {
+                "users": [
+                  {
+                    "email": "john.smith@example.org", 
+                    "enabled": true, 
+                    "id": "u1000", 
+                    "name": "jqsmith"
+                  }, 
+                  {
+                    "email": "john.smith@example.org", 
+                    "enabled": true, 
+                    "id": "u1001", 
+                    "name": "jqsmith"
+                  }
+                ], 
+                "users_links": []
+              }
+            }, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "203": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "400": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "401": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "403": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "404": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "405": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "413": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "503": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }
+        }, 
+        "summary": "Lists all users for a tenant.", 
+        "tags": [
+          "ksadm-admin"
+        ], 
+        "x-title": "List users on a tenant"
+      }
+    }, 
+    "/v2.0/tenants/{tenantId}/users/{userId}/roles/OS-KSADM/{roleId}": {
+      "delete": {
+        "consumes": [], 
+        "description": "", 
+        "operationId": "revokeRoleFromUserOnTenant", 
+        "parameters": [
+          {
+            "description": "The user ID.", 
+            "format": "", 
+            "in": "path", 
+            "name": "userId", 
+            "required": true, 
+            "type": "string"
+          }, 
+          {
+            "description": "The role ID.", 
+            "format": "", 
+            "in": "path", 
+            "name": "roleId", 
+            "required": true, 
+            "type": "string"
+          }, 
+          {
+            "description": "The tenant ID.", 
+            "format": "", 
+            "in": "path", 
+            "name": "tenantId", 
+            "required": true, 
+            "type": "string"
+          }
+        ], 
+        "produces": [], 
+        "responses": {
+          "204": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "400": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "401": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "403": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "404": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "405": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "409": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "413": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "415": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "503": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }
+        }, 
+        "summary": "Revokes a role from a user for a tenant.", 
+        "tags": [
+          "ksadm-admin"
+        ], 
+        "x-title": "Revoke role from user on tenant"
+      }, 
+      "put": {
+        "consumes": [], 
+        "description": "", 
+        "operationId": "grantRoleToUserOnTenant", 
+        "parameters": [
+          {
+            "description": "The user ID.", 
+            "format": "", 
+            "in": "path", 
+            "name": "userId", 
+            "required": true, 
+            "type": "string"
+          }, 
+          {
+            "description": "The role ID.", 
+            "format": "", 
+            "in": "path", 
+            "name": "roleId", 
+            "required": true, 
+            "type": "string"
+          }, 
+          {
+            "description": "The tenant ID.", 
+            "format": "", 
+            "in": "path", 
+            "name": "tenantId", 
+            "required": true, 
+            "type": "string"
+          }
+        ], 
+        "produces": [], 
+        "responses": {
+          "201": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "400": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "401": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "403": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "404": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "405": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "409": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "413": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "415": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "503": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }
+        }, 
+        "summary": "Grants a role to a user for a tenant.", 
+        "tags": [
+          "ksadm-admin"
+        ], 
+        "x-title": "Grant roles to user on tenant"
+      }
+    }, 
+    "/v2.0/users": {
+      "get": {
+        "consumes": [
+          "application/json"
+        ], 
+        "description": "", 
+        "operationId": "listUsers", 
+        "parameters": [], 
+        "produces": [
+          "application/json"
+        ], 
+        "responses": {
+          "200": {
+            "description": "", 
+            "examples": {
+              "application/json": {
+                "users": [
+                  {
+                    "email": "john.smith@example.org", 
+                    "enabled": true, 
+                    "id": "u1000", 
+                    "name": "jqsmith"
+                  }, 
+                  {
+                    "email": "john.smith@example.org", 
+                    "enabled": true, 
+                    "id": "u1001", 
+                    "name": "jqsmith"
+                  }
+                ], 
+                "users_links": []
+              }
+            }, 
+            "headers": {}, 
+            "schema": {
+              "$ref": "#/definitions/listUsers_200"
+            }
+          }, 
+          "203": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "400": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "401": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "403": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "404": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "405": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "413": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "503": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }
+        }, 
+        "summary": "Lists all users.", 
+        "tags": [
+          "ksadm-admin"
+        ], 
+        "x-title": "List users"
+      }, 
+      "post": {
+        "consumes": [
+          "application/json"
+        ], 
+        "description": "", 
+        "operationId": "createUser", 
+        "parameters": [
+          {
+            "description": "", 
+            "in": "body", 
+            "name": "body", 
+            "required": false, 
+            "schema": {
+              "$ref": "#/definitions/createUser"
+            }
+          }
+        ], 
+        "produces": [
+          "application/json"
+        ], 
+        "responses": {
+          "201": {
+            "description": "", 
+            "examples": {
+              "application/json": {
+                "user": {
+                  "email": "john.smith@example.org", 
+                  "enabled": true, 
+                  "id": "u1000", 
+                  "name": "jqsmith"
+                }
+              }
+            }, 
+            "headers": {}, 
+            "schema": {
+              "$ref": "#/definitions/createUser_201"
+            }
+          }, 
+          "400": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "401": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "403": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "404": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "405": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "409": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "413": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "415": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "503": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }
+        }, 
+        "summary": "Creates a user.", 
+        "tags": [
+          "ksadm-admin"
+        ], 
+        "x-title": "Create user"
+      }
+    }, 
+    "/v2.0/users/{userId}": {
+      "delete": {
+        "consumes": [], 
+        "description": "", 
+        "operationId": "deleteUser", 
+        "parameters": [
+          {
+            "description": "The user ID.", 
+            "format": "", 
+            "in": "path", 
+            "name": "userId", 
+            "required": true, 
+            "type": "string"
+          }
+        ], 
+        "produces": [], 
+        "responses": {
+          "204": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "400": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "401": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "403": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "404": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "405": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "409": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "413": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "415": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "503": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }
+        }, 
+        "summary": "Deletes a user.", 
+        "tags": [
+          "ksadm-admin"
+        ], 
+        "x-title": "Delete user"
+      }, 
+      "put": {
+        "consumes": [
+          "application/json"
+        ], 
+        "description": "", 
+        "operationId": "updateUser", 
+        "parameters": [
+          {
+            "description": "The user ID.", 
+            "format": "", 
+            "in": "path", 
+            "name": "userId", 
+            "required": true, 
+            "type": "string"
+          }
+        ], 
+        "produces": [
+          "application/json"
+        ], 
+        "responses": {
+          "200": {
+            "description": "", 
+            "examples": {
+              "application/json": {
+                "user": {
+                  "email": "john.smith@example.org", 
+                  "enabled": true, 
+                  "id": "u1000", 
+                  "name": "jqsmith"
+                }
+              }
+            }, 
+            "headers": {}, 
+            "schema": {
+              "$ref": "#/definitions/updateUser_200"
+            }
+          }, 
+          "400": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "401": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "403": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "404": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "405": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "409": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "413": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "415": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "503": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }
+        }, 
+        "summary": "Updates a user.", 
+        "tags": [
+          "ksadm-admin"
+        ], 
+        "x-title": "Update user"
+      }
+    }, 
+    "/v2.0/users/{userId}/OS-KSADM/credentials": {
+      "get": {
+        "consumes": [
+          "application/json"
+        ], 
+        "description": "", 
+        "operationId": "listCredentials", 
+        "parameters": [], 
+        "produces": [
+          "application/json"
+        ], 
+        "responses": {
+          "200": {
+            "description": "", 
+            "examples": {
+              "application/json": {
+                "credentials": [
+                  {
+                    "passwordCredentials": {
+                      "password": "secretsecret", 
+                      "username": "test_user"
+                    }
+                  }, 
+                  {
+                    "OS-KSEC2-ec2Credentials": {
+                      "secret": "secretsecret", 
+                      "signature": "bbb", 
+                      "username": "test_user"
+                    }
+                  }
+                ], 
+                "credentials_links": []
+              }
+            }, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "203": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "400": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "401": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "403": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "404": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "405": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "413": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "503": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }
+        }, 
+        "summary": "Lists credentials.", 
+        "tags": [
+          "ksec2-admin"
+        ], 
+        "x-title": "List credentials"
+      }, 
+      "post": {
+        "consumes": [
+          "application/json"
+        ], 
+        "description": "", 
+        "operationId": "grantCredentialToUser", 
+        "parameters": [], 
+        "produces": [
+          "application/json"
+        ], 
+        "responses": {
+          "201": {
+            "description": "", 
+            "examples": {
+              "application/json": {
+                "OS-KSEC2-ec2Credentials": {
+                  "secret": "secretsecret", 
+                  "signature": "bbb", 
+                  "username": "test_user"
+                }
+              }
+            }, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "400": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "401": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "403": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "404": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "405": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "409": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "413": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "415": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "503": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }
+        }, 
+        "summary": "Grants a credential to a user.", 
+        "tags": [
+          "ksec2-admin"
+        ], 
+        "x-title": "Grant credential to user"
+      }
+    }, 
+    "/v2.0/users/{userId}/OS-KSADM/credentials/OS-KSEC2:ec2Credentials": {
+      "delete": {
+        "consumes": [], 
+        "description": "", 
+        "operationId": "deleteUserCredential", 
+        "parameters": [], 
+        "produces": [], 
+        "responses": {
+          "204": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "400": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "401": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "403": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "404": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "405": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "409": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "413": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "415": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "503": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }
+        }, 
+        "summary": "Deletes user credentials.", 
+        "tags": [
+          "ksec2-admin"
+        ], 
+        "x-title": "Delete user credentials"
+      }, 
+      "get": {
+        "consumes": [
+          "application/json"
+        ], 
+        "description": "", 
+        "operationId": "getUserCredential", 
+        "parameters": [], 
+        "produces": [
+          "application/json"
+        ], 
+        "responses": {
+          "200": {
+            "description": "", 
+            "examples": {
+              "application/json": {
+                "OS-KSEC2-ec2Credentials": {
+                  "secret": "secretsecret", 
+                  "signature": "bbb", 
+                  "username": "test_user"
+                }
+              }
+            }, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "203": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "400": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "401": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "403": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "404": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "405": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "413": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "503": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }
+        }, 
+        "summary": "Gets user credentials.", 
+        "tags": [
+          "ksec2-admin"
+        ], 
+        "x-title": "Get user credentials"
+      }, 
+      "post": {
+        "consumes": [
+          "application/json"
+        ], 
+        "description": "", 
+        "operationId": "updateUserCredential", 
+        "parameters": [], 
+        "produces": [
+          "application/json"
+        ], 
+        "responses": {
+          "200": {
+            "description": "", 
+            "examples": {
+              "application/json": {
+                "OS-KSEC2-ec2Credentials": {
+                  "secret": "secretsecret", 
+                  "signature": "bbb", 
+                  "username": "test_user"
+                }
+              }
+            }, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "400": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "401": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "403": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "404": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "405": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "409": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "413": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "415": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "503": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }
+        }, 
+        "summary": "Updates credentials for a user.", 
+        "tags": [
+          "ksec2-admin"
+        ], 
+        "x-title": "Update user credentials"
+      }
+    }, 
+    "/v2.0/users/{userId}/OS-KSADM/credentials/OS-KSEC2:ec2Credentials/{type}": {
+      "get": {
+        "consumes": [
+          "application/json"
+        ], 
+        "description": "", 
+        "operationId": "listCredentialsByType", 
+        "parameters": [
+          {
+            "description": "The credential type.", 
+            "format": "", 
+            "in": "path", 
+            "name": "type", 
+            "required": true, 
+            "type": "string"
+          }
+        ], 
+        "produces": [
+          "application/json"
+        ], 
+        "responses": {
+          "200": {
+            "description": "", 
+            "examples": {
+              "application/json": {
+                "credentials": [
+                  {
+                    "passwordCredentials": {
+                      "password": "secretsecret", 
+                      "username": "test_user"
+                    }
+                  }
+                ], 
+                "credentials_links": []
+              }
+            }, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "203": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "400": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "401": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "403": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "404": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "405": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "413": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "503": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }
+        }, 
+        "summary": "Lists credentials by type.", 
+        "tags": [
+          "ksec2-admin"
+        ], 
+        "x-title": "List credentials by type"
+      }
+    }, 
+    "/v2.0/users/{userId}/OS-KSADM/enabled": {
+      "put": {
+        "consumes": [
+          "application/json"
+        ], 
+        "description": "", 
+        "operationId": "enableUser", 
+        "parameters": [
+          {
+            "description": "The user ID.", 
+            "format": "", 
+            "in": "path", 
+            "name": "userId", 
+            "required": true, 
+            "type": "string"
+          }
+        ], 
+        "produces": [
+          "application/json"
+        ], 
+        "responses": {
+          "200": {
+            "description": "", 
+            "examples": {
+              "application/json": {
+                "user": {
+                  "email": "john.smith@example.org", 
+                  "enabled": true, 
+                  "id": "u1000", 
+                  "name": "jqsmith"
+                }
+              }
+            }, 
+            "headers": {}, 
+            "schema": {
+              "$ref": "#/definitions/enableUser_200"
+            }
+          }, 
+          "400": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "401": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "403": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "404": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "405": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "409": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "413": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "415": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "503": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }
+        }, 
+        "summary": "Enables a user.", 
+        "tags": [
+          "ksadm-admin"
+        ], 
+        "x-title": "Enable user"
+      }
+    }, 
+    "/v2.0/users/{userId}/OS-KSS3/credentials": {
+      "get": {
+        "consumes": [
+          "application/json"
+        ], 
+        "description": "", 
+        "operationId": "listCredentials", 
+        "parameters": [], 
+        "produces": [
+          "application/json"
+        ], 
+        "responses": {
+          "200": {
+            "description": "", 
+            "examples": {
+              "application/json": {
+                "credentials": [
+                  {
+                    "passwordCredentials": {
+                      "password": "secretsecret", 
+                      "username": "test_user"
+                    }
+                  }, 
+                  {
+                    "OS-KSS3:s3Credentials": {
+                      "secret": "secretsecret", 
+                      "signature": "bbb", 
+                      "username": "test_user"
+                    }
+                  }
+                ], 
+                "credentials_links": []
+              }
+            }, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "203": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "400": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "401": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "403": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "404": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "405": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "413": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "503": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }
+        }, 
+        "summary": "Lists credentials.", 
+        "tags": [
+          "kss3-admin"
+        ], 
+        "x-title": "List credentials"
+      }, 
+      "post": {
+        "consumes": [
+          "application/json"
+        ], 
+        "description": "", 
+        "operationId": "grantCredentialToUser", 
+        "parameters": [], 
+        "produces": [
+          "application/json"
+        ], 
+        "responses": {
+          "201": {
+            "description": "", 
+            "examples": {
+              "application/json": {
+                "OS-KSS3:s3Credentials": {
+                  "secret": "secretsecret", 
+                  "signature": "bbb", 
+                  "username": "test_user"
+                }
+              }
+            }, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "400": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "401": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "403": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "404": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "405": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "409": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "413": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "415": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "503": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }
+        }, 
+        "summary": "Grants a credential to a user.", 
+        "tags": [
+          "kss3-admin"
+        ], 
+        "x-title": "Grant credential to user"
+      }
+    }, 
+    "/v2.0/users/{userId}/OS-KSS3/credentials/s3credentials": {
+      "delete": {
+        "consumes": [], 
+        "description": "", 
+        "operationId": "revokeUserCredentials", 
+        "parameters": [], 
+        "produces": [], 
+        "responses": {
+          "204": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "400": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "401": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "403": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "404": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "405": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "409": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "413": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "415": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "503": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }
+        }, 
+        "summary": "Revokes user credentials.", 
+        "tags": [
+          "kss3-admin"
+        ], 
+        "x-title": "Revoke user credentials"
+      }, 
+      "get": {
+        "consumes": [
+          "application/json"
+        ], 
+        "description": "", 
+        "operationId": "getUserCredential", 
+        "parameters": [], 
+        "produces": [
+          "application/json"
+        ], 
+        "responses": {
+          "200": {
+            "description": "", 
+            "examples": {
+              "application/json": {
+                "OS-KSS3:s3Credentials": {
+                  "secret": "secretsecret", 
+                  "signature": "bbb", 
+                  "username": "test_user"
+                }
+              }
+            }, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "203": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "400": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "401": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "403": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "404": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "405": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "413": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "503": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }
+        }, 
+        "summary": "Gets user credentials.", 
+        "tags": [
+          "kss3-admin"
+        ], 
+        "x-title": "Get user credentials"
+      }, 
+      "post": {
+        "consumes": [
+          "application/json"
+        ], 
+        "description": "", 
+        "operationId": "updateUserCredential", 
+        "parameters": [], 
+        "produces": [
+          "application/json"
+        ], 
+        "responses": {
+          "200": {
+            "description": "", 
+            "examples": {
+              "application/json": {
+                "OS-KSS3:s3Credentials": {
+                  "secret": "secretsecret", 
+                  "signature": "bbb", 
+                  "username": "test_user"
+                }
+              }
+            }, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "400": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "401": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "403": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "404": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "405": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "409": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "413": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "415": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "503": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }
+        }, 
+        "summary": "Updates credentials.", 
+        "tags": [
+          "kss3-admin"
+        ], 
+        "x-title": "Update user credentials"
+      }
+    }, 
+    "/v2.0/users/{userId}/OS-KSS3/credentials/s3credentials/{type}": {
+      "get": {
+        "consumes": [
+          "application/json"
+        ], 
+        "description": "", 
+        "operationId": "listCredentialsByType", 
+        "parameters": [], 
+        "produces": [
+          "application/json"
+        ], 
+        "responses": {
+          "200": {
+            "description": "", 
+            "examples": {
+              "application/json": {
+                "credentials": [
+                  {
+                    "passwordCredentials": {
+                      "password": "secretsecret", 
+                      "username": "test_user"
+                    }
+                  }, 
+                  {
+                    "OS-KSS3:s3Credentials": {
+                      "secret": "secretsecret", 
+                      "signature": "bbb", 
+                      "username": "test_user"
+                    }
+                  }
+                ], 
+                "credentials_links": []
+              }
+            }, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "203": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "400": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "401": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "403": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "404": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "405": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "413": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "503": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }
+        }, 
+        "summary": "Lists credentials by type.", 
+        "tags": [
+          "kss3-admin"
+        ], 
+        "x-title": "List credentials by type"
+      }
+    }, 
+    "/v2.0/users/{userId}/roles": {
+      "get": {
+        "consumes": [
+          "application/json"
+        ], 
+        "description": "", 
+        "operationId": "listUserGlobalRoles", 
+        "parameters": [
+          {
+            "description": "The user ID.", 
+            "format": "", 
+            "in": "path", 
+            "name": "userId", 
+            "required": true, 
+            "type": "string"
+          }
+        ], 
+        "produces": [
+          "application/json"
+        ], 
+        "responses": {
+          "200": {
+            "description": "", 
+            "examples": {
+              "application/json": {
+                "roles": [
+                  {
+                    "id": "8341d3603a1d4d5985bff09f10704d4d", 
+                    "name": "service"
+                  }, 
+                  {
+                    "id": "2e66d57df76946fdbe034bc4da6fdec0", 
+                    "name": "admin"
+                  }
+                ]
+              }
+            }, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "203": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "400": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "401": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "403": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "404": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "405": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "413": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "503": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }
+        }, 
+        "summary": "Lists global roles for a user.", 
+        "tags": [
+          "ksadm-admin"
+        ], 
+        "x-title": "List global roles for user"
+      }
+    }, 
+    "/v2.0/users/{userId}/roles/OS-KSADM/{roleId}": {
+      "delete": {
+        "consumes": [], 
+        "description": "", 
+        "operationId": "revokeGlobalRoleFromUser", 
+        "parameters": [
+          {
+            "description": "The user ID.", 
+            "format": "", 
+            "in": "path", 
+            "name": "userId", 
+            "required": true, 
+            "type": "string"
+          }, 
+          {
+            "description": "The role ID.", 
+            "format": "", 
+            "in": "path", 
+            "name": "roleId", 
+            "required": true, 
+            "type": "string"
+          }
+        ], 
+        "produces": [], 
+        "responses": {
+          "204": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "400": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "401": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "403": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "404": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "405": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "409": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "413": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "415": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "503": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }
+        }, 
+        "summary": "Deletes a global role from a user.", 
+        "tags": [
+          "ksadm-admin"
+        ], 
+        "x-title": "Delete global role from user"
+      }, 
+      "put": {
+        "consumes": [], 
+        "description": "", 
+        "operationId": "grantGlobalRoleToUser", 
+        "parameters": [
+          {
+            "description": "The user ID.", 
+            "format": "", 
+            "in": "path", 
+            "name": "userId", 
+            "required": true, 
+            "type": "string"
+          }, 
+          {
+            "description": "The role ID.", 
+            "format": "", 
+            "in": "path", 
+            "name": "roleId", 
+            "required": true, 
+            "type": "string"
+          }
+        ], 
+        "produces": [], 
+        "responses": {
+          "201": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "400": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "401": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "403": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "404": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "405": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "409": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "413": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "415": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "503": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }
+        }, 
+        "summary": "Grants a global role to a user.", 
+        "tags": [
+          "ksadm-admin"
+        ], 
+        "x-title": "Grant global role to user"
+      }
+    }
+  }, 
+  "produces": [
+    "application/json"
+  ], 
+  "swagger": "2.0", 
+  "tags": [
+    {
+      "description": "OS-KSADM admin extension", 
+      "name": "ksadm-admin", 
+      "x-summary": "Supports create, read, update, and delete (CRUD) operations for\nusers, tenants, roles, and services. Requires administrator\nprivileges."
+    }, 
+    {
+      "description": "OS-KSCATALOG admin extension", 
+      "name": "kscatalog", 
+      "x-summary": "Supports CRUD operations for endpoint templates and endpoints.\nRequires administrator privileges."
+    }, 
+    {
+      "description": "OS-KSEC2 admin extension", 
+      "name": "ksec2-admin", 
+      "x-summary": "Supports Amazon Elastic Compute (EC2) style authentication."
+    }, 
+    {
+      "description": "OS-KSS3 admin extension", 
+      "name": "kss3-admin", 
+      "x-summary": ""
+    }, 
+    {
+      "description": "OS-KSVALIDATE admin extension", 
+      "name": "ksvalidate", 
+      "x-summary": ""
+    }
+  ]
+}

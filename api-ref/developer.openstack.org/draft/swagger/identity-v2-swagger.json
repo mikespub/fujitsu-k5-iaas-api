@@ -1,0 +1,1226 @@
+{
+  "basePath": "/", 
+  "consumes": [
+    "application/json"
+  ], 
+  "definitions": {
+    "authenticate-v2.0": {
+      "example": {
+        "application/json": {
+          "auth": {
+            "passwordCredentials": {
+              "password": "secretsecret", 
+              "username": "demo"
+            }, 
+            "tenantName": "demo"
+          }
+        }
+      }, 
+      "properties": {
+        "id": {
+          "description": "The token ID. This field is required in the ``token`` object.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "password": {
+          "description": "The password of the user. Required if you include the\n``passwordCredentials`` object. Otherwise, you must provide a\ntoken.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "passwordCredentials": {
+          "description": "A ``passwordCredentials`` object. To authenticate, you must provide\neither a user ID and password or a token.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "tenantId": {
+          "description": "The tenant ID. Both the ``tenantId`` and ``tenantName`` attributes\nare optional and mutually exclusive. If you specify both\nattributes, the server returns the ``Bad Request (400)`` response\ncode.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "tenantName": {
+          "description": "The tenant name. Both the ``tenantId`` and ``tenantName``\nattributes are optional and mutually exclusive. If you specify both\nattributes, the server returns the ``Bad Request (400)`` response\ncode.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "token": {
+          "description": "A ``token`` object. Required if you do not provide a password\ncredential.", 
+          "format": "", 
+          "type": "object"
+        }, 
+        "username": {
+          "description": "The user name. Required if you include the ``passwordCredentials``\nobject. Otherwise, you must provide a token.", 
+          "format": "", 
+          "type": "string"
+        }
+      }, 
+      "type": "object"
+    }, 
+    "authenticate-v2.0_200": {
+      "properties": {
+        "access": {
+          "description": "An ``access`` object.", 
+          "format": "", 
+          "type": "object"
+        }, 
+        "description": {
+          "description": "The description of the tenant. If not set, this value is ``null``.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "enabled": {
+          "description": "Indicates whether the tenant is enabled or disabled.", 
+          "format": "", 
+          "type": "boolean"
+        }, 
+        "endpoints": {
+          "description": "One or more ``endpoints`` objects. Each object shows the\n``adminURL``, ``region``, ``internalURL``, ``id``, and\n``publicURL`` for the endpoint.", 
+          "format": "", 
+          "items": {
+            "type": "string"
+          }, 
+          "type": "array"
+        }, 
+        "endpoints_links": {
+          "description": "Links for the endpoint.", 
+          "format": "", 
+          "items": {
+            "type": "string"
+          }, 
+          "type": "array"
+        }, 
+        "expires": {
+          "description": "The date and time when the token expires.\n\nThe date and time stamp format is `ISO 8601\n<https://en.wikipedia.org/wiki/ISO_8601>`_:\n\n::\n\n   CCYY-MM-DDThh:mm:ss\u00b1hh:mm\n\nFor example, ``2015-08-27T09:49:58-05:00``.\n\nThe ``\u00b1hh:mm`` value, if included, is the time zone as an offset\nfrom UTC. In the previous example, the offset value is ``-05:00``.\n\nA ``null`` value indicates that the token never expires.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "id": {
+          "description": "The ID of the trust.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "impersonation": {
+          "description": "The impersonation flag.", 
+          "format": "", 
+          "type": "boolean"
+        }, 
+        "issued_at": {
+          "description": "The date and time when the token was issued.\n\nThe date and time stamp format is `ISO 8601\n<https://en.wikipedia.org/wiki/ISO_8601>`_:\n\n::\n\n   CCYY-MM-DDThh:mm:ss\u00b1hh:mm\n\nFor example, ``2015-08-27T09:49:58-05:00``.\n\nThe ``\u00b1hh:mm`` value, if included, is the time zone as an offset\nfrom UTC. In the previous example, the offset value is ``-05:00``.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "metadata": {
+          "description": "A ``metadata`` object.", 
+          "format": "", 
+          "type": "object"
+        }, 
+        "name": {
+          "description": "Endpoint name.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "serviceCatalog": {
+          "description": "List of ``serviceCatalog`` objects.", 
+          "format": "", 
+          "items": {
+            "type": "string"
+          }, 
+          "type": "array"
+        }, 
+        "tenant": {
+          "description": "A ``tenant`` object.", 
+          "format": "", 
+          "type": "object"
+        }, 
+        "token": {
+          "description": "A ``token`` object.", 
+          "format": "", 
+          "type": "object"
+        }, 
+        "trust": {
+          "description": "A ``trust`` object.", 
+          "format": "", 
+          "type": "object"
+        }, 
+        "trustee_user_id": {
+          "description": "The trustee user ID.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "trustor_user_id": {
+          "description": "The trustor user ID.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "type": {
+          "description": "Endpoint type.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "user": {
+          "description": "A ``user`` object, which shows the ``username``, ``roles_links``,\n``id``, ``roles``, and ``name``.", 
+          "format": "", 
+          "type": "object"
+        }
+      }, 
+      "required": [
+        "access", 
+        "token", 
+        "issued_at", 
+        "expires", 
+        "id", 
+        "tenant", 
+        "description", 
+        "enabled", 
+        "name", 
+        "serviceCatalog", 
+        "endpoints", 
+        "endpoints_links", 
+        "type", 
+        "user", 
+        "metadata"
+      ], 
+      "type": "object"
+    }, 
+    "listExtensions_200": {
+      "properties": {
+        "alias": {
+          "description": "The alias for the extension. For example, \"FOXNSOX\", \"os-\navailability-zone\", \"os-extended-quotas\", \"os-share-unmanage\" or\n\"os-used-limits.\"", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "description": {
+          "description": "The extension description.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "name": {
+          "description": "The name of the extension. For example, \"Fox In Socks.\"", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "updated": {
+          "description": "The date and time stamp when the extension was last updated.", 
+          "format": "", 
+          "type": "string"
+        }
+      }, 
+      "required": [
+        "name", 
+        "description", 
+        "alias", 
+        "updated"
+      ], 
+      "type": "object"
+    }, 
+    "listTenants_200": {
+      "properties": {
+        "description": {
+          "description": "Description about the tenant.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "enabled": {
+          "description": "Indicates whether the tenant is enabled or disabled.", 
+          "format": "", 
+          "type": "boolean"
+        }, 
+        "id": {
+          "description": "The tenant ID.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "name": {
+          "description": "The tenant name.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "tenants": {
+          "description": "One or more tenant Objects.", 
+          "format": "", 
+          "items": {
+            "type": "string"
+          }, 
+          "type": "array"
+        }, 
+        "tenants_links": {
+          "description": "Links of the tenants.", 
+          "format": "", 
+          "items": {
+            "type": "string"
+          }, 
+          "type": "array"
+        }
+      }, 
+      "required": [
+        "tenants", 
+        "id", 
+        "name", 
+        "description", 
+        "enabled", 
+        "tenants_links"
+      ], 
+      "type": "object"
+    }, 
+    "showExtension_200": {
+      "properties": {
+        "alias": {
+          "description": "The alias for the extension. For example, \"FOXNSOX\", \"os-\navailability-zone\", \"os-extended-quotas\", \"os-share-unmanage\" or\n\"os-used-limits.\"", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "description": {
+          "description": "The extension description.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "name": {
+          "description": "The name of the extension. For example, \"Fox In Socks.\"", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "updated": {
+          "description": "The date and time stamp when the extension was last updated.", 
+          "format": "", 
+          "type": "string"
+        }
+      }, 
+      "required": [
+        "name", 
+        "description", 
+        "alias", 
+        "updated"
+      ], 
+      "type": "object"
+    }
+  }, 
+  "externalDocs": {
+    "description": "OpenStack Docs", 
+    "url": "http://docs.openstack.org"
+  }, 
+  "host": "developer.openstack.org", 
+  "info": {
+    "license": {
+      "name": "Apache 2.0", 
+      "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+    }, 
+    "title": "Identity", 
+    "version": "v2", 
+    "x-service": "identity"
+  }, 
+  "paths": {
+    "/": {
+      "get": {
+        "consumes": [
+          "application/json"
+        ], 
+        "description": "", 
+        "operationId": "listVersions-v2", 
+        "parameters": [], 
+        "produces": [
+          "application/json"
+        ], 
+        "responses": {
+          "200": {
+            "description": "", 
+            "examples": {
+              "application/json": {
+                "versions": {
+                  "values": [
+                    {
+                      "id": "v3.4", 
+                      "links": [
+                        {
+                          "href": "http://localhost:35357/v3/", 
+                          "rel": "self"
+                        }
+                      ], 
+                      "media-types": [
+                        {
+                          "base": "application/json", 
+                          "type": "application/vnd.openstack.identity-v3+json"
+                        }
+                      ], 
+                      "status": "stable", 
+                      "updated": "2015-03-30T00:00:00Z"
+                    }, 
+                    {
+                      "id": "v2.0", 
+                      "links": [
+                        {
+                          "href": "http://localhost:35357/v2.0/", 
+                          "rel": "self"
+                        }, 
+                        {
+                          "href": "http://docs.openstack.org/", 
+                          "rel": "describedby", 
+                          "type": "text/html"
+                        }
+                      ], 
+                      "media-types": [
+                        {
+                          "base": "application/json", 
+                          "type": "application/vnd.openstack.identity-v2.0+json"
+                        }
+                      ], 
+                      "status": "stable", 
+                      "updated": "2014-04-17T00:00:00Z"
+                    }
+                  ]
+                }
+              }
+            }, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "300": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "400": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "401": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "403": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "404": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "405": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "413": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "503": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }
+        }, 
+        "summary": "Lists information about all Identity API versions.", 
+        "tags": [
+          "versions"
+        ], 
+        "x-title": "List versions"
+      }
+    }, 
+    "/v2.0": {
+      "get": {
+        "consumes": [
+          "application/json"
+        ], 
+        "description": "", 
+        "operationId": "showVersionInfo-v2.0", 
+        "parameters": [], 
+        "produces": [
+          "application/json"
+        ], 
+        "responses": {
+          "200": {
+            "description": "", 
+            "examples": {
+              "application/json": {
+                "version": {
+                  "id": "v2.0", 
+                  "links": [
+                    {
+                      "href": "http://localhost:5000/v2.0/", 
+                      "rel": "self"
+                    }, 
+                    {
+                      "href": "http://docs.openstack.org/", 
+                      "rel": "describedby", 
+                      "type": "text/html"
+                    }
+                  ], 
+                  "media-types": [
+                    {
+                      "base": "application/json", 
+                      "type": "application/vnd.openstack.identity-v2.0+json"
+                    }
+                  ], 
+                  "status": "stable", 
+                  "updated": "2014-04-17T00:00:00Z"
+                }
+              }
+            }, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "203": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "400": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "401": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "403": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "404": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "405": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "413": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "503": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }
+        }, 
+        "summary": "Shows details for the Identity API v2.0.", 
+        "tags": [
+          "versions"
+        ], 
+        "x-title": "Show version details"
+      }
+    }, 
+    "/v2.0/extensions": {
+      "get": {
+        "consumes": [
+          "application/json"
+        ], 
+        "description": "", 
+        "operationId": "listExtensions", 
+        "parameters": [], 
+        "produces": [
+          "application/json"
+        ], 
+        "responses": {
+          "200": {
+            "description": "", 
+            "examples": {
+              "application/json": {
+                "extensions": {
+                  "values": [
+                    {
+                      "alias": "s3tokens", 
+                      "description": "OpenStack S3 API.", 
+                      "links": [
+                        {
+                          "href": "https://github.com/openstack/identity-api", 
+                          "rel": "describedby", 
+                          "type": "text/html"
+                        }
+                      ], 
+                      "name": "OpenStack S3 API", 
+                      "namespace": "http://docs.openstack.org/identity/api/ext/s3tokens/v1.0", 
+                      "updated": "2013-07-07T12:00:0-00:00"
+                    }, 
+                    {
+                      "alias": "OS-EP-FILTER", 
+                      "description": "OpenStack Keystone Endpoint Filter API.", 
+                      "links": [
+                        {
+                          "href": "https://github.com/openstack/identity-api/blob/master/openstack-identity-api/v3/src/markdown/identity-api-v3-os-ep-filter-ext.md", 
+                          "rel": "describedby", 
+                          "type": "text/html"
+                        }
+                      ], 
+                      "name": "OpenStack Keystone Endpoint Filter API", 
+                      "namespace": "http://docs.openstack.org/identity/api/ext/OS-EP-FILTER/v1.0", 
+                      "updated": "2013-07-23T12:00:0-00:00"
+                    }, 
+                    {
+                      "alias": "OS-REVOKE", 
+                      "description": "OpenStack revoked token reporting mechanism.", 
+                      "links": [
+                        {
+                          "href": "https://github.com/openstack/identity-api/blob/master/openstack-identity-api/v3/src/markdown/identity-api-v3-os-revoke-ext.md", 
+                          "rel": "describedby", 
+                          "type": "text/html"
+                        }
+                      ], 
+                      "name": "OpenStack Revoke API", 
+                      "namespace": "http://docs.openstack.org/identity/api/ext/OS-REVOKE/v1.0", 
+                      "updated": "2014-02-24T20:51:0-00:00"
+                    }, 
+                    {
+                      "alias": "OS-FEDERATION", 
+                      "description": "OpenStack Identity Providers Mechanism.", 
+                      "links": [
+                        {
+                          "href": "https://github.com/openstack/identity-api", 
+                          "rel": "describedby", 
+                          "type": "text/html"
+                        }
+                      ], 
+                      "name": "OpenStack Federation APIs", 
+                      "namespace": "http://docs.openstack.org/identity/api/ext/OS-FEDERATION/v1.0", 
+                      "updated": "2013-12-17T12:00:0-00:00"
+                    }, 
+                    {
+                      "alias": "OS-KSADM", 
+                      "description": "OpenStack extensions to Keystone v2.0 API enabling Administrative Operations.", 
+                      "links": [
+                        {
+                          "href": "https://github.com/openstack/identity-api", 
+                          "rel": "describedby", 
+                          "type": "text/html"
+                        }
+                      ], 
+                      "name": "OpenStack Keystone Admin", 
+                      "namespace": "http://docs.openstack.org/identity/api/ext/OS-KSADM/v1.0", 
+                      "updated": "2013-07-11T17:14:00-00:00"
+                    }, 
+                    {
+                      "alias": "OS-SIMPLE-CERT", 
+                      "description": "OpenStack simple certificate retrieval extension", 
+                      "links": [
+                        {
+                          "href": "https://github.com/openstack/identity-api", 
+                          "rel": "describedby", 
+                          "type": "text/html"
+                        }
+                      ], 
+                      "name": "OpenStack Simple Certificate API", 
+                      "namespace": "http://docs.openstack.org/identity/api/ext/OS-SIMPLE-CERT/v1.0", 
+                      "updated": "2014-01-20T12:00:0-00:00"
+                    }, 
+                    {
+                      "alias": "OS-OAUTH1", 
+                      "description": "OpenStack OAuth 1.0a Delegated Auth Mechanism.", 
+                      "links": [
+                        {
+                          "href": "https://github.com/openstack/identity-api", 
+                          "rel": "describedby", 
+                          "type": "text/html"
+                        }
+                      ], 
+                      "name": "OpenStack OAUTH1 API", 
+                      "namespace": "http://docs.openstack.org/identity/api/ext/OS-OAUTH1/v1.0", 
+                      "updated": "2013-07-07T12:00:0-00:00"
+                    }, 
+                    {
+                      "alias": "OS-EC2", 
+                      "description": "OpenStack EC2 Credentials backend.", 
+                      "links": [
+                        {
+                          "href": "https://github.com/openstack/identity-api", 
+                          "rel": "describedby", 
+                          "type": "text/html"
+                        }
+                      ], 
+                      "name": "OpenStack EC2 API", 
+                      "namespace": "http://docs.openstack.org/identity/api/ext/OS-EC2/v1.0", 
+                      "updated": "2013-07-07T12:00:0-00:00"
+                    }
+                  ]
+                }
+              }
+            }, 
+            "headers": {
+              "x-openstack-request-id": {
+                "description": "A unique request ID that provides tracking for the request.\nProvider must configure middleware to return a request ID header in\na response.", 
+                "format": "", 
+                "type": "string"
+              }
+            }, 
+            "schema": {
+              "$ref": "#/definitions/listExtensions_200"
+            }
+          }, 
+          "203": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "400": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "401": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "403": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "404": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "405": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "413": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "503": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }
+        }, 
+        "summary": "Lists available extensions.", 
+        "tags": [
+          "identity-api-extensions"
+        ], 
+        "x-title": "List extensions"
+      }
+    }, 
+    "/v2.0/extensions/{alias}": {
+      "get": {
+        "consumes": [
+          "application/json"
+        ], 
+        "description": "", 
+        "operationId": "showExtension", 
+        "parameters": [
+          {
+            "description": "An alias for the extension name. For example, ``os-server-external-\nevents``.", 
+            "format": "", 
+            "in": "path", 
+            "name": "alias", 
+            "required": true, 
+            "type": "string"
+          }
+        ], 
+        "produces": [
+          "application/json"
+        ], 
+        "responses": {
+          "200": {
+            "description": "", 
+            "examples": {
+              "application/json": {
+                "extension": {
+                  "alias": "OS-OAUTH1", 
+                  "description": "OpenStack OAuth 1.0a Delegated Auth Mechanism.", 
+                  "links": [
+                    {
+                      "href": "https://github.com/openstack/identity-api", 
+                      "rel": "describedby", 
+                      "type": "text/html"
+                    }
+                  ], 
+                  "name": "OpenStack OAUTH1 API", 
+                  "namespace": "http://docs.openstack.org/identity/api/ext/OS-OAUTH1/v1.0", 
+                  "updated": "2013-07-07T12:00:0-00:00"
+                }
+              }
+            }, 
+            "headers": {
+              "x-openstack-request-id": {
+                "description": "A unique request ID that provides tracking for the request.\nProvider must configure middleware to return a request ID header in\na response.", 
+                "format": "", 
+                "type": "string"
+              }
+            }, 
+            "schema": {
+              "$ref": "#/definitions/showExtension_200"
+            }
+          }, 
+          "203": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "400": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "401": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "403": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "404": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "405": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "413": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "503": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }
+        }, 
+        "summary": "Shows details for an extension, by alias.", 
+        "tags": [
+          "identity-api-extensions"
+        ], 
+        "x-title": "Show extension details"
+      }
+    }, 
+    "/v2.0/tenants": {
+      "get": {
+        "consumes": [
+          "application/json"
+        ], 
+        "description": "", 
+        "operationId": "listTenants", 
+        "parameters": [], 
+        "produces": [
+          "application/json"
+        ], 
+        "responses": {
+          "200": {
+            "description": "", 
+            "examples": {
+              "application/json": {
+                "tenants": [
+                  {
+                    "description": "A description ...", 
+                    "enabled": true, 
+                    "id": "1234", 
+                    "name": "ACME Corp"
+                  }, 
+                  {
+                    "description": "A description ...", 
+                    "enabled": true, 
+                    "id": "3456", 
+                    "name": "Iron Works"
+                  }
+                ], 
+                "tenants_links": []
+              }
+            }, 
+            "headers": {}, 
+            "schema": {
+              "$ref": "#/definitions/listTenants_200"
+            }
+          }, 
+          "203": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "400": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "401": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "403": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "404": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "405": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "413": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "503": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }
+        }, 
+        "summary": "Lists tenants to which the token has access.", 
+        "tags": [
+          "identity-auth"
+        ], 
+        "x-title": "List tenants"
+      }
+    }, 
+    "/v2.0/tokens": {
+      "post": {
+        "consumes": [
+          "application/json"
+        ], 
+        "description": "The Identity API is a RESTful web service. It is the entry point to\nall service APIs. To access the Identity API, you must know its\nURL.\n\nEach REST request against Identity requires the X-Auth-Token\nheader. Clients obtain this token, along with the URL to other\nservice APIs, by first authenticating against Identity with valid\ncredentials.\n\nTo authenticate, you must provide either a user ID and password or\na token.\n\nIf the authentication token has expired, this call returns the HTTP\n``401`` status code.\n\nIf the token has expired, this call returns the HTTP ``404`` status\ncode.\n\nThe Identity API treats expired tokens as no longer valid tokens.\n\nThe deployment determines how long expired tokens are stored.\n\nTo view the ``trust`` object, you need to set ``trust`` enable on\nthe keystone configuration.", 
+        "operationId": "authenticate-v2.0", 
+        "parameters": [
+          {
+            "description": "", 
+            "in": "body", 
+            "name": "body", 
+            "required": false, 
+            "schema": {
+              "$ref": "#/definitions/authenticate-v2.0"
+            }
+          }
+        ], 
+        "produces": [
+          "application/json"
+        ], 
+        "responses": {
+          "200": {
+            "description": "", 
+            "examples": {
+              "application/json": {
+                "access": {
+                  "metadata": {
+                    "is_admin": 0, 
+                    "roles": [
+                      "7598ac3c634d4c3da4b9126a5f67ca2b", 
+                      "f95c0ab82d6045d9805033ee1fbc80d4"
+                    ]
+                  }, 
+                  "serviceCatalog": [
+                    {
+                      "endpoints": [
+                        {
+                          "adminURL": "http://23.253.72.207:8774/v2/fc394f2ab2df4114bde39905f800dc57", 
+                          "id": "2dad48f09e2a447a9bf852bcd93548ef", 
+                          "internalURL": "http://23.253.72.207:8774/v2/fc394f2ab2df4114bde39905f800dc57", 
+                          "publicURL": "http://23.253.72.207:8774/v2/fc394f2ab2df4114bde39905f800dc57", 
+                          "region": "RegionOne"
+                        }
+                      ], 
+                      "endpoints_links": [], 
+                      "name": "nova", 
+                      "type": "compute"
+                    }, 
+                    {
+                      "endpoints": [
+                        {
+                          "adminURL": "http://23.253.72.207:9696/", 
+                          "id": "97c526db8d7a4c88bbb8d68db1bdcdb8", 
+                          "internalURL": "http://23.253.72.207:9696/", 
+                          "publicURL": "http://23.253.72.207:9696/", 
+                          "region": "RegionOne"
+                        }
+                      ], 
+                      "endpoints_links": [], 
+                      "name": "neutron", 
+                      "type": "network"
+                    }, 
+                    {
+                      "endpoints": [
+                        {
+                          "adminURL": "http://23.253.72.207:8776/v2/fc394f2ab2df4114bde39905f800dc57", 
+                          "id": "93f86dfcbba143a39a33d0c2cd424870", 
+                          "internalURL": "http://23.253.72.207:8776/v2/fc394f2ab2df4114bde39905f800dc57", 
+                          "publicURL": "http://23.253.72.207:8776/v2/fc394f2ab2df4114bde39905f800dc57", 
+                          "region": "RegionOne"
+                        }
+                      ], 
+                      "endpoints_links": [], 
+                      "name": "cinder", 
+                      "type": "volumev2"
+                    }, 
+                    {
+                      "endpoints": [
+                        {
+                          "adminURL": "http://23.253.72.207:8774/v3", 
+                          "id": "3eb274b12b1d47b2abc536038d87339e", 
+                          "internalURL": "http://23.253.72.207:8774/v3", 
+                          "publicURL": "http://23.253.72.207:8774/v3", 
+                          "region": "RegionOne"
+                        }
+                      ], 
+                      "endpoints_links": [], 
+                      "name": "nova", 
+                      "type": "computev3"
+                    }, 
+                    {
+                      "endpoints": [
+                        {
+                          "adminURL": "http://23.253.72.207:3333", 
+                          "id": "957f1e54afc64d33a62099faa5e980a2", 
+                          "internalURL": "http://23.253.72.207:3333", 
+                          "publicURL": "http://23.253.72.207:3333", 
+                          "region": "RegionOne"
+                        }
+                      ], 
+                      "endpoints_links": [], 
+                      "name": "s3", 
+                      "type": "s3"
+                    }, 
+                    {
+                      "endpoints": [
+                        {
+                          "adminURL": "http://23.253.72.207:9292", 
+                          "id": "27d5749f36864c7d96bebf84a5ec9767", 
+                          "internalURL": "http://23.253.72.207:9292", 
+                          "publicURL": "http://23.253.72.207:9292", 
+                          "region": "RegionOne"
+                        }
+                      ], 
+                      "endpoints_links": [], 
+                      "name": "glance", 
+                      "type": "image"
+                    }, 
+                    {
+                      "endpoints": [
+                        {
+                          "adminURL": "http://23.253.72.207:8776/v1/fc394f2ab2df4114bde39905f800dc57", 
+                          "id": "37c83a2157f944f1972e74658aa0b139", 
+                          "internalURL": "http://23.253.72.207:8776/v1/fc394f2ab2df4114bde39905f800dc57", 
+                          "publicURL": "http://23.253.72.207:8776/v1/fc394f2ab2df4114bde39905f800dc57", 
+                          "region": "RegionOne"
+                        }
+                      ], 
+                      "endpoints_links": [], 
+                      "name": "cinder", 
+                      "type": "volume"
+                    }, 
+                    {
+                      "endpoints": [
+                        {
+                          "adminURL": "http://23.253.72.207:8773/services/Admin", 
+                          "id": "289b59289d6048e2912b327e5d3240ca", 
+                          "internalURL": "http://23.253.72.207:8773/services/Cloud", 
+                          "publicURL": "http://23.253.72.207:8773/services/Cloud", 
+                          "region": "RegionOne"
+                        }
+                      ], 
+                      "endpoints_links": [], 
+                      "name": "ec2", 
+                      "type": "ec2"
+                    }, 
+                    {
+                      "endpoints": [
+                        {
+                          "adminURL": "http://23.253.72.207:8080", 
+                          "id": "16b76b5e5b7d48039a6e4cc3129545f3", 
+                          "internalURL": "http://23.253.72.207:8080/v1/AUTH_fc394f2ab2df4114bde39905f800dc57", 
+                          "publicURL": "http://23.253.72.207:8080/v1/AUTH_fc394f2ab2df4114bde39905f800dc57", 
+                          "region": "RegionOne"
+                        }
+                      ], 
+                      "endpoints_links": [], 
+                      "name": "swift", 
+                      "type": "object-store"
+                    }, 
+                    {
+                      "endpoints": [
+                        {
+                          "adminURL": "http://23.253.72.207:35357/v2.0", 
+                          "id": "26af053673df4ef3a2340c4239e21ea2", 
+                          "internalURL": "http://23.253.72.207:5000/v2.0", 
+                          "publicURL": "http://23.253.72.207:5000/v2.0", 
+                          "region": "RegionOne"
+                        }
+                      ], 
+                      "endpoints_links": [], 
+                      "name": "keystone", 
+                      "type": "identity"
+                    }
+                  ], 
+                  "token": {
+                    "expires": "2014-01-31T15:30:58Z", 
+                    "id": "aaaaa-bbbbb-ccccc-dddd", 
+                    "issued_at": "2014-01-30T15:30:58.819584", 
+                    "tenant": {
+                      "description": null, 
+                      "enabled": true, 
+                      "id": "fc394f2ab2df4114bde39905f800dc57", 
+                      "name": "demo"
+                    }
+                  }, 
+                  "trust": {
+                    "id": "394998fa61f14736b1f0c1f322882949", 
+                    "impersonation": false, 
+                    "trustee_user_id": "269348fdd9374b8885da1418e0730af1", 
+                    "trustor_user_id": "3ec3164f750146be97f21559ee4d9c51"
+                  }, 
+                  "user": {
+                    "id": "9a6590b2ab024747bc2167c4e064d00d", 
+                    "name": "demo", 
+                    "roles": [
+                      {
+                        "name": "Member"
+                      }, 
+                      {
+                        "name": "anotherrole"
+                      }
+                    ], 
+                    "roles_links": [], 
+                    "username": "demo"
+                  }
+                }
+              }
+            }, 
+            "headers": {}, 
+            "schema": {
+              "$ref": "#/definitions/authenticate-v2.0_200"
+            }
+          }, 
+          "203": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "400": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "401": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "403": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "404": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "405": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "413": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "503": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }
+        }, 
+        "summary": "Authenticates and generates a token.", 
+        "tags": [
+          "identity-auth"
+        ], 
+        "x-title": "Authenticate"
+      }
+    }
+  }, 
+  "produces": [
+    "application/json"
+  ], 
+  "swagger": "2.0", 
+  "tags": [
+    {
+      "description": "API versions", 
+      "name": "versions", 
+      "x-summary": ""
+    }, 
+    {
+      "description": "Extensions", 
+      "name": "identity-api-extensions", 
+      "x-summary": ""
+    }, 
+    {
+      "description": "Tokens and tenants", 
+      "name": "identity-auth", 
+      "x-summary": ""
+    }
+  ]
+}

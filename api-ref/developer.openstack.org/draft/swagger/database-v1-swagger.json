@@ -1,0 +1,4845 @@
+{
+  "basePath": "/", 
+  "consumes": [
+    "application/json"
+  ], 
+  "definitions": {
+    "attachConfigGroup": {
+      "example": {
+        "text/plain": "PUT /v1.0/1234/instances/4c93c73b-d6d0-47d7-b8c6-b699d19d7de9 HTTP/1.1\nUser-Agent: python-example-client\nHost: openstack.example.com\nX-Auth-Token: 87c6033c-9ff6-405f-943e-2deb73f278b7\nAccept: application/json\nContent-Type: application/json\n\n"
+      }, 
+      "properties": {
+        "configuration": {
+          "description": "ID of the configuration group that you want to attach to the\ninstance.", 
+          "format": "", 
+          "type": "string"
+        }
+      }, 
+      "required": [
+        "configuration"
+      ], 
+      "type": "object"
+    }, 
+    "createConfigGroup": {
+      "example": {
+        "text/plain": "POST /v1.0/1234/configurations HTTP/1.1\nUser-Agent: python-example-client\nHost: openstack.example.com\nX-Auth-Token: d6cafa5b-e0c7-4ab8-948e-7c95f2acd031\nAccept: application/json\nContent-Type: application/json\n\n"
+      }, 
+      "properties": {
+        "datastore": {
+          "description": "Data store assigned to the configuration group. Required if you did\nnot configure the default data store.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "name": {
+          "description": "Name of the configuration group you are creating.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "values": {
+          "description": "Dictionary that lists configuration parameter names and associated\nvalues.", 
+          "format": "", 
+          "type": "string"
+        }
+      }, 
+      "required": [
+        "datastore", 
+        "values", 
+        "name"
+      ], 
+      "type": "object"
+    }, 
+    "createDatabase": {
+      "example": {
+        "text/plain": "POST /v1.0/1234/instances/692d8418-7a8f-47f1-8060-59846c6e024f/databases HTTP/1.1\nUser-Agent: python-example-client\nHost: openstack.example.com\nX-Auth-Token: 87c6033c-9ff6-405f-943e-2deb73f278b7\nAccept: application/json\nContent-Type: application/json"
+      }, 
+      "properties": {
+        "characterSet": {
+          "description": "A set of symbols and encodings. Default is ``utf8``.\n\nFor information about supported character sets and collations, see\n`Character Sets and Collations in MySQL\n<http://dev.mysql.com/doc/refman/5.1/en/charset-mysql.html>`_.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "collate": {
+          "description": "A set of rules for comparing characters in a character set. Default\nis ``utf8_general_ci``.\n\nFor information about supported character sets and collations, see\n`Character Sets and Collations in MySQL\n<http://dev.mysql.com/doc/refman/5.1/en/charset-mysql.html>`_.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "name": {
+          "description": "A database name.\n\nYou cannot use the ``lost+found``, ``information_schema``, or\n``mysql`` database name to create a database because these names\nare reserved for system databases.\n\nValid characters in a database name are:\n\n- Upper and lower case letters.\n\n- Numbers.\n\n- ``@``, ``?``, ``#``, and spaces except at the beginning or end of\n  the database name.\n\n- ``_`` is allowed anywhere in the database name.\n\nYou cannot use these characters in a database name:\n\nThe maximum length of a database name is 64 characters.", 
+          "format": "", 
+          "type": "string"
+        }
+      }, 
+      "type": "object"
+    }, 
+    "createInstance": {
+      "example": {
+        "text/plain": "POST /v1.0/1234/instances HTTP/1.1\nUser-Agent: python-example-client\nHost: openstack.example.com\nX-Auth-Token: d6cafa5b-e0c7-4ab8-948e-7c95f2acd031\nAccept: application/json\nContent-Type: application/json"
+      }, 
+      "properties": {
+        "characterSet": {
+          "description": "A set of symbols and encodings. Default is ``utf8``.\n\nFor information about supported character sets and collations, see\n`Character Sets and Collations in MySQL\n<http://dev.mysql.com/doc/refman/5.1/en/charset-mysql.html>`_.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "collate": {
+          "description": "A set of rules for comparing characters in a character set. Default\nis ``utf8_general_ci``.\n\nFor information about supported character sets and collations, see\n`Character Sets and Collations in MySQL\n<http://dev.mysql.com/doc/refman/5.1/en/charset-mysql.html>`_.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "configuration": {
+          "description": "ID of the configuration group to attach to the instance.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "databases": {
+          "description": "A ``databases`` object.", 
+          "format": "", 
+          "items": {
+            "type": "string"
+          }, 
+          "type": "array"
+        }, 
+        "datastore": {
+          "description": "Name of the datastore to use when creating the instance.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "datastore_version": {
+          "description": "Name of the datastore version to use when creating the instance.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "flavorRef": {
+          "description": "Reference (href), which is the actual URI to a flavor as it appears\nin the list flavors response.\n\nRather than the flavor URI, you can also pass the flavor ID\n(integer) as the ``flavorRef`` value. For example, ``1``.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "instance": {
+          "description": "An ``instance`` object.", 
+          "format": "", 
+          "type": "object"
+        }, 
+        "name": {
+          "description": "The user name for the database on instance creation.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "password": {
+          "description": "The password for those users on instance creation.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "replica_count": {
+          "description": "Number of replicas to create (defaults to 1).", 
+          "format": "", 
+          "type": "integer"
+        }, 
+        "replica_of": {
+          "description": "ID or name of an existing instance to replicate from.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "size": {
+          "description": "The volume size, in gigabytes (GB). A valid value is from 1 to 50.", 
+          "format": "", 
+          "type": "integer"
+        }, 
+        "type": {
+          "description": "The volume type to use. You can list the available volume types on\nyour system by using the ``cinder type-list`` command.\n\nIf you want to specify a volume type, you must also specify a\nvolume size.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "users": {
+          "description": "A ``users`` object.", 
+          "format": "", 
+          "items": {
+            "type": "string"
+          }, 
+          "type": "array"
+        }
+      }, 
+      "required": [
+        "instance", 
+        "flavorRef", 
+        "size", 
+        "users"
+      ], 
+      "type": "object"
+    }, 
+    "createInstance_200": {
+      "properties": {
+        "characterSet": {
+          "description": "A set of symbols and encodings. Default is ``utf8``.\n\nFor information about supported character sets and collations, see\n`Character Sets and Collations in MySQL\n<http://dev.mysql.com/doc/refman/5.1/en/charset-mysql.html>`_.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "collate": {
+          "description": "A set of rules for comparing characters in a character set. Default\nis ``utf8_general_ci``.\n\nFor information about supported character sets and collations, see\n`Character Sets and Collations in MySQL\n<http://dev.mysql.com/doc/refman/5.1/en/charset-mysql.html>`_.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "created": {
+          "description": "The date and time when the resource was created.\n\nThe date and time stamp format is `ISO 8601\n<https://en.wikipedia.org/wiki/ISO_8601>`_:\n\n::\n\n   CCYY-MM-DDThh:mm:ss\u00b1hh:mm\n\nFor example, ``2015-08-27T09:49:58-05:00``.\n\nThe ``\u00b1hh:mm`` value, if included, is the time zone as an offset\nfrom UTC. In the previous example, the offset value is ``-05:00``.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "databases": {
+          "description": "A ``databases`` object.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "flavor": {
+          "description": "A ``flavor`` object, which includes the flavor ID (integer) and\nflavor relative links.", 
+          "format": "", 
+          "type": "object"
+        }, 
+        "instance": {
+          "description": "An ``instance`` object.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "name": {
+          "description": "The user name for the database on instance creation.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "updated": {
+          "description": "The date and time when the resource was updated.\n\nThe date and time stamp format is `ISO 8601\n<https://en.wikipedia.org/wiki/ISO_8601>`_:\n\n::\n\n   CCYY-MM-DDThh:mm:ss\u00b1hh:mm\n\nThe ``\u00b1hh:mm`` value, if included, is the time zone as an offset\nfrom UTC.\n\nFor example, ``2015-08-27T09:49:58-05:00``.\n\nThe UTC time zone is assumed.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "users": {
+          "description": "A ``users`` object.", 
+          "format": "", 
+          "type": "string"
+        }
+      }, 
+      "required": [
+        "instance", 
+        "created", 
+        "flavor", 
+        "databases", 
+        "name", 
+        "characterSet", 
+        "collate", 
+        "users", 
+        "updated"
+      ], 
+      "type": "object"
+    }, 
+    "detachConfigGroup": {
+      "example": {
+        "text/plain": "PUT /v1.0/1234/instances/4c93c73b-d6d0-47d7-b8c6-b699d19d7de9 HTTP/1.1\nUser-Agent: python-example-client\nHost: openstack.example.com\nX-Auth-Token: 87c6033c-9ff6-405f-943e-2deb73f278b7\nAccept: application/json\nContent-Type: application/json\n\n"
+      }, 
+      "properties": {
+        "configuration": {
+          "description": "To detach a configuration group, set the configuration parameter to\nnull.", 
+          "format": "", 
+          "type": "string"
+        }
+      }, 
+      "required": [
+        "configuration"
+      ], 
+      "type": "object"
+    }, 
+    "detachReplica": {
+      "example": {
+        "text/plain": "PATCH /v1.0/1234/instances/4c93c73b-d6d0-47d7-b8c6-b699d19d7de9 HTTP/1.1\nUser-Agent: python-example-client\nHost: openstack.example.com\nX-Auth-Token: 87c6033c-9ff6-405f-943e-2deb73f278b7\nAccept: application/json\nContent-Type: application/json\n\n"
+      }, 
+      "properties": {
+        "replica_of": {
+          "description": "To detach a replica, set ``replica_of`` to null.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "slave_of": {
+          "description": "To detach a replica, set ``slave_of`` to null.", 
+          "format": "", 
+          "type": "string"
+        }
+      }, 
+      "required": [
+        "replica_of", 
+        "slave_of"
+      ], 
+      "type": "object"
+    }, 
+    "patchConfigGroup": {
+      "example": {
+        "text/plain": "PATCH /v1.0/1234/configurations/5678 HTTP/1.1\nUser-Agent: python-example-client\nHost: openstack.example.com\nX-Auth-Token: d6cafa5b-e0c7-4ab8-948e-7c95f2acd031\nAccept: application/json\nContent-Type: application/json\n\n"
+      }, 
+      "properties": {
+        "values": {
+          "description": "Dictionary that lists configuration parameter names and associated\nvalues.", 
+          "format": "", 
+          "type": "object"
+        }
+      }, 
+      "required": [
+        "values"
+      ], 
+      "type": "object"
+    }, 
+    "updateConfigGroup": {
+      "example": {
+        "text/plain": "PUT /v1.0/1234/configurations/5678 HTTP/1.1\nUser-Agent: python-example-client\nHost: openstack.example.com\nX-Auth-Token: d6cafa5b-e0c7-4ab8-948e-7c95f2acd031\nAccept: application/json\nContent-Type: application/json\n\n"
+      }, 
+      "properties": {
+        "description": {
+          "description": "New description of the configuration group.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "name": {
+          "description": "New name of the configuration group.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "values": {
+          "description": "Dictionary that lists configuration parameter names and associated\nvalues.", 
+          "format": "", 
+          "type": "object"
+        }
+      }, 
+      "required": [
+        "values", 
+        "name", 
+        "description"
+      ], 
+      "type": "object"
+    }
+  }, 
+  "externalDocs": {
+    "description": "OpenStack Docs", 
+    "url": "http://docs.openstack.org"
+  }, 
+  "host": "developer.openstack.org", 
+  "info": {
+    "license": {
+      "name": "Apache 2.0", 
+      "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+    }, 
+    "title": "Database Service", 
+    "version": "v1", 
+    "x-service": "database"
+  }, 
+  "paths": {
+    "/": {
+      "get": {
+        "consumes": [
+          "application/json"
+        ], 
+        "description": "", 
+        "operationId": "listVersions-dbaas-v1", 
+        "parameters": [], 
+        "produces": [
+          "application/json"
+        ], 
+        "responses": {
+          "200": {
+            "description": "", 
+            "examples": {
+              "application/json": {
+                "versions": [
+                  {
+                    "id": "v1.0", 
+                    "links": [
+                      {
+                        "href": "https://openstack.example.com/v1.0/", 
+                        "rel": "self"
+                      }
+                    ], 
+                    "status": "CURRENT", 
+                    "updated": "2012-01-01T00:00:00Z"
+                  }
+                ]
+              }, 
+              "text/plain": "HTTP/1.1 200 OK\nContent-Type: application/json\nContent-Length: 153\nDate: Wed, 25 Jan 2012 21:53:04 GMT"
+            }, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "400": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "401": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "403": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "404": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "405": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "413": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "422": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "500": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "501": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "503": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }
+        }, 
+        "summary": "Lists information about all Database Service API versions.", 
+        "tags": [
+          "api-versions"
+        ], 
+        "x-title": "List versions"
+      }
+    }, 
+    "/v1.0": {
+      "get": {
+        "consumes": [
+          "application/json"
+        ], 
+        "description": "", 
+        "operationId": "showVersionInfo-dbaas-v1", 
+        "parameters": [], 
+        "produces": [
+          "application/json"
+        ], 
+        "responses": {
+          "200": {
+            "description": "", 
+            "examples": {
+              "application/json": {
+                "versions": [
+                  {
+                    "id": "v1.0", 
+                    "links": [
+                      {
+                        "href": "http://23.253.228.211:8779/v1.0/", 
+                        "rel": "self"
+                      }
+                    ], 
+                    "status": "CURRENT", 
+                    "updated": "2012-08-01T00:00:00Z"
+                  }
+                ]
+              }, 
+              "text/plain": "HTTP/1.1 200 OK\nContent-Type: application/json\nContent-Length: 158\nDate: Tue, 22 Apr 2014 19:02:58 GMT"
+            }, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "400": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "401": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "403": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "404": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "405": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "413": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "422": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "500": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "501": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "503": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }
+        }, 
+        "summary": "Shows details for the Database Service API v1.0.", 
+        "tags": [
+          "api-versions"
+        ], 
+        "x-title": "Show version details"
+      }
+    }, 
+    "/v1.0/{accountId}/configurations": {
+      "get": {
+        "consumes": [
+          "application/json"
+        ], 
+        "description": "The list includes the associated data store and data store version\nfor each configuration group.", 
+        "operationId": "listConfigGroups", 
+        "parameters": [
+          {
+            "description": "The account ID of the owner of the instance.", 
+            "format": "", 
+            "in": "path", 
+            "name": "accountId", 
+            "required": true, 
+            "type": "string"
+          }
+        ], 
+        "produces": [
+          "application/json"
+        ], 
+        "responses": {
+          "200": {
+            "description": "", 
+            "examples": {
+              "application/json": {
+                "configurations": [
+                  {
+                    "created": "2015-07-01T16:38:27", 
+                    "datastore_name": "mysql", 
+                    "datastore_version_id": "2dc7faa0-efff-4c2b-8cff-bcd949c518a5", 
+                    "datastore_version_name": "5.6", 
+                    "description": null, 
+                    "id": "2aa51628-5c42-4086-8682-137caffd2ba6", 
+                    "name": "group1", 
+                    "updated": "2015-07-01T16:38:27"
+                  }
+                ]
+              }, 
+              "text/plain": "HTTP/1.1 200 OK\nContent-Type: application/json\nContent-Length: 426\nDate: Tue, 07 Jul 2012 19:53:04 GMT\n\n"
+            }, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "400": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "401": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "403": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "404": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "405": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "413": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "422": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "500": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "501": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "503": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }
+        }, 
+        "summary": "Lists all configuration groups.", 
+        "tags": [
+          "configurations"
+        ], 
+        "x-title": "List configuration groups"
+      }, 
+      "post": {
+        "consumes": [
+          "application/json"
+        ], 
+        "description": "", 
+        "operationId": "createConfigGroup", 
+        "parameters": [
+          {
+            "description": "", 
+            "in": "body", 
+            "name": "body", 
+            "required": false, 
+            "schema": {
+              "$ref": "#/definitions/createConfigGroup"
+            }
+          }, 
+          {
+            "description": "The account ID of the owner of the instance.", 
+            "format": "", 
+            "in": "path", 
+            "name": "accountId", 
+            "required": true, 
+            "type": "string"
+          }
+        ], 
+        "produces": [
+          "application/json"
+        ], 
+        "responses": {
+          "200": {
+            "description": "", 
+            "examples": {
+              "application/json": {
+                "created": "2015-07-01T16:38:27", 
+                "datastore_name": "mysql", 
+                "datastore_version_id": "2dc7faa0-efff-4c2b-8cff-bcd949c518a5", 
+                "datastore_version_name": "5.6", 
+                "description": null, 
+                "id": "2aa51628-5c42-4086-8682-137caffd2ba6", 
+                "instance_count": 0, 
+                "name": "group1", 
+                "updated": "2015-07-01T16:38:27", 
+                "values": {
+                  "sync_binlog": 1
+                }
+              }, 
+              "text/plain": "HTTP/1.1 200 OK\nContent-Type: application/json\nContent-Length: 360\nDate: Mon, 6 Jul 2015 21:53:10 GMT\n\n"
+            }, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "400": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "401": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "403": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "404": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "405": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "413": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "422": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "500": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "501": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "503": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }
+        }, 
+        "summary": "Creates a configuration group.", 
+        "tags": [
+          "configurations"
+        ], 
+        "x-title": "Create configuration group"
+      }
+    }, 
+    "/v1.0/{accountId}/configurations/{configId}": {
+      "delete": {
+        "consumes": [], 
+        "description": "", 
+        "operationId": "deleteConfigGroup", 
+        "parameters": [
+          {
+            "description": "The account ID of the owner of the instance.", 
+            "format": "", 
+            "in": "path", 
+            "name": "accountId", 
+            "required": true, 
+            "type": "string"
+          }, 
+          {
+            "description": "The ID of the configuration group.", 
+            "format": "", 
+            "in": "path", 
+            "name": "configId", 
+            "required": true, 
+            "type": "string"
+          }
+        ], 
+        "produces": [], 
+        "responses": {
+          "202": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "400": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "401": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "403": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "404": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "405": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "413": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "422": {
+            "description": "", 
+            "examples": {
+              "text/plain": "HTTP/1.1 202 Accepted\nContent-Type: application/json\nContent-Length: 0\nDate: Fri, 08 Apr 2016 23:15:51 GMT\n"
+            }, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "500": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "501": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "503": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }
+        }, 
+        "summary": "Deletes a configuration group.", 
+        "tags": [
+          "configurations"
+        ], 
+        "x-title": "Delete configuration group"
+      }, 
+      "get": {
+        "consumes": [
+          "application/json"
+        ], 
+        "description": "", 
+        "operationId": "listConfigDetails", 
+        "parameters": [
+          {
+            "description": "The account ID of the owner of the instance.", 
+            "format": "", 
+            "in": "path", 
+            "name": "accountId", 
+            "required": true, 
+            "type": "string"
+          }, 
+          {
+            "description": "The ID of the configuration group.", 
+            "format": "", 
+            "in": "path", 
+            "name": "configId", 
+            "required": true, 
+            "type": "string"
+          }
+        ], 
+        "produces": [
+          "application/json"
+        ], 
+        "responses": {
+          "200": {
+            "description": "", 
+            "examples": {
+              "application/json": {
+                "configuration": {
+                  "created": "2015-11-20T20:51:24", 
+                  "datastore_name": "mysql", 
+                  "datastore_version_id": "b9f97132-467b-4f8e-b12d-947cfc223ac3", 
+                  "datastore_version_name": "5.6", 
+                  "description": null, 
+                  "id": "1c8a4fdd-690c-4e6e-b2e1-148b8d738770", 
+                  "instance_count": 1, 
+                  "name": "group1", 
+                  "updated": "2015-11-22T19:07:20", 
+                  "values": {
+                    "connect_timeout": 17
+                  }
+                }
+              }, 
+              "text/plain": "HTTP/1.1 200 OK\nContent-Type: application/json\nContent-Length: 138\nDate: Fri, 20 Nov 2015 19:53:04 GMT\n"
+            }, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "400": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "401": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "403": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "404": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "405": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "413": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "422": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "500": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "501": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "503": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }
+        }, 
+        "summary": "Lists details about a configuration group, including its values.", 
+        "tags": [
+          "configurations"
+        ], 
+        "x-title": "Show configuration group details"
+      }, 
+      "patch": {
+        "consumes": [
+          "application/json"
+        ], 
+        "description": "", 
+        "operationId": "patchConfigGroup", 
+        "parameters": [
+          {
+            "description": "", 
+            "in": "body", 
+            "name": "body", 
+            "required": false, 
+            "schema": {
+              "$ref": "#/definitions/patchConfigGroup"
+            }
+          }, 
+          {
+            "description": "The account ID of the owner of the instance.", 
+            "format": "", 
+            "in": "path", 
+            "name": "accountId", 
+            "required": true, 
+            "type": "string"
+          }, 
+          {
+            "description": "The ID of the configuration group.", 
+            "format": "", 
+            "in": "path", 
+            "name": "configId", 
+            "required": true, 
+            "type": "string"
+          }
+        ], 
+        "produces": [
+          "application/json"
+        ], 
+        "responses": {
+          "200": {
+            "description": "", 
+            "examples": {
+              "text/plain": "HTTP/1.1 200 OK\nContent-Type: application/json\nContent-Length: 0\nDate: Mon, 6 Jul 2015 21:53:10 GMT\n\n"
+            }, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "400": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "401": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "403": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "404": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "405": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "413": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "422": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "500": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "501": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "503": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }
+        }, 
+        "summary": "Sets new values for a configuration group.", 
+        "tags": [
+          "configurations"
+        ], 
+        "x-title": "Patch configuration group"
+      }, 
+      "put": {
+        "consumes": [
+          "application/json"
+        ], 
+        "description": "", 
+        "operationId": "updateConfigGroup", 
+        "parameters": [
+          {
+            "description": "", 
+            "in": "body", 
+            "name": "body", 
+            "required": false, 
+            "schema": {
+              "$ref": "#/definitions/updateConfigGroup"
+            }
+          }, 
+          {
+            "description": "The account ID of the owner of the instance.", 
+            "format": "", 
+            "in": "path", 
+            "name": "accountId", 
+            "required": true, 
+            "type": "string"
+          }, 
+          {
+            "description": "The ID of the configuration group.", 
+            "format": "", 
+            "in": "path", 
+            "name": "configId", 
+            "required": true, 
+            "type": "string"
+          }
+        ], 
+        "produces": [
+          "application/json"
+        ], 
+        "responses": {
+          "202": {
+            "description": "", 
+            "examples": {
+              "text/plain": "HTTP/1.1 202 OK\nContent-Type: application/json\nContent-Length: 0\nDate: Mon, 6 Jul 2015 21:53:10 GMT\n\n"
+            }, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "400": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "401": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "403": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "404": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "405": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "413": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "422": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "500": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "501": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "503": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }
+        }, 
+        "summary": "Sets new values for a configuration group. Also lets you change the name and description of the configuration group.", 
+        "tags": [
+          "configurations"
+        ], 
+        "x-title": "Update configuration group"
+      }
+    }, 
+    "/v1.0/{accountId}/configurations/{configId}/instances": {
+      "get": {
+        "consumes": [
+          "application/json"
+        ], 
+        "description": "", 
+        "operationId": "listConfigInstances", 
+        "parameters": [
+          {
+            "description": "The account ID of the owner of the instance.", 
+            "format": "", 
+            "in": "path", 
+            "name": "accountId", 
+            "required": true, 
+            "type": "string"
+          }, 
+          {
+            "description": "The ID of the configuration group.", 
+            "format": "", 
+            "in": "path", 
+            "name": "configId", 
+            "required": true, 
+            "type": "string"
+          }
+        ], 
+        "produces": [
+          "application/json"
+        ], 
+        "responses": {
+          "200": {
+            "description": "", 
+            "examples": {
+              "application/json": {
+                "instances": [
+                  {
+                    "id": "7fd2d1d6-a2ef-4a76-8c03-e233db4d86da", 
+                    "name": "master_1"
+                  }
+                ]
+              }, 
+              "text/plain": "HTTP/1.1 200 OK\nContent-Type: application/json\nContent-Length: 138\nDate: Fri, 20 Nov 2015 19:53:04 GMT\n"
+            }, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "400": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "401": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "403": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "404": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "405": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "413": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "422": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "500": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "501": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "503": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }
+        }, 
+        "summary": "Lists the instances associated with the specified configuration group.", 
+        "tags": [
+          "configurations"
+        ], 
+        "x-title": "List configuration group instances"
+      }
+    }, 
+    "/v1.0/{accountId}/datastores/versions/{datastore_version_id}/parameters": {
+      "get": {
+        "consumes": [
+          "application/json"
+        ], 
+        "description": "Parameter information includes the type, minimum and maximum\nvalues, and whether you must restart the instance after you change\na parameter value.", 
+        "operationId": "listParameters", 
+        "parameters": [
+          {
+            "description": "The account ID of the owner of the instance.", 
+            "format": "", 
+            "in": "path", 
+            "name": "accountId", 
+            "required": true, 
+            "type": "string"
+          }, 
+          {
+            "description": "The UUID of the data store version.", 
+            "format": "", 
+            "in": "path", 
+            "name": "datastore_version_id", 
+            "required": true, 
+            "type": "string"
+          }
+        ], 
+        "produces": [
+          "application/json"
+        ], 
+        "responses": {
+          "200": {
+            "description": "", 
+            "examples": {
+              "application/json": {
+                "configuration-parameters": [
+                  {
+                    "datastore_version_id": "f597f709-70ef-474d-ac18-2c6abd35a758", 
+                    "max": 18446744073709552000, 
+                    "min": 4096, 
+                    "name": "myisam_sort_buffer_size", 
+                    "restart_required": false, 
+                    "type": "integer"
+                  }, 
+                  {
+                    "datastore_version_id": "f597f709-70ef-474d-ac18-2c6abd35a758", 
+                    "max": 4294967295, 
+                    "min": 0, 
+                    "name": "sync_binlog", 
+                    "restart_required": false, 
+                    "type": "integer"
+                  }, 
+                  {
+                    "datastore_version_id": "f597f709-70ef-474d-ac18-2c6abd35a758", 
+                    "max": 1073741824, 
+                    "min": 1024, 
+                    "name": "max_allowed_packet", 
+                    "restart_required": false, 
+                    "type": "integer"
+                  }, 
+                  {
+                    "datastore_version_id": "f597f709-70ef-474d-ac18-2c6abd35a758", 
+                    "name": "character_set_connection", 
+                    "restart_required": false, 
+                    "type": "string"
+                  }, 
+                  {
+                    "datastore_version_id": "f597f709-70ef-474d-ac18-2c6abd35a758", 
+                    "max": 1, 
+                    "min": 0, 
+                    "name": "autocommit", 
+                    "restart_required": false, 
+                    "type": "integer"
+                  }, 
+                  {
+                    "datastore_version_id": "f597f709-70ef474d-ac18-2c6abd35a758", 
+                    "name": "character_set_client", 
+                    "restart_required": false, 
+                    "type": "string"
+                  }, 
+                  {
+                    "datastore_version_id": "f597f709-70ef-474d-ac18-2c6abd35a758", 
+                    "max": 18446744073709548000, 
+                    "min": 128, 
+                    "name": "join_buffer_size", 
+                    "restart_required": false, 
+                    "type": "integer"
+                  }, 
+                  {
+                    "datastore_version_id": "f597f709-70ef-474d-ac18-2c6abd35a758", 
+                    "max": 1, 
+                    "min": 0, 
+                    "name": "local_infile", 
+                    "restart_required": false, 
+                    "type": "integer"
+                  }, 
+                  {
+                    "datastore_version_id": "f597f709-70ef-474d-ac18-2c6abd35a758", 
+                    "max": 65535, 
+                    "min": 1, 
+                    "name": "auto_increment_offset", 
+                    "restart_required": false, 
+                    "type": "integer"
+                  }, 
+                  {
+                    "datastore_version_id": "f597f709-70ef-474d-ac18-2c6abd35a758", 
+                    "max": 100000, 
+                    "min": 1, 
+                    "name": "max_connections", 
+                    "restart_required": false, 
+                    "type": "integer"
+                  }, 
+                  {
+                    "datastore_version_id": "f597f709-70ef474dac18-2c6abd35a758", 
+                    "max": 18446744073709552000, 
+                    "min": 0, 
+                    "name": "bulk_insert_buffer_size", 
+                    "restart_required": false, 
+                    "type": "integer"
+                  }, 
+                  {
+                    "datastore_version_id": "f597f709-70ef-474d-ac18-2c6abd35a758", 
+                    "max": 18446744073709552000, 
+                    "min": 32768, 
+                    "name": "sort_buffer_size", 
+                    "restart_required": false, 
+                    "type": "integer"
+                  }, 
+                  {
+                    "datastore_version_id": "f597f709-70ef-474d-ac18-2c6abd35a758", 
+                    "max": 4294967295, 
+                    "min": 262144, 
+                    "name": "innodb_log_buffer_size", 
+                    "restart_required": true, 
+                    "type": "integer"
+                  }, 
+                  {
+                    "datastore_version_id": "f597f709-70ef-474d-ac18-2c6abd35a758", 
+                    "max": 1, 
+                    "min": 0, 
+                    "name": "innodb_file_per_table", 
+                    "restart_required": false, 
+                    "type": "integer"
+                  }, 
+                  {
+                    "datastore_version_id": "f597f709-70ef-474d-ac18-2c6abd35a758", 
+                    "name": "character_set_server", 
+                    "restart_required": false, 
+                    "type": "string"
+                  }, 
+                  {
+                    "datastore_version_id": "f597f709-70ef474dac18-2c6abd35a758", 
+                    "max": 18446744073709552000, 
+                    "min": 5242880, 
+                    "name": "innodb_buffer_pool_size", 
+                    "restart_required": true, 
+                    "type": "integer"
+                  }, 
+                  {
+                    "datastore_version_id": "f597f709-70ef-474d-ac18-2c6abd35a758", 
+                    "name": "collation_server", 
+                    "restart_required": false, 
+                    "type": "string"
+                  }, 
+                  {
+                    "datastore_version_id": "f597f709-70ef-474d-ac18-2c6abd35a758", 
+                    "name": "character_set_filesystem", 
+                    "restart_required": false, 
+                    "type": "string"
+                  }, 
+                  {
+                    "datastore_version_id": "f597f709-70ef474d-ac18-2c6abd35a758", 
+                    "name": "collation_database", 
+                    "restart_required": false, 
+                    "type": "string"
+                  }, 
+                  {
+                    "datastore_version_id": "f597f709-70ef-474d-ac18-2c6abd35a758", 
+                    "max": 2, 
+                    "min": 0, 
+                    "name": "innodb_flush_log_at_trx_commit", 
+                    "restart_required": false, 
+                    "type": "integer"
+                  }, 
+                  {
+                    "datastore_version_id": "f597f709-70ef-474d-ac18-2c6abd35a758", 
+                    "max": 65535, 
+                    "min": 1, 
+                    "name": "interactive_timeout", 
+                    "restart_required": false, 
+                    "type": "integer"
+                  }, 
+                  {
+                    "datastore_version_id": "f597f709-70ef-474d-ac18-2c6abd35a758", 
+                    "max": 4294967295, 
+                    "min": 0, 
+                    "name": "max_user_connections", 
+                    "restart_required": false, 
+                    "type": "integer"
+                  }, 
+                  {
+                    "datastore_version_id": "f597f709-70ef-474d-ac18-2c6abd35a758", 
+                    "max": 1000, 
+                    "min": 0, 
+                    "name": "innodb_thread_concurrency", 
+                    "restart_required": false, 
+                    "type": "integer"
+                  }, 
+                  {
+                    "datastore_version_id": "f597f709-70ef-474d-ac18-2c6abd35a758", 
+                    "max": 4294967295, 
+                    "min": 10, 
+                    "name": "innodb_open_files", 
+                    "restart_required": true, 
+                    "type": "integer"
+                  }, 
+                  {
+                    "datastore_version_id": "f597f709-70ef474d-ac18-2c6abd35a758", 
+                    "max": 4294967295, 
+                    "min": 8, 
+                    "name": "key_buffer_size", 
+                    "restart_required": false, 
+                    "type": "integer"
+                  }, 
+                  {
+                    "datastore_version_id": "f597f709-70ef474d-ac18-2c6abd35a758", 
+                    "max": 31536000, 
+                    "min": 2, 
+                    "name": "connect_timeout", 
+                    "restart_required": false, 
+                    "type": "integer"
+                  }, 
+                  {
+                    "datastore_version_id": "f597f709-70ef-474d-ac18-2c6abd35a758", 
+                    "name": "collation_connection", 
+                    "restart_required": false, 
+                    "type": "string"
+                  }, 
+                  {
+                    "datastore_version_id": "f597f709-70ef-474d-ac18-2c6abd35a758", 
+                    "name": "character_set_database", 
+                    "restart_required": false, 
+                    "type": "string"
+                  }, 
+                  {
+                    "datastore_version_id": "f597f709-70ef-474d-ac18-2c6abd35a758", 
+                    "max": 65535, 
+                    "min": 1, 
+                    "name": "auto_increment_increment", 
+                    "restart_required": false, 
+                    "type": "integer"
+                  }, 
+                  {
+                    "datastore_version_id": "f597f709-70ef-474d-ac18-2c6abd35a758", 
+                    "max": 18446744073709552000, 
+                    "min": 1, 
+                    "name": "max_connect_errors", 
+                    "restart_required": false, 
+                    "type": "integer"
+                  }, 
+                  {
+                    "datastore_version_id": "f597f709-70ef-474d-ac18-2c6abd35a758", 
+                    "name": "character_set_results", 
+                    "restart_required": false, 
+                    "type": "string"
+                  }, 
+                  {
+                    "datastore_version_id": "f597f709-70ef-474d-ac18-2c6abd35a758", 
+                    "max": 99, 
+                    "min": 0, 
+                    "name": "expire_logs_days", 
+                    "restart_required": false, 
+                    "type": "integer"
+                  }, 
+                  {
+                    "datastore_version_id": "f597f709-70ef474d-ac18-2c6abd35a758", 
+                    "max": 31536000, 
+                    "min": 1, 
+                    "name": "wait_timeout", 
+                    "restart_required": false, 
+                    "type": "integer"
+                  }, 
+                  {
+                    "datastore_version_id": "f597f709-70ef-474d-ac18-2c6abd35a758", 
+                    "max": 4294967295, 
+                    "min": 0, 
+                    "name": "server_id", 
+                    "restart_required": false, 
+                    "type": "integer"
+                  }
+                ]
+              }, 
+              "text/plain": "HTTP/1.1 200 OK\nContent-Type: application/json\nContent-Length: 8454\nDate: Fri, 12 Jun 2015 21:58:13 GMT\n"
+            }, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "400": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "401": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "403": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "404": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "405": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "413": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "422": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "500": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "501": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "503": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }
+        }, 
+        "summary": "Lists the available configuration parameters for a data store version.", 
+        "tags": [
+          "datastores"
+        ], 
+        "x-title": "List configuration parameters"
+      }
+    }, 
+    "/v1.0/{accountId}/datastores/versions/{datastore_version_id}/parameters/{parameter_name}": {
+      "get": {
+        "consumes": [
+          "application/json"
+        ], 
+        "description": "Details include the type, minimum and maximum values, and whether\nyou must restart the instance after you change the parameter value.", 
+        "operationId": "showParameterDetails", 
+        "parameters": [
+          {
+            "description": "The account ID of the owner of the instance.", 
+            "format": "", 
+            "in": "path", 
+            "name": "accountId", 
+            "required": true, 
+            "type": "string"
+          }, 
+          {
+            "description": "The UUID of the data store version.", 
+            "format": "", 
+            "in": "path", 
+            "name": "datastore_version_id", 
+            "required": true, 
+            "type": "string"
+          }, 
+          {
+            "description": "The name of the parameter for which to show details.", 
+            "format": "", 
+            "in": "path", 
+            "name": "parameter_name", 
+            "required": true, 
+            "type": "string"
+          }
+        ], 
+        "produces": [
+          "application/json"
+        ], 
+        "responses": {
+          "200": {
+            "description": "", 
+            "examples": {
+              "application/json": {
+                "datastore_version_id": "f8e67741-e767-4137-b394-3fb8a3fafd2f", 
+                "max": 31536000, 
+                "min": 2, 
+                "name": "connect_timeout", 
+                "restart_required": false, 
+                "type": "integer"
+              }, 
+              "text/plain": "HTTP/1.1 200 OK\nContent-Type: application/json\nContent-Length: 180\nDate: Tue, 16 Jun 2015 21:58:13 GMT\n"
+            }, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "400": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "401": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "403": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "404": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "405": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "413": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "422": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "500": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "501": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "503": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }
+        }, 
+        "summary": "Displays details for a configuration parameter associated with a data store version.", 
+        "tags": [
+          "datastores"
+        ], 
+        "x-title": "Show configuration parameter details"
+      }
+    }, 
+    "/v1.0/{accountId}/datastores/{datastore_name}/versions": {
+      "get": {
+        "consumes": [
+          "application/json"
+        ], 
+        "description": "", 
+        "operationId": "listDatastoreVersions", 
+        "parameters": [
+          {
+            "description": "The name of the data store.", 
+            "format": "", 
+            "in": "path", 
+            "name": "datastore_name", 
+            "required": true, 
+            "type": "string"
+          }, 
+          {
+            "description": "The account ID of the owner of the instance.", 
+            "format": "", 
+            "in": "path", 
+            "name": "accountId", 
+            "required": true, 
+            "type": "string"
+          }
+        ], 
+        "produces": [
+          "application/json"
+        ], 
+        "responses": {
+          "200": {
+            "description": "", 
+            "examples": {
+              "application/json": {
+                "active": 1, 
+                "datastore": "3a8968d8-e5f5-4452-83ca-f6c90b5de06a", 
+                "id": "2dc7faa0-efff-4c2b-8cff-bcd949c518a5", 
+                "image": "b69fbd9e-b31d-46ff-8afb-cbf452f6f835", 
+                "links": [
+                  {
+                    "href": "https://10.240.28.38:8779/v1.0/27bee406abb5486e81ef3ff4382aabaf/datastores/versions/2dc7faa0-efff-4c2b-8cff-bcd949c518a5", 
+                    "rel": "self"
+                  }, 
+                  {
+                    "href": "https://10.240.28.38:8779/datastores/versions/2dc7faa0-efff-4c2b-8cff-bcd949c518a5", 
+                    "rel": "bookmark"
+                  }
+                ], 
+                "name": "5.6", 
+                "packages": "mysql-server-5.6"
+              }, 
+              "text/plain": "HTTP/1.1 200 OK\nContent-Type: application/json\nContent-Length: 580\nDate: Tue, 23 Jun 2015 21:58:13 GMT\n"
+            }, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "400": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "401": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "403": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "404": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "405": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "413": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "422": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "500": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "501": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "503": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }
+        }, 
+        "summary": "Lists the available versions of a data store.", 
+        "tags": [
+          "datastores"
+        ], 
+        "x-title": "List datastore versions"
+      }
+    }, 
+    "/v1.0/{accountId}/flavors": {
+      "get": {
+        "consumes": [
+          "application/json"
+        ], 
+        "description": "This operation lists information for all available flavors.\n\nThis resource is identical to the flavors found in the OpenStack\nNova API, but without the disk property.", 
+        "operationId": "listFlavors", 
+        "parameters": [
+          {
+            "description": "The account ID of the owner of the instance.", 
+            "format": "", 
+            "in": "path", 
+            "name": "accountId", 
+            "required": true, 
+            "type": "string"
+          }
+        ], 
+        "produces": [
+          "application/json"
+        ], 
+        "responses": {
+          "200": {
+            "description": "", 
+            "examples": {
+              "application/json": {
+                "flavors": [
+                  {
+                    "id": 1, 
+                    "links": [
+                      {
+                        "href": "https://openstack.example.com/v1.0/1234/flavors/1", 
+                        "rel": "self"
+                      }, 
+                      {
+                        "href": "https://openstack.example.com/flavors/1", 
+                        "rel": "bookmark"
+                      }
+                    ], 
+                    "name": "m1.tiny", 
+                    "ram": 512
+                  }, 
+                  {
+                    "id": 2, 
+                    "links": [
+                      {
+                        "href": "https://openstack.example.com/v1.0/1234/flavors/2", 
+                        "rel": "self"
+                      }, 
+                      {
+                        "href": "https://openstack.example.com/flavors/2", 
+                        "rel": "bookmark"
+                      }
+                    ], 
+                    "name": "m1.small", 
+                    "ram": 1024
+                  }, 
+                  {
+                    "id": 3, 
+                    "links": [
+                      {
+                        "href": "https://openstack.example.com/v1.0/1234/flavors/3", 
+                        "rel": "self"
+                      }, 
+                      {
+                        "href": "https://openstack.example.com/flavors/3", 
+                        "rel": "bookmark"
+                      }
+                    ], 
+                    "name": "m1.medium", 
+                    "ram": 2048
+                  }, 
+                  {
+                    "id": 4, 
+                    "links": [
+                      {
+                        "href": "https://openstack.example.com/v1.0/1234/flavors/4", 
+                        "rel": "self"
+                      }, 
+                      {
+                        "href": "https://openstack.example.com/flavors/4", 
+                        "rel": "bookmark"
+                      }
+                    ], 
+                    "name": "m1.large", 
+                    "ram": 4096
+                  }
+                ]
+              }, 
+              "text/plain": "HTTP/1.1 200 OK\nContent-Type: application/json\nContent-Length: 1768\nDate: Tue, 19 Jun 2012 19:52:45 GMT"
+            }, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "400": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "401": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "403": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "404": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "405": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "413": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "422": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "500": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "501": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "503": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }
+        }, 
+        "summary": "Lists information for all available flavors.", 
+        "tags": [
+          "flavors"
+        ], 
+        "x-title": "List flavors"
+      }
+    }, 
+    "/v1.0/{accountId}/flavors/{flavorId}": {
+      "get": {
+        "consumes": [
+          "application/json"
+        ], 
+        "description": "This resource is identical to the flavors found in the OpenStack\nCompute API, but without the disk property.\n\nThe ``flavorId`` parameter must be an integer value. If you use a\nfloating point value for this parameter, this call truncates the\ndecimal portion and uses the integer portion as the ``flavorId``\nvalue.", 
+        "operationId": "showFlavorById", 
+        "parameters": [
+          {
+            "description": "The ID for the flavor.", 
+            "format": "", 
+            "in": "path", 
+            "name": "flavorId", 
+            "required": true, 
+            "type": "string"
+          }, 
+          {
+            "description": "The account ID of the owner of the instance.", 
+            "format": "", 
+            "in": "path", 
+            "name": "accountId", 
+            "required": true, 
+            "type": "string"
+          }
+        ], 
+        "produces": [
+          "application/json"
+        ], 
+        "responses": {
+          "200": {
+            "description": "", 
+            "examples": {
+              "application/json": {
+                "flavor": {
+                  "id": 1, 
+                  "links": [
+                    {
+                      "href": "https://openstack.example.com/v1.0/1234/flavors/1", 
+                      "rel": "self"
+                    }, 
+                    {
+                      "href": "https://openstack.example.com/flavors/1", 
+                      "rel": "bookmark"
+                    }
+                  ], 
+                  "name": "m1.tiny", 
+                  "ram": 512
+                }
+              }, 
+              "text/plain": "HTTP/1.1 200 OK\nContent-Type: application/json\nContent-Length: 209\nDate: Wed, 25 Jan 2012 21:53:05 GMT"
+            }, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "400": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "401": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "403": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "404": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "405": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "413": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "422": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "500": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "501": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "503": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }
+        }, 
+        "summary": "Shows flavor details with details of the RAM.", 
+        "tags": [
+          "flavors"
+        ], 
+        "x-title": "Show flavor details"
+      }
+    }, 
+    "/v1.0/{accountId}/instances": {
+      "get": {
+        "consumes": [
+          "application/json"
+        ], 
+        "description": "Lists status and information for all database instances.", 
+        "operationId": "listInstances", 
+        "parameters": [
+          {
+            "description": "The account ID of the owner of the instance.", 
+            "format": "", 
+            "in": "path", 
+            "name": "accountId", 
+            "required": true, 
+            "type": "string"
+          }
+        ], 
+        "produces": [
+          "application/json"
+        ], 
+        "responses": {
+          "200": {
+            "description": "", 
+            "examples": {
+              "application/json": {
+                "instances": [
+                  {
+                    "flavor": {
+                      "id": "1", 
+                      "links": [
+                        {
+                          "href": "https://openstack.example.com/v1.0/1234/flavors/1", 
+                          "rel": "self"
+                        }, 
+                        {
+                          "href": "https://openstack.example.com/flavors/1", 
+                          "rel": "bookmark"
+                        }
+                      ]
+                    }, 
+                    "id": "28d1b8f3-172a-4f6d-983d-36021508444a", 
+                    "links": [
+                      {
+                        "href": "https://openstack.example.com/v1.0/1234/instances/28d1b8f3-172a-4f6d-983d-36021508444a", 
+                        "rel": "self"
+                      }, 
+                      {
+                        "href": "https://openstack.example.com/instances/28d1b8f3-172a-4f6d-983d-36021508444a", 
+                        "rel": "bookmark"
+                      }
+                    ], 
+                    "name": "json_rack_instance", 
+                    "status": "ACTIVE", 
+                    "volume": {
+                      "size": 2
+                    }
+                  }, 
+                  {
+                    "flavor": {
+                      "id": "1", 
+                      "links": [
+                        {
+                          "href": "https://openstack.example.com/v1.0/1234/flavors/1", 
+                          "rel": "self"
+                        }, 
+                        {
+                          "href": "https://openstack.example.com/flavors/1", 
+                          "rel": "bookmark"
+                        }
+                      ]
+                    }, 
+                    "id": "8fb081af-f237-44f5-80cc-b46be1840ca9", 
+                    "links": [
+                      {
+                        "href": "https://openstack.example.com/v1.0/1234/instances/8fb081af-f237-44f5-80cc-b46be1840ca9", 
+                        "rel": "self"
+                      }, 
+                      {
+                        "href": "https://openstack.example.com/instances/8fb081af-f237-44f5-80cc-b46be1840ca9", 
+                        "rel": "bookmark"
+                      }
+                    ], 
+                    "name": "xml_rack_instance", 
+                    "status": "ACTIVE", 
+                    "volume": {
+                      "size": 2
+                    }
+                  }
+                ]
+              }, 
+              "text/plain": "HTTP/1.1 200 OK\nContent-Type: application/json\nContent-Length: 1150\nDate: Tue, 19 Jun 2012 19:53:04 GMT"
+            }, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "400": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "401": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "403": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "404": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "405": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "413": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "422": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "500": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "501": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "503": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }
+        }, 
+        "summary": "Lists information, including status, for all database instances.", 
+        "tags": [
+          "database-instances"
+        ], 
+        "x-title": "List database instances"
+      }, 
+      "post": {
+        "consumes": [
+          "application/json"
+        ], 
+        "description": "Asynchronously provisions a database instance. You must specify a\nflavor and a volume size. The service provisions the instance with\na volume of the requested size, which serves as storage for the\ndatabase instance.\n\n **Notes**\n\n- You can create only one database instance per POST request.\n\n- You can create a database instance with one or more databases. You\n  associate users with each database.\n\n- The default binding for the MySQL instance is port 3306.", 
+        "operationId": "createInstance", 
+        "parameters": [
+          {
+            "description": "", 
+            "in": "body", 
+            "name": "body", 
+            "required": false, 
+            "schema": {
+              "$ref": "#/definitions/createInstance"
+            }
+          }, 
+          {
+            "description": "The account ID of the owner of the instance.", 
+            "format": "", 
+            "in": "path", 
+            "name": "accountId", 
+            "required": true, 
+            "type": "string"
+          }
+        ], 
+        "produces": [
+          "application/json"
+        ], 
+        "responses": {
+          "200": {
+            "description": "", 
+            "examples": {
+              "application/json": {
+                "instance": {
+                  "created": "2012-01-25T21:53:09Z", 
+                  "flavor": {
+                    "id": "1", 
+                    "links": [
+                      {
+                        "href": "https://openstack.example.com/v1.0/1234/flavors/1", 
+                        "rel": "self"
+                      }, 
+                      {
+                        "href": "https://openstack.example.com/flavors/1", 
+                        "rel": "bookmark"
+                      }
+                    ]
+                  }, 
+                  "hostname": "e09ad9a3f73309469cf1f43d11e79549caf9acf2.rackspaceclouddb.com", 
+                  "id": "dea5a2f7-3ec7-4496-adab-0abb5a42d635", 
+                  "links": [
+                    {
+                      "href": "https://openstack.example.com/v1.0/1234/instances/dea5a2f7-3ec7-4496-adab-0abb5a42d635", 
+                      "rel": "self"
+                    }, 
+                    {
+                      "href": "https://openstack.example.com/instances/dea5a2f7-3ec7-4496-adab-0abb5a42d635", 
+                      "rel": "bookmark"
+                    }
+                  ], 
+                  "name": "json_rack_instance", 
+                  "status": "BUILD", 
+                  "updated": "2012-01-25T21:53:10Z", 
+                  "volume": {
+                    "size": 2
+                  }
+                }
+              }, 
+              "text/plain": "HTTP/1.1 200 OK\nContent-Type: application/json\nContent-Length: 636\nDate: Wed, 25 Jan 2012 21:53:10 GMT"
+            }, 
+            "headers": {}, 
+            "schema": {
+              "$ref": "#/definitions/createInstance_200"
+            }
+          }, 
+          "400": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "401": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "403": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "404": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "405": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "413": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "422": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "500": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "501": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "503": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }
+        }, 
+        "summary": "Creates a database instance.", 
+        "tags": [
+          "database-instances"
+        ], 
+        "x-title": "Create database instance"
+      }
+    }, 
+    "/v1.0/{accountId}/instances/{instanceId}": {
+      "delete": {
+        "consumes": [], 
+        "description": "This operation does not delete any read slaves.\n\nYou cannot complete this operation when the instance state is\neither ``REBUILDING`` or ``BUILDING``.", 
+        "operationId": "deleteInstance", 
+        "parameters": [
+          {
+            "description": "The account ID of the owner of the instance.", 
+            "format": "", 
+            "in": "path", 
+            "name": "accountId", 
+            "required": true, 
+            "type": "string"
+          }, 
+          {
+            "description": "The ID for the database instance.", 
+            "format": "", 
+            "in": "path", 
+            "name": "instanceId", 
+            "required": true, 
+            "type": "string"
+          }
+        ], 
+        "produces": [], 
+        "responses": {
+          "202": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "400": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "401": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "403": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "404": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "405": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "413": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "422": {
+            "description": "", 
+            "examples": {
+              "text/plain": "HTTP/1.1 202 Accepted\nContent-Type: application/json\nContent-Length: 0\nDate: Wed, 27 Jun 2012 23:15:51 GMT"
+            }, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "500": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "501": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "503": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }
+        }, 
+        "summary": "Deletes a database instance, including any associated data.", 
+        "tags": [
+          "database-instances"
+        ], 
+        "x-title": "Delete database instance"
+      }, 
+      "get": {
+        "consumes": [
+          "application/json"
+        ], 
+        "description": "Lists the status and details of the database instance.\n\nLists the volume size in gigabytes (GB) and the approximate GB\nused.\n\nAfter instance creation, the ``used`` value is greater than 0,\nwhich is expected and due to the automatic creation of non-empty\ntransaction logs for MySQL optimization. The response does not\ninclude the ``used`` attribute when the instance status is\n``BUILD``, ``REBOOT``, ``RESIZE``, or ``ERROR``.\n\nThe list operations return a DNS-resolvable host name for the\ndatabase instance rather than an IP address. Because the host name\nalways resolves to the correct IP address for the database\ninstance, you do not need to maintain the mapping. Although the IP\naddress might change when you resize, migrate, or perform other\noperations, the host name always resolves to the correct database\ninstance.", 
+        "operationId": "showInstanceById", 
+        "parameters": [
+          {
+            "description": "The account ID of the owner of the instance.", 
+            "format": "", 
+            "in": "path", 
+            "name": "accountId", 
+            "required": true, 
+            "type": "string"
+          }, 
+          {
+            "description": "The ID for the database instance.", 
+            "format": "", 
+            "in": "path", 
+            "name": "instanceId", 
+            "required": true, 
+            "type": "string"
+          }
+        ], 
+        "produces": [
+          "application/json"
+        ], 
+        "responses": {
+          "200": {
+            "description": "", 
+            "examples": {
+              "application/json": {
+                "instance": {
+                  "created": "2012-03-28T21:31:02Z", 
+                  "flavor": {
+                    "id": "1", 
+                    "links": [
+                      {
+                        "href": "https://openstack.example.com/v1.0/1234/flavors/1", 
+                        "rel": "self"
+                      }, 
+                      {
+                        "href": "https://openstack.example.com/flavors/1", 
+                        "rel": "bookmark"
+                      }
+                    ]
+                  }, 
+                  "hostname": "e09ad9a3f73309469cf1f43d11e79549caf9acf2.rackspaceclouddb.com", 
+                  "id": "2450c73f-7805-4afe-a42c-4094ab42666b", 
+                  "links": [
+                    {
+                      "href": "https://openstack.example.com/v1.0/1234/instances/2450c73f-7805-4afe-a42c-4094ab42666b", 
+                      "rel": "self"
+                    }, 
+                    {
+                      "href": "https://openstack.example.com/instances/2450c73f-7805-4afe-a42c-4094ab42666b", 
+                      "rel": "bookmark"
+                    }
+                  ], 
+                  "name": "xml_rack_instance", 
+                  "status": "ACTIVE", 
+                  "updated": "2012-03-28T21:34:25Z", 
+                  "volume": {
+                    "size": 2, 
+                    "used": 0.124542236328125
+                  }
+                }
+              }, 
+              "text/plain": "HTTP/1.1 200 OK\nContent-Type: application/json\nContent-Length: 685\nDate: Wed, 28 Mar 2012 21:37:29 GMT"
+            }, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "400": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "401": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "403": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "404": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "405": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "413": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "422": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "500": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "501": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "503": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }
+        }, 
+        "summary": "Shows database instance details.", 
+        "tags": [
+          "database-instances"
+        ], 
+        "x-title": "Show database instance details"
+      }, 
+      "patch": {
+        "consumes": [
+          "application/json"
+        ], 
+        "description": "If you created an instance that is a replica of a source instance,\nyou can detach the replica from the source. This can be useful if\nthe source becomes unavailable. In this case, you can detach the\nreplica from the source, making the replica a standalone database\ninstance. You can then take the new standalone instance and create\na new replica of that instance.", 
+        "operationId": "detachReplica", 
+        "parameters": [
+          {
+            "description": "", 
+            "in": "body", 
+            "name": "body", 
+            "required": false, 
+            "schema": {
+              "$ref": "#/definitions/detachReplica"
+            }
+          }, 
+          {
+            "description": "The account ID of the owner of the instance.", 
+            "format": "", 
+            "in": "path", 
+            "name": "accountId", 
+            "required": true, 
+            "type": "string"
+          }, 
+          {
+            "description": "The ID for the database instance.", 
+            "format": "", 
+            "in": "path", 
+            "name": "instanceId", 
+            "required": true, 
+            "type": "string"
+          }
+        ], 
+        "produces": [
+          "application/json"
+        ], 
+        "responses": {
+          "202": {
+            "description": "", 
+            "examples": {
+              "text/plain": "HTTP/1.1 202 OK\nContent-Type: application/json\nContent-Length: 0\nDate: Mon, 13 Jul 2015 19:53:04 GMT\n\n"
+            }, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "400": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "401": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "403": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "404": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "405": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "413": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "415": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "422": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "500": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "501": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "503": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }
+        }, 
+        "summary": "Detaches a replica from its replication source.", 
+        "tags": [
+          "database-instances"
+        ], 
+        "x-title": "Detach replica"
+      }, 
+      "x-put-attachConfigGroup": {
+        "consumes": [
+          "application/json"
+        ], 
+        "description": "", 
+        "operationId": "attachConfigGroup", 
+        "parameters": [
+          {
+            "description": "", 
+            "in": "body", 
+            "name": "body", 
+            "required": false, 
+            "schema": {
+              "$ref": "#/definitions/attachConfigGroup"
+            }
+          }, 
+          {
+            "description": "The account ID of the owner of the instance.", 
+            "format": "", 
+            "in": "path", 
+            "name": "accountId", 
+            "required": true, 
+            "type": "string"
+          }, 
+          {
+            "description": "The ID for the database instance.", 
+            "format": "", 
+            "in": "path", 
+            "name": "instanceId", 
+            "required": true, 
+            "type": "string"
+          }
+        ], 
+        "produces": [
+          "application/json"
+        ], 
+        "responses": {
+          "202": {
+            "description": "", 
+            "examples": {
+              "text/plain": "HTTP/1.1 202 OK\nContent-Type: application/json\nContent-Length: 0\nDate: Mon, 13 Jul 2015 19:53:04 GMT\n\n"
+            }, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "400": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "401": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "403": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "404": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "405": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "413": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "415": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "422": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "500": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "501": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "503": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }
+        }, 
+        "summary": "Attaches a configuration group to an instance.", 
+        "tags": [
+          "database-instances"
+        ], 
+        "x-title": "Attach configuration group"
+      }, 
+      "x-put-detachConfigGroup": {
+        "consumes": [
+          "application/json"
+        ], 
+        "description": "When you pass in only an instance ID and omit the configuration ID,\nthis operation detaches any configuration group that was attached\nto the instance.", 
+        "operationId": "detachConfigGroup", 
+        "parameters": [
+          {
+            "description": "", 
+            "in": "body", 
+            "name": "body", 
+            "required": false, 
+            "schema": {
+              "$ref": "#/definitions/detachConfigGroup"
+            }
+          }, 
+          {
+            "description": "The account ID of the owner of the instance.", 
+            "format": "", 
+            "in": "path", 
+            "name": "accountId", 
+            "required": true, 
+            "type": "string"
+          }, 
+          {
+            "description": "The ID for the database instance.", 
+            "format": "", 
+            "in": "path", 
+            "name": "instanceId", 
+            "required": true, 
+            "type": "string"
+          }
+        ], 
+        "produces": [
+          "application/json"
+        ], 
+        "responses": {
+          "202": {
+            "description": "", 
+            "examples": {
+              "text/plain": "HTTP/1.1 202 OK\nContent-Type: application/json\nContent-Length: 0\nDate: Mon, 13 Jul 2015 19:53:04 GMT\n\n"
+            }, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "400": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "401": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "403": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "404": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "405": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "413": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "415": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "422": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "500": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "501": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "503": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }
+        }, 
+        "summary": "Detaches a configuration group from an instance.", 
+        "tags": [
+          "database-instances"
+        ], 
+        "x-title": "Detach configuration group"
+      }
+    }, 
+    "/v1.0/{accountId}/instances/{instanceId}/action": {
+      "x-post-ejectReplicaSource": {
+        "consumes": [
+          "application/json"
+        ], 
+        "description": "If the base instance becomes unreachable, you can use this\noperation to delete the base instance.\n\nThis operation:\n\n- Finds the replica that has processed the greatest number of\n  transactions and picks that replica to use as the new base\n  instance.\n\n- Transfers the public IP of the old base instance to the new base\n  instance (which is the newly-promoted replica).\n\n- Deletes the old base instance.\n\n- Takes all the instances in the replication set and makes them\n  start replicating from the new base instance.\n\nFor ``instanceId``, pass in the instance ID of the unreachable base\ninstance.", 
+        "operationId": "ejectReplicaSource", 
+        "parameters": [
+          {
+            "description": "The account ID of the owner of the instance.", 
+            "format": "", 
+            "in": "path", 
+            "name": "accountId", 
+            "required": true, 
+            "type": "string"
+          }, 
+          {
+            "description": "The ID for the database instance.", 
+            "format": "", 
+            "in": "path", 
+            "name": "instanceId", 
+            "required": true, 
+            "type": "string"
+          }
+        ], 
+        "produces": [
+          "application/json"
+        ], 
+        "responses": {
+          "202": {
+            "description": "", 
+            "examples": {
+              "text/plain": "HTTP/1.1 202 Accepted\nContent-Type: application/json\nContent-Length: 0\nDate: Fri, 08 Apr 2016 23:11:19 GMT\n"
+            }, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "400": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "401": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "403": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "404": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "405": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "413": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "415": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "422": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "500": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "501": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "503": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }
+        }, 
+        "summary": "Deletes the base instance in a replication set.", 
+        "tags": [
+          "database-instance-actions"
+        ], 
+        "x-title": "Delete replication base instance"
+      }, 
+      "x-post-promoteToReplicaSource": {
+        "consumes": [
+          "application/json"
+        ], 
+        "description": "If you have set up replication, and the base instance is still\nreachable, you can use this operation to promote a replica to be\nthe new base instance.\n\nThis can be useful if you want to make a configuration change to\nthe base instance that your replicas are replicating from. For\nexample, you might want to increase the disk or CPU capacity. If\nyou made the change on the base instance directly, you would need\nto take the base instance down for the duration of the operation.\nInstead, you can create a replica, make the configuration change on\nthe replica, and then promote the replica to become the new base\ninstance.\n\nFor ``instanceId``, pass in the instance ID of the replica you want\nto promote.", 
+        "operationId": "promoteToReplicaSource", 
+        "parameters": [
+          {
+            "description": "The account ID of the owner of the instance.", 
+            "format": "", 
+            "in": "path", 
+            "name": "accountId", 
+            "required": true, 
+            "type": "string"
+          }, 
+          {
+            "description": "The ID for the database instance.", 
+            "format": "", 
+            "in": "path", 
+            "name": "instanceId", 
+            "required": true, 
+            "type": "string"
+          }
+        ], 
+        "produces": [
+          "application/json"
+        ], 
+        "responses": {
+          "202": {
+            "description": "", 
+            "examples": {
+              "text/plain": "HTTP/1.1 202 Accepted\nContent-Type: application/json\nContent-Length: 0\nDate: Fri, 08 Apr 2016 23:11:19 GMT\n"
+            }, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "400": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "401": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "403": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "404": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "405": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "413": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "415": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "422": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "500": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "501": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "503": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }
+        }, 
+        "summary": "Promotes a replica.", 
+        "tags": [
+          "database-instance-actions"
+        ], 
+        "x-title": "Promote instance to replica source"
+      }, 
+      "x-post-resizeInstance": {
+        "consumes": [
+          "application/json"
+        ], 
+        "description": "If you provide a valid ``flavorRef``, this operation changes the\nmemory size of the instance, and restarts MySQL.", 
+        "operationId": "resizeInstance", 
+        "parameters": [
+          {
+            "description": "The account ID of the owner of the instance.", 
+            "format": "", 
+            "in": "path", 
+            "name": "accountId", 
+            "required": true, 
+            "type": "string"
+          }, 
+          {
+            "description": "The ID for the database instance.", 
+            "format": "", 
+            "in": "path", 
+            "name": "instanceId", 
+            "required": true, 
+            "type": "string"
+          }
+        ], 
+        "produces": [
+          "application/json"
+        ], 
+        "responses": {
+          "202": {
+            "description": "", 
+            "examples": {
+              "text/plain": "HTTP/1.1 202 Accepted\nContent-Type: text/plain; charset=UTF-8\nContent-Length: 58\nDate: Mon, 06 Feb 2012 21:28:10 GMT\n\n   \n"
+            }, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "400": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "401": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "403": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "404": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "405": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "413": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "415": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "422": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "500": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "501": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "503": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }
+        }, 
+        "summary": "Resizes the memory for an instance.", 
+        "tags": [
+          "database-instance-actions"
+        ], 
+        "x-title": "Resize instance"
+      }, 
+      "x-post-resizeVolume": {
+        "consumes": [
+          "application/json"
+        ], 
+        "description": "You can use this operation to increase but not decrease the volume\nsize. A valid volume size is an integer value in gigabytes (GB).\n\nYou cannot increase the volume to a size that is larger than the\nAPI volume size limit.\n\nIf this operation succeeds, it returns a 202 Accepted response.", 
+        "operationId": "resizeVolume", 
+        "parameters": [
+          {
+            "description": "The account ID of the owner of the instance.", 
+            "format": "", 
+            "in": "path", 
+            "name": "accountId", 
+            "required": true, 
+            "type": "string"
+          }, 
+          {
+            "description": "The ID for the database instance.", 
+            "format": "", 
+            "in": "path", 
+            "name": "instanceId", 
+            "required": true, 
+            "type": "string"
+          }
+        ], 
+        "produces": [
+          "application/json"
+        ], 
+        "responses": {
+          "202": {
+            "description": "", 
+            "examples": {
+              "text/plain": "HTTP/1.1 202 Accepted\nContent-Type: application/json\nContent-Length: 0\nDate: Wed, 27 Jun 2012 23:12:20 GMT\n"
+            }, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "400": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "401": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "403": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "404": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "405": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "413": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "415": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "422": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "500": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "501": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "503": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }
+        }, 
+        "summary": "Resizes the volume that is attached to an instance.", 
+        "tags": [
+          "database-instance-actions"
+        ], 
+        "x-title": "Resize instance volume"
+      }, 
+      "x-post-restartInstance": {
+        "consumes": [
+          "application/json"
+        ], 
+        "description": "The restart operation restarts only the MySQL instance. Restarting\nMySQL erases any dynamic configuration settings that you make in\nMySQL.\n\nThe MySQL service is unavailable until the instance restarts.\n\nIf the operation succeeds, it returns the ``Accepted (202)``\nresponse code.", 
+        "operationId": "restartInstance", 
+        "parameters": [
+          {
+            "description": "The account ID of the owner of the instance.", 
+            "format": "", 
+            "in": "path", 
+            "name": "accountId", 
+            "required": true, 
+            "type": "string"
+          }, 
+          {
+            "description": "The ID for the database instance.", 
+            "format": "", 
+            "in": "path", 
+            "name": "instanceId", 
+            "required": true, 
+            "type": "string"
+          }
+        ], 
+        "produces": [
+          "application/json"
+        ], 
+        "responses": {
+          "202": {
+            "description": "", 
+            "examples": {
+              "text/plain": "HTTP/1.1 202 Accepted\nContent-Type: application/json\nContent-Length: 0\nDate: Wed, 27 Jun 2012 23:11:19 GMT\n"
+            }, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "400": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "401": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "403": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "404": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "405": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "413": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "415": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "422": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "500": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "501": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "503": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }
+        }, 
+        "summary": "Restarts the database service for an instance.", 
+        "tags": [
+          "database-instance-actions"
+        ], 
+        "x-title": "Restart instance"
+      }
+    }, 
+    "/v1.0/{accountId}/instances/{instanceId}/configuration": {
+      "get": {
+        "consumes": [
+          "application/json"
+        ], 
+        "description": "", 
+        "operationId": "listConfigDefaults", 
+        "parameters": [
+          {
+            "description": "The account ID of the owner of the instance.", 
+            "format": "", 
+            "in": "path", 
+            "name": "accountId", 
+            "required": true, 
+            "type": "string"
+          }, 
+          {
+            "description": "The ID for the database instance.", 
+            "format": "", 
+            "in": "path", 
+            "name": "instanceId", 
+            "required": true, 
+            "type": "string"
+          }
+        ], 
+        "produces": [
+          "application/json"
+        ], 
+        "responses": {
+          "200": {
+            "description": "", 
+            "examples": {
+              "application/json": {
+                "instance": {
+                  "configuration": {
+                    "basedir": "/usr", 
+                    "connect_timeout": "15", 
+                    "datadir": "/var/lib/mysql/data", 
+                    "default_storage_engine": "innodb", 
+                    "inno db_log_buffer_size": "25M", 
+                    "innodb_ log_file_size": "50M", 
+                    "innodb_buffer_pool_size": "150M", 
+                    "innodb_data_file_path": "ibdata1:10M:autoextend", 
+                    "innodb_file_per_table": "1", 
+                    "innodb_log_files_in_group": "2", 
+                    "join_buffer_size": "1M", 
+                    "key_buffer_size": "50M", 
+                    "local-infile": "0", 
+                    "max_allowed_packet": "1024K", 
+                    "max_connections": "100", 
+                    "max_heap_table_size": "16M", 
+                    "max_user_connections": "100", 
+                    "myisam-recover ": "BACKUP", 
+                    "open_files_limit": "512", 
+                    "pid_file": "/var/run/mysqld/mysqld.pid", 
+                    "port": "3306", 
+                    "query_cache_limit": "1M", 
+                    "query_cache_size": "8M", 
+                    "query_cache_type": "1", 
+                    "read_bu ffer_size": "512K", 
+                    "read_rnd_buffer_size": "512 K", 
+                    "server_id": "334596", 
+                    "skip-external-locking": "1", 
+                    "sort_buffer_size": "1M", 
+                    "table_definition_cache": "256", 
+                    "table_open_cache": "256", 
+                    "thread_cache_size": "4", 
+                    "thread_stack": "192K", 
+                    "tmp_table_size": "16M", 
+                    "tmpdir": "/var/tmp", 
+                    "user": "mysql", 
+                    "wait_timeout": "120"
+                  }
+                }
+              }, 
+              "text/plain": "HTTP/1.1 200 OK\nContent-Type: application/json\nContent-Length: 1559\nDate: Wed, 08 Jul 2015 19:53:04 GMT\n\n"
+            }, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "400": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "401": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "403": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "404": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "405": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "413": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "422": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "500": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "501": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "503": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }
+        }, 
+        "summary": "Lists the configuration defaults for an instance.", 
+        "tags": [
+          "database-instances"
+        ], 
+        "x-title": "List configuration defaults"
+      }
+    }, 
+    "/v1.0/{accountId}/instances/{instanceId}/databases": {
+      "get": {
+        "consumes": [
+          "application/json"
+        ], 
+        "description": "This operation returns only the user-defined databases and not the\nsystem databases. Only the database administrator can view the\n``mysql``, ``information_schema``, and ``lost+found`` system\ndatabases.", 
+        "operationId": "listDatabases", 
+        "parameters": [
+          {
+            "description": "The account ID of the owner of the instance.", 
+            "format": "", 
+            "in": "path", 
+            "name": "accountId", 
+            "required": true, 
+            "type": "string"
+          }, 
+          {
+            "description": "The ID for the database instance.", 
+            "format": "", 
+            "in": "path", 
+            "name": "instanceId", 
+            "required": true, 
+            "type": "string"
+          }
+        ], 
+        "produces": [
+          "application/json"
+        ], 
+        "responses": {
+          "200": {
+            "description": "", 
+            "examples": {
+              "application/json": {
+                "databases": [
+                  {
+                    "name": "anotherexampledb"
+                  }, 
+                  {
+                    "name": "exampledb"
+                  }, 
+                  {
+                    "name": "nextround"
+                  }, 
+                  {
+                    "name": "sampledb"
+                  }, 
+                  {
+                    "name": "testingdb"
+                  }
+                ]
+              }, 
+              "text/plain": "HTTP/1.1 200 OK\nContent-Type: application/json\nContent-Length: 136\nDate: Wed, 25 Jan 2012 21:58:01 GMT\n"
+            }, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "400": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "401": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "403": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "404": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "405": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "413": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "422": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "500": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "501": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "503": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }
+        }, 
+        "summary": "Lists databases for an instance.", 
+        "tags": [
+          "databases"
+        ], 
+        "x-title": "List instance databases"
+      }, 
+      "post": {
+        "consumes": [
+          "application/json"
+        ], 
+        "description": "The ``name`` of the database is a required attribute.", 
+        "operationId": "createDatabase", 
+        "parameters": [
+          {
+            "description": "", 
+            "in": "body", 
+            "name": "body", 
+            "required": false, 
+            "schema": {
+              "$ref": "#/definitions/createDatabase"
+            }
+          }, 
+          {
+            "description": "The account ID of the owner of the instance.", 
+            "format": "", 
+            "in": "path", 
+            "name": "accountId", 
+            "required": true, 
+            "type": "string"
+          }, 
+          {
+            "description": "The ID for the database instance.", 
+            "format": "", 
+            "in": "path", 
+            "name": "instanceId", 
+            "required": true, 
+            "type": "string"
+          }
+        ], 
+        "produces": [
+          "application/json"
+        ], 
+        "responses": {
+          "202": {
+            "description": "", 
+            "examples": {
+              "text/plain": "HTTP/1.1 202 Accepted\nContent-Type: application/json\nContent-Length: 0\nDate: Wed, 27 Jun 2012 23:11:18 GMT\n"
+            }, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "400": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "401": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "403": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "404": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "405": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "413": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "422": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "500": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "501": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "503": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }
+        }, 
+        "summary": "Creates a database within an instance.", 
+        "tags": [
+          "databases"
+        ], 
+        "x-title": "Create database"
+      }
+    }, 
+    "/v1.0/{accountId}/instances/{instanceId}/databases/{databaseName}": {
+      "delete": {
+        "consumes": [], 
+        "description": "This operation also deletes all data that is associated with the\ndatabase.", 
+        "operationId": "deleteDatabase", 
+        "parameters": [
+          {
+            "description": "The name for the database.", 
+            "format": "", 
+            "in": "path", 
+            "name": "databaseName", 
+            "required": true, 
+            "type": "string"
+          }, 
+          {
+            "description": "The account ID of the owner of the instance.", 
+            "format": "", 
+            "in": "path", 
+            "name": "accountId", 
+            "required": true, 
+            "type": "string"
+          }, 
+          {
+            "description": "The ID for the database instance.", 
+            "format": "", 
+            "in": "path", 
+            "name": "instanceId", 
+            "required": true, 
+            "type": "string"
+          }
+        ], 
+        "produces": [], 
+        "responses": {
+          "202": {
+            "description": "", 
+            "examples": {
+              "text/plain": "HTTP/1.1 202 Accepted\nContent-Type: application/json\nContent-Length: 0\nDate: Wed, 27 Jun 2012 23:11:18 GMT\n"
+            }, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "400": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "401": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "403": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "404": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "405": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "413": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "422": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "500": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "501": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "503": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }
+        }, 
+        "summary": "Deletes a database.", 
+        "tags": [
+          "databases"
+        ], 
+        "x-title": "Delete database"
+      }
+    }, 
+    "/v1.0/{accountId}/instances/{instanceId}/root": {
+      "delete": {
+        "consumes": [], 
+        "description": "", 
+        "operationId": "disableRoot", 
+        "parameters": [
+          {
+            "description": "The account ID of the owner of the instance.", 
+            "format": "", 
+            "in": "path", 
+            "name": "accountId", 
+            "required": true, 
+            "type": "string"
+          }, 
+          {
+            "description": "The ID for the database instance.", 
+            "format": "", 
+            "in": "path", 
+            "name": "instanceId", 
+            "required": true, 
+            "type": "string"
+          }
+        ], 
+        "produces": [], 
+        "responses": {
+          "202": {
+            "description": "", 
+            "examples": {
+              "text/plain": "HTTP/1.1 202 Accepted\nContent-Type: application/json\nContent-Length: 0\nDate: Wed, 27 Jun 2012 23:11:18 GMT\n\n"
+            }, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "400": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "401": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "403": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "404": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "405": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "413": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "422": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "500": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "501": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "503": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }
+        }, 
+        "summary": "Disables the root user.", 
+        "tags": [
+          "user-management"
+        ], 
+        "x-title": "Disable root user"
+      }, 
+      "get": {
+        "consumes": [
+          "application/json"
+        ], 
+        "description": "Returns ``true`` if root user is enabled for a database instance.\nOtherwise, returns ``false``.", 
+        "operationId": "isRootEnabled", 
+        "parameters": [
+          {
+            "description": "The account ID of the owner of the instance.", 
+            "format": "", 
+            "in": "path", 
+            "name": "accountId", 
+            "required": true, 
+            "type": "string"
+          }, 
+          {
+            "description": "The ID for the database instance.", 
+            "format": "", 
+            "in": "path", 
+            "name": "instanceId", 
+            "required": true, 
+            "type": "string"
+          }
+        ], 
+        "produces": [
+          "application/json"
+        ], 
+        "responses": {
+          "200": {
+            "description": "", 
+            "examples": {
+              "application/json": {
+                "rootEnabled": true
+              }, 
+              "text/plain": "HTTP/1.1 200 OK\nContent-Type: application/json\nContent-Length: 21\nDate: Wed, 25 Jan 2012 21:58:13 GMT"
+            }, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "400": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "401": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "403": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "404": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "405": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "413": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "422": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "500": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "501": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "503": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }
+        }, 
+        "summary": "Shows root-enabled status for a database instance.", 
+        "tags": [
+          "user-management"
+        ], 
+        "x-title": "Show root-enabled status for database instance"
+      }, 
+      "post": {
+        "consumes": [
+          "application/json"
+        ], 
+        "description": "This operation generates a root password for the root user and\nenables the root user to log in from any host.\n\nChanges that you make as a root user can impact the database\ninstance and API operations in unpredictable and detrimental ways.\nWhen you enable the root user, you accept the possibility that we\ncannot support your database instance. We might not be able to\nassist you if you change core MySQL settings. These changes can be,\nbut are not limited to, turning off bin logs, removing users that\nwe use to access your instance, and so on.", 
+        "operationId": "createRoot", 
+        "parameters": [
+          {
+            "description": "The account ID of the owner of the instance.", 
+            "format": "", 
+            "in": "path", 
+            "name": "accountId", 
+            "required": true, 
+            "type": "string"
+          }, 
+          {
+            "description": "The ID for the database instance.", 
+            "format": "", 
+            "in": "path", 
+            "name": "instanceId", 
+            "required": true, 
+            "type": "string"
+          }
+        ], 
+        "produces": [
+          "application/json"
+        ], 
+        "responses": {
+          "200": {
+            "description": "", 
+            "examples": {
+              "application/json": {
+                "user": {
+                  "name": "root", 
+                  "password": "secretsecret"
+                }
+              }, 
+              "text/plain": "HTTP/1.1 200 OK\nContent-Type: application/json\nContent-Length: 78\nDate: Wed, 25 Jan 2012 21:58:11 GMT"
+            }, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "400": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "401": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "403": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "404": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "405": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "413": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "422": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "500": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "501": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "503": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }
+        }, 
+        "summary": "Enables the root user for a database instance and returns the root password.", 
+        "tags": [
+          "user-management"
+        ], 
+        "x-title": "Enable root user"
+      }
+    }, 
+    "/v1.0/{accountId}/instances/{instanceId}/users": {
+      "get": {
+        "consumes": [
+          "application/json"
+        ], 
+        "description": "This operation does not return system users. A system user is a\ndatabase administrator who administers the health of the database.\nAlso, this operation returns the ``root`` user only if it is\nenabled.\n\nThe following notes apply to MySQL users:\n\n- User names can be up to 16 characters long.\n\n- When you create accounts with INSERT, you must use FLUSH\n  PRIVILEGES to tell the server to reload the grant tables.\n\n- For additional information, See:\n  `http://dev.mysql.com/doc/refman/5.1/en/user-account-\n  management.html <http://dev.mysql.com/doc/refman/5.1/en/user-\n  account-management.html>`_", 
+        "operationId": "listUsers", 
+        "parameters": [
+          {
+            "description": "The account ID of the owner of the instance.", 
+            "format": "", 
+            "in": "path", 
+            "name": "accountId", 
+            "required": true, 
+            "type": "string"
+          }, 
+          {
+            "description": "The ID for the database instance.", 
+            "format": "", 
+            "in": "path", 
+            "name": "instanceId", 
+            "required": true, 
+            "type": "string"
+          }
+        ], 
+        "produces": [
+          "application/json"
+        ], 
+        "responses": {
+          "200": {
+            "description": "", 
+            "examples": {
+              "application/json": {
+                "users": [
+                  {
+                    "databases": [
+                      {
+                        "name": "databaseA"
+                      }
+                    ], 
+                    "name": "dbuser3"
+                  }, 
+                  {
+                    "databases": [
+                      {
+                        "name": "databaseB"
+                      }, 
+                      {
+                        "name": "databaseC"
+                      }
+                    ], 
+                    "name": "dbuser4"
+                  }
+                ]
+              }, 
+              "text/plain": "HTTP/1.1 200 OK\nContent-Type: application/json\nContent-Length: 152\nDate: Wed, 21 Mar 2012 17:46:46 GMT"
+            }, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "400": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "401": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "403": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "404": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "405": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "413": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "422": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "500": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "501": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "503": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }
+        }, 
+        "summary": "Lists the users in a database instance and the associated databases for that user.", 
+        "tags": [
+          "user-management"
+        ], 
+        "x-title": "List database instance users"
+      }, 
+      "post": {
+        "consumes": [
+          "application/json"
+        ], 
+        "description": "Asynchronously provisions a new user for the database instance by\nusing the configuration that you define in the request object.\nAfter the API validates the request and starts progress on the\nprovisioning process, the call returns the ``Accepted (202)``\nresponse code.\n\nIf the API cannot fulfill the corresponding request due to\ninsufficient data or data that is not valid, the API returns the\n``Bad Request (400)`` response code with information about the\nnature of the failure. You cannot recover from validation errors.\nYou must correct the cause of the failure and the request again.\n\nThis table lists the required attributes for creating users:\n\n**Required attributes for user**\n\n+-----------------+---------------------------------------------------------------------+------------------------------------+----------+\n|    Applies to   |                                 Name                                |            Description             | Required |\n+-----------------+---------------------------------------------------------------------+------------------------------------+----------+\n|       User      |                                 name                                | Name of the user for the database. |   Yes    |\n+-----------------+---------------------------------------------------------------------+------------------------------------+----------+\n|     password    |                  User password for database access.                 |                Yes                 |          |\n+-----------------+---------------------------------------------------------------------+------------------------------------+----------+\n| (database) name | Name of the database that the user can access. You must specify one |                 No                 |          |\n|                 |                       or more database names.                       |                                    |          |\n+-----------------+---------------------------------------------------------------------+------------------------------------+----------+\n\n **Notes**\n\n- The operation grants the user all privileges on the databases.\n\n- Do not use the ``root`` user name, which is reserved.\n\nThese tables list the valid characters for database names, user\nnames, and passwords.\n\n**Valid characters in database name, user name, and password**\n\n+---------------------------------------------------------------------------------------------------------------------------------+\n|                                                            Character                                                            |\n+---------------------------------------------------------------------------------------------------------------------------------+\n|                                             Letters (upper and lower cases allowed)                                             |\n+---------------------------------------------------------------------------------------------------------------------------------+\n|                                                             Numbers                                                             |\n+---------------------------------------------------------------------------------------------------------------------------------+\n| ``@``, ``?``, ``#``, and spaces are allowed, but **not** at the beginning and end of the database name, user name, and password |\n+---------------------------------------------------------------------------------------------------------------------------------+\n|                             ``_`` is allowed anywhere in the database name, user name, and password                             |\n+---------------------------------------------------------------------------------------------------------------------------------+\n\n**Characters that are not allowed in database name, user name, and password**\n\n+---------------------------------------------------------+\n|                        Character                        |\n+---------------------------------------------------------+\n|                      Single quotes                      |\n+---------------------------------------------------------+\n|                      Double quotes                      |\n+---------------------------------------------------------+\n|                       Back quotes                       |\n+---------------------------------------------------------+\n|                        Semicolons                       |\n+---------------------------------------------------------+\n|                          Commas                         |\n+---------------------------------------------------------+\n|                       Back slashes                      |\n+---------------------------------------------------------+\n|                     Forward slashes                     |\n+---------------------------------------------------------+\n| Spaces at the front or end of the user name or password |\n+---------------------------------------------------------+\n\n**Length restrictions for database name, user name, and password**\n\n+------------------------------+-----------------------------+\n|         Restriction          |            Value            |\n+------------------------------+-----------------------------+\n| Database name maximum length |              64             |\n+------------------------------+-----------------------------+\n|   User name maximum length   |              16             |\n+------------------------------+-----------------------------+\n|   Password maximum length    | unlimited (no restrictions) |\n+------------------------------+-----------------------------+", 
+        "operationId": "createUser", 
+        "parameters": [
+          {
+            "description": "The account ID of the owner of the instance.", 
+            "format": "", 
+            "in": "path", 
+            "name": "accountId", 
+            "required": true, 
+            "type": "string"
+          }, 
+          {
+            "description": "The ID for the database instance.", 
+            "format": "", 
+            "in": "path", 
+            "name": "instanceId", 
+            "required": true, 
+            "type": "string"
+          }
+        ], 
+        "produces": [
+          "application/json"
+        ], 
+        "responses": {
+          "202": {
+            "description": "", 
+            "examples": {
+              "text/plain": "HTTP/1.1 202 Accepted\nContent-Type: application/json\nContent-Length: 0\nDate: Wed, 27 Jun 2012 23:11:18 GMT\n"
+            }, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "400": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "401": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "403": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "404": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "405": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "413": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "422": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "500": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "501": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "503": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }
+        }, 
+        "summary": "Creates a user for a database instance.", 
+        "tags": [
+          "user-management"
+        ], 
+        "x-title": "Create user"
+      }
+    }, 
+    "/v1.0/{accountId}/instances/{instanceId}/users/{name}": {
+      "delete": {
+        "consumes": [], 
+        "description": "Do not use periods in user names. A bug in a Python library that\nRackspace uses that can cause incorrect user deletions to occur if\nyou use a period (.) in the user name. In this case, the bug in the\nlibrary truncates the user name to the portion from the beginning\nup to the period. For example, for the ``my.userA`` user, the bug\ntruncates the user name to ``my``, and if the ``user`` exists, that\nuser is incorrectly deleted.", 
+        "operationId": "deleteUser", 
+        "parameters": [
+          {
+            "description": "The account ID of the owner of the instance.", 
+            "format": "", 
+            "in": "path", 
+            "name": "accountId", 
+            "required": true, 
+            "type": "string"
+          }, 
+          {
+            "description": "The ID for the database instance.", 
+            "format": "", 
+            "in": "path", 
+            "name": "instanceId", 
+            "required": true, 
+            "type": "string"
+          }
+        ], 
+        "produces": [], 
+        "responses": {
+          "202": {
+            "description": "", 
+            "examples": {
+              "text/plain": "HTTP/1.1 202 Accepted\nContent-Type: application/json\nContent-Length: 0\nDate: Wed, 27 Jun 2012 23:11:19 GMT\n"
+            }, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "400": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "401": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "403": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "404": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "405": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "413": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "422": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "500": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "501": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "503": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }
+        }, 
+        "summary": "Deletes a user for a database instance.", 
+        "tags": [
+          "user-management"
+        ], 
+        "x-title": "Delete user"
+      }
+    }
+  }, 
+  "produces": [
+    "application/json"
+  ], 
+  "swagger": "2.0", 
+  "tags": [
+    {
+      "description": "API versions", 
+      "name": "api-versions", 
+      "x-summary": "Lists information for all Database Service API versions and shows\nDatabase Service v1.0 details."
+    }, 
+    {
+      "description": "Database instances (instances)", 
+      "name": "database-instances", 
+      "x-summary": "Creates, lists, shows details for, attaches a configuration group\nto, detaches a configuration group from, deletes, lists\nconfiguration defaults, creates root, and determines whether root\nis enables for instances."
+    }, 
+    {
+      "description": "Database instance actions (action)", 
+      "name": "database-instance-actions", 
+      "x-summary": "Resizes instances and volumes and restarts instances."
+    }, 
+    {
+      "description": "Databases (databases)", 
+      "name": "databases", 
+      "x-summary": "Creates, lists all, and deletes databases."
+    }, 
+    {
+      "description": "Users (users)", 
+      "name": "user-management", 
+      "x-summary": "Creates, lists all, and deletes users."
+    }, 
+    {
+      "description": "Flavors (flavors)", 
+      "name": "flavors", 
+      "x-summary": "Lists all flavors and shows details for a flavor, by ID."
+    }, 
+    {
+      "description": "Data stores (datastores)", 
+      "name": "datastores", 
+      "x-summary": "Lists data store versions, lists parameters for data stores, and\nshows parameter details for a data store version."
+    }, 
+    {
+      "description": "Configuration groups (configurations)", 
+      "name": "configurations", 
+      "x-summary": "Creates and lists all configuration groups."
+    }
+  ]
+}

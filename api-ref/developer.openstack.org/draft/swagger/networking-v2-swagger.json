@@ -1,0 +1,3262 @@
+{
+  "basePath": "/", 
+  "consumes": [
+    "application/json"
+  ], 
+  "definitions": {
+    "bulkCreateNetwork": {
+      "example": {
+        "application/json": {
+          "networks": [
+            {
+              "admin_state_up": true, 
+              "name": "sample_network3"
+            }, 
+            {
+              "admin_state_up": true, 
+              "name": "sample_network4"
+            }
+          ]
+        }
+      }, 
+      "properties": {
+        "admin_state_up": {
+          "description": "The administrative state of the network, which is up (``true``) or\ndown (``false``).", 
+          "format": "", 
+          "type": "boolean"
+        }, 
+        "name": {
+          "description": "The network name.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "networks": {
+          "description": "A list of ``network`` objects.", 
+          "format": "", 
+          "items": {
+            "type": "string"
+          }, 
+          "type": "array"
+        }, 
+        "port_security_enabled": {
+          "description": "The port security status. A valid value is enabled (``true``) or\ndisabled (``false``).", 
+          "format": "", 
+          "type": "boolean"
+        }, 
+        "router:external": {
+          "description": "Indicates whether this network is externally accessible.", 
+          "format": "", 
+          "type": "boolean"
+        }, 
+        "shared": {
+          "description": "Admin-only. Indicates whether this network is shared across all\ntenants.", 
+          "format": "", 
+          "type": "boolean"
+        }, 
+        "tenant_id": {
+          "description": "The UUID of the tenant who owns the network. Only administrative\nusers can specify a tenant UUID other than their own. You cannot\nchange this value through authorization policies.", 
+          "format": "", 
+          "type": "string"
+        }
+      }, 
+      "required": [
+        "networks"
+      ], 
+      "type": "object"
+    }, 
+    "bulkCreateNetwork_201": {
+      "properties": {
+        "admin_state_up": {
+          "description": "The administrative state of the network, which is up (``true``) or\ndown (``false``).", 
+          "format": "", 
+          "type": "boolean"
+        }, 
+        "id": {
+          "description": "The UUID of the network.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "mtu": {
+          "description": "The MTU of a network resource.", 
+          "format": "", 
+          "type": "integer"
+        }, 
+        "name": {
+          "description": "The network name.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "networks": {
+          "description": "A list of ``network`` objects.", 
+          "format": "", 
+          "items": {
+            "type": "string"
+          }, 
+          "type": "array"
+        }, 
+        "port_security_enabled": {
+          "description": "The port security status. A valid value is enabled (``true``) or\ndisabled (``false``).", 
+          "format": "", 
+          "type": "boolean"
+        }, 
+        "router:external": {
+          "description": "Indicates whether this network is externally accessible.", 
+          "format": "", 
+          "type": "boolean"
+        }, 
+        "shared": {
+          "description": "Indicates whether this network is shared across all tenants.", 
+          "format": "", 
+          "type": "boolean"
+        }, 
+        "status": {
+          "description": "The network status.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "subnets": {
+          "description": "The associated subnets.", 
+          "format": "", 
+          "items": {
+            "type": "string"
+          }, 
+          "type": "array"
+        }, 
+        "tenant_id": {
+          "description": "The UUID of the tenant who owns the network.", 
+          "format": "", 
+          "type": "string"
+        }
+      }, 
+      "required": [
+        "networks", 
+        "admin_state_up", 
+        "id", 
+        "name", 
+        "shared", 
+        "status", 
+        "subnets", 
+        "tenant_id", 
+        "router:external", 
+        "mtu", 
+        "port_security_enabled"
+      ], 
+      "type": "object"
+    }, 
+    "bulkCreatePorts": {
+      "example": {
+        "application/json": {
+          "ports": [
+            {
+              "admin_state_up": false, 
+              "name": "sample_port_1", 
+              "network_id": "a87cc70a-3e15-4acf-8205-9b711a3531b7"
+            }, 
+            {
+              "admin_state_up": false, 
+              "name": "sample_port_2", 
+              "network_id": "a87cc70a-3e15-4acf-8205-9b711a3531b7"
+            }
+          ]
+        }
+      }, 
+      "properties": {
+        "admin_state_up": {
+          "description": "The administrative status of the port, which is up (``true``) or\ndown (``false``).", 
+          "format": "", 
+          "type": "boolean"
+        }, 
+        "allowed_address_pairs": {
+          "description": "A set of zero or more allowed address pairs. An address pair\ncontains an IP address and MAC address.", 
+          "format": "", 
+          "items": {
+            "type": "string"
+          }, 
+          "type": "array"
+        }, 
+        "device_id": {
+          "description": "The UUID of the device that uses this port. For example, a virtual\nserver.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "device_owner": {
+          "description": "The UUID of the entity that uses this port. For example, a DHCP\nagent.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "fixed_ips": {
+          "description": "If you specify only a subnet UUID, OpenStack Networking allocates\nan available IP from that subnet to the port. If you specify both a\nsubnet UUID and an IP address, OpenStack Networking tries to\nallocate the address to the port.", 
+          "format": "", 
+          "items": {
+            "type": "string"
+          }, 
+          "type": "array"
+        }, 
+        "ip_address": {
+          "description": "The IP address of an allowed address pair.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "mac_address": {
+          "description": "The MAC address of an allowed address pair.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "name": {
+          "description": "A symbolic name for the port.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "network_id": {
+          "description": "The UUID of the network.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "opt_name": {
+          "description": "The extra DHCP option name.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "opt_value": {
+          "description": "The extra DHCP option value.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "ports": {
+          "description": "A list of ``port`` objects.", 
+          "format": "", 
+          "items": {
+            "type": "string"
+          }, 
+          "type": "array"
+        }, 
+        "security_groups": {
+          "description": "One or more security group UUIDs.", 
+          "format": "", 
+          "items": {
+            "type": "string"
+          }, 
+          "type": "array"
+        }, 
+        "subnet_id": {
+          "description": "If you specify only a subnet UUID, OpenStack Networking allocates\nan available IP from that subnet to the port. If you specify both a\nsubnet UUID and an IP address, OpenStack Networking tries to\nallocate the address to the port.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "tenant_id": {
+          "description": "The UUID of the tenant who owns the network. Only administrative\nusers can specify a tenant UUID other than their own. You cannot\nchange this value through authorization policies.", 
+          "format": "", 
+          "type": "string"
+        }
+      }, 
+      "required": [
+        "ports", 
+        "network_id"
+      ], 
+      "type": "object"
+    }, 
+    "bulkCreatePorts_201": {
+      "properties": {
+        "admin_state_up": {
+          "description": "The administrative state of the port, which is up (``true``) or\ndown (``false``).", 
+          "format": "", 
+          "type": "boolean"
+        }, 
+        "allowed_address_pairs": {
+          "description": "A set of zero or more allowed address pairs. An address pair\nconsists of an IP address and MAC address.", 
+          "format": "", 
+          "items": {
+            "type": "string"
+          }, 
+          "type": "array"
+        }, 
+        "created_at": {
+          "description": "Time at which port has been created.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "device_id": {
+          "description": "The UUID of the device that uses this port. For example, a virtual\nserver.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "device_owner": {
+          "description": "The UUID of the entity that uses this port. For example, a DHCP\nagent.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "extra_dhcp_opts": {
+          "description": "A set of zero or more extra DHCP option pairs. An option pair\nconsists of an option value and name.", 
+          "format": "", 
+          "items": {
+            "type": "string"
+          }, 
+          "type": "array"
+        }, 
+        "fixed_ips": {
+          "description": "The IP addresses for the port. Includes the IP address and UUID of\nthe subnet.", 
+          "format": "", 
+          "items": {
+            "type": "string"
+          }, 
+          "type": "array"
+        }, 
+        "id": {
+          "description": "The UUID of the port.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "ip_address": {
+          "description": "The fixed IP address of the port.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "mac_address": {
+          "description": "The MAC address.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "name": {
+          "description": "The port name.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "network_id": {
+          "description": "The UUID of the attached network.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "opt_name": {
+          "description": "The extra DHCP option name.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "opt_value": {
+          "description": "The extra DHCP option value.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "port_security_enabled": {
+          "description": "The port security status. The status is enabled (``true``) or\ndisabled (``false``).", 
+          "format": "", 
+          "type": "boolean"
+        }, 
+        "ports": {
+          "description": "A list of ``port`` objects.", 
+          "format": "", 
+          "items": {
+            "type": "string"
+          }, 
+          "type": "array"
+        }, 
+        "security_groups": {
+          "description": "The UUIDs of any attached security groups.", 
+          "format": "", 
+          "items": {
+            "type": "string"
+          }, 
+          "type": "array"
+        }, 
+        "status": {
+          "description": "The port status. Value is ``ACTIVE`` or ``DOWN``.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "subnet_id": {
+          "description": "The UUID of the subnet to which the port is attached.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "tenant_id": {
+          "description": "The UUID of the tenant who owns the network. Only administrative\nusers can specify a tenant UUID other than their own.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "updated_at": {
+          "description": "Time at which port has been updated.", 
+          "format": "", 
+          "type": "string"
+        }
+      }, 
+      "required": [
+        "ports", 
+        "status", 
+        "name", 
+        "allowed_address_pairs", 
+        "ip_address", 
+        "mac_address", 
+        "created_at", 
+        "updated_at", 
+        "admin_state_up", 
+        "network_id", 
+        "tenant_id", 
+        "extra_dhcp_opts", 
+        "opt_value", 
+        "opt_name", 
+        "device_owner", 
+        "fixed_ips", 
+        "subnet_id", 
+        "id", 
+        "security_groups", 
+        "device_id", 
+        "port_security_enabled"
+      ], 
+      "type": "object"
+    }, 
+    "createNetwork_201": {
+      "properties": {
+        "admin_state_up": {
+          "description": "The administrative state of the network, which is up (``true``) or\ndown (``false``).", 
+          "format": "", 
+          "type": "boolean"
+        }, 
+        "availability_zone_hints": {
+          "description": "The availability zone candidate for the network.", 
+          "format": "", 
+          "items": {
+            "type": "string"
+          }, 
+          "type": "array"
+        }, 
+        "availability_zones": {
+          "description": "The availability zone for the network.", 
+          "format": "", 
+          "items": {
+            "type": "string"
+          }, 
+          "type": "array"
+        }, 
+        "id": {
+          "description": "The UUID of the network.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "mtu": {
+          "description": "The MTU of a network resource.", 
+          "format": "", 
+          "type": "integer"
+        }, 
+        "name": {
+          "description": "The network name.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "network": {
+          "description": "A ``network`` object.", 
+          "format": "", 
+          "type": "object"
+        }, 
+        "qos_policy_id": {
+          "description": "The UUID of the QoS policy.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "router:external": {
+          "description": "Indicates whether this network is externally accessible.", 
+          "format": "", 
+          "type": "boolean"
+        }, 
+        "shared": {
+          "description": "Indicates whether this network is shared across all tenants. By\ndefault, only administrative users can change this value.", 
+          "format": "", 
+          "type": "boolean"
+        }, 
+        "status": {
+          "description": "The network status.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "subnets": {
+          "description": "The associated subnets.", 
+          "format": "", 
+          "items": {
+            "type": "string"
+          }, 
+          "type": "array"
+        }, 
+        "tenant_id": {
+          "description": "The UUID of the tenant.", 
+          "format": "", 
+          "type": "string"
+        }
+      }, 
+      "required": [
+        "network", 
+        "admin_state_up", 
+        "id", 
+        "name", 
+        "shared", 
+        "status", 
+        "subnets", 
+        "tenant_id", 
+        "qos_policy_id", 
+        "router:external", 
+        "mtu", 
+        "availability_zones", 
+        "availability_zone_hints"
+      ], 
+      "type": "object"
+    }, 
+    "createPort": {
+      "example": {
+        "application/json": {
+          "port": {
+            "admin_state_up": true, 
+            "name": "private-port", 
+            "network_id": "a87cc70a-3e15-4acf-8205-9b711a3531b7"
+          }
+        }
+      }, 
+      "properties": {
+        "admin_state_up": {
+          "description": "The administrative status of the port, which is up (``true``) or\ndown (``false``).", 
+          "format": "", 
+          "type": "boolean"
+        }, 
+        "allowed_address_pairs": {
+          "description": "A set of zero or more allowed address pairs. An address pair\ncontains an IP address and MAC address.", 
+          "format": "", 
+          "items": {
+            "type": "string"
+          }, 
+          "type": "array"
+        }, 
+        "device_id": {
+          "description": "The UUID of the device that uses this port. For example, a virtual\nserver.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "device_owner": {
+          "description": "The UUID of the entity that uses this port. For example, a DHCP\nagent.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "fixed_ips": {
+          "description": "If you specify only a subnet UUID, OpenStack Networking allocates\nan available IP from that subnet to the port. If you specify both a\nsubnet UUID and an IP address, OpenStack Networking tries to\nallocate the address to the port.", 
+          "format": "", 
+          "items": {
+            "type": "string"
+          }, 
+          "type": "array"
+        }, 
+        "ip_address": {
+          "description": "The IP address of an allowed address pair.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "mac_address": {
+          "description": "The MAC address of an allowed address pair.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "name": {
+          "description": "A symbolic name for the port.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "network_id": {
+          "description": "The UUID of the network.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "opt_name": {
+          "description": "The extra DHCP option name.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "opt_value": {
+          "description": "The extra DHCP option value.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "port": {
+          "description": "A ``port`` object.", 
+          "format": "", 
+          "type": "object"
+        }, 
+        "security_groups": {
+          "description": "One or more security group UUIDs.", 
+          "format": "", 
+          "items": {
+            "type": "string"
+          }, 
+          "type": "array"
+        }, 
+        "subnet_id": {
+          "description": "If you specify only a subnet UUID, OpenStack Networking allocates\nan available IP from that subnet to the port. If you specify both a\nsubnet UUID and an IP address, OpenStack Networking tries to\nallocate the address to the port.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "tenant_id": {
+          "description": "The UUID of the tenant who owns the network. Only administrative\nusers can specify a tenant UUID other than their own. You cannot\nchange this value through authorization policies.", 
+          "format": "", 
+          "type": "string"
+        }
+      }, 
+      "required": [
+        "port", 
+        "network_id"
+      ], 
+      "type": "object"
+    }, 
+    "createPort_201": {
+      "properties": {
+        "admin_state_up": {
+          "description": "The administrative state of the port, which is up (``true``) or\ndown (``false``).", 
+          "format": "", 
+          "type": "boolean"
+        }, 
+        "allowed_address_pairs": {
+          "description": "A set of zero or more allowed address pairs. An address pair\nconsists of an IP address and MAC address.", 
+          "format": "", 
+          "items": {
+            "type": "string"
+          }, 
+          "type": "array"
+        }, 
+        "created_at": {
+          "description": "Time at which port has been created.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "device_id": {
+          "description": "The UUID of the device that uses this port. For example, a virtual\nserver.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "device_owner": {
+          "description": "The UUID of the entity that uses this port. For example, a DHCP\nagent.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "extra_dhcp_opts": {
+          "description": "A set of zero or more extra DHCP option pairs. An option pair\nconsists of an option value and name.", 
+          "format": "", 
+          "items": {
+            "type": "string"
+          }, 
+          "type": "array"
+        }, 
+        "fixed_ips": {
+          "description": "The IP addresses for the port. Includes the IP address and UUID of\nthe subnet.", 
+          "format": "", 
+          "items": {
+            "type": "string"
+          }, 
+          "type": "array"
+        }, 
+        "id": {
+          "description": "The UUID of the port.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "ip_address": {
+          "description": "The fixed IP address of the port.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "mac_address": {
+          "description": "The MAC address.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "name": {
+          "description": "The port name.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "network_id": {
+          "description": "The UUID of the attached network.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "opt_name": {
+          "description": "The extra DHCP option name.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "opt_value": {
+          "description": "The extra DHCP option value.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "port": {
+          "description": "A ``port`` object.", 
+          "format": "", 
+          "type": "object"
+        }, 
+        "port_security_enabled": {
+          "description": "The port security status. The status is enabled (``true``) or\ndisabled (``false``).", 
+          "format": "", 
+          "type": "boolean"
+        }, 
+        "security_groups": {
+          "description": "The UUIDs of any attached security groups.", 
+          "format": "", 
+          "items": {
+            "type": "string"
+          }, 
+          "type": "array"
+        }, 
+        "status": {
+          "description": "The port status. Value is ``ACTIVE`` or ``DOWN``.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "subnet_id": {
+          "description": "The UUID of the subnet to which the port is attached.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "tenant_id": {
+          "description": "The UUID of the tenant who owns the network. Only administrative\nusers can specify a tenant UUID other than their own.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "updated_at": {
+          "description": "Time at which port has been updated.", 
+          "format": "", 
+          "type": "string"
+        }
+      }, 
+      "required": [
+        "port", 
+        "status", 
+        "name", 
+        "allowed_address_pairs", 
+        "ip_address", 
+        "mac_address", 
+        "created_at", 
+        "updated_at", 
+        "admin_state_up", 
+        "network_id", 
+        "tenant_id", 
+        "extra_dhcp_opts", 
+        "opt_value", 
+        "opt_name", 
+        "device_owner", 
+        "fixed_ips", 
+        "subnet_id", 
+        "id", 
+        "security_groups", 
+        "device_id", 
+        "port_security_enabled"
+      ], 
+      "type": "object"
+    }, 
+    "listNetworks_200": {
+      "properties": {
+        "admin_state_up": {
+          "description": "The administrative state of the network, which is up (``true``) or\ndown (``false``).", 
+          "format": "", 
+          "type": "boolean"
+        }, 
+        "availability_zone_hints": {
+          "description": "The availability zone candidate for the network.", 
+          "format": "", 
+          "items": {
+            "type": "string"
+          }, 
+          "type": "array"
+        }, 
+        "availability_zones": {
+          "description": "The availability zone for the network.", 
+          "format": "", 
+          "items": {
+            "type": "string"
+          }, 
+          "type": "array"
+        }, 
+        "id": {
+          "description": "The UUID of the network.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "mtu": {
+          "description": "The MTU of a network resource.", 
+          "format": "", 
+          "type": "integer"
+        }, 
+        "name": {
+          "description": "The network name.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "networks": {
+          "description": "A list of ``network`` objects.", 
+          "format": "", 
+          "items": {
+            "type": "string"
+          }, 
+          "type": "array"
+        }, 
+        "qos_policy_id": {
+          "description": "The UUID of the QoS policy.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "router:external": {
+          "description": "Indicates whether this network is externally accessible.", 
+          "format": "", 
+          "type": "boolean"
+        }, 
+        "shared": {
+          "description": "Indicates whether this network is shared across all tenants. By\ndefault, only administrative users can change this value.", 
+          "format": "", 
+          "type": "boolean"
+        }, 
+        "status": {
+          "description": "The network status.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "subnets": {
+          "description": "The associated subnets.", 
+          "format": "", 
+          "items": {
+            "type": "string"
+          }, 
+          "type": "array"
+        }, 
+        "tenant_id": {
+          "description": "The UUID of the tenant.", 
+          "format": "", 
+          "type": "string"
+        }
+      }, 
+      "required": [
+        "networks", 
+        "admin_state_up", 
+        "id", 
+        "name", 
+        "shared", 
+        "status", 
+        "subnets", 
+        "tenant_id", 
+        "qos_policy_id", 
+        "router:external", 
+        "mtu", 
+        "availability_zones", 
+        "availability_zone_hints"
+      ], 
+      "type": "object"
+    }, 
+    "listPorts_200": {
+      "properties": {
+        "admin_state_up": {
+          "description": "The administrative state of the port, which is up (``true``) or\ndown (``false``).", 
+          "format": "", 
+          "type": "boolean"
+        }, 
+        "allowed_address_pairs": {
+          "description": "A set of zero or more allowed address pairs. An address pair\nconsists of an IP address and MAC address.", 
+          "format": "", 
+          "items": {
+            "type": "string"
+          }, 
+          "type": "array"
+        }, 
+        "created_at": {
+          "description": "Time at which port has been created.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "device_id": {
+          "description": "The UUID of the device that uses this port. For example, a virtual\nserver.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "device_owner": {
+          "description": "The UUID of the entity that uses this port. For example, a DHCP\nagent.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "extra_dhcp_opts": {
+          "description": "A set of zero or more extra DHCP option pairs. An option pair\nconsists of an option value and name.", 
+          "format": "", 
+          "items": {
+            "type": "string"
+          }, 
+          "type": "array"
+        }, 
+        "fixed_ips": {
+          "description": "The IP addresses for the port. Includes the IP address and UUID of\nthe subnet.", 
+          "format": "", 
+          "items": {
+            "type": "string"
+          }, 
+          "type": "array"
+        }, 
+        "id": {
+          "description": "The UUID of the port.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "ip_address": {
+          "description": "The fixed IP address of the port.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "mac_address": {
+          "description": "The MAC address.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "name": {
+          "description": "The port name.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "network_id": {
+          "description": "The UUID of the attached network.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "opt_name": {
+          "description": "The extra DHCP option name.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "opt_value": {
+          "description": "The extra DHCP option value.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "port_security_enabled": {
+          "description": "The port security status. The status is enabled (``true``) or\ndisabled (``false``).", 
+          "format": "", 
+          "type": "boolean"
+        }, 
+        "ports": {
+          "description": "A list of ``port`` objects.", 
+          "format": "", 
+          "items": {
+            "type": "string"
+          }, 
+          "type": "array"
+        }, 
+        "security_groups": {
+          "description": "The UUIDs of any attached security groups.", 
+          "format": "", 
+          "items": {
+            "type": "string"
+          }, 
+          "type": "array"
+        }, 
+        "status": {
+          "description": "The port status. Value is ``ACTIVE`` or ``DOWN``.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "subnet_id": {
+          "description": "The UUID of the subnet to which the port is attached.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "tenant_id": {
+          "description": "The UUID of the tenant who owns the network. Only administrative\nusers can specify a tenant UUID other than their own.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "updated_at": {
+          "description": "Time at which port has been updated.", 
+          "format": "", 
+          "type": "string"
+        }
+      }, 
+      "required": [
+        "ports", 
+        "status", 
+        "name", 
+        "allowed_address_pairs", 
+        "ip_address", 
+        "mac_address", 
+        "created_at", 
+        "updated_at", 
+        "admin_state_up", 
+        "network_id", 
+        "tenant_id", 
+        "extra_dhcp_opts", 
+        "opt_value", 
+        "opt_name", 
+        "device_owner", 
+        "fixed_ips", 
+        "subnet_id", 
+        "id", 
+        "security_groups", 
+        "device_id", 
+        "port_security_enabled"
+      ], 
+      "type": "object"
+    }, 
+    "listServiceProviders_200": {
+      "properties": {
+        "default": {
+          "description": "Defines whether the provider is the default for the service type.\nIf this value is ``true``, the provider is the default. If this\nvalue is ``false``, the provider is not the default.", 
+          "format": "", 
+          "type": "boolean"
+        }, 
+        "name": {
+          "description": "User-facing provider name.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "service_providers": {
+          "description": "A list of ``service_provider`` objects.", 
+          "format": "", 
+          "items": {
+            "type": "string"
+          }, 
+          "type": "array"
+        }, 
+        "service_type": {
+          "description": "The service type, which is ``CORE``, ``DUMMY``, ``FIREWALL``,\n``FLAVORS``, ``L3_ROUTER_NAT``, ``LOADBALANCER``,\n``LOADBALANCERV2``, ``METERING``, ``QOS``, or ``VPN``.", 
+          "format": "", 
+          "type": "string"
+        }
+      }, 
+      "required": [
+        "service_providers", 
+        "service_type", 
+        "default", 
+        "name"
+      ], 
+      "type": "object"
+    }, 
+    "networks-showVersionDetails_200": {
+      "properties": {
+        "location": {
+          "description": "Full URL to a service or server.", 
+          "format": "uri", 
+          "type": "string"
+        }
+      }, 
+      "required": [
+        "location"
+      ], 
+      "type": "object"
+    }, 
+    "showNetwork_200": {
+      "properties": {
+        "admin_state_up": {
+          "description": "The administrative state of the network, which is up (``true``) or\ndown (``false``).", 
+          "format": "", 
+          "type": "boolean"
+        }, 
+        "availability_zone_hints": {
+          "description": "The availability zone candidate for the network.", 
+          "format": "", 
+          "items": {
+            "type": "string"
+          }, 
+          "type": "array"
+        }, 
+        "availability_zones": {
+          "description": "The availability zone for the network.", 
+          "format": "", 
+          "items": {
+            "type": "string"
+          }, 
+          "type": "array"
+        }, 
+        "changed_at": {
+          "description": "Time at which the network has been created.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "id": {
+          "description": "The UUID of the network.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "mtu": {
+          "description": "The MTU of a network resource.", 
+          "format": "", 
+          "type": "integer"
+        }, 
+        "name": {
+          "description": "The network name.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "network": {
+          "description": "A ``network`` object.", 
+          "format": "", 
+          "type": "object"
+        }, 
+        "qos_policy_id": {
+          "description": "The UUID of the QoS policy.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "router:external": {
+          "description": "Indicates whether this network is externally accessible.", 
+          "format": "", 
+          "type": "boolean"
+        }, 
+        "shared": {
+          "description": "Indicates whether this network is shared across all tenants. By\ndefault, only administrative users can change this value.", 
+          "format": "", 
+          "type": "boolean"
+        }, 
+        "status": {
+          "description": "The network status.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "subnets": {
+          "description": "The associated subnets.", 
+          "format": "", 
+          "items": {
+            "type": "string"
+          }, 
+          "type": "array"
+        }, 
+        "tenant_id": {
+          "description": "The UUID of the tenant.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "updated_at": {
+          "description": "Time at which the network has been updated.", 
+          "format": "", 
+          "type": "string"
+        }
+      }, 
+      "required": [
+        "network", 
+        "admin_state_up", 
+        "id", 
+        "changed_at", 
+        "name", 
+        "shared", 
+        "status", 
+        "subnets", 
+        "tenant_id", 
+        "qos_policy_id", 
+        "router:external", 
+        "updated_at", 
+        "mtu", 
+        "availability_zones", 
+        "availability_zone_hints"
+      ], 
+      "type": "object"
+    }, 
+    "showPort_200": {
+      "properties": {
+        "admin_state_up": {
+          "description": "The administrative state of the port, which is up (``true``) or\ndown (``false``).", 
+          "format": "", 
+          "type": "boolean"
+        }, 
+        "allowed_address_pairs": {
+          "description": "A set of zero or more allowed address pairs. An address pair\nconsists of an IP address and MAC address.", 
+          "format": "", 
+          "items": {
+            "type": "string"
+          }, 
+          "type": "array"
+        }, 
+        "created_at": {
+          "description": "Time at which port has been created.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "device_id": {
+          "description": "The UUID of the device that uses this port. For example, a virtual\nserver.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "device_owner": {
+          "description": "The UUID of the entity that uses this port. For example, a DHCP\nagent.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "extra_dhcp_opts": {
+          "description": "A set of zero or more extra DHCP option pairs. An option pair\nconsists of an option value and name.", 
+          "format": "", 
+          "items": {
+            "type": "string"
+          }, 
+          "type": "array"
+        }, 
+        "fixed_ips": {
+          "description": "The IP addresses for the port. Includes the IP address and UUID of\nthe subnet.", 
+          "format": "", 
+          "items": {
+            "type": "string"
+          }, 
+          "type": "array"
+        }, 
+        "id": {
+          "description": "The UUID of the port.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "ip_address": {
+          "description": "The fixed IP address of the port.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "mac_address": {
+          "description": "The MAC address.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "name": {
+          "description": "The port name.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "network_id": {
+          "description": "The UUID of the attached network.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "opt_name": {
+          "description": "The extra DHCP option name.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "opt_value": {
+          "description": "The extra DHCP option value.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "port": {
+          "description": "A ``port`` object.", 
+          "format": "", 
+          "type": "object"
+        }, 
+        "port_security_enabled": {
+          "description": "The port security status. The status is enabled (``true``) or\ndisabled (``false``).", 
+          "format": "", 
+          "type": "boolean"
+        }, 
+        "security_groups": {
+          "description": "The UUIDs of any attached security groups.", 
+          "format": "", 
+          "items": {
+            "type": "string"
+          }, 
+          "type": "array"
+        }, 
+        "status": {
+          "description": "The port status. Value is ``ACTIVE`` or ``DOWN``.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "subnet_id": {
+          "description": "The UUID of the subnet to which the port is attached.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "tenant_id": {
+          "description": "The UUID of the tenant who owns the network. Only administrative\nusers can specify a tenant UUID other than their own.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "updated_at": {
+          "description": "Time at which port has been updated.", 
+          "format": "", 
+          "type": "string"
+        }
+      }, 
+      "required": [
+        "port", 
+        "status", 
+        "name", 
+        "allowed_address_pairs", 
+        "ip_address", 
+        "mac_address", 
+        "created_at", 
+        "updated_at", 
+        "admin_state_up", 
+        "network_id", 
+        "tenant_id", 
+        "extra_dhcp_opts", 
+        "opt_value", 
+        "opt_name", 
+        "device_owner", 
+        "fixed_ips", 
+        "subnet_id", 
+        "id", 
+        "security_groups", 
+        "device_id", 
+        "port_security_enabled"
+      ], 
+      "type": "object"
+    }, 
+    "updateNetwork": {
+      "example": {
+        "application/json": {
+          "network": {
+            "name": "sample_network_5_updated"
+          }
+        }
+      }, 
+      "properties": {
+        "admin_state_up": {
+          "description": "The administrative state of the network, which is up (``true``) or\ndown (``false``).", 
+          "format": "", 
+          "type": "boolean"
+        }, 
+        "name": {
+          "description": "The network name.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "network": {
+          "description": "A ``network`` object.", 
+          "format": "", 
+          "type": "object"
+        }, 
+        "port_security_enabled": {
+          "description": "The port security status. A valid value is enabled (``true``) or\ndisabled (``false``).", 
+          "format": "", 
+          "type": "boolean"
+        }, 
+        "router:external": {
+          "description": "Indicates whether this network is externally accessible.", 
+          "format": "", 
+          "type": "boolean"
+        }, 
+        "shared": {
+          "description": "Admin-only. Indicates whether this network is shared across all\ntenants.", 
+          "format": "", 
+          "type": "boolean"
+        }
+      }, 
+      "required": [
+        "network"
+      ], 
+      "type": "object"
+    }, 
+    "updateNetwork_200": {
+      "properties": {
+        "admin_state_up": {
+          "description": "The administrative state of the network, which is up (``true``) or\ndown (``false``).", 
+          "format": "", 
+          "type": "boolean"
+        }, 
+        "availability_zone_hints": {
+          "description": "The availability zone candidate for the network.", 
+          "format": "", 
+          "items": {
+            "type": "string"
+          }, 
+          "type": "array"
+        }, 
+        "availability_zones": {
+          "description": "The availability zone for the network.", 
+          "format": "", 
+          "items": {
+            "type": "string"
+          }, 
+          "type": "array"
+        }, 
+        "id": {
+          "description": "The UUID of the network.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "mtu": {
+          "description": "The MTU of a network resource.", 
+          "format": "", 
+          "type": "integer"
+        }, 
+        "name": {
+          "description": "The network name.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "network": {
+          "description": "A ``network`` object.", 
+          "format": "", 
+          "type": "object"
+        }, 
+        "qos_policy_id": {
+          "description": "The UUID of the QoS policy.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "router:external": {
+          "description": "Indicates whether this network is externally accessible.", 
+          "format": "", 
+          "type": "boolean"
+        }, 
+        "shared": {
+          "description": "Indicates whether this network is shared across all tenants. By\ndefault, only administrative users can change this value.", 
+          "format": "", 
+          "type": "boolean"
+        }, 
+        "status": {
+          "description": "The network status.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "subnets": {
+          "description": "The associated subnets.", 
+          "format": "", 
+          "items": {
+            "type": "string"
+          }, 
+          "type": "array"
+        }, 
+        "tenant_id": {
+          "description": "The UUID of the tenant.", 
+          "format": "", 
+          "type": "string"
+        }
+      }, 
+      "required": [
+        "network", 
+        "admin_state_up", 
+        "id", 
+        "name", 
+        "shared", 
+        "status", 
+        "subnets", 
+        "tenant_id", 
+        "qos_policy_id", 
+        "router:external", 
+        "mtu", 
+        "availability_zones", 
+        "availability_zone_hints"
+      ], 
+      "type": "object"
+    }, 
+    "updatePort": {
+      "example": {
+        "application/json": {
+          "port": {
+            "admin_state_up": true, 
+            "binding:host_id": "test_for_port_update_host", 
+            "device_owner": "compute:nova", 
+            "name": "test-for-port-update"
+          }
+        }
+      }, 
+      "properties": {
+        "admin_state_up": {
+          "description": "The administrative status of the port, which is up (``true``) or\ndown (``false``).", 
+          "format": "", 
+          "type": "boolean"
+        }, 
+        "allowed_address_pairs": {
+          "description": "A set of zero or more allowed address pairs. An address pair\ncontains an IP address and MAC address.", 
+          "format": "", 
+          "items": {
+            "type": "string"
+          }, 
+          "type": "array"
+        }, 
+        "device_id": {
+          "description": "The UUID of the device that uses this port. For example, a virtual\nserver.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "device_owner": {
+          "description": "The UUID of the entity that uses this port. For example, a DHCP\nagent.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "fixed_ips": {
+          "description": "If you specify only a subnet UUID, OpenStack Networking allocates\nan available IP from that subnet to the port. If you specify both a\nsubnet UUID and an IP address, OpenStack Networking tries to\nallocate the address to the port.", 
+          "format": "", 
+          "items": {
+            "type": "string"
+          }, 
+          "type": "array"
+        }, 
+        "ip_address": {
+          "description": "The IP address of an allowed address pair.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "mac_address": {
+          "description": "The MAC address of an allowed address pair.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "name": {
+          "description": "A symbolic name for the port.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "network_id": {
+          "description": "The UUID of the network.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "opt_name": {
+          "description": "The extra DHCP option name.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "opt_value": {
+          "description": "The extra DHCP option value.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "port": {
+          "description": "A ``port`` object.", 
+          "format": "", 
+          "type": "object"
+        }, 
+        "security_groups": {
+          "description": "One or more security group UUIDs.", 
+          "format": "", 
+          "items": {
+            "type": "string"
+          }, 
+          "type": "array"
+        }, 
+        "subnet_id": {
+          "description": "If you specify only a subnet UUID, OpenStack Networking allocates\nan available IP from that subnet to the port. If you specify both a\nsubnet UUID and an IP address, OpenStack Networking tries to\nallocate the address to the port.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "tenant_id": {
+          "description": "The UUID of the tenant who owns the network. Only administrative\nusers can specify a tenant UUID other than their own. You cannot\nchange this value through authorization policies.", 
+          "format": "", 
+          "type": "string"
+        }
+      }, 
+      "required": [
+        "port", 
+        "network_id"
+      ], 
+      "type": "object"
+    }, 
+    "updatePort_200": {
+      "properties": {
+        "admin_state_up": {
+          "description": "The administrative state of the port, which is up (``true``) or\ndown (``false``).", 
+          "format": "", 
+          "type": "boolean"
+        }, 
+        "allowed_address_pairs": {
+          "description": "A set of zero or more allowed address pairs. An address pair\nconsists of an IP address and MAC address.", 
+          "format": "", 
+          "items": {
+            "type": "string"
+          }, 
+          "type": "array"
+        }, 
+        "created_at": {
+          "description": "Time at which port has been created.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "device_id": {
+          "description": "The UUID of the device that uses this port. For example, a virtual\nserver.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "device_owner": {
+          "description": "The UUID of the entity that uses this port. For example, a DHCP\nagent.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "extra_dhcp_opts": {
+          "description": "A set of zero or more extra DHCP option pairs. An option pair\nconsists of an option value and name.", 
+          "format": "", 
+          "items": {
+            "type": "string"
+          }, 
+          "type": "array"
+        }, 
+        "fixed_ips": {
+          "description": "The IP addresses for the port. Includes the IP address and UUID of\nthe subnet.", 
+          "format": "", 
+          "items": {
+            "type": "string"
+          }, 
+          "type": "array"
+        }, 
+        "id": {
+          "description": "The UUID of the port.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "ip_address": {
+          "description": "The fixed IP address of the port.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "mac_address": {
+          "description": "The MAC address.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "name": {
+          "description": "The port name.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "network_id": {
+          "description": "The UUID of the attached network.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "opt_name": {
+          "description": "The extra DHCP option name.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "opt_value": {
+          "description": "The extra DHCP option value.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "port": {
+          "description": "A ``port`` object.", 
+          "format": "", 
+          "type": "object"
+        }, 
+        "port_security_enabled": {
+          "description": "The port security status. The status is enabled (``true``) or\ndisabled (``false``).", 
+          "format": "", 
+          "type": "boolean"
+        }, 
+        "security_groups": {
+          "description": "The UUIDs of any attached security groups.", 
+          "format": "", 
+          "items": {
+            "type": "string"
+          }, 
+          "type": "array"
+        }, 
+        "status": {
+          "description": "The port status. Value is ``ACTIVE`` or ``DOWN``.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "subnet_id": {
+          "description": "The UUID of the subnet to which the port is attached.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "tenant_id": {
+          "description": "The UUID of the tenant who owns the network. Only administrative\nusers can specify a tenant UUID other than their own.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "updated_at": {
+          "description": "Time at which port has been updated.", 
+          "format": "", 
+          "type": "string"
+        }
+      }, 
+      "required": [
+        "port", 
+        "status", 
+        "name", 
+        "allowed_address_pairs", 
+        "ip_address", 
+        "mac_address", 
+        "created_at", 
+        "updated_at", 
+        "admin_state_up", 
+        "network_id", 
+        "tenant_id", 
+        "extra_dhcp_opts", 
+        "opt_value", 
+        "opt_name", 
+        "device_owner", 
+        "fixed_ips", 
+        "subnet_id", 
+        "id", 
+        "security_groups", 
+        "device_id", 
+        "port_security_enabled"
+      ], 
+      "type": "object"
+    }
+  }, 
+  "externalDocs": {
+    "description": "OpenStack Docs", 
+    "url": "http://docs.openstack.org"
+  }, 
+  "host": "developer.openstack.org", 
+  "info": {
+    "license": {
+      "name": "Apache 2.0", 
+      "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+    }, 
+    "title": "Networking", 
+    "version": "v2", 
+    "x-service": "networking"
+  }, 
+  "paths": {
+    "/": {
+      "get": {
+        "consumes": [
+          "application/json"
+        ], 
+        "description": "", 
+        "operationId": "networks-listVersions", 
+        "parameters": [], 
+        "produces": [
+          "application/json"
+        ], 
+        "responses": {
+          "200": {
+            "description": "", 
+            "examples": {
+              "application/json": {
+                "versions": [
+                  {
+                    "id": "v2.0", 
+                    "links": [
+                      {
+                        "href": "http://23.253.228.211:9696/v2.0", 
+                        "rel": "self"
+                      }
+                    ], 
+                    "status": "CURRENT"
+                  }
+                ]
+              }
+            }, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "300": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }
+        }, 
+        "summary": "Lists information about all Networking API versions.", 
+        "tags": [
+          "versions-networks-v2"
+        ], 
+        "x-title": "List API versions"
+      }
+    }, 
+    "/v2.0": {
+      "get": {
+        "consumes": [
+          "application/json"
+        ], 
+        "description": "", 
+        "operationId": "networks-showVersionDetails", 
+        "parameters": [], 
+        "produces": [
+          "application/json"
+        ], 
+        "responses": {
+          "200": {
+            "description": "", 
+            "examples": {
+              "application/json": {
+                "resources": [
+                  {
+                    "collection": "subnets", 
+                    "links": [
+                      {
+                        "href": "http://23.253.228.211:9696/v2.0/subnets", 
+                        "rel": "self"
+                      }
+                    ], 
+                    "name": "subnet"
+                  }, 
+                  {
+                    "collection": "networks", 
+                    "links": [
+                      {
+                        "href": "http://23.253.228.211:9696/v2.0/networks", 
+                        "rel": "self"
+                      }
+                    ], 
+                    "name": "network"
+                  }, 
+                  {
+                    "collection": "ports", 
+                    "links": [
+                      {
+                        "href": "http://23.253.228.211:9696/v2.0/ports", 
+                        "rel": "self"
+                      }
+                    ], 
+                    "name": "port"
+                  }
+                ]
+              }
+            }, 
+            "headers": {}, 
+            "schema": {
+              "$ref": "#/definitions/networks-showVersionDetails_200"
+            }
+          }, 
+          "203": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }
+        }, 
+        "summary": "Shows details for Networking API v2.0.", 
+        "tags": [
+          "versions-networks-v2"
+        ], 
+        "x-title": "Show API v2 details"
+      }
+    }, 
+    "/v2.0/networks": {
+      "get": {
+        "consumes": [
+          "application/json"
+        ], 
+        "description": "Use the ``fields`` query parameter to filter the response. For\ninformation, see `Filtering and Column Selection <https://wiki.open\nstack.org/wiki/Neutron/APIv2-specification#Filtering_and_Column_Sel\nection>`_.\n\nUse the ``tags``, ``tags-any``, ``not-tags``, ``not-tags-any``\nquery parameter to filter the response with tags. For information,\nsee `REST API Impact <http://specs.openstack.org/openstack/neutron-\nspecs/specs/mitaka/add-tags-to-core-resources.html#rest-api-\nimpact>`_.", 
+        "operationId": "listNetworks", 
+        "parameters": [], 
+        "produces": [
+          "application/json"
+        ], 
+        "responses": {
+          "200": {
+            "description": "", 
+            "examples": {
+              "application/json": {
+                "networks": [
+                  {
+                    "admin_state_up": true, 
+                    "id": "d32019d3-bc6e-4319-9c1d-6722fc136a22", 
+                    "mtu": 0, 
+                    "name": "private-network", 
+                    "provider:network_type": "local", 
+                    "provider:physical_network": null, 
+                    "provider:segmentation_id": null, 
+                    "qos_policy_id": "6a8454ade84346f59e8d40665f878b2e", 
+                    "router:external": true, 
+                    "shared": true, 
+                    "status": "ACTIVE", 
+                    "subnets": [
+                      "54d6f61d-db07-451c-9ab3-b9609b6b6f0b"
+                    ], 
+                    "tenant_id": "4fd44f30292945e481c7b8a0c8908869"
+                  }, 
+                  {
+                    "admin_state_up": true, 
+                    "id": "db193ab3-96e3-4cb3-8fc5-05f4296d0324", 
+                    "mtu": 0, 
+                    "name": "private", 
+                    "provider:network_type": "local", 
+                    "provider:physical_network": null, 
+                    "provider:segmentation_id": null, 
+                    "qos_policy_id": "bfdb6c39f71e4d44b1dfbda245c50819", 
+                    "router:external": true, 
+                    "shared": true, 
+                    "status": "ACTIVE", 
+                    "subnets": [
+                      "08eae331-0402-425a-923c-34f7cfe39c1b"
+                    ], 
+                    "tenant_id": "26a7980765d0414dbc1fc1f88cdb7e6e"
+                  }
+                ]
+              }
+            }, 
+            "headers": {}, 
+            "schema": {
+              "$ref": "#/definitions/listNetworks_200"
+            }
+          }, 
+          "401": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }
+        }, 
+        "summary": "Lists networks to which the tenant has access.", 
+        "tags": [
+          "networks"
+        ], 
+        "x-title": "List networks"
+      }, 
+      "x-post-bulkCreateNetwork": {
+        "consumes": [
+          "application/json"
+        ], 
+        "description": "In the request body, specify a list of networks.\n\nThe bulk create operation is always atomic. Either all or no\nnetworks in the request body are created.", 
+        "operationId": "bulkCreateNetwork", 
+        "parameters": [
+          {
+            "description": "", 
+            "in": "body", 
+            "name": "body", 
+            "required": false, 
+            "schema": {
+              "$ref": "#/definitions/bulkCreateNetwork"
+            }
+          }
+        ], 
+        "produces": [
+          "application/json"
+        ], 
+        "responses": {
+          "201": {
+            "description": "", 
+            "examples": {
+              "application/json": {
+                "networks": [
+                  {
+                    "admin_state_up": true, 
+                    "id": "bc1a76cb-8767-4c3a-bb95-018b822f2130", 
+                    "mtu": 0, 
+                    "name": "sample_network3", 
+                    "provider:physical_network": null, 
+                    "provider:segmentation_id": null, 
+                    "qos_policy_id": "6a8454ade84346f59e8d40665f878b2e", 
+                    "shared": false, 
+                    "status": "ACTIVE", 
+                    "subnets": [], 
+                    "tenant_id": "4fd44f30292945e481c7b8a0c8908869"
+                  }, 
+                  {
+                    "admin_state_up": true, 
+                    "id": "af374017-c9ae-4a1d-b799-ab73111476e2", 
+                    "mtu": 0, 
+                    "name": "sample_network4", 
+                    "provider:physical_network": null, 
+                    "provider:segmentation_id": null, 
+                    "qos_policy_id": "6a8454ade84346f59e8d40665f878b2e", 
+                    "shared": false, 
+                    "status": "ACTIVE", 
+                    "subnets": [], 
+                    "tenant_id": "4fd44f30292945e481c7b8a0c8908869"
+                  }
+                ]
+              }
+            }, 
+            "headers": {}, 
+            "schema": {
+              "$ref": "#/definitions/bulkCreateNetwork_201"
+            }
+          }, 
+          "400": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "401": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }
+        }, 
+        "summary": "Creates multiple networks in a single request.", 
+        "tags": [
+          "networks"
+        ], 
+        "x-title": "Bulk create networks"
+      }, 
+      "x-post-createNetwork": {
+        "consumes": [
+          "application/json"
+        ], 
+        "description": "A request body is optional. An administrative user can specify\nanother tenant UUID, which is the tenant who owns the network, in\nthe request body.", 
+        "operationId": "createNetwork", 
+        "parameters": [], 
+        "produces": [
+          "application/json"
+        ], 
+        "responses": {
+          "201": {
+            "description": "", 
+            "examples": {
+              "application/json": {
+                "network": {
+                  "admin_state_up": true, 
+                  "id": "4e8e5957-649f-477b-9e5b-f1f75b21c03c", 
+                  "mtu": 0, 
+                  "name": "net1", 
+                  "qos_policy_id": "6a8454ade84346f59e8d40665f878b2e", 
+                  "router:external": false, 
+                  "shared": false, 
+                  "status": "ACTIVE", 
+                  "subnets": [], 
+                  "tenant_id": "9bacb3c5d39d41a79512987f338cf177"
+                }
+              }
+            }, 
+            "headers": {}, 
+            "schema": {
+              "$ref": "#/definitions/createNetwork_201"
+            }
+          }, 
+          "400": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "401": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }
+        }, 
+        "summary": "Creates a network.", 
+        "tags": [
+          "networks"
+        ], 
+        "x-title": "Create network"
+      }
+    }, 
+    "/v2.0/networks/{network_id}": {
+      "delete": {
+        "consumes": [], 
+        "description": "", 
+        "operationId": "deleteNetwork", 
+        "parameters": [
+          {
+            "description": "The UUID of the network.", 
+            "format": "", 
+            "in": "path", 
+            "name": "network_id", 
+            "required": true, 
+            "type": "string"
+          }
+        ], 
+        "produces": [], 
+        "responses": {
+          "204": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "401": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "404": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "409": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }
+        }, 
+        "summary": "Deletes a network and its associated resources.", 
+        "tags": [
+          "networks"
+        ], 
+        "x-title": "Delete network"
+      }, 
+      "get": {
+        "consumes": [
+          "application/json"
+        ], 
+        "description": "You can control which response parameters are returned by using the\nfields query parameter. For information, see `Filtering and column\nselection <http://specs.openstack.org/openstack/neutron-\nspecs/specs/api/networking_general_api_information.html#filtering-\nand-column-selection>`_.\n\nThe response might show extension response parameters. For\ninformation, see `Networks multiple provider extension (networks)\n<http://developer.openstack.org/api-ref-\nnetworking-v2-ext.html#showProviderNetwork>`_.", 
+        "operationId": "showNetwork", 
+        "parameters": [
+          {
+            "description": "The UUID of the network.", 
+            "format": "", 
+            "in": "path", 
+            "name": "network_id", 
+            "required": true, 
+            "type": "string"
+          }
+        ], 
+        "produces": [
+          "application/json"
+        ], 
+        "responses": {
+          "200": {
+            "description": "", 
+            "examples": {
+              "application/json": {
+                "network": {
+                  "admin_state_up": true, 
+                  "created_at": "2016-03-08T20:19:41", 
+                  "id": "d32019d3-bc6e-4319-9c1d-6722fc136a22", 
+                  "mtu": 0, 
+                  "name": "private-network", 
+                  "port_security_enabled": true, 
+                  "qos_policy_id": "6a8454ade84346f59e8d40665f878b2e", 
+                  "router:external": false, 
+                  "shared": true, 
+                  "status": "ACTIVE", 
+                  "subnets": [
+                    "54d6f61d-db07-451c-9ab3-b9609b6b6f0b"
+                  ], 
+                  "tenant_id": "4fd44f30292945e481c7b8a0c8908869", 
+                  "updated_at": "2016-03-08T20:19:41"
+                }
+              }
+            }, 
+            "headers": {}, 
+            "schema": {
+              "$ref": "#/definitions/showNetwork_200"
+            }
+          }, 
+          "401": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "404": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }
+        }, 
+        "summary": "Shows details for a network.", 
+        "tags": [
+          "networks"
+        ], 
+        "x-title": "Show network details"
+      }, 
+      "put": {
+        "consumes": [
+          "application/json"
+        ], 
+        "description": "", 
+        "operationId": "updateNetwork", 
+        "parameters": [
+          {
+            "description": "", 
+            "in": "body", 
+            "name": "body", 
+            "required": false, 
+            "schema": {
+              "$ref": "#/definitions/updateNetwork"
+            }
+          }, 
+          {
+            "description": "The UUID of the network.", 
+            "format": "", 
+            "in": "path", 
+            "name": "network_id", 
+            "required": true, 
+            "type": "string"
+          }
+        ], 
+        "produces": [
+          "application/json"
+        ], 
+        "responses": {
+          "200": {
+            "description": "", 
+            "examples": {
+              "application/json": {
+                "network": {
+                  "admin_state_up": true, 
+                  "id": "1f370095-98f6-4079-be64-6d3d4a6adcc6", 
+                  "mtu": 0, 
+                  "name": "sample_network_5_updated", 
+                  "port_security_enabled": true, 
+                  "provider:network_type": "local", 
+                  "provider:physical_network": null, 
+                  "provider:segmentation_id": null, 
+                  "qos_policy_id": "6a8454ade84346f59e8d40665f878b2e", 
+                  "router:external": false, 
+                  "shared": false, 
+                  "status": "ACTIVE", 
+                  "subnets": [], 
+                  "tenant_id": "4fd44f30292945e481c7b8a0c8908869"
+                }
+              }
+            }, 
+            "headers": {}, 
+            "schema": {
+              "$ref": "#/definitions/updateNetwork_200"
+            }
+          }, 
+          "400": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "401": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "403": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "404": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }
+        }, 
+        "summary": "Updates a network.", 
+        "tags": [
+          "networks"
+        ], 
+        "x-title": "Update network"
+      }
+    }, 
+    "/v2.0/ports": {
+      "get": {
+        "consumes": [
+          "application/json"
+        ], 
+        "description": "Default policy settings return only those ports that are owned by\nthe tenant who submits the request, unless the request is submitted\nby a user with administrative rights. Users can control which\nattributes are returned by using the fields query parameter. You\ncan use query parameters to filter the response.For information,\nsee `Filtering and Column Selection <https://wiki.openstack.org/wik\ni/Neutron/APIv2-specification#Filtering_and_Column_Selection>`_.", 
+        "operationId": "listPorts", 
+        "parameters": [], 
+        "produces": [
+          "application/json"
+        ], 
+        "responses": {
+          "200": {
+            "description": "", 
+            "examples": {
+              "application/json": {
+                "ports": [
+                  {
+                    "admin_state_up": true, 
+                    "allowed_address_pairs": [], 
+                    "device_id": "9ae135f4-b6e0-4dad-9e91-3c223e385824", 
+                    "device_owner": "network:router_gateway", 
+                    "extra_dhcp_opts": [], 
+                    "fixed_ips": [
+                      {
+                        "ip_address": "172.24.4.2", 
+                        "subnet_id": "008ba151-0b8c-4a67-98b5-0d2b87666062"
+                      }
+                    ], 
+                    "id": "d80b1a3b-4fc1-49f3-952e-1e2ab7081d8b", 
+                    "mac_address": "fa:16:3e:58:42:ed", 
+                    "name": "", 
+                    "network_id": "70c1db1f-b701-45bd-96e0-a313ee3430b3", 
+                    "security_groups": [], 
+                    "status": "ACTIVE", 
+                    "tenant_id": ""
+                  }, 
+                  {
+                    "admin_state_up": true, 
+                    "allowed_address_pairs": [], 
+                    "device_id": "9ae135f4-b6e0-4dad-9e91-3c223e385824", 
+                    "device_owner": "network:router_interface", 
+                    "extra_dhcp_opts": [], 
+                    "fixed_ips": [
+                      {
+                        "ip_address": "10.0.0.1", 
+                        "subnet_id": "288bf4a1-51ba-43b6-9d0a-520e9005db17"
+                      }
+                    ], 
+                    "id": "f71a6703-d6de-4be1-a91a-a570ede1d159", 
+                    "mac_address": "fa:16:3e:bb:3c:e4", 
+                    "name": "", 
+                    "network_id": "f27aa545-cbdd-4907-b0c6-c9e8b039dcc2", 
+                    "security_groups": [], 
+                    "status": "ACTIVE", 
+                    "tenant_id": "d397de8a63f341818f198abb0966f6f3"
+                  }
+                ]
+              }
+            }, 
+            "headers": {}, 
+            "schema": {
+              "$ref": "#/definitions/listPorts_200"
+            }
+          }, 
+          "401": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }
+        }, 
+        "summary": "Lists ports to which the tenant has access.", 
+        "tags": [
+          "ports"
+        ], 
+        "x-title": "List ports"
+      }, 
+      "x-post-bulkCreatePorts": {
+        "consumes": [
+          "application/json"
+        ], 
+        "description": "Guarantees the atomic completion of the bulk operation.", 
+        "operationId": "bulkCreatePorts", 
+        "parameters": [
+          {
+            "description": "", 
+            "in": "body", 
+            "name": "body", 
+            "required": false, 
+            "schema": {
+              "$ref": "#/definitions/bulkCreatePorts"
+            }
+          }
+        ], 
+        "produces": [
+          "application/json"
+        ], 
+        "responses": {
+          "201": {
+            "description": "", 
+            "examples": {
+              "application/json": {
+                "ports": [
+                  {
+                    "admin_state_up": false, 
+                    "allowed_address_pairs": [], 
+                    "device_id": "", 
+                    "device_owner": "", 
+                    "fixed_ips": [
+                      {
+                        "ip_address": "10.0.0.5", 
+                        "subnet_id": "a0304c3a-4f08-4c43-88af-d796509c97d2"
+                      }
+                    ], 
+                    "id": "94225baa-9d3f-4b93-bf12-b41e7ce49cdb", 
+                    "mac_address": "fa:16:3e:48:b8:9f", 
+                    "name": "sample_port_1", 
+                    "network_id": "a87cc70a-3e15-4acf-8205-9b711a3531b7", 
+                    "security_groups": [
+                      "f0ac4394-7e4a-4409-9701-ba8be283dbc3"
+                    ], 
+                    "status": "DOWN", 
+                    "tenant_id": "d6700c0c9ffa4f1cb322cd4a1f3906fa"
+                  }, 
+                  {
+                    "admin_state_up": false, 
+                    "allowed_address_pairs": [], 
+                    "device_id": "", 
+                    "device_owner": "", 
+                    "fixed_ips": [
+                      {
+                        "ip_address": "10.0.0.6", 
+                        "subnet_id": "a0304c3a-4f08-4c43-88af-d796509c97d2"
+                      }
+                    ], 
+                    "id": "235b09e0-63c4-47f1-b221-66ba54c21760", 
+                    "mac_address": "fa:16:3e:f4:73:df", 
+                    "name": "sample_port_2", 
+                    "network_id": "a87cc70a-3e15-4acf-8205-9b711a3531b7", 
+                    "security_groups": [
+                      "f0ac4394-7e4a-4409-9701-ba8be283dbc3"
+                    ], 
+                    "status": "DOWN", 
+                    "tenant_id": "d6700c0c9ffa4f1cb322cd4a1f3906fa"
+                  }
+                ]
+              }
+            }, 
+            "headers": {}, 
+            "schema": {
+              "$ref": "#/definitions/bulkCreatePorts_201"
+            }
+          }, 
+          "400": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "401": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "403": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "404": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "409": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "503": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }
+        }, 
+        "summary": "Creates multiple ports in a single request. Specify a list of ports in the request body.", 
+        "tags": [
+          "ports"
+        ], 
+        "x-title": "Bulk create ports"
+      }, 
+      "x-post-createPort": {
+        "consumes": [
+          "application/json"
+        ], 
+        "description": "To define the network in which to create the port, specify the\n``network_id`` attribute in the request body.", 
+        "operationId": "createPort", 
+        "parameters": [
+          {
+            "description": "", 
+            "in": "body", 
+            "name": "body", 
+            "required": false, 
+            "schema": {
+              "$ref": "#/definitions/createPort"
+            }
+          }
+        ], 
+        "produces": [
+          "application/json"
+        ], 
+        "responses": {
+          "201": {
+            "description": "", 
+            "examples": {
+              "application/json": {
+                "port": {
+                  "admin_state_up": true, 
+                  "allowed_address_pairs": [], 
+                  "device_id": "", 
+                  "device_owner": "", 
+                  "fixed_ips": [
+                    {
+                      "ip_address": "10.0.0.2", 
+                      "subnet_id": "a0304c3a-4f08-4c43-88af-d796509c97d2"
+                    }
+                  ], 
+                  "id": "65c0ee9f-d634-4522-8954-51021b570b0d", 
+                  "mac_address": "fa:16:3e:c9:cb:f0", 
+                  "name": "private-port", 
+                  "network_id": "a87cc70a-3e15-4acf-8205-9b711a3531b7", 
+                  "security_groups": [
+                    "f0ac4394-7e4a-4409-9701-ba8be283dbc3"
+                  ], 
+                  "status": "DOWN", 
+                  "tenant_id": "d6700c0c9ffa4f1cb322cd4a1f3906fa"
+                }
+              }
+            }, 
+            "headers": {}, 
+            "schema": {
+              "$ref": "#/definitions/createPort_201"
+            }
+          }, 
+          "400": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "401": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "403": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "404": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "503": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }
+        }, 
+        "summary": "Creates a port on a network.", 
+        "tags": [
+          "ports"
+        ], 
+        "x-title": "Create port"
+      }
+    }, 
+    "/v2.0/ports/{port_id}": {
+      "delete": {
+        "consumes": [], 
+        "description": "Any IP addresses that are associated with the port are returned to\nthe respective subnets allocation pools.", 
+        "operationId": "removePort", 
+        "parameters": [
+          {
+            "description": "The UUID of the port.", 
+            "format": "", 
+            "in": "path", 
+            "name": "port_id", 
+            "required": true, 
+            "type": "string"
+          }
+        ], 
+        "produces": [], 
+        "responses": {
+          "204": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "401": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "403": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "404": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }
+        }, 
+        "summary": "Deletes a port.", 
+        "tags": [
+          "ports"
+        ], 
+        "x-title": "Delete port"
+      }, 
+      "get": {
+        "consumes": [
+          "application/json"
+        ], 
+        "description": "", 
+        "operationId": "showPort", 
+        "parameters": [
+          {
+            "description": "The UUID of the port.", 
+            "format": "", 
+            "in": "path", 
+            "name": "port_id", 
+            "required": true, 
+            "type": "string"
+          }
+        ], 
+        "produces": [
+          "application/json"
+        ], 
+        "responses": {
+          "200": {
+            "description": "", 
+            "examples": {
+              "application/json": {
+                "port": {
+                  "admin_state_up": true, 
+                  "allowed_address_pairs": [], 
+                  "created_at": "2016-03-08T20:19:41", 
+                  "device_id": "5e3898d7-11be-483e-9732-b2f5eccd2b2e", 
+                  "device_owner": "network:router_interface", 
+                  "extra_dhcp_opts": [], 
+                  "fixed_ips": [
+                    {
+                      "ip_address": "10.0.0.1", 
+                      "subnet_id": "a0304c3a-4f08-4c43-88af-d796509c97d2"
+                    }
+                  ], 
+                  "id": "46d4bfb9-b26e-41f3-bd2e-e6dcc1ccedb2", 
+                  "mac_address": "fa:16:3e:23:fd:d7", 
+                  "name": "", 
+                  "network_id": "a87cc70a-3e15-4acf-8205-9b711a3531b7", 
+                  "security_groups": [], 
+                  "status": "ACTIVE", 
+                  "tenant_id": "7e02058126cc4950b75f9970368ba177", 
+                  "updated_at": "2016-03-08T20:19:41"
+                }
+              }
+            }, 
+            "headers": {}, 
+            "schema": {
+              "$ref": "#/definitions/showPort_200"
+            }
+          }, 
+          "401": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "404": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }
+        }, 
+        "summary": "Shows details for a port.", 
+        "tags": [
+          "ports"
+        ], 
+        "x-title": "Show port details"
+      }, 
+      "put": {
+        "consumes": [
+          "application/json"
+        ], 
+        "description": "You can update information for a port, such as its symbolic name\nand associated IPs. When you update IPs for a port, any previously\nassociated IPs are removed, returned to the respective subnet\nallocation pools, and replaced by the IPs in the request body.\nTherefore, this operation replaces the ``fixed_ip`` attribute when\nyou specify it in the request body. If the updated IP addresses are\nnot valid or are already in use, the operation fails and the\nexisting IP addresses are not removed from the port.\n\nWhen you update security groups for a port and the operation\nsucceeds, any associated security groups are removed and replaced\nby the security groups in the request body. Therefore, this\noperation replaces the ``security_groups`` attribute when you\nspecify it in the request body. If the security groups are not\nvalid, the operation fails and the existing security groups are not\nremoved from the port.", 
+        "operationId": "updatePort", 
+        "parameters": [
+          {
+            "description": "", 
+            "in": "body", 
+            "name": "body", 
+            "required": false, 
+            "schema": {
+              "$ref": "#/definitions/updatePort"
+            }
+          }, 
+          {
+            "description": "The UUID of the port.", 
+            "format": "", 
+            "in": "path", 
+            "name": "port_id", 
+            "required": true, 
+            "type": "string"
+          }
+        ], 
+        "produces": [
+          "application/json"
+        ], 
+        "responses": {
+          "200": {
+            "description": "", 
+            "examples": {
+              "application/json": {
+                "port": {
+                  "admin_state_up": true, 
+                  "allowed_address_pairs": [], 
+                  "binding:host_id": "test_for_port_update_host", 
+                  "binding:profile": {}, 
+                  "binding:vif_details": {}, 
+                  "binding:vif_type": "binding_failed", 
+                  "binding:vnic_type": "normal", 
+                  "device_id": "", 
+                  "device_owner": "compute:nova", 
+                  "extra_dhcp_opts": [], 
+                  "fixed_ips": [
+                    {
+                      "ip_address": "20.20.0.4", 
+                      "subnet_id": "898dec4a-74df-4193-985f-c76721bcc746"
+                    }
+                  ], 
+                  "id": "43c831e0-19ce-4a76-9a49-57b57e69428b", 
+                  "mac_address": "fa:16:3e:11:11:5e", 
+                  "name": "test-for-port-update", 
+                  "network_id": "883fc383-5ea1-4c8b-8916-e1ddb0a9f365", 
+                  "security_groups": [
+                    "ce0179d6-8a94-4f7c-91c2-f3038e2acbd0"
+                  ], 
+                  "status": "DOWN", 
+                  "tenant_id": "522eda8d23124b25bf03fe44f1986b74"
+                }
+              }
+            }, 
+            "headers": {}, 
+            "schema": {
+              "$ref": "#/definitions/updatePort_200"
+            }
+          }, 
+          "400": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "401": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "403": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "404": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "409": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }
+        }, 
+        "summary": "Updates a port.", 
+        "tags": [
+          "ports"
+        ], 
+        "x-title": "Update port"
+      }
+    }, 
+    "/v2.0/service-providers": {
+      "get": {
+        "consumes": [
+          "application/json"
+        ], 
+        "description": "", 
+        "operationId": "listServiceProviders", 
+        "parameters": [], 
+        "produces": [
+          "application/json"
+        ], 
+        "responses": {
+          "200": {
+            "description": "", 
+            "examples": {
+              "application/json": {
+                "service_providers": [
+                  {
+                    "default": true, 
+                    "name": "haproxy", 
+                    "service_type": "LOADBALANCER"
+                  }
+                ]
+              }
+            }, 
+            "headers": {}, 
+            "schema": {
+              "$ref": "#/definitions/listServiceProviders_200"
+            }
+          }, 
+          "400": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "401": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "404": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "409": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }
+        }, 
+        "summary": "Lists service providers and their associated service types.", 
+        "tags": [
+          "service-type"
+        ], 
+        "x-title": "List service providers"
+      }
+    }, 
+    "/v2.0/subnets": {
+      "get": {
+        "consumes": [
+          "application/json"
+        ], 
+        "description": "Default policy settings returns exclusively subnets owned by the\ntenant submitting the request, unless the request is submitted by a\nuser with administrative rights. You can control which attributes\nare returned by using the fields query parameter. You can filter\nresults by using query string parameters.", 
+        "operationId": "listSubnets", 
+        "parameters": [], 
+        "produces": [
+          "application/json"
+        ], 
+        "responses": {
+          "200": {
+            "description": "", 
+            "examples": {
+              "application/json": {
+                "subnets": [
+                  {
+                    "allocation_pools": [
+                      {
+                        "end": "10.0.0.254", 
+                        "start": "10.0.0.2"
+                      }
+                    ], 
+                    "cidr": "10.0.0.0/24", 
+                    "dns_nameservers": [], 
+                    "enable_dhcp": true, 
+                    "gateway_ip": "10.0.0.1", 
+                    "host_routes": [], 
+                    "id": "08eae331-0402-425a-923c-34f7cfe39c1b", 
+                    "ip_version": 4, 
+                    "name": "private-subnet", 
+                    "network_id": "db193ab3-96e3-4cb3-8fc5-05f4296d0324", 
+                    "tenant_id": "26a7980765d0414dbc1fc1f88cdb7e6e"
+                  }, 
+                  {
+                    "allocation_pools": [
+                      {
+                        "end": "192.255.255.254", 
+                        "start": "192.0.0.2"
+                      }
+                    ], 
+                    "cidr": "192.0.0.0/8", 
+                    "dns_nameservers": [], 
+                    "enable_dhcp": true, 
+                    "gateway_ip": "192.0.0.1", 
+                    "host_routes": [], 
+                    "id": "54d6f61d-db07-451c-9ab3-b9609b6b6f0b", 
+                    "ip_version": 4, 
+                    "name": "my_subnet", 
+                    "network_id": "d32019d3-bc6e-4319-9c1d-6722fc136a22", 
+                    "tenant_id": "4fd44f30292945e481c7b8a0c8908869"
+                  }
+                ]
+              }
+            }, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "401": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }
+        }, 
+        "summary": "Lists subnets to which the tenant has access.", 
+        "tags": [
+          "subnets"
+        ], 
+        "x-title": "List subnets"
+      }, 
+      "x-post-bulkCreateSubnet": {
+        "consumes": [
+          "application/json"
+        ], 
+        "description": "The bulk create operation is always atomic. Either all or no\nsubnets in the request body are created.", 
+        "operationId": "bulkCreateSubnet", 
+        "parameters": [], 
+        "produces": [
+          "application/json"
+        ], 
+        "responses": {
+          "201": {
+            "description": "", 
+            "examples": {
+              "application/json": {
+                "subnets": [
+                  {
+                    "allocation_pools": [
+                      {
+                        "end": "192.168.199.254", 
+                        "start": "192.168.199.2"
+                      }
+                    ], 
+                    "cidr": "192.168.199.0/24", 
+                    "dns_nameservers": [], 
+                    "enable_dhcp": true, 
+                    "gateway_ip": "192.168.199.1", 
+                    "host_routes": [], 
+                    "id": "0468a7a7-290d-4127-aedd-6c9449775a24", 
+                    "ip_version": 4, 
+                    "name": "", 
+                    "network_id": "e6031bc2-901a-4c66-82da-f4c32ed89406", 
+                    "tenant_id": "d19231fc08ec4bc4829b668040d34512"
+                  }, 
+                  {
+                    "allocation_pools": [
+                      {
+                        "end": "10.56.7.254", 
+                        "start": "10.56.4.2"
+                      }
+                    ], 
+                    "cidr": "10.56.4.0/22", 
+                    "dns_nameservers": [], 
+                    "enable_dhcp": true, 
+                    "gateway_ip": "10.56.4.1", 
+                    "host_routes": [], 
+                    "id": "b0e7435c-1512-45fb-aa9e-9a7c5932fb30", 
+                    "ip_version": 4, 
+                    "name": "", 
+                    "network_id": "64239a54-dcc4-4b39-920b-b37c2144effa", 
+                    "tenant_id": "d19231fc08ec4bc4829b668040d34512"
+                  }
+                ]
+              }
+            }, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "400": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "401": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "403": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "404": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "409": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }
+        }, 
+        "summary": "Creates multiple subnets in a single request. Specify a list of subnets in the request body.", 
+        "tags": [
+          "subnets"
+        ], 
+        "x-title": "Bulk create subnet"
+      }, 
+      "x-post-createSubnet": {
+        "consumes": [
+          "application/json"
+        ], 
+        "description": "OpenStack Networking does not try to derive the correct IP version\nfrom the CIDR. If you do not specify the ``gateway_ip`` attribute,\nOpenStack Networking allocates an address from the CIDR for the\ngateway for the subnet.\n\nTo specify a subnet without a gateway, set the ``gateway_ip``\nattribute to ``null`` in the request body. If you do not specify\nthe ``allocation_pools`` attribute, OpenStack Networking\nautomatically allocates pools for covering all IP addresses in the\nCIDR, excluding the address reserved for the subnet gateway.\nOtherwise, you can explicitly specify allocation pools as shown in\nthe following example.\n\nWhen you specify both the ``allocation_pools`` and ``gateway_ip``\nattributes, you must ensure that the gateway IP does not overlap\nwith the allocation pools; otherwise, the call returns the\n``Conflict (409)`` response code.\n\nA subnet can have one or more name servers and host routes. Hosts\nin this subnet use the name servers. Devices with IP addresses from\nthis subnet, not including the local subnet route, use the host\nroutes.\n\nSpecify the ``ipv6_ra_mode`` and ``ipv6_address_mode`` attributes\nto create subnets that support IPv6 configurations, such as\nstateless address autoconfiguration (SLAAC), DHCPv6 stateful, and\nDHCPv6 stateless configurations.", 
+        "operationId": "createSubnet", 
+        "parameters": [], 
+        "produces": [
+          "application/json"
+        ], 
+        "responses": {
+          "201": {
+            "description": "", 
+            "examples": {
+              "application/json": {
+                "subnet": {
+                  "allocation_pools": [
+                    {
+                      "end": "192.168.199.254", 
+                      "start": "192.168.199.2"
+                    }
+                  ], 
+                  "cidr": "192.168.199.0/24", 
+                  "dns_nameservers": [], 
+                  "enable_dhcp": true, 
+                  "gateway_ip": "192.168.199.1", 
+                  "host_routes": [], 
+                  "id": "3b80198d-4f7b-4f77-9ef5-774d54e17126", 
+                  "ip_version": 4, 
+                  "name": "", 
+                  "network_id": "d32019d3-bc6e-4319-9c1d-6722fc136a22", 
+                  "tenant_id": "4fd44f30292945e481c7b8a0c8908869"
+                }
+              }
+            }, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "400": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "401": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "403": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "404": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "409": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }
+        }, 
+        "summary": "Creates a subnet on a network.", 
+        "tags": [
+          "subnets"
+        ], 
+        "x-title": "Create subnet"
+      }
+    }, 
+    "/v2.0/subnets/{subnet_id}": {
+      "delete": {
+        "consumes": [], 
+        "description": "The operation fails if subnet IP addresses are still allocated.", 
+        "operationId": "removeSubnet", 
+        "parameters": [
+          {
+            "description": "The UUID of the subnet.", 
+            "format": "", 
+            "in": "path", 
+            "name": "subnet_id", 
+            "required": true, 
+            "type": "string"
+          }
+        ], 
+        "produces": [], 
+        "responses": {
+          "204": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "401": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "404": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "409": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }
+        }, 
+        "summary": "Deletes a subnet.", 
+        "tags": [
+          "subnets"
+        ], 
+        "x-title": "Delete subnet"
+      }, 
+      "get": {
+        "consumes": [
+          "application/json"
+        ], 
+        "description": "Use the fields query parameter to filter the results.", 
+        "operationId": "showSubnet", 
+        "parameters": [
+          {
+            "description": "The UUID of the subnet.", 
+            "format": "", 
+            "in": "path", 
+            "name": "subnet_id", 
+            "required": true, 
+            "type": "string"
+          }
+        ], 
+        "produces": [
+          "application/json"
+        ], 
+        "responses": {
+          "200": {
+            "description": "", 
+            "examples": {
+              "application/json": {
+                "subnet": {
+                  "allocation_pools": [
+                    {
+                      "end": "192.255.255.254", 
+                      "start": "192.0.0.2"
+                    }
+                  ], 
+                  "cidr": "192.0.0.0/8", 
+                  "created_at": "2016-03-08T20:19:41", 
+                  "dns_nameservers": [], 
+                  "enable_dhcp": true, 
+                  "gateway_ip": "192.0.0.1", 
+                  "host_routes": [], 
+                  "id": "54d6f61d-db07-451c-9ab3-b9609b6b6f0b", 
+                  "ip_version": 4, 
+                  "name": "my_subnet", 
+                  "network_id": "d32019d3-bc6e-4319-9c1d-6722fc136a22", 
+                  "tenant_id": "4fd44f30292945e481c7b8a0c8908869", 
+                  "updated_at": "2016-03-08T20:19:41"
+                }
+              }
+            }, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "401": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "404": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }
+        }, 
+        "summary": "Shows details for a subnet.", 
+        "tags": [
+          "subnets"
+        ], 
+        "x-title": "Show subnet details"
+      }, 
+      "put": {
+        "consumes": [
+          "application/json"
+        ], 
+        "description": "Some attributes, such as IP version (ip_version), and CIDR (cidr)\ncannot be updated. Attempting to update these attributes results in\na ``400 Bad Request`` error.", 
+        "operationId": "updateSubnet", 
+        "parameters": [
+          {
+            "description": "The UUID of the subnet.", 
+            "format": "", 
+            "in": "path", 
+            "name": "subnet_id", 
+            "required": true, 
+            "type": "string"
+          }
+        ], 
+        "produces": [
+          "application/json"
+        ], 
+        "responses": {
+          "200": {
+            "description": "", 
+            "examples": {
+              "application/json": {
+                "subnet": {
+                  "allocation_pools": [
+                    {
+                      "end": "10.0.0.254", 
+                      "start": "10.0.0.2"
+                    }
+                  ], 
+                  "cidr": "10.0.0.0/24", 
+                  "dns_nameservers": [], 
+                  "enable_dhcp": true, 
+                  "gateway_ip": "10.0.0.1", 
+                  "host_routes": [], 
+                  "id": "08eae331-0402-425a-923c-34f7cfe39c1b", 
+                  "ip_version": 4, 
+                  "name": "my_subnet", 
+                  "network_id": "db193ab3-96e3-4cb3-8fc5-05f4296d0324", 
+                  "tenant_id": "26a7980765d0414dbc1fc1f88cdb7e6e"
+                }
+              }
+            }, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "400": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "401": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "403": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "404": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }
+        }, 
+        "summary": "Updates a subnet.", 
+        "tags": [
+          "subnets"
+        ], 
+        "x-title": "Update subnet"
+      }
+    }
+  }, 
+  "produces": [
+    "application/json"
+  ], 
+  "swagger": "2.0", 
+  "tags": [
+    {
+      "description": "API versions", 
+      "name": "versions-networks-v2", 
+      "x-summary": "Lists information for all Networking API versions."
+    }, 
+    {
+      "description": "Networks", 
+      "name": "networks", 
+      "x-summary": "Lists, shows details for, creates, updates, and deletes networks."
+    }, 
+    {
+      "description": "Subnets", 
+      "name": "subnets", 
+      "x-summary": "Lists, shows details for, creates, updates, and deletes subnet\nresources."
+    }, 
+    {
+      "description": "Ports", 
+      "name": "ports", 
+      "x-summary": "Lists, shows details for, creates, updates, and deletes ports."
+    }, 
+    {
+      "description": "Service providers", 
+      "name": "service-type", 
+      "x-summary": "Lists service providers."
+    }
+  ]
+}

@@ -1,0 +1,2282 @@
+{
+  "basePath": "/", 
+  "consumes": [
+    "application/json"
+  ], 
+  "definitions": {
+    "admin-authenticate_200": {
+      "properties": {
+        "access": {
+          "description": "An ``access`` object.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "description": {
+          "description": "The description of the tenant. If not set, this value is ``null``.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "enabled": {
+          "description": "Indicates whether the tenant is enabled or disabled.", 
+          "format": "", 
+          "type": "boolean"
+        }, 
+        "endpoints": {
+          "description": "One or more ``endpoints`` objects. Each object shows the\n``adminURL``, ``region``, ``internalURL``, ``id``, and\n``publicURL`` for the endpoint.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "endpoints_links": {
+          "description": "Links for the endpoint.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "expires": {
+          "description": "The date and time when the token expires.\n\nThe date and time stamp format is `ISO 8601\n<https://en.wikipedia.org/wiki/ISO_8601>`_:\n\n::\n\n   CCYY-MM-DDThh:mm:ss\u00b1hh:mm\n\nFor example, ``2015-08-27T09:49:58-05:00``.\n\nThe ``\u00b1hh:mm`` value, if included, is the time zone as an offset\nfrom UTC. In the previous example, the offset value is ``-05:00``.\n\nA ``null`` value indicates that the token never expires.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "id": {
+          "description": "The ID of the trust.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "impersonation": {
+          "description": "The impersonation flag.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "issued_at": {
+          "description": "The date and time when the token was issued.\n\nThe date and time stamp format is `ISO 8601\n<https://en.wikipedia.org/wiki/ISO_8601>`_:\n\n::\n\n   CCYY-MM-DDThh:mm:ss\u00b1hh:mm\n\nFor example, ``2015-08-27T09:49:58-05:00``.\n\nThe ``\u00b1hh:mm`` value, if included, is the time zone as an offset\nfrom UTC. In the previous example, the offset value is ``-05:00``.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "metadata": {
+          "description": "A ``metadata`` object.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "name": {
+          "description": "Endpoint name.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "serviceCatalog": {
+          "description": "A ``serviceCatalog`` object.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "tenant": {
+          "description": "A ``tenant`` object.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "token": {
+          "description": "A ``token`` object.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "trust": {
+          "description": "A ``trust`` object.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "trustee_user_id": {
+          "description": "The trustee user ID.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "trustor_user_id": {
+          "description": "The trustor user ID.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "type": {
+          "description": "Endpoint type.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "user": {
+          "description": "A ``user`` object, which shows the ``username``, ``roles_links``,\n``id``, ``roles``, and ``name``.", 
+          "format": "", 
+          "type": "string"
+        }
+      }, 
+      "required": [
+        "access", 
+        "token", 
+        "issued_at", 
+        "expires", 
+        "id", 
+        "tenant", 
+        "description", 
+        "enabled", 
+        "name", 
+        "serviceCatalog", 
+        "endpoints", 
+        "endpoints_links", 
+        "type", 
+        "user", 
+        "metadata"
+      ], 
+      "type": "object"
+    }, 
+    "admin-createUser": {
+      "example": {
+        "application/json": {
+          "user": {
+            "email": "new-user@example.com", 
+            "enabled": true, 
+            "name": "new-user", 
+            "password": null, 
+            "tenantId": "40429f980fac419bbfec372a5607c154"
+          }
+        }
+      }, 
+      "properties": {
+        "email": {
+          "description": "The user email.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "enabled": {
+          "description": "Indicates whether the user is enabled (``true``) or disabled\n(``false``). Default is ``true``.", 
+          "format": "", 
+          "type": "boolean"
+        }, 
+        "name": {
+          "description": "The user name.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "password": {
+          "description": "The user password.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "tenantId": {
+          "description": "The tenant ID.", 
+          "format": "", 
+          "type": "string"
+        }
+      }, 
+      "required": [
+        "name"
+      ], 
+      "type": "object"
+    }, 
+    "admin-createUser_201": {
+      "properties": {
+        "email": {
+          "description": "The user email.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "enabled": {
+          "description": "Indicates whether the user is enabled (``true``) or disabled (``false``).", 
+          "format": "", 
+          "type": "boolean"
+        }, 
+        "id": {
+          "description": "The user ID.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "name": {
+          "description": "The user name.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "username": {
+          "description": "The user name of the user.", 
+          "format": "", 
+          "type": "string"
+        }
+      }, 
+      "required": [
+        "id", 
+        "name", 
+        "email", 
+        "username", 
+        "enabled"
+      ], 
+      "type": "object"
+    }, 
+    "admin-getVersionInfo_200": {
+      "properties": {
+        "location": {
+          "description": "", 
+          "format": "uri", 
+          "type": "string"
+        }
+      }, 
+      "required": [
+        "location"
+      ], 
+      "type": "object"
+    }, 
+    "admin-listRolesForUserOnTenant_200": {
+      "properties": {
+        "description": {
+          "description": "The description of the role.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "id": {
+          "description": "The role id.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "name": {
+          "description": "The user name.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "roles": {
+          "description": "A roles object.", 
+          "format": "", 
+          "items": {
+            "type": "string"
+          }, 
+          "type": "array"
+        }, 
+        "roles_links": {
+          "description": "A roles_links object.", 
+          "format": "", 
+          "items": {
+            "type": "string"
+          }, 
+          "type": "array"
+        }
+      }, 
+      "required": [
+        "roles", 
+        "id", 
+        "name", 
+        "description", 
+        "roles_links"
+      ], 
+      "type": "object"
+    }, 
+    "admin-listUserGlobalRoles_200": {
+      "properties": {
+        "description": {
+          "description": "The description of the role.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "id": {
+          "description": "The role id.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "name": {
+          "description": "The user name.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "roles": {
+          "description": "A roles object.", 
+          "format": "", 
+          "items": {
+            "type": "string"
+          }, 
+          "type": "array"
+        }, 
+        "roles_links": {
+          "description": "A roles_links object.", 
+          "format": "", 
+          "items": {
+            "type": "string"
+          }, 
+          "type": "array"
+        }
+      }, 
+      "required": [
+        "roles", 
+        "id", 
+        "name", 
+        "description", 
+        "roles_links"
+      ], 
+      "type": "object"
+    }, 
+    "admin-listUsers_200": {
+      "properties": {
+        "email": {
+          "description": "The user email.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "enabled": {
+          "description": "Indicates whether the user is enabled (``true``) or\ndisabled(``false``). The default value is ``true``.", 
+          "format": "", 
+          "type": "boolean"
+        }, 
+        "id": {
+          "description": "The user ID.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "name": {
+          "description": "The user name.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "username": {
+          "description": "The username of user.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "users": {
+          "description": "One or more ``user`` objects.", 
+          "format": "", 
+          "items": {
+            "type": "string"
+          }, 
+          "type": "array"
+        }
+      }, 
+      "required": [
+        "users", 
+        "id", 
+        "name", 
+        "email", 
+        "username", 
+        "enabled"
+      ], 
+      "type": "object"
+    }, 
+    "admin-showUser_200": {
+      "properties": {
+        "email": {
+          "description": "The user email.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "enabled": {
+          "description": "Indicates whether the user is enabled (true) or disabled (false).", 
+          "format": "", 
+          "type": "boolean"
+        }, 
+        "id": {
+          "description": "The user ID.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "name": {
+          "description": "The user name.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "username": {
+          "description": "The user name of the user.", 
+          "format": "", 
+          "type": "string"
+        }
+      }, 
+      "required": [
+        "id", 
+        "name", 
+        "email", 
+        "enabled", 
+        "username"
+      ], 
+      "type": "object"
+    }, 
+    "admin-updateUser": {
+      "example": {
+        "application/json": {
+          "user": {
+            "email": null, 
+            "enabled": false, 
+            "name": "nova", 
+            "username": "nova"
+          }
+        }
+      }, 
+      "properties": {
+        "email": {
+          "description": "The user email.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "enabled": {
+          "description": "Indicates whether the user is enabled (``true``) or disabled\n(``false``). Default is ``true``.", 
+          "format": "", 
+          "type": "boolean"
+        }, 
+        "name": {
+          "description": "The user name.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "username": {
+          "description": "The user name of the user.", 
+          "format": "", 
+          "type": "string"
+        }
+      }, 
+      "required": [
+        "name", 
+        "username"
+      ], 
+      "type": "object"
+    }, 
+    "admin-updateUser_201": {
+      "properties": {
+        "email": {
+          "description": "The user email.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "enabled": {
+          "description": "Indicates whether the user is enabled (true) or disabled (false).", 
+          "format": "", 
+          "type": "boolean"
+        }, 
+        "id": {
+          "description": "The user ID.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "name": {
+          "description": "The user name.", 
+          "format": "", 
+          "type": "string"
+        }
+      }, 
+      "required": [
+        "id", 
+        "name", 
+        "email", 
+        "enabled"
+      ], 
+      "type": "object"
+    }
+  }, 
+  "externalDocs": {
+    "description": "OpenStack Docs", 
+    "url": "http://docs.openstack.org"
+  }, 
+  "host": "developer.openstack.org", 
+  "info": {
+    "license": {
+      "name": "Apache 2.0", 
+      "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+    }, 
+    "title": "Identity Admin", 
+    "version": "v2", 
+    "x-service": "identity-admin"
+  }, 
+  "paths": {
+    "/v2.0": {
+      "get": {
+        "consumes": [
+          "application/json"
+        ], 
+        "description": "", 
+        "operationId": "admin-getVersionInfo", 
+        "parameters": [], 
+        "produces": [
+          "application/json"
+        ], 
+        "responses": {
+          "200": {
+            "description": "", 
+            "examples": {
+              "application/json": {
+                "version": {
+                  "id": "v2.0", 
+                  "links": [
+                    {
+                      "href": "http://localhost:5000/v2.0/", 
+                      "rel": "self"
+                    }, 
+                    {
+                      "href": "http://docs.openstack.org/", 
+                      "rel": "describedby", 
+                      "type": "text/html"
+                    }
+                  ], 
+                  "media-types": [
+                    {
+                      "base": "application/json", 
+                      "type": "application/vnd.openstack.identity-v2.0+json"
+                    }
+                  ], 
+                  "status": "stable", 
+                  "updated": "2014-04-17T00:00:00Z"
+                }
+              }
+            }, 
+            "headers": {}, 
+            "schema": {
+              "$ref": "#/definitions/admin-getVersionInfo_200"
+            }
+          }, 
+          "203": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "400": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "401": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "403": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "404": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "405": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "413": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "503": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }
+        }, 
+        "summary": "Gets detailed information about a version of the Identity API.", 
+        "tags": [
+          "admin-versions"
+        ], 
+        "x-title": "Get version details"
+      }
+    }, 
+    "/v2.0/tenants": {
+      "x-get-admin-listTenants": {
+        "consumes": [
+          "application/json"
+        ], 
+        "description": "", 
+        "operationId": "admin-listTenants", 
+        "parameters": [], 
+        "produces": [
+          "application/json"
+        ], 
+        "responses": {
+          "200": {
+            "description": "", 
+            "examples": {
+              "application/json": {
+                "tenants": [
+                  {
+                    "description": "A description ...", 
+                    "enabled": true, 
+                    "id": "1234", 
+                    "name": "ACME Corp"
+                  }, 
+                  {
+                    "description": "A description ...", 
+                    "enabled": true, 
+                    "id": "3456", 
+                    "name": "Iron Works"
+                  }
+                ], 
+                "tenants_links": []
+              }
+            }, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "203": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "400": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "401": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "403": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "404": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "405": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "413": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "503": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }
+        }, 
+        "summary": "Lists all tenants.", 
+        "tags": [
+          "admin-tenants"
+        ], 
+        "x-title": "List tenants"
+      }, 
+      "x-get-admin-showTenantByName": {
+        "consumes": [
+          "application/json"
+        ], 
+        "description": "", 
+        "operationId": "admin-showTenantByName", 
+        "parameters": [
+          {
+            "description": "Filters the response by a tenant name.", 
+            "format": "", 
+            "in": "query", 
+            "name": "name", 
+            "required": true, 
+            "type": "string"
+          }
+        ], 
+        "produces": [
+          "application/json"
+        ], 
+        "responses": {
+          "200": {
+            "description": "", 
+            "examples": {
+              "application/json": {
+                "tenant": {
+                  "description": "A description ...", 
+                  "enabled": true, 
+                  "id": "1234", 
+                  "name": "ACME corp"
+                }
+              }
+            }, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "203": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "400": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "401": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "403": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "404": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "405": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "413": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "503": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }
+        }, 
+        "summary": "Shows details for a tenant, by name.", 
+        "tags": [
+          "admin-tenants"
+        ], 
+        "x-title": "Show tenant details, by name"
+      }
+    }, 
+    "/v2.0/tenants/{tenantId}": {
+      "get": {
+        "consumes": [
+          "application/json"
+        ], 
+        "description": "", 
+        "operationId": "admin-showTenantById", 
+        "parameters": [
+          {
+            "description": "The tenant ID.", 
+            "format": "", 
+            "in": "path", 
+            "name": "tenantId", 
+            "required": true, 
+            "type": "string"
+          }
+        ], 
+        "produces": [
+          "application/json"
+        ], 
+        "responses": {
+          "200": {
+            "description": "", 
+            "examples": {
+              "application/json": {
+                "tenant": {
+                  "description": "A description ...", 
+                  "enabled": true, 
+                  "id": "1234", 
+                  "name": "ACME corp"
+                }
+              }
+            }, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "203": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "400": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "401": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "403": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "404": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "405": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "413": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "503": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }
+        }, 
+        "summary": "Shows details for a tenant, by ID.", 
+        "tags": [
+          "admin-tenants"
+        ], 
+        "x-title": "Show tenant details, by ID"
+      }
+    }, 
+    "/v2.0/tenants/{tenantId}/users/{userId}/roles": {
+      "get": {
+        "consumes": [
+          "application/json"
+        ], 
+        "description": "", 
+        "operationId": "admin-listRolesForUserOnTenant", 
+        "parameters": [
+          {
+            "description": "The user ID.", 
+            "format": "", 
+            "in": "path", 
+            "name": "userId", 
+            "required": true, 
+            "type": "string"
+          }, 
+          {
+            "description": "The tenant ID.", 
+            "format": "", 
+            "in": "path", 
+            "name": "tenantId", 
+            "required": true, 
+            "type": "string"
+          }
+        ], 
+        "produces": [
+          "application/json"
+        ], 
+        "responses": {
+          "200": {
+            "description": "", 
+            "examples": {
+              "application/json": {
+                "roles": [
+                  {
+                    "description": "Nova Administrator", 
+                    "id": "123", 
+                    "name": "compute:admin"
+                  }
+                ], 
+                "roles_links": []
+              }
+            }, 
+            "headers": {}, 
+            "schema": {
+              "$ref": "#/definitions/admin-listRolesForUserOnTenant_200"
+            }
+          }, 
+          "203": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "400": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "401": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "403": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "404": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "405": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "413": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "503": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }
+        }, 
+        "summary": "Lists roles for a user on a tenant. Excludes global roles.", 
+        "tags": [
+          "admin-tenants"
+        ], 
+        "x-title": "List roles for user"
+      }
+    }, 
+    "/v2.0/tokens": {
+      "post": {
+        "consumes": [
+          "application/json"
+        ], 
+        "description": "A REST interface provides client authentication by using the POST\nmethod with ``v2.0/tokens`` as the path. Include a payload of\ncredentials in the body.\n\nThe Identity API is a RESTful web service. It is the entry point to\nall service APIs. To access the Identity API, you must know its\nURL.\n\nEach REST request against the Identity Service requires the ``X\n-Auth-Token`` header. Clients obtain this token and the URL\nendpoints for other service APIs by supplying their valid\ncredentials to the authentication service.\n\nIf the authentication token has expired, this call returns the HTTP\n``unauthorized (401)`` response code.\n\nIf the token has expired, this call returns the ``itemNotFound\n(404)`` response code.\n\nThe Identity API treats expired tokens as no longer valid tokens.\n\nThe deployment determines how long expired tokens are stored.\n\nTo view the ``trust`` object, you need to set ``trust`` enable on\nthe keystone configuration.", 
+        "operationId": "admin-authenticate", 
+        "parameters": [], 
+        "produces": [
+          "application/json"
+        ], 
+        "responses": {
+          "200": {
+            "description": "", 
+            "examples": {
+              "application/json": {
+                "access": {
+                  "metadata": {
+                    "is_admin": 0, 
+                    "roles": [
+                      "8341d3603a1d4d5985bff09f10704d4d", 
+                      "2e66d57df76946fdbe034bc4da6fdec0"
+                    ]
+                  }, 
+                  "serviceCatalog": [
+                    {
+                      "endpoints": [
+                        {
+                          "adminURL": "http://23.253.72.207:8774/v2/73f0aa26640f4971864919d0eb0f0880", 
+                          "id": "2dad48f09e2a447a9bf852bcd93548ef", 
+                          "internalURL": "http://23.253.72.207:8774/v2/73f0aa26640f4971864919d0eb0f0880", 
+                          "publicURL": "http://23.253.72.207:8774/v2/73f0aa26640f4971864919d0eb0f0880", 
+                          "region": "RegionOne"
+                        }
+                      ], 
+                      "endpoints_links": [], 
+                      "name": "nova", 
+                      "type": "compute"
+                    }, 
+                    {
+                      "endpoints": [
+                        {
+                          "adminURL": "http://23.253.72.207:9696/", 
+                          "id": "97c526db8d7a4c88bbb8d68db1bdcdb8", 
+                          "internalURL": "http://23.253.72.207:9696/", 
+                          "publicURL": "http://23.253.72.207:9696/", 
+                          "region": "RegionOne"
+                        }
+                      ], 
+                      "endpoints_links": [], 
+                      "name": "neutron", 
+                      "type": "network"
+                    }, 
+                    {
+                      "endpoints": [
+                        {
+                          "adminURL": "http://23.253.72.207:8776/v2/73f0aa26640f4971864919d0eb0f0880", 
+                          "id": "93f86dfcbba143a39a33d0c2cd424870", 
+                          "internalURL": "http://23.253.72.207:8776/v2/73f0aa26640f4971864919d0eb0f0880", 
+                          "publicURL": "http://23.253.72.207:8776/v2/73f0aa26640f4971864919d0eb0f0880", 
+                          "region": "RegionOne"
+                        }
+                      ], 
+                      "endpoints_links": [], 
+                      "name": "cinder", 
+                      "type": "volumev2"
+                    }, 
+                    {
+                      "endpoints": [
+                        {
+                          "adminURL": "http://23.253.72.207:8774/v3", 
+                          "id": "3eb274b12b1d47b2abc536038d87339e", 
+                          "internalURL": "http://23.253.72.207:8774/v3", 
+                          "publicURL": "http://23.253.72.207:8774/v3", 
+                          "region": "RegionOne"
+                        }
+                      ], 
+                      "endpoints_links": [], 
+                      "name": "nova", 
+                      "type": "computev3"
+                    }, 
+                    {
+                      "endpoints": [
+                        {
+                          "adminURL": "http://23.253.72.207:3333", 
+                          "id": "957f1e54afc64d33a62099faa5e980a2", 
+                          "internalURL": "http://23.253.72.207:3333", 
+                          "publicURL": "http://23.253.72.207:3333", 
+                          "region": "RegionOne"
+                        }
+                      ], 
+                      "endpoints_links": [], 
+                      "name": "s3", 
+                      "type": "s3"
+                    }, 
+                    {
+                      "endpoints": [
+                        {
+                          "adminURL": "http://23.253.72.207:9292", 
+                          "id": "27d5749f36864c7d96bebf84a5ec9767", 
+                          "internalURL": "http://23.253.72.207:9292", 
+                          "publicURL": "http://23.253.72.207:9292", 
+                          "region": "RegionOne"
+                        }
+                      ], 
+                      "endpoints_links": [], 
+                      "name": "glance", 
+                      "type": "image"
+                    }, 
+                    {
+                      "endpoints": [
+                        {
+                          "adminURL": "http://23.253.72.207:8776/v1/73f0aa26640f4971864919d0eb0f0880", 
+                          "id": "37c83a2157f944f1972e74658aa0b139", 
+                          "internalURL": "http://23.253.72.207:8776/v1/73f0aa26640f4971864919d0eb0f0880", 
+                          "publicURL": "http://23.253.72.207:8776/v1/73f0aa26640f4971864919d0eb0f0880", 
+                          "region": "RegionOne"
+                        }
+                      ], 
+                      "endpoints_links": [], 
+                      "name": "cinder", 
+                      "type": "volume"
+                    }, 
+                    {
+                      "endpoints": [
+                        {
+                          "adminURL": "http://23.253.72.207:8773/services/Admin", 
+                          "id": "289b59289d6048e2912b327e5d3240ca", 
+                          "internalURL": "http://23.253.72.207:8773/services/Cloud", 
+                          "publicURL": "http://23.253.72.207:8773/services/Cloud", 
+                          "region": "RegionOne"
+                        }
+                      ], 
+                      "endpoints_links": [], 
+                      "name": "ec2", 
+                      "type": "ec2"
+                    }, 
+                    {
+                      "endpoints": [
+                        {
+                          "adminURL": "http://23.253.72.207:8080", 
+                          "id": "16b76b5e5b7d48039a6e4cc3129545f3", 
+                          "internalURL": "http://23.253.72.207:8080/v1/AUTH_73f0aa26640f4971864919d0eb0f0880", 
+                          "publicURL": "http://23.253.72.207:8080/v1/AUTH_73f0aa26640f4971864919d0eb0f0880", 
+                          "region": "RegionOne"
+                        }
+                      ], 
+                      "endpoints_links": [], 
+                      "name": "swift", 
+                      "type": "object-store"
+                    }, 
+                    {
+                      "endpoints": [
+                        {
+                          "adminURL": "http://23.253.72.207:35357/v2.0", 
+                          "id": "26af053673df4ef3a2340c4239e21ea2", 
+                          "internalURL": "http://23.253.72.207:5000/v2.0", 
+                          "publicURL": "http://23.253.72.207:5000/v2.0", 
+                          "region": "RegionOne"
+                        }
+                      ], 
+                      "endpoints_links": [], 
+                      "name": "keystone", 
+                      "type": "identity"
+                    }
+                  ], 
+                  "token": {
+                    "expires": "2014-01-31T17:09:57Z", 
+                    "id": "admin_id", 
+                    "issued_at": "2014-01-30T17:09:57.647795", 
+                    "tenant": {
+                      "description": null, 
+                      "enabled": true, 
+                      "id": "73f0aa26640f4971864919d0eb0f0880", 
+                      "name": "admin"
+                    }
+                  }, 
+                  "trust": {
+                    "id": "394998fa61f14736b1f0c1f322882949", 
+                    "impersonation": false, 
+                    "trustee_user_id": "269348fdd9374b8885da1418e0730af1", 
+                    "trustor_user_id": "3ec3164f750146be97f21559ee4d9c51"
+                  }, 
+                  "user": {
+                    "id": "1f568815cb8148688e6ee9b2f7527dcc", 
+                    "name": "admin", 
+                    "roles": [
+                      {
+                        "name": "service"
+                      }, 
+                      {
+                        "name": "admin"
+                      }
+                    ], 
+                    "roles_links": [], 
+                    "username": "admin"
+                  }
+                }
+              }
+            }, 
+            "headers": {}, 
+            "schema": {
+              "$ref": "#/definitions/admin-authenticate_200"
+            }
+          }, 
+          "203": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "400": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "401": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "403": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "404": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "405": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "413": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "503": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }
+        }, 
+        "summary": "Authenticates and generates a token.", 
+        "tags": [
+          "admin-tokens"
+        ], 
+        "x-title": "Authenticate for admin API"
+      }
+    }, 
+    "/v2.0/tokens/{tokenId}": {
+      "delete": {
+        "consumes": [], 
+        "description": "", 
+        "operationId": "admin-deleteToken", 
+        "parameters": [
+          {
+            "description": "The authentication token for which to perform the operation.", 
+            "format": "", 
+            "in": "path", 
+            "name": "tokenId", 
+            "required": true, 
+            "type": "string"
+          }
+        ], 
+        "produces": [], 
+        "responses": {
+          "204": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "400": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "401": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "403": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "404": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "405": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "413": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "503": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }
+        }, 
+        "summary": "Deletes a token.", 
+        "tags": [
+          "admin-tokens"
+        ], 
+        "x-title": "Delete token"
+      }, 
+      "get": {
+        "consumes": [
+          "application/json"
+        ], 
+        "description": "Returns the permissions relevant to a particular client. Valid\ntokens are in the ``/tokens/{tokenId}`` path. If the token is not\nvalid, this call returns the ``itemNotFound (404)`` response code.", 
+        "operationId": "admin-validateToken", 
+        "parameters": [
+          {
+            "description": "The authentication token for which to perform the operation.", 
+            "format": "", 
+            "in": "path", 
+            "name": "tokenId", 
+            "required": true, 
+            "type": "string"
+          }
+        ], 
+        "produces": [
+          "application/json"
+        ], 
+        "responses": {
+          "200": {
+            "description": "", 
+            "examples": {
+              "application/json": {
+                "access": {
+                  "token": {
+                    "expires": "2010-11-01T03:32:15-05:00", 
+                    "id": "ab48a9efdfedb23ty3494", 
+                    "tenant": {
+                      "id": "345", 
+                      "name": "My Project"
+                    }
+                  }, 
+                  "user": {
+                    "id": "123", 
+                    "name": "jqsmith", 
+                    "roles": [
+                      {
+                        "id": "234", 
+                        "name": "compute:admin"
+                      }, 
+                      {
+                        "id": "234", 
+                        "name": "object-store:admin", 
+                        "tenantId": "1"
+                      }
+                    ], 
+                    "roles_links": []
+                  }
+                }
+              }
+            }, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "203": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "400": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "401": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "403": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "404": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "405": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "413": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "503": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }
+        }, 
+        "summary": "Validates a token and confirms that it belongs to a tenant.", 
+        "tags": [
+          "admin-tokens"
+        ], 
+        "x-title": "Validate token"
+      }, 
+      "head": {
+        "consumes": [], 
+        "description": "", 
+        "operationId": "admin-checkToken", 
+        "parameters": [
+          {
+            "description": "The authentication token for which to perform the operation.", 
+            "format": "", 
+            "in": "path", 
+            "name": "tokenId", 
+            "required": true, 
+            "type": "string"
+          }
+        ], 
+        "produces": [], 
+        "responses": {
+          "200": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "203": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "204": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "400": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "401": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "403": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "404": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "405": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "413": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "503": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }
+        }, 
+        "summary": "Validates a token and confirms that it belongs to a tenant, for performance.", 
+        "tags": [
+          "admin-tokens"
+        ], 
+        "x-title": "Validate token (admin)"
+      }
+    }, 
+    "/v2.0/tokens/{tokenId}/endpoints": {
+      "get": {
+        "consumes": [
+          "application/json"
+        ], 
+        "description": "", 
+        "operationId": "admin-listEndpointsForToken", 
+        "parameters": [
+          {
+            "description": "The authentication token for which to perform the operation.", 
+            "format": "", 
+            "in": "path", 
+            "name": "tokenId", 
+            "required": true, 
+            "type": "string"
+          }
+        ], 
+        "produces": [
+          "application/json"
+        ], 
+        "responses": {
+          "200": {
+            "description": "", 
+            "examples": {
+              "application/json": {
+                "endpoints": [
+                  {
+                    "adminURL": "https://nova.region-one.internal.com/v2/be1319401cfa4a0aa590b97cc7b64d8d", 
+                    "id": "11b41ee1b00841128b7333d4bf1a6140", 
+                    "internalURL": "https://nova.region-one.internal.com/v2/be1319401cfa4a0aa590b97cc7b64d8d", 
+                    "name": "nova", 
+                    "publicURL": "https://nova.region-one.public.com/v2/be1319401cfa4a0aa590b97cc7b64d8d", 
+                    "region": "RegionOne", 
+                    "type": "compute"
+                  }, 
+                  {
+                    "adminURL": "https://neutron.region-one.internal.com/", 
+                    "id": "cdbfa3c416d741a9b5c968f2dc628acb", 
+                    "internalURL": "https://neutron.region-one.internal.com/", 
+                    "name": "neutron", 
+                    "publicURL": "https://neutron.region-one.public.com/", 
+                    "region": "RegionOne", 
+                    "type": "network"
+                  }, 
+                  {
+                    "adminURL": "https://cinderv2.region-one.internal.com/v2/be1319401cfa4a0aa590b97cc7b64d8d", 
+                    "id": "6de282e4132747ecb48f6fd8c525c6f6", 
+                    "internalURL": "https://cinderv2.region-one.internal.com/v2/be1319401cfa4a0aa590b97cc7b64d8d", 
+                    "name": "cinderv2", 
+                    "publicURL": "https://cinderv2.region-one.public.com/v2/be1319401cfa4a0aa590b97cc7b64d8d", 
+                    "region": "RegionOne", 
+                    "type": "cinderv2v2"
+                  }, 
+                  {
+                    "adminURL": "https://trove.region-one.internal.com/v1.0/be1319401cfa4a0aa590b97cc7b64d8d", 
+                    "id": "4bfad53a0c684bd981d093099eb7799b", 
+                    "internalURL": "https://trove.region-one.internal.com/v1.0/be1319401cfa4a0aa590b97cc7b64d8d", 
+                    "name": "trove", 
+                    "publicURL": "https://trove.region-one.public.com/v1.0/be1319401cfa4a0aa590b97cc7b64d8d", 
+                    "region": "RegionOne", 
+                    "type": "database"
+                  }, 
+                  {
+                    "adminURL": "https://s3.region-one.internal.com", 
+                    "id": "50fb6b43cde44bb6b0e471a682dc42dd", 
+                    "internalURL": "https://s3.region-one.internal.com", 
+                    "name": "s3", 
+                    "publicURL": "https://s3.region-one.public.com", 
+                    "region": "RegionOne", 
+                    "type": "s3"
+                  }, 
+                  {
+                    "adminURL": "https://glance.region-one.internal.com", 
+                    "id": "838a338171164c3c8f56e6b5882267ff", 
+                    "internalURL": "https://glance.region-one.internal.com", 
+                    "name": "glance", 
+                    "publicURL": "https://glance.region-one.public.com", 
+                    "region": "RegionOne", 
+                    "type": "glance"
+                  }, 
+                  {
+                    "adminURL": "https://novav3.region-one.internal.com/v3", 
+                    "id": "b437edd03d244bf4be605b9b8c8689e0", 
+                    "internalURL": "https://novav3.region-one.internal.com/v3", 
+                    "name": "novav3", 
+                    "publicURL": "https://novav3.region-one.public.com/v3", 
+                    "region": "RegionOne", 
+                    "type": "computev3"
+                  }, 
+                  {
+                    "adminURL": "https://heat.region-one.internal.comv1", 
+                    "id": "7a0f6f37344d488fa596a1325e0fcf10", 
+                    "internalURL": "https://heat.region-one.internal.comv1", 
+                    "name": "heat", 
+                    "publicURL": "https://heat.region-one.public.comv1", 
+                    "region": "RegionOne", 
+                    "type": "cloudformation"
+                  }, 
+                  {
+                    "adminURL": "https://cinder.region-one.internal.com/v1/be1319401cfa4a0aa590b97cc7b64d8d", 
+                    "id": "d4f251065dce4ce3946d3c1b87e167f2", 
+                    "internalURL": "https://cinder.region-one.internal.com/v1/be1319401cfa4a0aa590b97cc7b64d8d", 
+                    "name": "cinder", 
+                    "publicURL": "https://cinder.region-one.public.com/v1/be1319401cfa4a0aa590b97cc7b64d8d", 
+                    "region": "RegionOne", 
+                    "type": "cinderv2"
+                  }, 
+                  {
+                    "adminURL": "https://ec2.region-one.internal.com/services/Admin", 
+                    "id": "44c6bf28d9bd4d63bfb00d66f22439a8", 
+                    "internalURL": "https://ec2.region-one.internal.com/services/Cloud", 
+                    "name": "ec2", 
+                    "publicURL": "https://ec2.region-one.public.com/services/Cloud", 
+                    "region": "RegionOne", 
+                    "type": "ec2"
+                  }, 
+                  {
+                    "adminURL": "https://heat.region-one.internal.com/v1/be1319401cfa4a0aa590b97cc7b64d8d", 
+                    "id": "21aaace3f33c46b8aaea2b17d41ffd54", 
+                    "internalURL": "https://heat.region-one.internal.com/v1/be1319401cfa4a0aa590b97cc7b64d8d", 
+                    "name": "heat", 
+                    "publicURL": "https://heat.region-one.public.com/v1/be1319401cfa4a0aa590b97cc7b64d8d", 
+                    "region": "RegionOne", 
+                    "type": "orchestration"
+                  }, 
+                  {
+                    "adminURL": "https://swift.region-one.internal.com", 
+                    "id": "35f7aca3be384580a3b1df43a97c2eb2", 
+                    "internalURL": "https://swift.region-one.internal.com/v1/AUTH_be1319401cfa4a0aa590b97cc7b64d8d", 
+                    "name": "swift", 
+                    "publicURL": "https://swift.region-one.public.com/v1/AUTH_be1319401cfa4a0aa590b97cc7b64d8d", 
+                    "region": "RegionOne", 
+                    "type": "object-store"
+                  }, 
+                  {
+                    "adminURL": "https://keystone.region-one.internal.com/v2.0", 
+                    "id": "48da758fb58c47dcaf02000a4409a265", 
+                    "internalURL": "https://keystone.region-one.internal.com/v2.0", 
+                    "name": "keystone", 
+                    "publicURL": "https://keystone.region-one.public.com/v2.0", 
+                    "region": "RegionOne", 
+                    "type": "identity"
+                  }
+                ], 
+                "endpoints_links": []
+              }
+            }, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "203": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "400": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "401": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "403": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "404": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "405": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "413": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "503": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }
+        }, 
+        "summary": "Lists the endpoints associated with a token.", 
+        "tags": [
+          "admin-tokens"
+        ], 
+        "x-title": "List endoints for token"
+      }
+    }, 
+    "/v2.0/users": {
+      "get": {
+        "consumes": [
+          "application/json"
+        ], 
+        "description": "To show detailed information about a user by name, include the\n``name`` query parameter in the request.", 
+        "operationId": "admin-listUsers", 
+        "parameters": [], 
+        "produces": [
+          "application/json"
+        ], 
+        "responses": {
+          "200": {
+            "description": "", 
+            "examples": {
+              "application/json": {
+                "user": {
+                  "email": null, 
+                  "enabled": true, 
+                  "id": "405ecdef1a434c70bb1e441cd295245d", 
+                  "name": "nova", 
+                  "username": "nova"
+                }
+              }
+            }, 
+            "headers": {}, 
+            "schema": {
+              "$ref": "#/definitions/admin-listUsers_200"
+            }
+          }, 
+          "203": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "400": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "401": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "403": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "404": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "405": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "413": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "503": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }
+        }, 
+        "summary": "Lists all users.", 
+        "tags": [
+          "admin-users"
+        ], 
+        "x-title": "List users"
+      }, 
+      "post": {
+        "consumes": [
+          "application/json"
+        ], 
+        "description": "", 
+        "operationId": "admin-createUser", 
+        "parameters": [
+          {
+            "description": "", 
+            "in": "body", 
+            "name": "body", 
+            "required": false, 
+            "schema": {
+              "$ref": "#/definitions/admin-createUser"
+            }
+          }, 
+          {
+            "description": "A valid authentication token for an administrative user.", 
+            "format": "", 
+            "in": "header", 
+            "name": "X-Auth-Token", 
+            "required": true, 
+            "type": "string"
+          }
+        ], 
+        "produces": [
+          "application/json"
+        ], 
+        "responses": {
+          "201": {
+            "description": "", 
+            "examples": {
+              "application/json": {
+                "user": {
+                  "email": "new-user@example.com", 
+                  "enabled": true, 
+                  "id": "71767c619a90479ab21626abf76aa46c", 
+                  "name": "new-user", 
+                  "tenantId": "40429f980fac419bbfec372a5607c154", 
+                  "username": "new-user"
+                }
+              }
+            }, 
+            "headers": {}, 
+            "schema": {
+              "$ref": "#/definitions/admin-createUser_201"
+            }
+          }, 
+          "400": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "401": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "403": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "404": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "405": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "409": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "413": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "415": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "503": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }
+        }, 
+        "summary": "Creates a user.", 
+        "tags": [
+          "admin-users"
+        ], 
+        "x-title": "Create user"
+      }
+    }, 
+    "/v2.0/users/{userId}": {
+      "delete": {
+        "consumes": [], 
+        "description": "", 
+        "operationId": "admin-deleteUser", 
+        "parameters": [
+          {
+            "description": "The user ID.", 
+            "format": "", 
+            "in": "path", 
+            "name": "userId", 
+            "required": true, 
+            "type": "string"
+          }
+        ], 
+        "produces": [], 
+        "responses": {
+          "204": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "400": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "401": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "403": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "404": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "405": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "413": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "503": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }
+        }, 
+        "summary": "Deletes a user.", 
+        "tags": [
+          "admin-users"
+        ], 
+        "x-title": "Delete user"
+      }, 
+      "get": {
+        "consumes": [
+          "application/json"
+        ], 
+        "description": "The `openstack user show <http://docs.openstack.org/cli-\nreference/openstack.html#openstack-user-show>`_ command supports\nshowing user details by name or ID. However, the command actually\nlooks up the user ID for a user name and queries the user by ID.\n\nAs a workaround, complete these steps to show details for a user by\nname:\n\n- `List all users <http://developer.openstack.org/api-ref-identity-\n  admin-v2.html#admin-listUsers>`_.\n\n- In the response, find the user name for which you want to show\n  details and note its corresponding user ID.\n\n- `Show details for user <http://developer.openstack.org/api-ref-\n  identity-admin-v2.html#admin-showUser>`_.", 
+        "operationId": "admin-showUser", 
+        "parameters": [
+          {
+            "description": "The user ID.", 
+            "format": "", 
+            "in": "path", 
+            "name": "userId", 
+            "required": true, 
+            "type": "string"
+          }
+        ], 
+        "produces": [
+          "application/json"
+        ], 
+        "responses": {
+          "200": {
+            "description": "", 
+            "examples": {
+              "application/json": {
+                "user": {
+                  "email": null, 
+                  "enabled": true, 
+                  "id": "405ecdef1a434c70bb1e441cd295245d", 
+                  "name": "nova", 
+                  "username": "nova"
+                }
+              }
+            }, 
+            "headers": {}, 
+            "schema": {
+              "$ref": "#/definitions/admin-showUser_200"
+            }
+          }, 
+          "203": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "400": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "401": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "403": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "404": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "405": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "413": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "503": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }
+        }, 
+        "summary": "Shows details for a user, by ID.", 
+        "tags": [
+          "admin-users"
+        ], 
+        "x-title": "Show user details"
+      }, 
+      "put": {
+        "consumes": [
+          "application/json"
+        ], 
+        "description": "", 
+        "operationId": "admin-updateUser", 
+        "parameters": [
+          {
+            "description": "", 
+            "in": "body", 
+            "name": "body", 
+            "required": false, 
+            "schema": {
+              "$ref": "#/definitions/admin-updateUser"
+            }
+          }, 
+          {
+            "description": "The user ID.", 
+            "format": "", 
+            "in": "path", 
+            "name": "userId", 
+            "required": true, 
+            "type": "string"
+          }
+        ], 
+        "produces": [
+          "application/json"
+        ], 
+        "responses": {
+          "201": {
+            "description": "", 
+            "examples": {
+              "application/json": {
+                "user": {
+                  "email": null, 
+                  "enabled": false, 
+                  "id": "71767c619a90479ab21626abf76aa46c", 
+                  "name": "nova", 
+                  "username": "nova"
+                }
+              }
+            }, 
+            "headers": {}, 
+            "schema": {
+              "$ref": "#/definitions/admin-updateUser_201"
+            }
+          }, 
+          "400": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "401": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "403": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "404": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "405": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "409": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "413": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "415": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "503": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }
+        }, 
+        "summary": "Updates a user.", 
+        "tags": [
+          "admin-users"
+        ], 
+        "x-title": "Update user"
+      }
+    }, 
+    "/v2.0/users/{userId}/roles": {
+      "get": {
+        "consumes": [
+          "application/json"
+        ], 
+        "description": "", 
+        "operationId": "admin-listUserGlobalRoles", 
+        "parameters": [
+          {
+            "description": "The user ID.", 
+            "format": "", 
+            "in": "path", 
+            "name": "userId", 
+            "required": true, 
+            "type": "string"
+          }
+        ], 
+        "produces": [
+          "application/json"
+        ], 
+        "responses": {
+          "200": {
+            "description": "", 
+            "examples": {
+              "application/json": {
+                "roles": [
+                  {
+                    "description": "Nova Administrator", 
+                    "id": "123", 
+                    "name": "compute:admin"
+                  }
+                ], 
+                "roles_links": []
+              }
+            }, 
+            "headers": {}, 
+            "schema": {
+              "$ref": "#/definitions/admin-listUserGlobalRoles_200"
+            }
+          }, 
+          "203": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "400": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "401": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "403": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "404": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "405": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "413": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "503": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }
+        }, 
+        "summary": "Lists global roles for a user. Excludes tenant roles.", 
+        "tags": [
+          "admin-users"
+        ], 
+        "x-title": "List user global roles"
+      }
+    }
+  }, 
+  "produces": [
+    "application/json"
+  ], 
+  "swagger": "2.0", 
+  "tags": [
+    {
+      "description": "Versions", 
+      "name": "admin-versions", 
+      "x-summary": ""
+    }, 
+    {
+      "description": "Extensions", 
+      "name": "admin-extensions", 
+      "x-summary": "For information about Identity API v2.0 extensions, see `Extensions\n<http://developer.openstack.org/api-ref-identity-v2.html#identity-\napi-extensions>`_."
+    }, 
+    {
+      "description": "Tokens", 
+      "name": "admin-tokens", 
+      "x-summary": ""
+    }, 
+    {
+      "description": "Users", 
+      "name": "admin-users", 
+      "x-summary": ""
+    }, 
+    {
+      "description": "Tenants", 
+      "name": "admin-tenants", 
+      "x-summary": ""
+    }
+  ]
+}

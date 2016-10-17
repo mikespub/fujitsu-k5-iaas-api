@@ -1,0 +1,2600 @@
+{
+  "basePath": "/", 
+  "consumes": [
+    "application/json"
+  ], 
+  "definitions": {
+    "addSamplesToMeter": {
+      "example": {
+        "application/json": {
+          "id": "8db08c68-bc70-11e4-a8c4-fa163e1d1a9b", 
+          "metadata": {
+            "name1": "value1", 
+            "name2": "value2"
+          }, 
+          "meter": "instance", 
+          "project_id": "35b17138-b364-4e6a-a131-8f3099c5be68", 
+          "recorded_at": "2015-02-24T22:00:32.747930", 
+          "resource_id": "bd9431c1-8d69-4ad3-803a-8d4a6b89fd36", 
+          "source": "openstack", 
+          "timestamp": "2015-02-24T22:00:32.747930", 
+          "type": "gauge", 
+          "unit": "instance", 
+          "user_id": "efd87807-12d2-4b38-9c70-5f5c2ac427ff", 
+          "volume": 1.0
+        }
+      }, 
+      "properties": {
+        "id": {
+          "description": "The UUID of the sample.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "metadata": {
+          "description": "An arbitrary set of one or more metadata key and value pairs that\nare associated with the sample.", 
+          "format": "", 
+          "type": "object"
+        }, 
+        "meter": {
+          "description": "The meter name.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "project_id": {
+          "description": "The UUID of the project or tenant that owns the resource.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "recorded_at": {
+          "description": "The date and time when the sample was recorded.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "resource_id": {
+          "description": "The UUID of the resource for which the measurements are taken.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "source": {
+          "description": "The name of the source that identifies where the sample comes from.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "timestamp": {
+          "description": "The date and time in UTC format when the measurement was made.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "type": {
+          "description": "The meter type.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "unit": {
+          "description": "The unit of measure for the ``volume`` value.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "user_id": {
+          "description": "The UUID of the user who either created or last updated the\nresource.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "volume": {
+          "description": "The actual measured value.", 
+          "format": "", 
+          "type": "number"
+        }
+      }, 
+      "required": [
+        "id", 
+        "metadata", 
+        "meter", 
+        "project_id", 
+        "recorded_at", 
+        "resource_id", 
+        "source", 
+        "timestamp", 
+        "type", 
+        "unit", 
+        "user_id", 
+        "volume"
+      ], 
+      "type": "object"
+    }, 
+    "addSamplesToMeter_200": {
+      "properties": {
+        "id": {
+          "description": "The UUID of the sample.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "metadata": {
+          "description": "An arbitrary set of one or more metadata key and value pairs that\nare associated with the sample.", 
+          "format": "", 
+          "type": "object"
+        }, 
+        "meter": {
+          "description": "The meter name.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "project_id": {
+          "description": "The UUID of the project or tenant that owns the resource.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "recorded_at": {
+          "description": "The date and time when the sample was recorded.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "resource_id": {
+          "description": "The UUID of the resource for which the measurements are taken.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "source": {
+          "description": "The name of the source that identifies where the sample comes from.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "timestamp": {
+          "description": "The date and time in UTC format when the measurement was made.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "type": {
+          "description": "The meter type.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "unit": {
+          "description": "The unit of measure for the ``volume`` value.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "user_id": {
+          "description": "The UUID of the user who either created or last updated the\nresource.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "volume": {
+          "description": "The actual measured value.", 
+          "format": "", 
+          "type": "number"
+        }
+      }, 
+      "required": [
+        "id", 
+        "metadata", 
+        "meter", 
+        "project_id", 
+        "recorded_at", 
+        "resource_id", 
+        "source", 
+        "timestamp", 
+        "type", 
+        "unit", 
+        "user_id", 
+        "volume"
+      ], 
+      "type": "object"
+    }, 
+    "createAlarm_200": {
+      "properties": {
+        "alarm_actions": {
+          "description": "The list of actions that the alarm performs.", 
+          "format": "", 
+          "items": {
+            "type": "string"
+          }, 
+          "type": "array"
+        }, 
+        "alarm_id": {
+          "description": "The UUID of the alarm.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "combination_rule": {
+          "description": "The rules for the combination alarm type.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "description": {
+          "description": "Describes the alarm.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "enabled": {
+          "description": "If ``true``, evaluation and actioning is enabled for the alarm.", 
+          "format": "", 
+          "type": "boolean"
+        }, 
+        "insufficient_data_actions": {
+          "description": "The list of actions that the alarm performs when the alarm state is\n``insufficient_data``.", 
+          "format": "", 
+          "items": {
+            "type": "string"
+          }, 
+          "type": "array"
+        }, 
+        "name": {
+          "description": "The name of the alarm.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "ok_actions": {
+          "description": "The list of actions that the alarm performs when the alarm state is\n``ok``.", 
+          "format": "", 
+          "items": {
+            "type": "string"
+          }, 
+          "type": "array"
+        }, 
+        "project_id": {
+          "description": "The UUID of the project.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "repeat_actions": {
+          "description": "If set to ``true``, the alarm notifications are repeated.\nOtherwise, this value is ``false``.", 
+          "format": "", 
+          "type": "boolean"
+        }, 
+        "state": {
+          "description": "The state of the alarm.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "state_timestamp": {
+          "description": "The date and time of the alarm state.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "threshold_rule": {
+          "description": "The rules for the threshold alarm type.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "timestamp": {
+          "description": "The date and time of the alarm.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "type": {
+          "description": "The type of the alarm, which is either ``threshold`` or\n``combination``.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "user_id": {
+          "description": "The UUID of the user.", 
+          "format": "", 
+          "type": "string"
+        }
+      }, 
+      "required": [
+        "alarm_id", 
+        "description", 
+        "enabled", 
+        "name", 
+        "project_id", 
+        "repeat_actions", 
+        "state", 
+        "state_timestamp", 
+        "timestamp", 
+        "user_id", 
+        "type", 
+        "threshold_rule", 
+        "combination_rule", 
+        "alarm_actions", 
+        "insufficient_data_actions", 
+        "ok_actions"
+      ], 
+      "type": "object"
+    }, 
+    "listAlarms_200": {
+      "properties": {
+        "alarm_actions": {
+          "description": "The list of actions that the alarm performs.", 
+          "format": "", 
+          "items": {
+            "type": "string"
+          }, 
+          "type": "array"
+        }, 
+        "alarm_id": {
+          "description": "The UUID of the alarm.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "combination_rule": {
+          "description": "The rules for the combination alarm type.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "description": {
+          "description": "Describes the alarm.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "enabled": {
+          "description": "If ``true``, evaluation and actioning is enabled for the alarm.", 
+          "format": "", 
+          "type": "boolean"
+        }, 
+        "insufficient_data_actions": {
+          "description": "The list of actions that the alarm performs when the alarm state is\n``insufficient_data``.", 
+          "format": "", 
+          "items": {
+            "type": "string"
+          }, 
+          "type": "array"
+        }, 
+        "name": {
+          "description": "The name of the alarm.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "ok_actions": {
+          "description": "The list of actions that the alarm performs when the alarm state is\n``ok``.", 
+          "format": "", 
+          "items": {
+            "type": "string"
+          }, 
+          "type": "array"
+        }, 
+        "project_id": {
+          "description": "The UUID of the project.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "repeat_actions": {
+          "description": "If set to ``true``, the alarm notifications are repeated.\nOtherwise, this value is ``false``.", 
+          "format": "", 
+          "type": "boolean"
+        }, 
+        "state": {
+          "description": "The state of the alarm.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "state_timestamp": {
+          "description": "The date and time of the alarm state.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "threshold_rule": {
+          "description": "The rules for the threshold alarm type.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "timestamp": {
+          "description": "The date and time of the alarm.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "type": {
+          "description": "The type of the alarm, which is either ``threshold`` or\n``combination``.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "user_id": {
+          "description": "The UUID of the user.", 
+          "format": "", 
+          "type": "string"
+        }
+      }, 
+      "required": [
+        "alarm_id", 
+        "description", 
+        "enabled", 
+        "name", 
+        "project_id", 
+        "repeat_actions", 
+        "state", 
+        "state_timestamp", 
+        "timestamp", 
+        "user_id", 
+        "type", 
+        "threshold_rule", 
+        "combination_rule", 
+        "alarm_actions", 
+        "insufficient_data_actions", 
+        "ok_actions"
+      ], 
+      "type": "object"
+    }, 
+    "listCapabilities_200": {
+      "properties": {
+        "alarm_storage": {
+          "description": "Defines the capabilities for the storage that stores persisting\nalarm definitions. A value of ``true`` indicates that the\ncapability is available.", 
+          "format": "", 
+          "type": "object"
+        }, 
+        "alarms:history:query:complex": {
+          "description": "If ``true``, the complex query capability for alarm history is\navailable for the configured database back end.", 
+          "format": "", 
+          "type": "boolean"
+        }, 
+        "alarms:history:query:simple": {
+          "description": "If ``true``, the simple query capability for alarm history is\navailable for the configured database back end.", 
+          "format": "", 
+          "type": "boolean"
+        }, 
+        "alarms:query:complex": {
+          "description": "If ``true``, the complex query capability for alarm definitions is\navailable for the configured database back end.", 
+          "format": "", 
+          "type": "boolean"
+        }, 
+        "alarms:query:simple": {
+          "description": "If ``true``, the simple query capability for alarm definitions is\navailable for the configured database back end.", 
+          "format": "", 
+          "type": "boolean"
+        }, 
+        "api": {
+          "description": "A set of key and value pairs that contain the API capabilities for\nthe configured storage driver.", 
+          "format": "", 
+          "type": "object"
+        }, 
+        "event_storage": {
+          "description": "If ``true``, the capabilities for the storage that stores\npersisting events is available.", 
+          "format": "", 
+          "type": "object"
+        }, 
+        "events:query:simple": {
+          "description": "If ``true``, the simple query capability for events is available\nfor the configured database back end.", 
+          "format": "", 
+          "type": "boolean"
+        }, 
+        "meters:query:complex": {
+          "description": "If ``true``, the complex query capability for meters is available\nfor the configured database back end.", 
+          "format": "", 
+          "type": "boolean"
+        }, 
+        "meters:query:metadata": {
+          "description": "If ``true``, the simple query capability for the metadata of meters\nis available for the configured database back end.", 
+          "format": "", 
+          "type": "boolean"
+        }, 
+        "meters:query:simple": {
+          "description": "If ``true``, the simple query capability for meters is available\nfor the configured database back end.", 
+          "format": "", 
+          "type": "boolean"
+        }, 
+        "resources:query:complex": {
+          "description": "If ``true``, the complex query capability for resources is\navailable for the configured database back end.", 
+          "format": "", 
+          "type": "boolean"
+        }, 
+        "resources:query:metadata": {
+          "description": "If ``true``, the simple query capability for the metadata of\nresources is available for the configured database back end.", 
+          "format": "", 
+          "type": "boolean"
+        }, 
+        "resources:query:simple": {
+          "description": "If ``true``, the simple query capability for resources is available\nfor the configured database back end.", 
+          "format": "", 
+          "type": "boolean"
+        }, 
+        "samples:query:complex": {
+          "description": "If ``true``, the complex query capability for samples is available\nfor the configured database back end.", 
+          "format": "", 
+          "type": "boolean"
+        }, 
+        "samples:query:metadata": {
+          "description": "If ``true``, the simple query capability for the metadata of\nsamples is available for the configured database back end.", 
+          "format": "", 
+          "type": "boolean"
+        }, 
+        "samples:query:simple": {
+          "description": "If ``true``, the simple query capability for samples is available\nfor the configured database back end.", 
+          "format": "", 
+          "type": "boolean"
+        }, 
+        "statistics:aggregation:selectable:avg": {
+          "description": "If ``true``, the ``avg`` capability is available for the configured\ndatabase back end. Use the ``avg`` capability to get average values\nfor samples.", 
+          "format": "", 
+          "type": "boolean"
+        }, 
+        "statistics:aggregation:selectable:cardinality": {
+          "description": "If ``true``, the ``cardinality`` capability is available for the\nconfigured database back end. Use the ``cardinality`` capability to\nget cardinality for samples.", 
+          "format": "", 
+          "type": "boolean"
+        }, 
+        "statistics:aggregation:selectable:count": {
+          "description": "If ``true``, the ``count`` capability is available for the\nconfigured database back end. Use the ``count`` capability to\ncalculate the number of samples for a query.", 
+          "format": "", 
+          "type": "boolean"
+        }, 
+        "statistics:aggregation:selectable:max": {
+          "description": "If ``true``, the ``max`` capability is available for the configured\ndatabase back end. . Use the ``max`` capability to calculate the\nmaximum value for a query.", 
+          "format": "", 
+          "type": "boolean"
+        }, 
+        "statistics:aggregation:selectable:min": {
+          "description": "If ``true``, the ``min`` capability is available for the configured\ndatabase back end. Use the ``min`` capability to calculate the\nminimum value for a query.", 
+          "format": "", 
+          "type": "boolean"
+        }, 
+        "statistics:aggregation:selectable:quartile": {
+          "description": "If ``true``, the ``quartile`` capability is available for the\nconfigured database back end. Use the ``quartile`` capability to\ncalculate the quartile of sample volumes for a query.", 
+          "format": "", 
+          "type": "boolean"
+        }, 
+        "statistics:aggregation:selectable:stddev": {
+          "description": "If ``true``, the ``stddev`` capability is available for the\nconfigured database back end. Use the ``stddev`` capability to\ncalculate the standard deviation of sample volumes for a query.", 
+          "format": "", 
+          "type": "boolean"
+        }, 
+        "statistics:aggregation:selectable:sum": {
+          "description": "If ``true``, the ``sum`` capability is available for the configured\ndatabase back end. Use the ``sum`` capability to calculate the sum\nof sample volumes for a query.", 
+          "format": "", 
+          "type": "boolean"
+        }, 
+        "statistics:aggregation:standard": {
+          "description": "If ``true``, the ``standard`` set of aggregation capability is\navailable for the configured database back end.", 
+          "format": "", 
+          "type": "boolean"
+        }, 
+        "statistics:groupby": {
+          "description": "If ``true``, the ``groupby`` capability is available for\ncalculating statistics for the configured database back end.", 
+          "format": "", 
+          "type": "boolean"
+        }, 
+        "statistics:query:complex": {
+          "description": "If ``true``, the complex query capability for statistics is\navailable for the configured database back end.", 
+          "format": "", 
+          "type": "boolean"
+        }, 
+        "statistics:query:metadata": {
+          "description": "If ``true``, the simple query capability for the sample metadata\nthat is used to calculate statistics is available for the\nconfigured database back end.", 
+          "format": "", 
+          "type": "boolean"
+        }, 
+        "statistics:query:simple": {
+          "description": "If ``true``, the simple query capability for statistics is\navailable for the configured database back end.", 
+          "format": "", 
+          "type": "boolean"
+        }, 
+        "storage": {
+          "description": "If ``true``, the capabilities for the storage that stores\npersisting samples is available.", 
+          "format": "", 
+          "type": "object"
+        }, 
+        "storage:production_ready": {
+          "description": "If ``true``, the database back end is ready to use in a production\nenvironment.", 
+          "format": "", 
+          "type": "boolean"
+        }
+      }, 
+      "required": [
+        "api", 
+        "alarms:history:query:complex", 
+        "alarms:history:query:simple", 
+        "alarms:query:complex", 
+        "alarms:query:simple", 
+        "events:query:simple", 
+        "meters:query:complex", 
+        "meters:query:metadata", 
+        "meters:query:simple", 
+        "resources:query:complex", 
+        "resources:query:metadata", 
+        "resources:query:simple", 
+        "samples:query:complex", 
+        "samples:query:metadata", 
+        "samples:query:simple", 
+        "statistics:aggregation:selectable:avg", 
+        "statistics:aggregation:selectable:cardinality", 
+        "statistics:aggregation:selectable:count", 
+        "statistics:aggregation:selectable:max", 
+        "statistics:aggregation:selectable:min", 
+        "statistics:aggregation:selectable:quartile", 
+        "statistics:aggregation:selectable:stddev", 
+        "statistics:aggregation:selectable:sum", 
+        "statistics:aggregation:standard", 
+        "statistics:groupby", 
+        "statistics:query:complex", 
+        "statistics:query:metadata", 
+        "statistics:query:simple", 
+        "alarm_storage", 
+        "event_storage", 
+        "storage", 
+        "storage:production_ready"
+      ], 
+      "type": "object"
+    }, 
+    "listEvents_200": {
+      "properties": {
+        "event_type": {
+          "description": "The dotted string that represents the event.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "generated": {
+          "description": "The date and time when the event occurred.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "message_id": {
+          "description": "The UUID of the message.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "raw": {
+          "description": "A dictionary object that stores event messages for future\nevaluation.", 
+          "format": "", 
+          "type": "object"
+        }, 
+        "traits": {
+          "description": "A list of objects. Each object contains key and value pairs that\ndescribe the event.", 
+          "format": "", 
+          "items": {
+            "type": "string"
+          }, 
+          "type": "array"
+        }
+      }, 
+      "required": [
+        "event_type", 
+        "message_id", 
+        "generated", 
+        "traits", 
+        "raw"
+      ], 
+      "type": "object"
+    }, 
+    "listMeters_200": {
+      "properties": {
+        "meter_id": {
+          "description": "The UUID of the meter.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "name": {
+          "description": "The meter name.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "project_id": {
+          "description": "The UUID of the project or tenant that owns the resource.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "resource_id": {
+          "description": "The UUID of the resource for which the measurements are taken.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "source": {
+          "description": "The name of the source from which the meter came.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "type": {
+          "description": "The meter type.\n\nThe type value is gauge, delta, or cumulative.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "unit": {
+          "description": "The unit of measure.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "user_id": {
+          "description": "The UUID of the user who either created or last updated the\nresource.", 
+          "format": "", 
+          "type": "string"
+        }
+      }, 
+      "required": [
+        "meter_id", 
+        "name", 
+        "project_id", 
+        "resource_id", 
+        "source", 
+        "type", 
+        "unit", 
+        "user_id"
+      ], 
+      "type": "object"
+    }, 
+    "listResources_200": {
+      "properties": {
+        "links": {
+          "description": "A list that contains a self link and associated meter links.", 
+          "format": "", 
+          "items": {
+            "type": "string"
+          }, 
+          "type": "array"
+        }, 
+        "metadata": {
+          "description": "A set of one or more arbitrary metadata key and value pairs that\nare associated with the resource.", 
+          "format": "", 
+          "type": "object"
+        }, 
+        "project_id": {
+          "description": "The UUID of the owning project or tenant.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "resource_id": {
+          "description": "The UUID of the resource.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "source": {
+          "description": "The name of the source from which the resource came.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "user_id": {
+          "description": "The UUID of the user who either created or last updated the\nresource.", 
+          "format": "", 
+          "type": "string"
+        }
+      }, 
+      "required": [
+        "links", 
+        "metadata", 
+        "project_id", 
+        "resource_id", 
+        "source", 
+        "user_id"
+      ], 
+      "type": "object"
+    }, 
+    "listSamplesStatistics_200": {
+      "properties": {
+        "aggregate": {
+          "description": "If you set the ``aggregate`` query parameter in the URI, a set of\none or more selectable aggregate values as a dictionary of key\n(string) and value (float) pairs.\n\nFor example, the ``stddev`` function returns output like this:\n\n.. code-block:: json\n\n   [\n       {\n           \"aggregate\": {\n               \"stddev\": 0.6858829\n           },\n           \"duration_start\": \"2014-01-30T11:13:23\",\n           \"duration_end\": \"2014-01-31T16:07:13\",\n           \"duration\": 104030,\n           \"period\": 0,\n           \"period_start\": \"2014-01-30T11:13:23\",\n           \"period_end\": \"2014-01-31T16:07:13\",\n           \"groupby\": null,\n           \"unit\": \"%\"\n       }\n   ]", 
+          "format": "", 
+          "type": "object"
+        }, 
+        "avg": {
+          "description": "The average of all volume values in the data.", 
+          "format": "", 
+          "type": "number"
+        }, 
+        "count": {
+          "description": "The number of samples seen.", 
+          "format": "", 
+          "type": "integer"
+        }, 
+        "duration": {
+          "description": "The number of seconds between the oldest and newest date and time\nstamp.", 
+          "format": "", 
+          "type": "number"
+        }, 
+        "duration_end": {
+          "description": "The date and time in UTC format of the query end time.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "duration_start": {
+          "description": "The date and time in UTC format of the query start time.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "groupby": {
+          "description": "If you set the ``groupby`` query parameter in the URI to request\nstatistics, a dictionary of field names for group.\n\nFor example:\n\n.. code-block:: json\n\n   [\n       {\n           \"count\": 19,\n           \"aggregate\": {\n               \"count\": 19,\n               \"cardinality/resource_id\": 3\n           },\n           \"duration\": 328.47803,\n           \"duration_start\": \"2014-01-31T10:00:41.823919\",\n           \"duration_end\": \"2014-01-31T10:06:10.301948\",\n           \"period\": 900,\n           \"period_start\": \"2014-01-31T10:00:00\",\n           \"period_end\": \"2014-01-31T10:15:00\",\n           \"groupby\": {\n               \"project_id\": \"061a5c91811e4044b7dc86c6136c4f99\"\n           },\n           \"unit\": \"instance\"\n       },\n       {\n           \"count\": 22,\n           \"aggregate\": {\n               \"count\": 22,\n               \"cardinality/resource_id\": 4\n           },\n           \"duration\": 808.00385,\n           \"duration_start\": \"2014-01-31T10:15:15\",\n           \"duration_end\": \"2014-01-31T10:28:43.003840\",\n           \"period\": 900,\n           \"period_start\": \"2014-01-31T10:15:00\",\n           \"period_end\": \"2014-01-31T10:30:00\",\n           \"groupby\": {\n               \"project_id\": \"061a5c91811e4044b7dc86c6136c4f99\"\n           },\n           \"unit\": \"instance\"\n       },\n       {\n           \"count\": 2,\n           \"aggregate\": {\n               \"count\": 2,\n               \"cardinality/resource_id\": 2\n           },\n           \"duration\": 0,\n           \"duration_start\": \"2014-01-31T10:35:15\",\n           \"duration_end\": \"2014-01-31T10:35:15\",\n           \"period\": 900,\n           \"period_start\": \"2014-01-31T10:30:00\",\n           \"period_end\": \"2014-01-31T10:45:00\",\n           \"groupby\": {\n               \"project_id\": \"061a5c91811e4044b7dc86c6136c4f99\"\n           },\n           \"unit\": \"instance\"\n       }\n   ]", 
+          "format": "", 
+          "type": "object"
+        }, 
+        "max": {
+          "description": "The maximum volume seen in the data.", 
+          "format": "", 
+          "type": "number"
+        }, 
+        "min": {
+          "description": "The minimum volume seen in the data.", 
+          "format": "", 
+          "type": "number"
+        }, 
+        "period": {
+          "description": "The number of seconds between the period start and end date and\ntime stamps.", 
+          "format": "", 
+          "type": "integer"
+        }, 
+        "period_end": {
+          "description": "The period end date and time in UTC format.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "period_start": {
+          "description": "The period start date and time in UTC format.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "sum": {
+          "description": "The total of all of the volume values seen in the data.", 
+          "format": "", 
+          "type": "number"
+        }, 
+        "unit": {
+          "description": "The unit type of the data set.", 
+          "format": "", 
+          "type": "string"
+        }
+      }, 
+      "required": [
+        "avg", 
+        "count", 
+        "duration", 
+        "duration_end", 
+        "duration_start", 
+        "max", 
+        "min", 
+        "period", 
+        "period_end", 
+        "period_start", 
+        "sum", 
+        "unit"
+      ], 
+      "type": "object"
+    }, 
+    "listSamples_200": {
+      "properties": {
+        "id": {
+          "description": "The UUID of the sample.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "metadata": {
+          "description": "An arbitrary set of one or more metadata key and value pairs that\nare associated with the sample.", 
+          "format": "", 
+          "type": "object"
+        }, 
+        "meter": {
+          "description": "The meter name.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "project_id": {
+          "description": "The UUID of the project or tenant that owns the resource.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "recorded_at": {
+          "description": "The date and time when the sample was recorded.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "resource_id": {
+          "description": "The UUID of the resource for which the measurements are taken.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "source": {
+          "description": "The name of the source that identifies where the sample comes from.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "timestamp": {
+          "description": "The date and time in UTC format when the measurement was made.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "type": {
+          "description": "The meter type.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "unit": {
+          "description": "The unit of measure for the ``volume`` value.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "user_id": {
+          "description": "The UUID of the user who either created or last updated the\nresource.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "volume": {
+          "description": "The actual measured value.", 
+          "format": "", 
+          "type": "number"
+        }
+      }, 
+      "required": [
+        "id", 
+        "metadata", 
+        "meter", 
+        "project_id", 
+        "recorded_at", 
+        "resource_id", 
+        "source", 
+        "timestamp", 
+        "type", 
+        "unit", 
+        "user_id", 
+        "volume"
+      ], 
+      "type": "object"
+    }, 
+    "listSamplesforMeter_200": {
+      "properties": {
+        "id": {
+          "description": "The UUID of the sample.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "metadata": {
+          "description": "An arbitrary set of one or more metadata key and value pairs that\nare associated with the sample.", 
+          "format": "", 
+          "type": "object"
+        }, 
+        "meter": {
+          "description": "The meter name.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "project_id": {
+          "description": "The UUID of the project or tenant that owns the resource.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "recorded_at": {
+          "description": "The date and time when the sample was recorded.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "resource_id": {
+          "description": "The UUID of the resource for which the measurements are taken.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "source": {
+          "description": "The name of the source that identifies where the sample comes from.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "timestamp": {
+          "description": "The date and time in UTC format when the measurement was made.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "type": {
+          "description": "The meter type.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "unit": {
+          "description": "The unit of measure for the ``volume`` value.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "user_id": {
+          "description": "The UUID of the user who either created or last updated the\nresource.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "volume": {
+          "description": "The actual measured value.", 
+          "format": "", 
+          "type": "number"
+        }
+      }, 
+      "required": [
+        "id", 
+        "metadata", 
+        "meter", 
+        "project_id", 
+        "recorded_at", 
+        "resource_id", 
+        "source", 
+        "timestamp", 
+        "type", 
+        "unit", 
+        "user_id", 
+        "volume"
+      ], 
+      "type": "object"
+    }, 
+    "showAlarm_200": {
+      "properties": {
+        "alarm_actions": {
+          "description": "The list of actions that the alarm performs.", 
+          "format": "", 
+          "items": {
+            "type": "string"
+          }, 
+          "type": "array"
+        }, 
+        "alarm_id": {
+          "description": "The UUID of the alarm.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "combination_rule": {
+          "description": "The rules for the combination alarm type.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "description": {
+          "description": "Describes the alarm.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "enabled": {
+          "description": "If ``true``, evaluation and actioning is enabled for the alarm.", 
+          "format": "", 
+          "type": "boolean"
+        }, 
+        "insufficient_data_actions": {
+          "description": "The list of actions that the alarm performs when the alarm state is\n``insufficient_data``.", 
+          "format": "", 
+          "items": {
+            "type": "string"
+          }, 
+          "type": "array"
+        }, 
+        "name": {
+          "description": "The name of the alarm.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "ok_actions": {
+          "description": "The list of actions that the alarm performs when the alarm state is\n``ok``.", 
+          "format": "", 
+          "items": {
+            "type": "string"
+          }, 
+          "type": "array"
+        }, 
+        "project_id": {
+          "description": "The UUID of the project.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "repeat_actions": {
+          "description": "If set to ``true``, the alarm notifications are repeated.\nOtherwise, this value is ``false``.", 
+          "format": "", 
+          "type": "boolean"
+        }, 
+        "state": {
+          "description": "The state of the alarm.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "state_timestamp": {
+          "description": "The date and time of the alarm state.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "threshold_rule": {
+          "description": "The rules for the threshold alarm type.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "timestamp": {
+          "description": "The date and time of the alarm.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "type": {
+          "description": "The type of the alarm, which is either ``threshold`` or\n``combination``.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "user_id": {
+          "description": "The UUID of the user.", 
+          "format": "", 
+          "type": "string"
+        }
+      }, 
+      "required": [
+        "alarm_id", 
+        "description", 
+        "enabled", 
+        "name", 
+        "project_id", 
+        "repeat_actions", 
+        "state", 
+        "state_timestamp", 
+        "timestamp", 
+        "user_id", 
+        "type", 
+        "threshold_rule", 
+        "combination_rule", 
+        "alarm_actions", 
+        "insufficient_data_actions", 
+        "ok_actions"
+      ], 
+      "type": "object"
+    }, 
+    "showEvent_200": {
+      "properties": {
+        "event_type": {
+          "description": "The dotted string that represents the event.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "generated": {
+          "description": "The date and time when the event occurred.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "message_id": {
+          "description": "The UUID of the message.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "raw": {
+          "description": "A dictionary object that stores event messages for future\nevaluation.", 
+          "format": "", 
+          "type": "object"
+        }, 
+        "traits": {
+          "description": "A list of objects. Each object contains key and value pairs that\ndescribe the event.", 
+          "format": "", 
+          "items": {
+            "type": "string"
+          }, 
+          "type": "array"
+        }
+      }, 
+      "required": [
+        "event_type", 
+        "message_id", 
+        "generated", 
+        "traits", 
+        "raw"
+      ], 
+      "type": "object"
+    }, 
+    "showResource_200": {
+      "properties": {
+        "links": {
+          "description": "A list that contains a self link and associated meter links.", 
+          "format": "", 
+          "items": {
+            "type": "string"
+          }, 
+          "type": "array"
+        }, 
+        "metadata": {
+          "description": "A set of one or more arbitrary metadata key and value pairs that\nare associated with the resource.", 
+          "format": "", 
+          "type": "object"
+        }, 
+        "project_id": {
+          "description": "The UUID of the owning project or tenant.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "resource_id": {
+          "description": "The UUID of the resource.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "source": {
+          "description": "The name of the source from which the resource came.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "user_id": {
+          "description": "The UUID of the user who either created or last updated the\nresource.", 
+          "format": "", 
+          "type": "string"
+        }
+      }, 
+      "required": [
+        "links", 
+        "metadata", 
+        "project_id", 
+        "resource_id", 
+        "source", 
+        "user_id"
+      ], 
+      "type": "object"
+    }, 
+    "showSample_200": {
+      "properties": {
+        "id": {
+          "description": "The UUID of the sample.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "metadata": {
+          "description": "An arbitrary set of one or more metadata key and value pairs that\nare associated with the sample.", 
+          "format": "", 
+          "type": "object"
+        }, 
+        "meter": {
+          "description": "The meter name.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "project_id": {
+          "description": "The UUID of the project or tenant that owns the resource.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "recorded_at": {
+          "description": "The date and time when the sample was recorded.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "resource_id": {
+          "description": "The UUID of the resource for which the measurements are taken.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "source": {
+          "description": "The name of the source that identifies where the sample comes from.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "timestamp": {
+          "description": "The date and time in UTC format when the measurement was made.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "type": {
+          "description": "The meter type.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "unit": {
+          "description": "The unit of measure for the ``volume`` value.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "user_id": {
+          "description": "The UUID of the user who either created or last updated the\nresource.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "volume": {
+          "description": "The actual measured value.", 
+          "format": "", 
+          "type": "number"
+        }
+      }, 
+      "required": [
+        "id", 
+        "metadata", 
+        "meter", 
+        "project_id", 
+        "recorded_at", 
+        "resource_id", 
+        "source", 
+        "timestamp", 
+        "type", 
+        "unit", 
+        "user_id", 
+        "volume"
+      ], 
+      "type": "object"
+    }, 
+    "updateAlarm_200": {
+      "properties": {
+        "alarm_actions": {
+          "description": "The list of actions that the alarm performs.", 
+          "format": "", 
+          "items": {
+            "type": "string"
+          }, 
+          "type": "array"
+        }, 
+        "alarm_id": {
+          "description": "The UUID of the alarm.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "combination_rule": {
+          "description": "The rules for the combination alarm type.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "description": {
+          "description": "Describes the alarm.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "enabled": {
+          "description": "If ``true``, evaluation and actioning is enabled for the alarm.", 
+          "format": "", 
+          "type": "boolean"
+        }, 
+        "insufficient_data_actions": {
+          "description": "The list of actions that the alarm performs when the alarm state is\n``insufficient_data``.", 
+          "format": "", 
+          "items": {
+            "type": "string"
+          }, 
+          "type": "array"
+        }, 
+        "name": {
+          "description": "The name of the alarm.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "ok_actions": {
+          "description": "The list of actions that the alarm performs when the alarm state is\n``ok``.", 
+          "format": "", 
+          "items": {
+            "type": "string"
+          }, 
+          "type": "array"
+        }, 
+        "project_id": {
+          "description": "The UUID of the project.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "repeat_actions": {
+          "description": "If set to ``true``, the alarm notifications are repeated.\nOtherwise, this value is ``false``.", 
+          "format": "", 
+          "type": "boolean"
+        }, 
+        "state": {
+          "description": "The state of the alarm.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "state_timestamp": {
+          "description": "The date and time of the alarm state.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "threshold_rule": {
+          "description": "The rules for the threshold alarm type.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "timestamp": {
+          "description": "The date and time of the alarm.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "type": {
+          "description": "The type of the alarm, which is either ``threshold`` or\n``combination``.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "user_id": {
+          "description": "The UUID of the user.", 
+          "format": "", 
+          "type": "string"
+        }
+      }, 
+      "required": [
+        "alarm_id", 
+        "description", 
+        "enabled", 
+        "name", 
+        "project_id", 
+        "repeat_actions", 
+        "state", 
+        "state_timestamp", 
+        "timestamp", 
+        "user_id", 
+        "type", 
+        "threshold_rule", 
+        "combination_rule", 
+        "alarm_actions", 
+        "insufficient_data_actions", 
+        "ok_actions"
+      ], 
+      "type": "object"
+    }
+  }, 
+  "externalDocs": {
+    "description": "OpenStack Docs", 
+    "url": "http://docs.openstack.org"
+  }, 
+  "host": "developer.openstack.org", 
+  "info": {
+    "license": {
+      "name": "Apache 2.0", 
+      "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+    }, 
+    "title": "Telemetry", 
+    "version": "v2", 
+    "x-service": "telemetry"
+  }, 
+  "paths": {
+    "/v2/alarms": {
+      "get": {
+        "consumes": [
+          "application/json"
+        ], 
+        "description": "", 
+        "operationId": "listAlarms", 
+        "parameters": [
+          {
+            "description": "Filters the response by one or more arguments.\n\nFor example: ``?q.field=Foo & q.value=my_text``.", 
+            "format": "", 
+            "in": "query", 
+            "items": {
+              "type": "string"
+            }, 
+            "name": "q", 
+            "required": false, 
+            "type": "array"
+          }
+        ], 
+        "produces": [
+          "application/json"
+        ], 
+        "responses": {
+          "200": {
+            "description": "", 
+            "examples": {
+              "application/json": [
+                {
+                  "alarm_actions": [
+                    "http://site:8000/alarm"
+                  ], 
+                  "alarm_id": null, 
+                  "combination_rule": null, 
+                  "description": "An alarm", 
+                  "enabled": true, 
+                  "insufficient_data_actions": [
+                    "http://site:8000/nodata"
+                  ], 
+                  "name": "SwiftObjectAlarm", 
+                  "ok_actions": [
+                    "http://site:8000/ok"
+                  ], 
+                  "project_id": "c96c887c216949acbdfbd8b494863567", 
+                  "repeat_actions": false, 
+                  "state": "ok", 
+                  "state_timestamp": "2013-11-21T12:33:08.486228", 
+                  "threshold_rule": null, 
+                  "timestamp": "2013-11-21T12:33:08.486221", 
+                  "type": "threshold", 
+                  "user_id": "c96c887c216949acbdfbd8b494863567"
+                }
+              ]
+            }, 
+            "headers": {}, 
+            "schema": {
+              "$ref": "#/definitions/listAlarms_200"
+            }
+          }
+        }, 
+        "summary": "Lists alarms, based on a query.", 
+        "tags": [
+          "alarms"
+        ], 
+        "x-title": "List alarms"
+      }, 
+      "post": {
+        "consumes": [
+          "application/json"
+        ], 
+        "description": "", 
+        "operationId": "createAlarm", 
+        "parameters": [
+          {
+            "description": "An alarm within the request body.", 
+            "format": "", 
+            "in": "query", 
+            "name": "data", 
+            "required": false, 
+            "type": "string"
+          }
+        ], 
+        "produces": [
+          "application/json"
+        ], 
+        "responses": {
+          "200": {
+            "description": "", 
+            "examples": {
+              "application/json": {
+                "alarm_actions": [
+                  "http://site:8000/alarm"
+                ], 
+                "alarm_id": null, 
+                "combination_rule": null, 
+                "description": "An alarm", 
+                "enabled": true, 
+                "insufficient_data_actions": [
+                  "http://site:8000/nodata"
+                ], 
+                "name": "SwiftObjectAlarm", 
+                "ok_actions": [
+                  "http://site:8000/ok"
+                ], 
+                "project_id": "c96c887c216949acbdfbd8b494863567", 
+                "repeat_actions": false, 
+                "state": "ok", 
+                "state_timestamp": "2013-11-21T12:33:08.486228", 
+                "threshold_rule": null, 
+                "timestamp": "2013-11-21T12:33:08.486221", 
+                "type": "threshold", 
+                "user_id": "c96c887c216949acbdfbd8b494863567"
+              }
+            }, 
+            "headers": {}, 
+            "schema": {
+              "$ref": "#/definitions/createAlarm_200"
+            }
+          }
+        }, 
+        "summary": "Creates an alarm.", 
+        "tags": [
+          "alarms"
+        ], 
+        "x-title": "Create alarm"
+      }
+    }, 
+    "/v2/alarms/{alarm_id}": {
+      "delete": {
+        "consumes": [], 
+        "description": "", 
+        "operationId": "deleteAlarm", 
+        "parameters": [
+          {
+            "description": "The UUID of the alarm.", 
+            "format": "", 
+            "in": "path", 
+            "name": "alarm_id", 
+            "required": true, 
+            "type": "string"
+          }
+        ], 
+        "produces": [], 
+        "responses": {
+          "204": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }
+        }, 
+        "summary": "Deletes an alarm, by alarm ID.", 
+        "tags": [
+          "alarms"
+        ], 
+        "x-title": "Delete alarm"
+      }, 
+      "get": {
+        "consumes": [
+          "application/json"
+        ], 
+        "description": "", 
+        "operationId": "showAlarm", 
+        "parameters": [
+          {
+            "description": "The UUID of the alarm.", 
+            "format": "", 
+            "in": "path", 
+            "name": "alarm_id", 
+            "required": true, 
+            "type": "string"
+          }
+        ], 
+        "produces": [
+          "application/json"
+        ], 
+        "responses": {
+          "200": {
+            "description": "", 
+            "examples": {
+              "application/json": {
+                "alarm_actions": [
+                  "http://site:8000/alarm"
+                ], 
+                "alarm_id": null, 
+                "combination_rule": null, 
+                "description": "An alarm", 
+                "enabled": true, 
+                "insufficient_data_actions": [
+                  "http://site:8000/nodata"
+                ], 
+                "name": "SwiftObjectAlarm", 
+                "ok_actions": [
+                  "http://site:8000/ok"
+                ], 
+                "project_id": "c96c887c216949acbdfbd8b494863567", 
+                "repeat_actions": false, 
+                "state": "ok", 
+                "state_timestamp": "2013-11-21T12:33:08.486228", 
+                "threshold_rule": null, 
+                "timestamp": "2013-11-21T12:33:08.486221", 
+                "type": "threshold", 
+                "user_id": "c96c887c216949acbdfbd8b494863567"
+              }
+            }, 
+            "headers": {}, 
+            "schema": {
+              "$ref": "#/definitions/showAlarm_200"
+            }
+          }
+        }, 
+        "summary": "Shows details for an alarm, by alarm ID.", 
+        "tags": [
+          "alarms"
+        ], 
+        "x-title": "Show alarm details"
+      }, 
+      "put": {
+        "consumes": [
+          "application/json"
+        ], 
+        "description": "", 
+        "operationId": "updateAlarm", 
+        "parameters": [
+          {
+            "description": "The UUID of the alarm.", 
+            "format": "", 
+            "in": "path", 
+            "name": "alarm_id", 
+            "required": true, 
+            "type": "string"
+          }, 
+          {
+            "description": "An alarm within the request body.", 
+            "format": "", 
+            "in": "query", 
+            "name": "data", 
+            "required": false, 
+            "type": "string"
+          }
+        ], 
+        "produces": [
+          "application/json"
+        ], 
+        "responses": {
+          "200": {
+            "description": "", 
+            "examples": {
+              "application/json": {
+                "alarm_actions": [
+                  "http://site:8000/alarm"
+                ], 
+                "alarm_id": null, 
+                "combination_rule": null, 
+                "description": "An alarm", 
+                "enabled": true, 
+                "insufficient_data_actions": [
+                  "http://site:8000/nodata"
+                ], 
+                "name": "SwiftObjectAlarm", 
+                "ok_actions": [
+                  "http://site:8000/ok"
+                ], 
+                "project_id": "c96c887c216949acbdfbd8b494863567", 
+                "repeat_actions": false, 
+                "state": "ok", 
+                "state_timestamp": "2013-11-21T12:33:08.486228", 
+                "threshold_rule": null, 
+                "timestamp": "2013-11-21T12:33:08.486221", 
+                "type": "threshold", 
+                "user_id": "c96c887c216949acbdfbd8b494863567"
+              }
+            }, 
+            "headers": {}, 
+            "schema": {
+              "$ref": "#/definitions/updateAlarm_200"
+            }
+          }
+        }, 
+        "summary": "Updates an alarm.", 
+        "tags": [
+          "alarms"
+        ], 
+        "x-title": "Update alarm"
+      }
+    }, 
+    "/v2/alarms/{alarm_id}/history": {
+      "get": {
+        "consumes": [], 
+        "description": "", 
+        "operationId": "showAlarmHistory", 
+        "parameters": [
+          {
+            "description": "The UUID of the alarm.", 
+            "format": "", 
+            "in": "path", 
+            "name": "alarm_id", 
+            "required": true, 
+            "type": "string"
+          }, 
+          {
+            "description": "Filters the response by one or more arguments.\n\nFor example: ``?q.field=Foo & q.value=my_text``.", 
+            "format": "", 
+            "in": "query", 
+            "items": {
+              "type": "string"
+            }, 
+            "name": "q", 
+            "required": false, 
+            "type": "array"
+          }
+        ], 
+        "produces": [], 
+        "responses": {
+          "200": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }
+        }, 
+        "summary": "Assembles and shows the history for an alarm, by alarm ID.", 
+        "tags": [
+          "alarms"
+        ], 
+        "x-title": "Show alarm history"
+      }
+    }, 
+    "/v2/alarms/{alarm_id}/state": {
+      "get": {
+        "consumes": [], 
+        "description": "", 
+        "operationId": "showAlarmState", 
+        "parameters": [
+          {
+            "description": "The UUID of the alarm.", 
+            "format": "", 
+            "in": "path", 
+            "name": "alarm_id", 
+            "required": true, 
+            "type": "string"
+          }
+        ], 
+        "produces": [], 
+        "responses": {
+          "200": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }
+        }, 
+        "summary": "Shows the state for an alarm, by alarm ID.", 
+        "tags": [
+          "alarms"
+        ], 
+        "x-title": "Show alarm state"
+      }, 
+      "put": {
+        "consumes": [], 
+        "description": "", 
+        "operationId": "updateAlarmState", 
+        "parameters": [
+          {
+            "description": "The UUID of the alarm.", 
+            "format": "", 
+            "in": "path", 
+            "name": "alarm_id", 
+            "required": true, 
+            "type": "string"
+          }, 
+          {
+            "description": "The alarm state. A valid value is ``ok``, ``alarm``, or\n``insufficient data``.", 
+            "format": "", 
+            "in": "query", 
+            "name": "state", 
+            "required": true, 
+            "type": "string"
+          }
+        ], 
+        "produces": [], 
+        "responses": {
+          "200": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }
+        }, 
+        "summary": "Sets the state of an alarm.", 
+        "tags": [
+          "alarms"
+        ], 
+        "x-title": "Update alarm state"
+      }
+    }, 
+    "/v2/capabilities": {
+      "get": {
+        "consumes": [
+          "application/json"
+        ], 
+        "description": "", 
+        "operationId": "listCapabilities", 
+        "parameters": [], 
+        "produces": [
+          "application/json"
+        ], 
+        "responses": {
+          "200": {
+            "description": "", 
+            "examples": {
+              "application/json": {
+                "alarm_storage": {
+                  "storage:production_ready": true
+                }, 
+                "api": {
+                  "alarms:history:query:complex": true, 
+                  "alarms:history:query:simple": true, 
+                  "alarms:query:complex": true, 
+                  "alarms:query:simple": true, 
+                  "events:query:simple": true, 
+                  "meters:query:complex": false, 
+                  "meters:query:metadata": true, 
+                  "meters:query:simple": true, 
+                  "resources:query:complex": false, 
+                  "resources:query:metadata": true, 
+                  "resources:query:simple": true, 
+                  "samples:query:complex": true, 
+                  "samples:query:metadata": true, 
+                  "samples:query:simple": true, 
+                  "statistics:aggregation:selectable:avg": true, 
+                  "statistics:aggregation:selectable:cardinality": true, 
+                  "statistics:aggregation:selectable:count": true, 
+                  "statistics:aggregation:selectable:max": true, 
+                  "statistics:aggregation:selectable:min": true, 
+                  "statistics:aggregation:selectable:quartile": false, 
+                  "statistics:aggregation:selectable:stddev": true, 
+                  "statistics:aggregation:selectable:sum": true, 
+                  "statistics:aggregation:standard": true, 
+                  "statistics:groupby": true, 
+                  "statistics:query:complex": false, 
+                  "statistics:query:metadata": true, 
+                  "statistics:query:simple": true
+                }, 
+                "event_storage": {
+                  "storage:production_ready": true
+                }, 
+                "storage": {
+                  "storage:production_ready": true
+                }
+              }
+            }, 
+            "headers": {}, 
+            "schema": {
+              "$ref": "#/definitions/listCapabilities_200"
+            }
+          }
+        }, 
+        "summary": "A representation of the API and storage capabilities. Usually, the storage driver imposes constraints.", 
+        "tags": [
+          "capabilities"
+        ], 
+        "x-title": "List capabilities"
+      }
+    }, 
+    "/v2/events": {
+      "get": {
+        "consumes": [
+          "application/json"
+        ], 
+        "description": "", 
+        "operationId": "listEvents", 
+        "parameters": [
+          {
+            "description": "Filters the response by one or more event arguments.\n\nFor example:\n\n::\n\n   GET /v2/events?q.field=Foo\n   &\n   q.value=my_text", 
+            "format": "", 
+            "in": "query", 
+            "items": {
+              "type": "string"
+            }, 
+            "name": "q", 
+            "required": false, 
+            "type": "array"
+          }, 
+          {
+            "description": "Limits the maximum number of samples that the response returns.\n\nFor example:\n\n::\n\n   GET /v2/events?limit=1000", 
+            "format": "", 
+            "in": "query", 
+            "name": "limit", 
+            "required": false, 
+            "type": "integer"
+          }
+        ], 
+        "produces": [
+          "application/json"
+        ], 
+        "responses": {
+          "200": {
+            "description": "", 
+            "examples": {
+              "application/json": [
+                {
+                  "event_type": "http.request", 
+                  "generated": "2015-10-28T20:26:58.546933", 
+                  "message_id": "bae43de6-e9fa-44ad-8c15-40a852584444", 
+                  "raw": {}, 
+                  "traits": [
+                    {
+                      "name": "action", 
+                      "type": "string", 
+                      "value": "read"
+                    }, 
+                    {
+                      "name": "eventTime", 
+                      "type": "string", 
+                      "value": "2015-10-28T20:26:58.545477+0000"
+                    }
+                  ]
+                }
+              ]
+            }, 
+            "headers": {}, 
+            "schema": {
+              "$ref": "#/definitions/listEvents_200"
+            }
+          }
+        }, 
+        "summary": "Lists all events.", 
+        "tags": [
+          "events"
+        ], 
+        "x-title": "List events"
+      }
+    }, 
+    "/v2/events/{message_id}": {
+      "get": {
+        "consumes": [
+          "application/json"
+        ], 
+        "description": "", 
+        "operationId": "showEvent", 
+        "parameters": [
+          {
+            "description": "The UUID of the message.", 
+            "format": "", 
+            "in": "path", 
+            "name": "message_id", 
+            "required": true, 
+            "type": "string"
+          }
+        ], 
+        "produces": [
+          "application/json"
+        ], 
+        "responses": {
+          "200": {
+            "description": "", 
+            "examples": {
+              "application/json": {
+                "event_type": "http.request", 
+                "generated": "2015-10-28T20:26:58.546933", 
+                "message_id": "bae43de6-e9fa-44ad-8c15-40a852584444", 
+                "raw": {}, 
+                "traits": [
+                  {
+                    "name": "action", 
+                    "type": "string", 
+                    "value": "read"
+                  }, 
+                  {
+                    "name": "eventTime", 
+                    "type": "string", 
+                    "value": "2015-10-28T20:26:58.545477+0000"
+                  }
+                ]
+              }
+            }, 
+            "headers": {}, 
+            "schema": {
+              "$ref": "#/definitions/showEvent_200"
+            }
+          }
+        }, 
+        "summary": "Shows details for an event.", 
+        "tags": [
+          "events"
+        ], 
+        "x-title": "Show event details"
+      }
+    }, 
+    "/v2/meters": {
+      "get": {
+        "consumes": [
+          "application/json"
+        ], 
+        "description": "", 
+        "operationId": "listMeters", 
+        "parameters": [
+          {
+            "description": "Filters the response by one or more arguments.\n\nFor example: ``?q.field=Foo & q.value=my_text``.", 
+            "format": "", 
+            "in": "query", 
+            "items": {
+              "type": "string"
+            }, 
+            "name": "q", 
+            "required": false, 
+            "type": "array"
+          }, 
+          {
+            "description": "Requests a page size of items. Returns a number of items up to a\nlimit value. Use the ``limit`` parameter to make an initial limited\nrequest and use the ID of the last-seen item from the response as\nthe ``marker`` parameter value in a subsequent limited request.", 
+            "format": "", 
+            "in": "query", 
+            "name": "limit", 
+            "required": false, 
+            "type": "integer"
+          }
+        ], 
+        "produces": [
+          "application/json"
+        ], 
+        "responses": {
+          "200": {
+            "description": "", 
+            "examples": {
+              "application/json": [
+                {
+                  "meter_id": "YmQ5NDMxYzEtOGQ2OS00YWQzLTgwM2EtOGQ0YTZiODlmZDM2K2luc3RhbmNl", 
+                  "name": "instance", 
+                  "project_id": "35b17138-b364-4e6a-a131-8f3099c5be68", 
+                  "resource_id": "bd9431c1-8d69-4ad3-803a-8d4a6b89fd36", 
+                  "source": "openstack", 
+                  "type": "gauge", 
+                  "unit": "instance", 
+                  "user_id": "efd87807-12d2-4b38-9c70-5f5c2ac427ff"
+                }
+              ]
+            }, 
+            "headers": {}, 
+            "schema": {
+              "$ref": "#/definitions/listMeters_200"
+            }
+          }
+        }, 
+        "summary": "Lists meters, based on the data recorded so far.", 
+        "tags": [
+          "meters"
+        ], 
+        "x-title": "List meters"
+      }
+    }, 
+    "/v2/meters/{meter_name}": {
+      "get": {
+        "consumes": [
+          "application/json"
+        ], 
+        "description": "", 
+        "operationId": "listSamplesforMeter", 
+        "parameters": [
+          {
+            "description": "The name of the meter.", 
+            "format": "", 
+            "in": "path", 
+            "name": "meter_name", 
+            "required": true, 
+            "type": "string"
+          }, 
+          {
+            "description": "Filters the response by one or more arguments.\n\nFor example: ``?q.field=Foo & q.value=my_text``.", 
+            "format": "", 
+            "in": "query", 
+            "items": {
+              "type": "string"
+            }, 
+            "name": "q", 
+            "required": false, 
+            "type": "array"
+          }, 
+          {
+            "description": "Requests a page size of items. Returns a number of items up to a\nlimit value. Use the ``limit`` parameter to make an initial limited\nrequest and use the ID of the last-seen item from the response as\nthe ``marker`` parameter value in a subsequent limited request.", 
+            "format": "", 
+            "in": "query", 
+            "name": "limit", 
+            "required": false, 
+            "type": "integer"
+          }
+        ], 
+        "produces": [
+          "application/json"
+        ], 
+        "responses": {
+          "200": {
+            "description": "", 
+            "examples": {
+              "application/json": [
+                {
+                  "id": "9b23b398-6139-11e5-97e9-bc764e045bf6", 
+                  "metadata": {
+                    "name1": "value1", 
+                    "name2": "value2"
+                  }, 
+                  "meter": "instance", 
+                  "project_id": "35b17138-b364-4e6a-a131-8f3099c5be68", 
+                  "recorded_at": "2015-09-22T14:52:54.850725", 
+                  "resource_id": "bd9431c1-8d69-4ad3-803a-8d4a6b89fd36", 
+                  "source": "openstack", 
+                  "timestamp": "2015-09-22T14:52:54.850718", 
+                  "type": "gauge", 
+                  "unit": "instance", 
+                  "user_id": "efd87807-12d2-4b38-9c70-5f5c2ac427ff", 
+                  "volume": 1
+                }
+              ]
+            }, 
+            "headers": {}, 
+            "schema": {
+              "$ref": "#/definitions/listSamplesforMeter_200"
+            }
+          }
+        }, 
+        "summary": "Lists samples for a meter, by meter name.", 
+        "tags": [
+          "meters"
+        ], 
+        "x-title": "List samples for meter"
+      }, 
+      "post": {
+        "consumes": [
+          "application/json"
+        ], 
+        "description": "If you attempt to add a sample that is not supported, this call\nreturns the ``409`` response code.", 
+        "operationId": "addSamplesToMeter", 
+        "parameters": [
+          {
+            "description": "", 
+            "in": "body", 
+            "name": "body", 
+            "required": false, 
+            "schema": {
+              "$ref": "#/definitions/addSamplesToMeter"
+            }
+          }, 
+          {
+            "description": "The name of the meter.", 
+            "format": "", 
+            "in": "path", 
+            "name": "meter_name", 
+            "required": true, 
+            "type": "string"
+          }, 
+          {
+            "description": "Indicates whether the samples are POST ed directly to storage. Set\n``?direct=True`` to POST the samples directly to storage.", 
+            "format": "", 
+            "in": "query", 
+            "name": "direct", 
+            "required": false, 
+            "type": "string"
+          }, 
+          {
+            "description": "A list of samples.", 
+            "format": "", 
+            "in": "query", 
+            "items": {
+              "type": "string"
+            }, 
+            "name": "samples", 
+            "required": false, 
+            "type": "array"
+          }
+        ], 
+        "produces": [
+          "application/json"
+        ], 
+        "responses": {
+          "200": {
+            "description": "", 
+            "examples": {
+              "application/json": {
+                "id": "9b23b398-6139-11e5-97e9-bc764e045bf6", 
+                "metadata": {
+                  "name1": "value1", 
+                  "name2": "value2"
+                }, 
+                "meter": "instance", 
+                "project_id": "35b17138-b364-4e6a-a131-8f3099c5be68", 
+                "recorded_at": "2015-09-22T14:52:54.850725", 
+                "resource_id": "bd9431c1-8d69-4ad3-803a-8d4a6b89fd36", 
+                "source": "openstack", 
+                "timestamp": "2015-09-22T14:52:54.850718", 
+                "type": "gauge", 
+                "unit": "instance", 
+                "user_id": "efd87807-12d2-4b38-9c70-5f5c2ac427ff", 
+                "volume": 1
+              }
+            }, 
+            "headers": {}, 
+            "schema": {
+              "$ref": "#/definitions/addSamplesToMeter_200"
+            }
+          }, 
+          "409": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }
+        }, 
+        "summary": "Adds samples to a meter, by meter name.", 
+        "tags": [
+          "meters"
+        ], 
+        "x-title": "Add samples to meter"
+      }
+    }, 
+    "/v2/meters/{meter_name}/statistics": {
+      "get": {
+        "consumes": [
+          "application/json"
+        ], 
+        "description": "", 
+        "operationId": "listSamplesStatistics", 
+        "parameters": [
+          {
+            "description": "The name of the meter.", 
+            "format": "", 
+            "in": "path", 
+            "name": "meter_name", 
+            "required": true, 
+            "type": "string"
+          }, 
+          {
+            "description": "Filters the response by one or more arguments.\n\nFor example: ``?q.field=Foo & q.value=my_text``.", 
+            "format": "", 
+            "in": "query", 
+            "items": {
+              "type": "string"
+            }, 
+            "name": "q", 
+            "required": false, 
+            "type": "array"
+          }, 
+          {
+            "description": "Fields for group by aggregation.", 
+            "format": "", 
+            "in": "query", 
+            "name": "groupby", 
+            "required": false, 
+            "type": "object"
+          }, 
+          {
+            "description": "The period, in seconds, for which you want statistics.", 
+            "format": "", 
+            "in": "query", 
+            "name": "period", 
+            "required": false, 
+            "type": "integer"
+          }, 
+          {
+            "description": "A list of selectable aggregation functions to apply.\n\nFor example:\n\n::\n\n   GET /v2/meters/METER_NAME/statistics?aggregate.func=cardinality\n   &\n   aggregate.param=resource_id\n   &\n   aggregate.func=cardinality\n   &\n   aggregate.param=project_id", 
+            "format": "", 
+            "in": "query", 
+            "name": "aggregate", 
+            "required": false, 
+            "type": "object"
+          }, 
+          {
+            "description": "Requests a page size of items. Returns a number of items up to a\nlimit value. Use the ``limit`` parameter to make an initial limited\nrequest and use the ID of the last-seen item from the response as\nthe ``marker`` parameter value in a subsequent limited request.", 
+            "format": "", 
+            "in": "query", 
+            "name": "limit", 
+            "required": false, 
+            "type": "integer"
+          }
+        ], 
+        "produces": [
+          "application/json"
+        ], 
+        "responses": {
+          "200": {
+            "description": "", 
+            "examples": {
+              "application/json": [
+                {
+                  "avg": 4.5, 
+                  "count": 10, 
+                  "duration": 300, 
+                  "duration_end": "2013-01-04T16:47:00", 
+                  "duration_start": "2013-01-04T16:42:00", 
+                  "max": 9, 
+                  "min": 1, 
+                  "period": 7200, 
+                  "period_end": "2013-01-04T18:00:00", 
+                  "period_start": "2013-01-04T16:00:00", 
+                  "sum": 45, 
+                  "unit": "GiB"
+                }
+              ]
+            }, 
+            "headers": {}, 
+            "schema": {
+              "$ref": "#/definitions/listSamplesStatistics_200"
+            }
+          }
+        }, 
+        "summary": "Computes and lists statistics for samples in a time range.", 
+        "tags": [
+          "meters"
+        ], 
+        "x-title": "Show meter statistics"
+      }
+    }, 
+    "/v2/resources": {
+      "get": {
+        "consumes": [
+          "application/json"
+        ], 
+        "description": "", 
+        "operationId": "listResources", 
+        "parameters": [
+          {
+            "description": "Filters the response by one or more arguments.\n\nFor example: ``?q.field=Foo & q.value=my_text``.", 
+            "format": "", 
+            "in": "query", 
+            "items": {
+              "type": "string"
+            }, 
+            "name": "q", 
+            "required": false, 
+            "type": "array"
+          }, 
+          {
+            "description": "Set ``?meter_links=1`` to return a self link and related meter\nlinks.", 
+            "format": "", 
+            "in": "query", 
+            "name": "meter_links", 
+            "required": false, 
+            "type": "integer"
+          }
+        ], 
+        "produces": [
+          "application/json"
+        ], 
+        "responses": {
+          "200": {
+            "description": "", 
+            "examples": {
+              "application/json": [
+                {
+                  "links": [
+                    {
+                      "href": "http://localhost:8777/v2/resources/bd9431c1-8d69-4ad3-803a-8d4a6b89fd36", 
+                      "rel": "self"
+                    }, 
+                    {
+                      "href": "http://localhost:8777/v2/meters/volume?q.field=resource_id&q.value=bd9431c1-8d69-4ad3-803a-8d4a6b89fd36", 
+                      "rel": "volume"
+                    }
+                  ], 
+                  "metadata": {
+                    "name1": "value1", 
+                    "name2": "value2"
+                  }, 
+                  "project_id": "35b17138-b364-4e6a-a131-8f3099c5be68", 
+                  "resource_id": "bd9431c1-8d69-4ad3-803a-8d4a6b89fd36", 
+                  "source": "openstack", 
+                  "user_id": "efd87807-12d2-4b38-9c70-5f5c2ac427ff"
+                }
+              ]
+            }, 
+            "headers": {}, 
+            "schema": {
+              "$ref": "#/definitions/listResources_200"
+            }
+          }
+        }, 
+        "summary": "Lists definitions for all resources.", 
+        "tags": [
+          "resources"
+        ], 
+        "x-title": "List resources"
+      }
+    }, 
+    "/v2/resources/{resource_id}": {
+      "get": {
+        "consumes": [
+          "application/json"
+        ], 
+        "description": "", 
+        "operationId": "showResource", 
+        "parameters": [
+          {
+            "description": "The UUID of the resource.", 
+            "format": "", 
+            "in": "path", 
+            "name": "resource_id", 
+            "required": true, 
+            "type": "string"
+          }
+        ], 
+        "produces": [
+          "application/json"
+        ], 
+        "responses": {
+          "200": {
+            "description": "", 
+            "examples": {
+              "application/json": {
+                "links": [
+                  {
+                    "href": "http://localhost:8777/v2/resources/bd9431c1-8d69-4ad3-803a-8d4a6b89fd36", 
+                    "rel": "self"
+                  }, 
+                  {
+                    "href": "http://localhost:8777/v2/meters/volume?q.field=resource_id&q.value=bd9431c1-8d69-4ad3-803a-8d4a6b89fd36", 
+                    "rel": "volume"
+                  }
+                ], 
+                "metadata": {
+                  "name1": "value1", 
+                  "name2": "value2"
+                }, 
+                "project_id": "35b17138-b364-4e6a-a131-8f3099c5be68", 
+                "resource_id": "bd9431c1-8d69-4ad3-803a-8d4a6b89fd36", 
+                "source": "openstack", 
+                "user_id": "efd87807-12d2-4b38-9c70-5f5c2ac427ff"
+              }
+            }, 
+            "headers": {}, 
+            "schema": {
+              "$ref": "#/definitions/showResource_200"
+            }
+          }
+        }, 
+        "summary": "Shows details for a resource, by resource ID.", 
+        "tags": [
+          "resources"
+        ], 
+        "x-title": "Show resource details"
+      }
+    }, 
+    "/v2/samples": {
+      "get": {
+        "consumes": [
+          "application/json"
+        ], 
+        "description": "", 
+        "operationId": "listSamples", 
+        "parameters": [
+          {
+            "description": "Filters the response by one or more arguments.\n\nFor example: ``?q.field=Foo & q.value=my_text``.", 
+            "format": "", 
+            "in": "query", 
+            "items": {
+              "type": "string"
+            }, 
+            "name": "q", 
+            "required": false, 
+            "type": "array"
+          }, 
+          {
+            "description": "Requests a page size of items. Returns a number of items up to a\nlimit value. Use the ``limit`` parameter to make an initial limited\nrequest and use the ID of the last-seen item from the response as\nthe ``marker`` parameter value in a subsequent limited request.", 
+            "format": "", 
+            "in": "query", 
+            "name": "limit", 
+            "required": false, 
+            "type": "integer"
+          }
+        ], 
+        "produces": [
+          "application/json"
+        ], 
+        "responses": {
+          "200": {
+            "description": "", 
+            "examples": {
+              "application/json": [
+                {
+                  "id": "9b23b398-6139-11e5-97e9-bc764e045bf6", 
+                  "metadata": {
+                    "name1": "value1", 
+                    "name2": "value2"
+                  }, 
+                  "meter": "instance", 
+                  "project_id": "35b17138-b364-4e6a-a131-8f3099c5be68", 
+                  "recorded_at": "2015-09-22T14:52:54.850725", 
+                  "resource_id": "bd9431c1-8d69-4ad3-803a-8d4a6b89fd36", 
+                  "source": "openstack", 
+                  "timestamp": "2015-09-22T14:52:54.850718", 
+                  "type": "gauge", 
+                  "unit": "instance", 
+                  "user_id": "efd87807-12d2-4b38-9c70-5f5c2ac427ff", 
+                  "volume": 1
+                }
+              ]
+            }, 
+            "headers": {}, 
+            "schema": {
+              "$ref": "#/definitions/listSamples_200"
+            }
+          }
+        }, 
+        "summary": "Lists all known samples, based on the data recorded so far.", 
+        "tags": [
+          "samples"
+        ], 
+        "x-title": "List samples"
+      }
+    }, 
+    "/v2/samples/{sample_id}": {
+      "get": {
+        "consumes": [
+          "application/json"
+        ], 
+        "description": "", 
+        "operationId": "showSample", 
+        "parameters": [
+          {
+            "description": "The UUID of the sample.", 
+            "format": "", 
+            "in": "path", 
+            "name": "sample_id", 
+            "required": true, 
+            "type": "string"
+          }
+        ], 
+        "produces": [
+          "application/json"
+        ], 
+        "responses": {
+          "200": {
+            "description": "", 
+            "examples": {
+              "application/json": {
+                "id": "9b23b398-6139-11e5-97e9-bc764e045bf6", 
+                "metadata": {
+                  "name1": "value1", 
+                  "name2": "value2"
+                }, 
+                "meter": "instance", 
+                "project_id": "35b17138-b364-4e6a-a131-8f3099c5be68", 
+                "recorded_at": "2015-09-22T14:52:54.850725", 
+                "resource_id": "bd9431c1-8d69-4ad3-803a-8d4a6b89fd36", 
+                "source": "openstack", 
+                "timestamp": "2015-09-22T14:52:54.850718", 
+                "type": "gauge", 
+                "unit": "instance", 
+                "user_id": "efd87807-12d2-4b38-9c70-5f5c2ac427ff", 
+                "volume": 1
+              }
+            }, 
+            "headers": {}, 
+            "schema": {
+              "$ref": "#/definitions/showSample_200"
+            }
+          }
+        }, 
+        "summary": "Shows details for a sample, by sample ID.", 
+        "tags": [
+          "samples"
+        ], 
+        "x-title": "Show sample details"
+      }
+    }
+  }, 
+  "produces": [
+    "application/json"
+  ], 
+  "swagger": "2.0", 
+  "tags": [
+    {
+      "description": "Alarms", 
+      "name": "alarms", 
+      "x-summary": "Lists, creates, gets details for, updates, and deletes alarms."
+    }, 
+    {
+      "description": "Meters", 
+      "name": "meters", 
+      "x-summary": "Lists all meters, adds samples to meters, and lists samples for\nmeters. For list operations, if you do not explicitly set the\n``limit`` query parameter, a default limit is applied. The default\nlimit is the ``default_api_return_limit`` configuration option\nvalue.\n\nAlso, computes and lists statistics for samples in a time range.\nYou can use the ``aggregate`` query parameter in the ``statistics``\nURI to explicitly select the ``stddev``, ``cardinality``, or any\nother standard function. For example:\n\n::\n\n   GET /v2/meters/METER_NAME/statistics?aggregate.func=NAME\n   &\n   aggregate.param=VALUE\n\nThe ``aggregate.param`` parameter value is optional for all\nfunctions except the ``cardinality`` function.\n\nThe API silently ignores any duplicate aggregate function and\nparameter pairs.\n\nThe API accepts and storage drivers support duplicate functions\nwith different parameter values. In this example, the\n``cardinality`` function is accepted twice with two different\nparameter values:\n\n::\n\n   GET /v2/meters/METER_NAME/statistics?aggregate.func=cardinality\n   &\n   aggregate.param=resource_id\n           &\n   aggregate.func=cardinality\n   &\n   aggregate.param=project_id\n\n**Examples:**\n\nUse the ``stddev`` function to request the standard deviation of\nCPU utilization:\n\n::\n\n   GET /v2/meters/cpu_util/statistics?aggregate.func=stddev\n\nThe response looks like this:\n\n.. code-block:: json\n\n   [\n       {\n           \"aggregate\": {\n               \"stddev\": 0.6858829\n           },\n           \"duration_start\": \"2014-01-30T11:13:23\",\n           \"duration_end\": \"2014-01-31T16:07:13\",\n           \"duration\": 104030,\n           \"period\": 0,\n           \"period_start\": \"2014-01-30T11:13:23\",\n           \"period_end\": \"2014-01-31T16:07:13\",\n           \"groupby\": null,\n           \"unit\": \"%\"\n       }\n   ]\n\nUse the ``cardinality`` function with the project ID to return the\nnumber of distinct tenants with images:\n\n::\n\n   GET /v2/meters/image/statistics?aggregate.func=cardinality\n   &\n   aggregate.param=project_id\n\nThe following, more complex, example determines:\n\n- The number of distinct instances (``cardinality``)\n\n- The total number of instance samples (``count``) for a tenant in\n  15-minute intervals (``period`` and ``groupby`` options)\n\n::\n\n   GET /v2/meters/instance/statistics?aggregate.func=cardinality\n   &\n   aggregate.param=resource_id\n           &\n   aggregate.func=count\n   &\n   groupby=project_id\n   &\n   period=900\n\nThe response looks like this:\n\n.. code-block:: json\n\n   [\n       {\n           \"count\": 19,\n           \"aggregate\": {\n               \"count\": 19,\n               \"cardinality/resource_id\": 3\n           },\n           \"duration\": 328.47803,\n           \"duration_start\": \"2014-01-31T10:00:41.823919\",\n           \"duration_end\": \"2014-01-31T10:06:10.301948\",\n           \"period\": 900,\n           \"period_start\": \"2014-01-31T10:00:00\",\n           \"period_end\": \"2014-01-31T10:15:00\",\n           \"groupby\": {\n               \"project_id\": \"061a5c91811e4044b7dc86c6136c4f99\"\n           },\n           \"unit\": \"instance\"\n       },\n       {\n           \"count\": 22,\n           \"aggregate\": {\n               \"count\": 22,\n               \"cardinality/resource_id\": 4\n           },\n           \"duration\": 808.00385,\n           \"duration_start\": \"2014-01-31T10:15:15\",\n           \"duration_end\": \"2014-01-31T10:28:43.003840\",\n           \"period\": 900,\n           \"period_start\": \"2014-01-31T10:15:00\",\n           \"period_end\": \"2014-01-31T10:30:00\",\n           \"groupby\": {\n               \"project_id\": \"061a5c91811e4044b7dc86c6136c4f99\"\n           },\n           \"unit\": \"instance\"\n       },\n       {\n           \"count\": 2,\n           \"aggregate\": {\n               \"count\": 2,\n               \"cardinality/resource_id\": 2\n           },\n           \"duration\": 0,\n           \"duration_start\": \"2014-01-31T10:35:15\",\n           \"duration_end\": \"2014-01-31T10:35:15\",\n           \"period\": 900,\n           \"period_start\": \"2014-01-31T10:30:00\",\n           \"period_end\": \"2014-01-31T10:45:00\",\n           \"groupby\": {\n               \"project_id\": \"061a5c91811e4044b7dc86c6136c4f99\"\n           },\n           \"unit\": \"instance\"\n       }\n   ]"
+    }, 
+    {
+      "description": "Samples", 
+      "name": "samples", 
+      "x-summary": "Lists all samples and gets information for a sample.\n\nFor list operations, if you do not explicitly set the ``limit``\nquery parameter, a default limit is applied. The default limit is\nthe ``default_api_return_limit`` configuration option value."
+    }, 
+    {
+      "description": "Resources", 
+      "name": "resources", 
+      "x-summary": "Lists all and gets information for resources."
+    }, 
+    {
+      "description": "Capabilities", 
+      "name": "capabilities", 
+      "x-summary": "Gets information for API and storage capabilities.\n\nThe Telemetry service enables you to store samples, events, and\nalarm definitions in supported database back ends. The\n``capabilities`` resource enables you to list the capabilities that\na database supports.\n\nThe ``capabilities`` resource returns a flattened dictionary of\ncapability properties, each with an associated boolean value. A\nvalue of ``true`` indicates that the corresponding capability is\navailable in the back end.\n\nYou can optionally configure separate database back ends for\nsamples, events, and alarms definitions. The ``capabilities``\nresponse shows a value of ``true`` to indicate that the definitions\ndatabase for samples, events, or alarms is ready to use in a\nproduction environment."
+    }, 
+    {
+      "description": "Events", 
+      "name": "events", 
+      "x-summary": "Lists all events and shows details for an event."
+    }
+  ]
+}

@@ -1,0 +1,3490 @@
+{
+  "basePath": "/", 
+  "consumes": [
+    "application/json"
+  ], 
+  "definitions": {
+    "clusterAction": {
+      "properties": {
+        "action": {
+          "description": "The action to trigger.\n\nEach action takes a different set of parameters.\n\nSupported actions include:\n\n- ``add_nodes`` Add one or more nodes, as a list, to a cluster. For\n  example:\n\n- ``del_nodes`` Delete one or more nodes, as a list, from a cluster.\n  For example:\n\n- ``scale_out`` Enlarge the cluster by ``count`` number of nodes.\n  For example:\n\n- ``scale_in`` Shrink the cluster by ``count`` number of nodes. For\n  example:\n\n- ``resize`` Change the size of the cluster by ``adjustment_type``,\n  ``number``, ``min_step``, ``min_size``, ``max_size``, or\n  ``strict`` values. For example:\n\n- ``check`` Check the health status of a cluster. For example:\n\n- ``recover`` Recover a cluster from its current unhealthy status.\n  For example:\n\n- ``policy_attach`` Attach a policy to a cluster. The request body\n  contains parameters for the policy attachment:\n\n- ``policy_detach`` Detach a policy from a cluster. The request body\n  contains the ID of the policy:\n\n- ``policy_update`` Update the policy attachment. Specify the policy\n  ID and property settings in the request body:", 
+          "format": "", 
+          "type": "string"
+        }
+      }, 
+      "required": [
+        "action"
+      ], 
+      "type": "object"
+    }, 
+    "createCluster": {
+      "example": {
+        "application/json": {
+          "cluster": {
+            "desired_capacity": 0, 
+            "max_size": -1, 
+            "metadata": {}, 
+            "min_size": 0, 
+            "name": "test_cluster", 
+            "profile_id": "mystack", 
+            "timeout": null
+          }
+        }
+      }, 
+      "properties": {
+        "cluster": {
+          "description": "A map of cluster details.", 
+          "format": "", 
+          "type": "object"
+        }, 
+        "desired_capacity": {
+          "description": "The capacity, or initial size, of the cluster. Default is 0.", 
+          "format": "", 
+          "type": "integer"
+        }, 
+        "max_size": {
+          "description": "The maximum size of the cluster. Default is ``-1``, which indicates\nthat no upper limit exists for the cluster size.", 
+          "format": "", 
+          "type": "integer"
+        }, 
+        "metadata": {
+          "description": "A set of key and value pairs to associate with the cluster.", 
+          "format": "", 
+          "type": "object"
+        }, 
+        "min_size": {
+          "description": "The minimum size of the cluster. Default is 0.", 
+          "format": "", 
+          "type": "integer"
+        }, 
+        "name": {
+          "description": "The name of the cluster.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "parent": {
+          "description": "The UUID of the parent cluster if the cluster is a nested cluster.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "profile_id": {
+          "description": "The ID or name of the profile for the cluster.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "timeout": {
+          "description": "The timeout value, in minutes, for cluster creation. Default is 60.", 
+          "format": "", 
+          "type": "integer"
+        }
+      }, 
+      "required": [
+        "cluster", 
+        "name", 
+        "profile_id", 
+        "desired_capacity"
+      ], 
+      "type": "object"
+    }, 
+    "createCluster_202": {
+      "properties": {
+        "cluster": {
+          "description": "A map with the ``id``, ``name``, ``status``, and other fields for\nthe cluster.", 
+          "format": "", 
+          "type": "object"
+        }
+      }, 
+      "required": [
+        "cluster"
+      ], 
+      "type": "object"
+    }, 
+    "createNode": {
+      "example": {
+        "application/json": {
+          "node": {
+            "cluster_id": null, 
+            "metadata": {}, 
+            "name": "node009", 
+            "profile_id": "mystack", 
+            "role": "master"
+          }
+        }
+      }, 
+      "properties": {
+        "cluster_id": {
+          "description": "The ID or shortID or name of the cluster the node lives in. If not\nspecified, the node created will be an orphaned node.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "metadata": {
+          "description": "A set of key and value pairs to associate with the node.", 
+          "format": "", 
+          "type": "object"
+        }, 
+        "name": {
+          "description": "The name of the node to be created.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "profile_id": {
+          "description": "The ID or shortID or name of the profile for the node.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "role": {
+          "description": "A string indicating the role this node plays in a cluster.", 
+          "format": "", 
+          "type": "string"
+        }
+      }, 
+      "required": [
+        "name", 
+        "profile_id"
+      ], 
+      "type": "object"
+    }, 
+    "createNode_202": {
+      "properties": {
+        "node": {
+          "description": "Detailed data for the node, such as ``id``, ``name``, ``status``,\nand so on.", 
+          "format": "", 
+          "type": "object"
+        }
+      }, 
+      "required": [
+        "node"
+      ], 
+      "type": "object"
+    }, 
+    "createPolicy": {
+      "example": {
+        "application/json": {
+          "policy": {
+            "name": "sp001", 
+            "spec": {
+              "properties": {
+                "adjustment": {
+                  "min_step": 1, 
+                  "number": 1, 
+                  "type": "CHANGE_IN_CAPACITY"
+                }, 
+                "event": "CLUSTER_SCALE_IN"
+              }, 
+              "type": "senlin.policy.scaling", 
+              "version": "1.0"
+            }
+          }
+        }
+      }, 
+      "properties": {
+        "cooldown": {
+          "description": "The cooldown value, in seconds.", 
+          "format": "", 
+          "type": "integer"
+        }, 
+        "level": {
+          "description": "An integer value that represents the default enforcement level.", 
+          "format": "", 
+          "type": "integer"
+        }, 
+        "name": {
+          "description": "The name for the policy.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "policy": {
+          "description": "A map with keys and values that specify the details for the policy\nto be created:", 
+          "format": "", 
+          "type": "object"
+        }, 
+        "spec": {
+          "description": "A detailed specification based on the policy type.", 
+          "format": "", 
+          "type": "object"
+        }
+      }, 
+      "required": [
+        "policy", 
+        "name", 
+        "spec"
+      ], 
+      "type": "object"
+    }, 
+    "createPolicy_201": {
+      "properties": {
+        "policy": {
+          "description": "A map with a set of keys and values that provides the details of\nthe policy.\n\n **Policy create response**\n\n- ``id`` An unique ID for the newly created policy.\n\n- ``name`` Name for the newly created policy.\n\n- ``type`` Name of policy type referenced by the policy.\n\n- ``spec`` Detailed specification based on the policy type.\n\n- ``created_at`` The UTC date and time stamp when the policy was\n  created.\n\n- ``updated_at`` The UTC date and time stamp when the policy was\n  updated.\n\n- ``domain`` The ID of the domain to which the profile belongs.\n\n- ``project`` The ID of the project to which the profile belongs.\n\n- ``user`` The ID of the user who created the profile.", 
+          "format": "", 
+          "type": "object"
+        }
+      }, 
+      "required": [
+        "policy"
+      ], 
+      "type": "object"
+    }, 
+    "createProfile": {
+      "example": {
+        "application/json": {
+          "profile": {
+            "metadata": {}, 
+            "name": "test_prof1", 
+            "spec": {
+              "properties": {
+                "disable_rollback": false, 
+                "environment": {
+                  "resource_registry": {
+                    "os.heat.server": "OS::Heat::Server"
+                  }
+                }, 
+                "files": {
+                  "file:///usr/test_script.sh": "#!/bin/bash\n\necho \"this is a test script file\"\n"
+                }, 
+                "parameters": {}, 
+                "template": {
+                  "heat_template_version": "2014-10-16", 
+                  "outputs": {
+                    "result": {
+                      "value": {
+                        "get_attr": [
+                          "random", 
+                          "value"
+                        ]
+                      }
+                    }
+                  }, 
+                  "parameters": {
+                    "file": {
+                      "default": {
+                        "get_file": "file:///usr/test_script.sh"
+                      }, 
+                      "type": "string"
+                    }
+                  }, 
+                  "resources": {
+                    "random": {
+                      "properties": {
+                        "length": 64
+                      }, 
+                      "type": "OS::Heat::RandomString"
+                    }
+                  }
+                }, 
+                "timeout": 60
+              }, 
+              "type": "os.heat.stack", 
+              "version": "1.0"
+            }
+          }
+        }
+      }, 
+      "properties": {
+        "metadata": {
+          "description": "A list of key and value pairs to associate with the profile.", 
+          "format": "", 
+          "items": {
+            "type": "string"
+          }, 
+          "type": "array"
+        }, 
+        "name": {
+          "description": "The name for the profile.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "spec": {
+          "description": "Detailed specification based on the chosen profile type.", 
+          "format": "", 
+          "type": "object"
+        }
+      }, 
+      "required": [
+        "name", 
+        "spec"
+      ], 
+      "type": "object"
+    }, 
+    "createProfile_201": {
+      "properties": {
+        "profile": {
+          "description": "A dictionary with profile details.\n\n **Profile create response**\n\n- ``id`` An unique ID for the profile.\n\n- ``name`` Name for the profile.\n\n- ``type`` Name of policy type referenced by the profile.\n\n- ``spec`` Detailed specification based on the profile type.\n\n- ``metadata`` A list of key and value pairs that are attached to\n  the profile.\n\n- ``created_at`` The UTC date and time stamp when the profile was\n  created.\n\n- ``updated_at`` The UTC date and time stamp when the profile was\n  updated.\n\n- ``domain`` The ID of the domain to which the profile belongs.\n\n- ``project`` The ID of the project to which the profile belongs.\n\n- ``user`` The ID of the user who created the profile.", 
+          "format": "", 
+          "type": "object"
+        }
+      }, 
+      "required": [
+        "profile"
+      ], 
+      "type": "object"
+    }, 
+    "createReceiver": {
+      "example": {
+        "application/json": {
+          "receiver": {
+            "action": "CLUSTER_SCALE_OUT", 
+            "cluster_id": "cf99d754-3cdc-47f4-8a29-cd14f02f5436", 
+            "name": "cluster_inflate", 
+            "params": {
+              "count": "1"
+            }, 
+            "type": "webhook"
+          }
+        }
+      }, 
+      "properties": {
+        "receiver": {
+          "description": "A map with detailed data for the receiver.\n\n **Receiver Create Request Body**\n\n- ``name`` Name for the receiver (optional).\n\n- ``cluster_id`` Name, ID, or short ID of the object targeted by the\n  receiver (required).\n\n- ``type`` The type of the receiver where the only valid value is\n  ``webhook`` currently (required).\n\n- ``action`` The action to initiate when the receiver is triggered.\n  A valid value should be the name of an action that can be applied\n  on a cluster.\n\n- ``actor`` A map of key and value pairs to use for authentication.\n  If omitted, the requester is assumed to be the actor (optional).\n\n- ``params`` A map of key and value pairs to use for action\n  creation. Some actions might require certain input parameters\n  (optional).", 
+          "format": "", 
+          "type": "object"
+        }
+      }, 
+      "required": [
+        "receiver"
+      ], 
+      "type": "object"
+    }, 
+    "createReceiver_201": {
+      "properties": {
+        "receiver": {
+          "description": "The receiver details, such as ``id``, ``name``, ``action``, and so\non.", 
+          "format": "", 
+          "type": "object"
+        }
+      }, 
+      "required": [
+        "receiver"
+      ], 
+      "type": "object"
+    }, 
+    "listClusters_200": {
+      "properties": {
+        "clusters": {
+          "description": "List of cluster records. Each record contains fields such as\n``created_at``, ``id``, ``name``, ``profile_id``, ``size``,\n``nodes``, ``status``, ``status_reason``, and so on.", 
+          "format": "", 
+          "items": {
+            "type": "string"
+          }, 
+          "type": "array"
+        }
+      }, 
+      "required": [
+        "clusters"
+      ], 
+      "type": "object"
+    }, 
+    "listNodes_200": {
+      "properties": {
+        "nodes": {
+          "description": "List of node records. Each record contains fields such as ``id``,\n``cluster_id``, ``name``, ``physical_id``, ``profile_id``,\n``created_at``, ``index``, ``status``, ``status_reason``,\n``metadata``, ``updated_at``, and so on.", 
+          "format": "", 
+          "items": {
+            "type": "string"
+          }, 
+          "type": "array"
+        }
+      }, 
+      "required": [
+        "nodes"
+      ], 
+      "type": "object"
+    }, 
+    "listPolicies_200": {
+      "properties": {
+        "policies": {
+          "description": "List of policy records. Each record contains fields such as ``id``,\n``name``, ``type``, ``spec``, and so on.", 
+          "format": "", 
+          "items": {
+            "type": "string"
+          }, 
+          "type": "array"
+        }
+      }, 
+      "required": [
+        "policies"
+      ], 
+      "type": "object"
+    }, 
+    "listPolicyType_200": {
+      "properties": {
+        "name": {
+          "description": "The name of the policy type.", 
+          "format": "", 
+          "type": "string"
+        }
+      }, 
+      "required": [
+        "name"
+      ], 
+      "type": "object"
+    }, 
+    "listProfiles_200": {
+      "properties": {
+        "profiles": {
+          "description": "Profile records. Each record contains the ``id``, ``name``,\n``type``, ``spec``, ``metadata``, and other fields.", 
+          "format": "", 
+          "items": {
+            "type": "string"
+          }, 
+          "type": "array"
+        }
+      }, 
+      "required": [
+        "profiles"
+      ], 
+      "type": "object"
+    }, 
+    "nodeAction": {
+      "properties": {
+        "action": {
+          "description": "The action to trigger.\n\nEach action takes a different set of parameters.\n\nSupported actions include:\n\n- ``check`` Check the health status of a node. For example:\n\n- ``recover`` Recover a node from its current unhealthy status. For\n  example:", 
+          "format": "", 
+          "type": "string"
+        }
+      }, 
+      "required": [
+        "action"
+      ], 
+      "type": "object"
+    }, 
+    "showClusterPolicy_200": {
+      "properties": {
+        "cluster_id": {
+          "description": "The UUID of the cluster.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "cluster_name": {
+          "description": "The name of the cluster.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "cluster_type": {
+          "description": "The type of the cluster.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "enabled": {
+          "description": "The status of the policy.", 
+          "format": "", 
+          "type": "boolean"
+        }, 
+        "id": {
+          "description": "The UUID of the cluster policy.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "policy_id": {
+          "description": "The UUID of the policy.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "policy_name": {
+          "description": "The name of the policy.", 
+          "format": "", 
+          "type": "string"
+        }
+      }, 
+      "required": [
+        "cluster_id", 
+        "cluster_name", 
+        "id", 
+        "policy_id", 
+        "policy_name", 
+        "cluster_type", 
+        "enabled"
+      ], 
+      "type": "object"
+    }, 
+    "updateCluster": {
+      "example": {
+        "application/json": {
+          "cluster": {
+            "metadata": null, 
+            "name": null, 
+            "profile_id": null, 
+            "timeout": "30"
+          }
+        }
+      }, 
+      "properties": {
+        "cluster": {
+          "description": "A map of cluster details.", 
+          "format": "", 
+          "type": "object"
+        }, 
+        "metadata": {
+          "description": "A set of key and value pairs to associate with the cluster.", 
+          "format": "", 
+          "type": "object"
+        }, 
+        "name": {
+          "description": "The name of the cluster.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "parent": {
+          "description": "The UUID of the parent cluster if the cluster is a nested cluster.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "profile_id": {
+          "description": "The ID or name of the profile for the cluster.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "timeout": {
+          "description": "The timeout value, in minutes, for cluster creation. Default is 60.", 
+          "format": "", 
+          "type": "integer"
+        }
+      }, 
+      "required": [
+        "cluster", 
+        "name", 
+        "profile_id"
+      ], 
+      "type": "object"
+    }, 
+    "updateCluster_202": {
+      "properties": {
+        "cluster": {
+          "description": "A map with the ``id``, ``name``, ``status``, and other fields for\nthe cluster.", 
+          "format": "", 
+          "type": "object"
+        }
+      }, 
+      "required": [
+        "cluster"
+      ], 
+      "type": "object"
+    }, 
+    "updateNode": {
+      "example": {
+        "application/json": {
+          "node": {
+            "name": "new_node_name"
+          }
+        }
+      }, 
+      "properties": {
+        "node": {
+          "description": "A map with detailed data for the node.\n\n **Node update request body**\n\n- ``name`` New name for the node (optional).\n\n- ``profile_id`` Name, ID, or short ID of the new profile to use by\n  the node. The new profile has to have the same profile type as\n  that of the node (optional).\n\n- ``role`` The new role this node plays in a cluster (optional).\n\n- ``metadata`` A list of key-value pairs to attach to the updated\n  node (optional).", 
+          "format": "", 
+          "type": "object"
+        }
+      }, 
+      "required": [
+        "node"
+      ], 
+      "type": "object"
+    }, 
+    "updateNode_202": {
+      "properties": {
+        "node": {
+          "description": "Detailed data for the node such as ``id``, ``name``, ``status``,\nand so on.", 
+          "format": "", 
+          "type": "object"
+        }
+      }, 
+      "required": [
+        "node"
+      ], 
+      "type": "object"
+    }, 
+    "updatePolicy": {
+      "example": {
+        "application/json": {
+          "policy": {
+            "name": "new_name"
+          }
+        }
+      }, 
+      "properties": {
+        "policy": {
+          "description": "A map with a set of key and value pairs that specify the details of\nthe policy:\n\n **Policy body**\n\n- ``name`` Name for the policy, if specified.", 
+          "format": "", 
+          "type": "object"
+        }
+      }, 
+      "required": [
+        "policy"
+      ], 
+      "type": "object"
+    }, 
+    "updateProfile": {
+      "example": {
+        "application/json": {
+          "profile": {
+            "metadata": {}, 
+            "name": null
+          }
+        }
+      }, 
+      "properties": {
+        "metadata": {
+          "description": "A list of key and value pairs to associate with the target profile.", 
+          "format": "", 
+          "type": "object"
+        }, 
+        "name": {
+          "description": "New name for the target profile.", 
+          "format": "", 
+          "type": "string"
+        }
+      }, 
+      "type": "object"
+    }
+  }, 
+  "externalDocs": {
+    "description": "OpenStack Docs", 
+    "url": "http://docs.openstack.org"
+  }, 
+  "host": "developer.openstack.org", 
+  "info": {
+    "license": {
+      "name": "Apache 2.0", 
+      "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+    }, 
+    "title": "Clustering", 
+    "version": "v1", 
+    "x-service": "clustering"
+  }, 
+  "paths": {
+    "/": {
+      "get": {
+        "consumes": [
+          "application/json"
+        ], 
+        "description": "", 
+        "operationId": "getVersions-senlin-v1", 
+        "parameters": [], 
+        "produces": [
+          "application/json"
+        ], 
+        "responses": {
+          "200": {
+            "description": "", 
+            "examples": {
+              "application/json": {
+                "versions": [
+                  {
+                    "id": "v1.0", 
+                    "links": [
+                      {
+                        "href": "http://192.168.12.34:8778/v1/", 
+                        "rel": "self"
+                      }
+                    ], 
+                    "status": "CURRENT"
+                  }
+                ]
+              }
+            }, 
+            "headers": {}, 
+            "schema": {}
+          }
+        }, 
+        "summary": "Lists information for all Clustering API versions.", 
+        "tags": [
+          "senlin-versions"
+        ], 
+        "x-title": "List versions"
+      }
+    }, 
+    "/v1/actions": {
+      "get": {
+        "consumes": [
+          "application/json"
+        ], 
+        "description": "", 
+        "operationId": "listActions", 
+        "parameters": [
+          {
+            "description": "Requests a page size of items. Returns a number of items up to a\nlimit value. Use the ``limit`` parameter to make an initial limited\nrequest and use the ID of the last-seen item from the response as\nthe ``marker`` parameter value in a subsequent limited request.", 
+            "format": "", 
+            "in": "query", 
+            "name": "limit", 
+            "required": false, 
+            "type": "integer"
+          }, 
+          {
+            "description": "The ID of the last-seen item. Use the ``limit`` parameter to make\nan initial limited request and use the ID of the last-seen item\nfrom the response as the ``marker`` parameter value in a subsequent\nlimited request.", 
+            "format": "", 
+            "in": "query", 
+            "name": "marker", 
+            "required": false, 
+            "type": "string"
+          }, 
+          {
+            "description": "Sorts the response by one or more attribute and optional sort\ndirection combinations. A valid direction is ``asc`` (ascending) or\n``desc`` (descending). Default direction is ``asc`` (ascending).\n\nSpecify the list as < key > [: < direction > ].\n\nFor example, the following query parameters in the URI sort the\nobjects in the response by ``name`` in ascending order and then by\n``status`` in descending order:\n\n.. code-block:: json\n\n   GET /v2/images?sort=name:asc,status:desc\n\nThe following query parameters in the URI sort the objects in the\nresponse by ``name`` in descending order and then by ``status`` in\nascending order.\n\n.. code-block:: json\n\n   GET /v2/images?sort=name:desc,status", 
+            "format": "", 
+            "in": "query", 
+            "name": "sort", 
+            "required": false, 
+            "type": "string"
+          }, 
+          {
+            "description": "Indicates whether to include objects for all projects or objects\nfor the current project in the response.\n\nIf you are an administrative user and you set this value to\n``true``, the call returns all objects from all projects. Default\nis ``false``, which returns only objects in the current project.", 
+            "format": "", 
+            "in": "query", 
+            "name": "global_project", 
+            "required": false, 
+            "type": "boolean"
+          }, 
+          {
+            "description": "Filters the response by an action name. Use this filter multiple\ntimes to filter by multiple names.", 
+            "format": "", 
+            "in": "query", 
+            "name": "name", 
+            "required": false, 
+            "type": "string"
+          }, 
+          {
+            "description": "Filters the response by the targeted object ID that is associated\nwith an action. An object can be a cluster, a node, and so on. Use\nthis filter multiple times to filter by multiple targets.", 
+            "format": "", 
+            "in": "query", 
+            "name": "target", 
+            "required": false, 
+            "type": "string"
+          }, 
+          {
+            "description": "Filters the response by an action name. Use this filter multiple\ntimes to filter by multiple names.", 
+            "format": "", 
+            "in": "query", 
+            "name": "action", 
+            "required": false, 
+            "type": "string"
+          }
+        ], 
+        "produces": [
+          "application/json"
+        ], 
+        "responses": {
+          "200": {
+            "description": "", 
+            "examples": {
+              "application/json": {
+                "actions": [
+                  {
+                    "action": "NODE_CREATE", 
+                    "cause": "RPC Request", 
+                    "created_at": "2015-12-04T04:54:41", 
+                    "depended_by": [], 
+                    "depends_on": [], 
+                    "end_time": 1425550000.0, 
+                    "id": "2366d440-c73e-4961-9254-6d1c3af7c167", 
+                    "inputs": {}, 
+                    "interval": -1, 
+                    "name": "node_create_0df0931b", 
+                    "outputs": {}, 
+                    "owner": null, 
+                    "start_time": 1425550000.0, 
+                    "status": "SUCCEEDED", 
+                    "status_reason": "Action completed successfully.", 
+                    "target": "0df0931b-e251-4f2e-8719-4ebfda3627ba", 
+                    "timeout": 3600, 
+                    "updated_at": null
+                  }, 
+                  {
+                    "action": "NODE_DELETE", 
+                    "cause": "RPC Request", 
+                    "created_at": "2015-11-04T05:21:41", 
+                    "depended_by": [], 
+                    "depends_on": [], 
+                    "end_time": 1425550000.0, 
+                    "id": "edce3528-864f-41fb-8759-f4707925cc09", 
+                    "inputs": {}, 
+                    "interval": -1, 
+                    "name": "node_delete_f0de9b9c", 
+                    "outputs": {}, 
+                    "owner": null, 
+                    "start_time": 1425550000.0, 
+                    "status": "SUCCEEDED", 
+                    "status_reason": "Action completed successfully.", 
+                    "target": "f0de9b9c-6d48-4a46-af21-2ca8607777fe", 
+                    "timeout": 3600, 
+                    "updated_at": null
+                  }
+                ]
+              }
+            }, 
+            "headers": {}, 
+            "schema": {}
+          }
+        }, 
+        "summary": "Lists all actions.", 
+        "tags": [
+          "clustering-v1-actions"
+        ], 
+        "x-title": "List actions"
+      }
+    }, 
+    "/v1/actions/{action_id}": {
+      "get": {
+        "consumes": [
+          "application/json"
+        ], 
+        "description": "", 
+        "operationId": "showAction", 
+        "parameters": [
+          {
+            "description": "The UUID of the action.", 
+            "format": "", 
+            "in": "path", 
+            "name": "action_id", 
+            "required": true, 
+            "type": "string"
+          }
+        ], 
+        "produces": [
+          "application/json"
+        ], 
+        "responses": {
+          "200": {
+            "description": "", 
+            "examples": {
+              "application/json": {
+                "action": "CLUSTER_DELETE", 
+                "cause": "RPC Request", 
+                "context": {}, 
+                "created_at": "2015-06-27T05:09:43", 
+                "depended_by": [], 
+                "depends_on": [], 
+                "end_time": 1423570000.0, 
+                "id": "ffbb9175-d510-4bc1-b676-c6aba2a4ca81", 
+                "inputs": {}, 
+                "interval": -1, 
+                "name": "cluster_delete_fcc9b635", 
+                "outputs": {}, 
+                "owner": null, 
+                "start_time": 1423570000.0, 
+                "status": "FAILED", 
+                "status_reason": "Cluster action FAILED", 
+                "target": "fcc9b635-52e3-490b-99f2-87b1640e4e89", 
+                "timeout": 3600, 
+                "updated_at": null
+              }
+            }, 
+            "headers": {}, 
+            "schema": {}
+          }
+        }, 
+        "summary": "Shows details for an action.", 
+        "tags": [
+          "clustering-v1-actions"
+        ], 
+        "x-title": "Show action details"
+      }
+    }, 
+    "/v1/build-info": {
+      "get": {
+        "consumes": [
+          "application/json"
+        ], 
+        "description": "", 
+        "operationId": "showBuild", 
+        "parameters": [], 
+        "produces": [
+          "application/json"
+        ], 
+        "responses": {
+          "200": {
+            "description": "", 
+            "examples": {
+              "application/json": {
+                "build_info": {
+                  "api": {
+                    "revision": "1.0"
+                  }, 
+                  "engine": {
+                    "revision": "2.0"
+                  }
+                }
+              }
+            }, 
+            "headers": {}, 
+            "schema": {}
+          }
+        }, 
+        "summary": "Shows build information for a Senlin deployment.", 
+        "tags": [
+          "clustering-v1-build-info"
+        ], 
+        "x-title": "Show build information"
+      }
+    }, 
+    "/v1/clusters": {
+      "get": {
+        "consumes": [
+          "application/json"
+        ], 
+        "description": "", 
+        "operationId": "listClusters", 
+        "parameters": [
+          {
+            "description": "Requests a page size of items. Returns a number of items up to a\nlimit value. Use the ``limit`` parameter to make an initial limited\nrequest and use the ID of the last-seen item from the response as\nthe ``marker`` parameter value in a subsequent limited request.", 
+            "format": "", 
+            "in": "query", 
+            "name": "limit", 
+            "required": false, 
+            "type": "integer"
+          }, 
+          {
+            "description": "The ID of the last-seen item. Use the ``limit`` parameter to make\nan initial limited request and use the ID of the last-seen item\nfrom the response as the ``marker`` parameter value in a subsequent\nlimited request.", 
+            "format": "", 
+            "in": "query", 
+            "name": "marker", 
+            "required": false, 
+            "type": "string"
+          }, 
+          {
+            "description": "Sorts the response by one or more attribute and optional sort\ndirection combinations. A valid direction is ``asc`` (ascending) or\n``desc`` (descending). Default direction is ``asc`` (ascending).\n\nSpecify the list as < key > [: < direction > ].\n\nFor example, the following query parameters in the URI sort the\nobjects in the response by ``name`` in ascending order and then by\n``status`` in descending order:\n\n.. code-block:: json\n\n   GET /v2/images?sort=name:asc,status:desc\n\nThe following query parameters in the URI sort the objects in the\nresponse by ``name`` in descending order and then by ``status`` in\nascending order.\n\n.. code-block:: json\n\n   GET /v2/images?sort=name:desc,status", 
+            "format": "", 
+            "in": "query", 
+            "name": "sort", 
+            "required": false, 
+            "type": "string"
+          }, 
+          {
+            "description": "Indicates whether to include objects for all projects or objects\nfor the current project in the response.\n\nIf you are an administrative user and you set this value to\n``true``, the call returns all objects from all projects. Default\nis ``false``, which returns only objects in the current project.", 
+            "format": "", 
+            "in": "query", 
+            "name": "global_project", 
+            "required": false, 
+            "type": "boolean"
+          }, 
+          {
+            "description": "Filters the response by a cluster name. Use this filter multiple\ntimes to filter by multiple names.", 
+            "format": "", 
+            "in": "query", 
+            "name": "name", 
+            "required": false, 
+            "type": "string"
+          }, 
+          {
+            "description": "Filters the response by a cluster status. Use this filter multiple\ntimes to filter by multiple statuses.", 
+            "format": "", 
+            "in": "query", 
+            "name": "status", 
+            "required": false, 
+            "type": "string"
+          }
+        ], 
+        "produces": [
+          "application/json"
+        ], 
+        "responses": {
+          "200": {
+            "description": "", 
+            "examples": {
+              "application/json": {
+                "clusters": [
+                  {
+                    "created_at": "2015-02-10T14:26:14", 
+                    "data": {}, 
+                    "desired_capacity": 4, 
+                    "domain": null, 
+                    "id": "7d85f602-a948-4a30-afd4-e84f47471c15", 
+                    "init_at": "2015-02-10T14:26:11", 
+                    "max_size": -1, 
+                    "metadata": {}, 
+                    "min_size": 0, 
+                    "name": "cluster1", 
+                    "nodes": [
+                      "b07c57c8-7ab2-47bf-bdf8-e894c0c601b9", 
+                      "ecc23d3e-bb68-48f8-8260-c9cf6bcb6e61", 
+                      "da1e9c87-e584-4626-a120-022da5062dac"
+                    ], 
+                    "policies": [], 
+                    "profile_id": "edc63d0a-2ca4-48fa-9854-27926da76a4a", 
+                    "profile_name": "mystack", 
+                    "project": "6e18cc2bdbeb48a5b3cad2dc499f6804", 
+                    "status": "ACTIVE", 
+                    "status_reason": "Cluster scale-in succeeded", 
+                    "timeout": 3600, 
+                    "updated_at": null, 
+                    "user": "5e5bf8027826429c96af157f68dc9072"
+                  }
+                ]
+              }
+            }, 
+            "headers": {}, 
+            "schema": {
+              "$ref": "#/definitions/listClusters_200"
+            }
+          }
+        }, 
+        "summary": "Lists clusters.", 
+        "tags": [
+          "clustering-v1-clusters"
+        ], 
+        "x-title": "List clusters"
+      }, 
+      "post": {
+        "consumes": [
+          "application/json"
+        ], 
+        "description": "", 
+        "operationId": "createCluster", 
+        "parameters": [
+          {
+            "description": "", 
+            "in": "body", 
+            "name": "body", 
+            "required": false, 
+            "schema": {
+              "$ref": "#/definitions/createCluster"
+            }
+          }
+        ], 
+        "produces": [
+          "application/json"
+        ], 
+        "responses": {
+          "202": {
+            "description": "", 
+            "examples": {
+              "application/json": {
+                "cluster": {
+                  "created_at": null, 
+                  "data": {}, 
+                  "desired_capacity": 4, 
+                  "domain": null, 
+                  "id": "45edadcb-c73b-4920-87e1-518b2f29f54b", 
+                  "init_at": "2015-02-10T14:16:10", 
+                  "max_size": -1, 
+                  "metadata": {}, 
+                  "min_size": 0, 
+                  "name": "test_cluster", 
+                  "nodes": [], 
+                  "policies": [], 
+                  "profile_id": "edc63d0a-2ca4-48fa-9854-27926da76a4a", 
+                  "profile_name": "mystack", 
+                  "project": "6e18cc2bdbeb48a5b3cad2dc499f6804", 
+                  "status": "INIT", 
+                  "status_reason": "Initializing", 
+                  "timeout": 3600, 
+                  "updated_at": null, 
+                  "user": "5e5bf8027826429c96af157f68dc9072"
+                }
+              }
+            }, 
+            "headers": {
+              "location": {
+                "description": "The URL against which to check the status of the action spawned\nfrom the request.", 
+                "format": "", 
+                "type": "string"
+              }
+            }, 
+            "schema": {
+              "$ref": "#/definitions/createCluster_202"
+            }
+          }
+        }, 
+        "summary": "Creates a cluster.", 
+        "tags": [
+          "clustering-v1-clusters"
+        ], 
+        "x-title": "Create cluster"
+      }
+    }, 
+    "/v1/clusters/{cluster_id}": {
+      "delete": {
+        "consumes": [], 
+        "description": "", 
+        "operationId": "deleteCluster", 
+        "parameters": [
+          {
+            "description": "The UUID of the cluster.", 
+            "format": "", 
+            "in": "path", 
+            "name": "cluster_id", 
+            "required": true, 
+            "type": "string"
+          }
+        ], 
+        "produces": [], 
+        "responses": {
+          "202": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {
+              "location": {
+                "description": "The URL against which to check the status of the action spawned\nfrom the request.", 
+                "format": "", 
+                "type": "string"
+              }
+            }, 
+            "schema": {}
+          }
+        }, 
+        "summary": "Deletes a cluster.", 
+        "tags": [
+          "clustering-v1-clusters"
+        ], 
+        "x-title": "Delete cluster"
+      }, 
+      "get": {
+        "consumes": [
+          "application/json"
+        ], 
+        "description": "", 
+        "operationId": "showCluster", 
+        "parameters": [
+          {
+            "description": "The UUID of the cluster.", 
+            "format": "", 
+            "in": "path", 
+            "name": "cluster_id", 
+            "required": true, 
+            "type": "string"
+          }
+        ], 
+        "produces": [
+          "application/json"
+        ], 
+        "responses": {
+          "200": {
+            "description": "", 
+            "examples": {
+              "application/json": {
+                "cluster": {
+                  "created_at": "2015-02-11T15:13:20", 
+                  "data": {}, 
+                  "desired_capacity": 0, 
+                  "domain": null, 
+                  "id": "45edadcb-c73b-4920-87e1-518b2f29f54b", 
+                  "init_at": "2015-02-10T14:26:10", 
+                  "max_size": -1, 
+                  "metadata": {}, 
+                  "min_size": 0, 
+                  "name": "test_cluster", 
+                  "nodes": [], 
+                  "policies": [], 
+                  "profile_id": "edc63d0a-2ca4-48fa-9854-27926da76a4a", 
+                  "profile_name": "mystack", 
+                  "project": "6e18cc2bdbeb48a5b3cad2dc499f6804", 
+                  "status": "ACTIVE", 
+                  "status_reason": "Creation succeeded", 
+                  "timeout": 3600, 
+                  "updated_at": null, 
+                  "user": "5e5bf8027826429c96af157f68dc9072"
+                }
+              }
+            }, 
+            "headers": {}, 
+            "schema": {}
+          }
+        }, 
+        "summary": "Shows details for a cluster.", 
+        "tags": [
+          "clustering-v1-clusters"
+        ], 
+        "x-title": "Show cluster details"
+      }, 
+      "patch": {
+        "consumes": [
+          "application/json"
+        ], 
+        "description": "", 
+        "operationId": "updateCluster", 
+        "parameters": [
+          {
+            "description": "", 
+            "in": "body", 
+            "name": "body", 
+            "required": false, 
+            "schema": {
+              "$ref": "#/definitions/updateCluster"
+            }
+          }, 
+          {
+            "description": "The UUID of the cluster.", 
+            "format": "", 
+            "in": "path", 
+            "name": "cluster_id", 
+            "required": true, 
+            "type": "string"
+          }
+        ], 
+        "produces": [
+          "application/json"
+        ], 
+        "responses": {
+          "202": {
+            "description": "", 
+            "examples": {
+              "application/json": {
+                "cluster": {
+                  "created_at": "2015-02-11T15:13:20", 
+                  "data": {}, 
+                  "desired_capacity": 0, 
+                  "domain": null, 
+                  "id": "45edadcb-c73b-4920-87e1-518b2f29f54b", 
+                  "init_at": "2015-02-10T14:26:10", 
+                  "max_size": -1, 
+                  "metadata": {}, 
+                  "min_size": 0, 
+                  "name": "test_cluster", 
+                  "nodes": [], 
+                  "policies": [], 
+                  "profile_id": "edc63d0a-2ca4-48fa-9854-27926da76a4a", 
+                  "profile_name": "mystack", 
+                  "project": "6e18cc2bdbeb48a5b3cad2dc499f6804", 
+                  "status": "INIT", 
+                  "status_reason": "Initializing", 
+                  "timeout": 3600, 
+                  "updated_at": null, 
+                  "user": "5e5bf8027826429c96af157f68dc9072"
+                }
+              }
+            }, 
+            "headers": {
+              "location": {
+                "description": "The URL against which to check the status of the action spawned\nfrom the request.", 
+                "format": "", 
+                "type": "string"
+              }
+            }, 
+            "schema": {
+              "$ref": "#/definitions/updateCluster_202"
+            }
+          }
+        }, 
+        "summary": "Updates a cluster.", 
+        "tags": [
+          "clustering-v1-clusters"
+        ], 
+        "x-title": "Update cluster"
+      }
+    }, 
+    "/v1/clusters/{cluster_id}/actions": {
+      "post": {
+        "consumes": [], 
+        "description": "", 
+        "operationId": "clusterAction", 
+        "parameters": [
+          {
+            "description": "", 
+            "in": "body", 
+            "name": "body", 
+            "required": false, 
+            "schema": {
+              "$ref": "#/definitions/clusterAction"
+            }
+          }, 
+          {
+            "description": "The UUID of the cluster.", 
+            "format": "", 
+            "in": "path", 
+            "name": "cluster_id", 
+            "required": true, 
+            "type": "string"
+          }
+        ], 
+        "produces": [], 
+        "responses": {
+          "202": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {
+              "location": {
+                "description": "The URL against which to check the status of the action spawned\nfrom the request.", 
+                "format": "", 
+                "type": "string"
+              }
+            }, 
+            "schema": {}
+          }
+        }, 
+        "summary": "Triggers an action on a cluster.", 
+        "tags": [
+          "clustering-v1-clusters"
+        ], 
+        "x-title": "Trigger cluster action"
+      }
+    }, 
+    "/v1/clusters/{cluster_id}/policies": {
+      "get": {
+        "consumes": [
+          "application/json"
+        ], 
+        "description": "", 
+        "operationId": "listClusterPolicies", 
+        "parameters": [
+          {
+            "description": "The UUID of the cluster.", 
+            "format": "", 
+            "in": "path", 
+            "name": "cluster_id", 
+            "required": true, 
+            "type": "string"
+          }, 
+          {
+            "description": "Sorts the response by one or more attribute and optional sort\ndirection combinations. A valid direction is ``asc`` (ascending) or\n``desc`` (descending). Default direction is ``asc`` (ascending).\n\nSpecify the list as < key > [: < direction > ].\n\nFor example, the following query parameters in the URI sort the\nobjects in the response by ``name`` in ascending order and then by\n``status`` in descending order:\n\n.. code-block:: json\n\n   GET /v2/images?sort=name:asc,status:desc\n\nThe following query parameters in the URI sort the objects in the\nresponse by ``name`` in descending order and then by ``status`` in\nascending order.\n\n.. code-block:: json\n\n   GET /v2/images?sort=name:desc,status", 
+            "format": "", 
+            "in": "query", 
+            "name": "sort", 
+            "required": false, 
+            "type": "string"
+          }, 
+          {
+            "description": "Filters the response by a policy enabled status on the cluster.", 
+            "format": "", 
+            "in": "query", 
+            "name": "enabled", 
+            "required": false, 
+            "type": "boolean"
+          }
+        ], 
+        "produces": [
+          "application/json"
+        ], 
+        "responses": {
+          "200": {
+            "description": "", 
+            "examples": {
+              "application/json": {
+                "cluster_policies": [
+                  {
+                    "cluster_id": "7d85f602-a948-4a30-afd4-e84f47471c15", 
+                    "cluster_name": "cluster4", 
+                    "enabled": true, 
+                    "id": "06be3a1f-b238-4a96-a737-ceec5714087e", 
+                    "policy_id": "714fe676-a08f-4196-b7af-61d52eeded15", 
+                    "policy_name": "dp01", 
+                    "policy_type": "senlin.policy.deletion-1.0"
+                  }, 
+                  {
+                    "cluster_id": "7d85f602-a948-4a30-afd4-e84f47471c15", 
+                    "cluster_name": "cluster4", 
+                    "enabled": true, 
+                    "id": "abddc45e-ac31-4f90-93cc-db55a7d8dd6d", 
+                    "policy_id": "e026e09f-a3e9-4dad-a1b9-d7ba316026a1", 
+                    "policy_name": "sp1", 
+                    "policy_type": "senlin.policy.scaling-1.0"
+                  }
+                ]
+              }
+            }, 
+            "headers": {}, 
+            "schema": {}
+          }
+        }, 
+        "summary": "Lists all policies for a cluster.", 
+        "tags": [
+          "clustering-v1-cluster_policies"
+        ], 
+        "x-title": "List policies"
+      }
+    }, 
+    "/v1/clusters/{cluster_id}/policies/{policy_id}": {
+      "get": {
+        "consumes": [
+          "application/json"
+        ], 
+        "description": "", 
+        "operationId": "showClusterPolicy", 
+        "parameters": [
+          {
+            "description": "The UUID of the policy.", 
+            "format": "", 
+            "in": "path", 
+            "name": "policy_id", 
+            "required": true, 
+            "type": "string"
+          }, 
+          {
+            "description": "The UUID of the cluster.", 
+            "format": "", 
+            "in": "path", 
+            "name": "cluster_id", 
+            "required": true, 
+            "type": "string"
+          }
+        ], 
+        "produces": [
+          "application/json"
+        ], 
+        "responses": {
+          "200": {
+            "description": "", 
+            "examples": {
+              "application/json": {
+                "cluster_policy": {
+                  "cluster_id": "7d85f602-a948-4a30-afd4-e84f47471c15", 
+                  "cluster_name": "cluster4", 
+                  "enabled": true, 
+                  "id": "06be3a1f-b238-4a96-a737-ceec5714087e", 
+                  "policy_id": "714fe676-a08f-4196-b7af-61d52eeded15", 
+                  "policy_name": "dp01", 
+                  "policy_type": "senlin.policy.deletion-1.0"
+                }
+              }
+            }, 
+            "headers": {}, 
+            "schema": {
+              "$ref": "#/definitions/showClusterPolicy_200"
+            }
+          }, 
+          "400": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "401": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "404": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }
+        }, 
+        "summary": "Shows details for a policy for a cluster.", 
+        "tags": [
+          "clustering-v1-cluster_policies"
+        ], 
+        "x-title": "Show cluster policy details"
+      }
+    }, 
+    "/v1/events": {
+      "get": {
+        "consumes": [
+          "application/json"
+        ], 
+        "description": "", 
+        "operationId": "listEvents", 
+        "parameters": [
+          {
+            "description": "Requests a page size of items. Returns a number of items up to a\nlimit value. Use the ``limit`` parameter to make an initial limited\nrequest and use the ID of the last-seen item from the response as\nthe ``marker`` parameter value in a subsequent limited request.", 
+            "format": "", 
+            "in": "query", 
+            "name": "limit", 
+            "required": false, 
+            "type": "integer"
+          }, 
+          {
+            "description": "The ID of the last-seen item. Use the ``limit`` parameter to make\nan initial limited request and use the ID of the last-seen item\nfrom the response as the ``marker`` parameter value in a subsequent\nlimited request.", 
+            "format": "", 
+            "in": "query", 
+            "name": "marker", 
+            "required": false, 
+            "type": "string"
+          }, 
+          {
+            "description": "Sorts the response by one or more attribute and optional sort\ndirection combinations. A valid direction is ``asc`` (ascending) or\n``desc`` (descending). Default direction is ``asc`` (ascending).\n\nSpecify the list as < key > [: < direction > ].\n\nFor example, the following query parameters in the URI sort the\nobjects in the response by ``name`` in ascending order and then by\n``status`` in descending order:\n\n.. code-block:: json\n\n   GET /v2/images?sort=name:asc,status:desc\n\nThe following query parameters in the URI sort the objects in the\nresponse by ``name`` in descending order and then by ``status`` in\nascending order.\n\n.. code-block:: json\n\n   GET /v2/images?sort=name:desc,status", 
+            "format": "", 
+            "in": "query", 
+            "name": "sort", 
+            "required": false, 
+            "type": "string"
+          }, 
+          {
+            "description": "Indicates whether to include objects for all projects or objects\nfor the current project in the response.\n\nIf you are an administrative user and you set this value to\n``true``, the call returns all objects from all projects. Default\nis ``false``, which returns only objects in the current project.", 
+            "format": "", 
+            "in": "query", 
+            "name": "global_project", 
+            "required": false, 
+            "type": "boolean"
+          }, 
+          {
+            "description": "Filters the response by the object ID for an event. Use this filter\nmultiple times to filter by multiple objects.", 
+            "format": "", 
+            "in": "query", 
+            "name": "obj_id", 
+            "required": false, 
+            "type": "string"
+          }, 
+          {
+            "description": "Filters the response by the type of object associated with an\nevent. Use this filter multiple times to filter by multiple\nobjects. A valid value is ``CLUSTER`` or ``NODE``.", 
+            "format": "", 
+            "in": "query", 
+            "name": "obj_type", 
+            "required": false, 
+            "type": "string"
+          }, 
+          {
+            "description": "Filters the response by the name of object associated with an\nevent. Use this filter multiple times to filter by multiple\nobjects.", 
+            "format": "", 
+            "in": "query", 
+            "name": "obj_name", 
+            "required": false, 
+            "type": "string"
+          }, 
+          {
+            "description": "Filters the response by the cluster ID associated with an event.\nUse this filter multiple times to filter by multiple clusters.", 
+            "format": "", 
+            "in": "query", 
+            "name": "cluster_id", 
+            "required": false, 
+            "type": "string"
+          }, 
+          {
+            "description": "Filters the response by the action name associated with an event.\nUse this filter multiple times to filter by multiple actions.", 
+            "format": "", 
+            "in": "query", 
+            "name": "action", 
+            "required": false, 
+            "type": "string"
+          }
+        ], 
+        "produces": [
+          "application/json"
+        ], 
+        "responses": {
+          "200": {
+            "description": "", 
+            "examples": {
+              "application/json": {
+                "events": [
+                  {
+                    "action": "create", 
+                    "cluster_id": null, 
+                    "id": "2d255b9c-8f36-41a2-a137-c0175ccc29c3", 
+                    "level": "20", 
+                    "obj_id": "0df0931b-e251-4f2e-8719-4ebfda3627ba", 
+                    "obj_name": "node009", 
+                    "obj_type": "NODE", 
+                    "project": "6e18cc2bdbeb48a5b3cad2dc499f6804", 
+                    "status": "CREATING", 
+                    "status_reason": "Initializing", 
+                    "timestamp": "2015-03-05T08:53:15", 
+                    "user": "a21ded6060534d99840658a777c2af5a"
+                  }
+                ]
+              }
+            }, 
+            "headers": {}, 
+            "schema": {}
+          }
+        }, 
+        "summary": "Lists events.", 
+        "tags": [
+          "clustering-v1-events"
+        ], 
+        "x-title": "List events"
+      }
+    }, 
+    "/v1/events/{event_id}": {
+      "get": {
+        "consumes": [
+          "application/json"
+        ], 
+        "description": "", 
+        "operationId": "showEvent", 
+        "parameters": [
+          {
+            "description": "The UUID of the event.", 
+            "format": "", 
+            "in": "path", 
+            "name": "event_id", 
+            "required": true, 
+            "type": "string"
+          }
+        ], 
+        "produces": [
+          "application/json"
+        ], 
+        "responses": {
+          "200": {
+            "description": "", 
+            "examples": {
+              "application/json": {
+                "event": {
+                  "action": "create", 
+                  "cluster_id": null, 
+                  "id": "2d255b9c-8f36-41a2-a137-c0175ccc29c3", 
+                  "level": "20", 
+                  "obj_id": "0df0931b-e251-4f2e-8719-4ebfda3627ba", 
+                  "obj_name": "node009", 
+                  "obj_type": "NODE", 
+                  "project": "6e18cc2bdbeb48a5b3cad2dc499f6804", 
+                  "status": "CREATING", 
+                  "status_reason": "Initializing", 
+                  "timestamp": "2015-03-05T08:53:15", 
+                  "user": "a21ded6060534d99840658a777c2af5a"
+                }
+              }
+            }, 
+            "headers": {}, 
+            "schema": {}
+          }
+        }, 
+        "summary": "Shows details for an event.", 
+        "tags": [
+          "clustering-v1-events"
+        ], 
+        "x-title": "Show event details"
+      }
+    }, 
+    "/v1/nodes": {
+      "get": {
+        "consumes": [
+          "application/json"
+        ], 
+        "description": "", 
+        "operationId": "listNodes", 
+        "parameters": [
+          {
+            "description": "Requests a page size of items. Returns a number of items up to a\nlimit value. Use the ``limit`` parameter to make an initial limited\nrequest and use the ID of the last-seen item from the response as\nthe ``marker`` parameter value in a subsequent limited request.", 
+            "format": "", 
+            "in": "query", 
+            "name": "limit", 
+            "required": false, 
+            "type": "integer"
+          }, 
+          {
+            "description": "The ID of the last-seen item. Use the ``limit`` parameter to make\nan initial limited request and use the ID of the last-seen item\nfrom the response as the ``marker`` parameter value in a subsequent\nlimited request.", 
+            "format": "", 
+            "in": "query", 
+            "name": "marker", 
+            "required": false, 
+            "type": "string"
+          }, 
+          {
+            "description": "Sorts the response by one or more attribute and optional sort\ndirection combinations. A valid direction is ``asc`` (ascending) or\n``desc`` (descending). Default direction is ``asc`` (ascending).\n\nSpecify the list as < key > [: < direction > ].\n\nFor example, the following query parameters in the URI sort the\nobjects in the response by ``name`` in ascending order and then by\n``status`` in descending order:\n\n.. code-block:: json\n\n   GET /v2/images?sort=name:asc,status:desc\n\nThe following query parameters in the URI sort the objects in the\nresponse by ``name`` in descending order and then by ``status`` in\nascending order.\n\n.. code-block:: json\n\n   GET /v2/images?sort=name:desc,status", 
+            "format": "", 
+            "in": "query", 
+            "name": "sort", 
+            "required": false, 
+            "type": "string"
+          }, 
+          {
+            "description": "Indicates whether to include objects for all projects or objects\nfor the current project in the response.\n\nIf you are an administrative user and you set this value to\n``true``, the call returns all objects from all projects. Default\nis ``false``, which returns only objects in the current project.", 
+            "format": "", 
+            "in": "query", 
+            "name": "global_project", 
+            "required": false, 
+            "type": "boolean"
+          }, 
+          {
+            "description": "Filters the response by the cluster that owns a node.", 
+            "format": "", 
+            "in": "query", 
+            "name": "cluster_id", 
+            "required": false, 
+            "type": "string"
+          }, 
+          {
+            "description": "Filters the response by the name of a node.", 
+            "format": "", 
+            "in": "query", 
+            "name": "name", 
+            "required": false, 
+            "type": "string"
+          }, 
+          {
+            "description": "Filters the response by the status of a node.", 
+            "format": "", 
+            "in": "query", 
+            "name": "status", 
+            "required": false, 
+            "type": "string"
+          }
+        ], 
+        "produces": [
+          "application/json"
+        ], 
+        "responses": {
+          "200": {
+            "description": "", 
+            "examples": {
+              "application/json": {
+                "nodes": [
+                  {
+                    "cluster_id": null, 
+                    "created_at": "2015-02-27T04:39:21", 
+                    "data": {}, 
+                    "details": {}, 
+                    "domain": null, 
+                    "id": "573aa1ba-bf45-49fd-907d-6b5d6e6adfd3", 
+                    "index": -1, 
+                    "init_at": "2015-02-27T04:39:18", 
+                    "metadata": {}, 
+                    "name": "node00a", 
+                    "physical_id": "cc028275-d078-4729-bf3e-154b7359814b", 
+                    "profile_id": "edc63d0a-2ca4-48fa-9854-27926da76a4a", 
+                    "profile_name": "mystack", 
+                    "project": "6e18cc2bdbeb48a5b3cad2dc499f6804", 
+                    "role": null, 
+                    "status": "ACTIVE", 
+                    "status_reason": "Creation succeeded", 
+                    "updated_at": null, 
+                    "user": "5e5bf8027826429c96af157f68dc9072"
+                  }
+                ]
+              }
+            }, 
+            "headers": {}, 
+            "schema": {
+              "$ref": "#/definitions/listNodes_200"
+            }
+          }
+        }, 
+        "summary": "Lists all nodes.", 
+        "tags": [
+          "clustering-v1-nodes"
+        ], 
+        "x-title": "List nodes"
+      }, 
+      "post": {
+        "consumes": [
+          "application/json"
+        ], 
+        "description": "", 
+        "operationId": "createNode", 
+        "parameters": [
+          {
+            "description": "", 
+            "in": "body", 
+            "name": "body", 
+            "required": false, 
+            "schema": {
+              "$ref": "#/definitions/createNode"
+            }
+          }
+        ], 
+        "produces": [
+          "application/json"
+        ], 
+        "responses": {
+          "202": {
+            "description": "", 
+            "examples": {
+              "application/json": {
+                "node": {
+                  "cluster_id": null, 
+                  "created_at": null, 
+                  "data": {}, 
+                  "domain": null, 
+                  "id": "0df0931b-e251-4f2e-8719-4ebfda3627ba", 
+                  "index": -1, 
+                  "init_at": "2015-03-05T08:53:15", 
+                  "metadata": {}, 
+                  "name": "node009", 
+                  "physical_id": "", 
+                  "profile_id": "edc63d0a-2ca4-48fa-9854-27926da76a4a", 
+                  "profile_name": "mystack", 
+                  "project": "6e18cc2bdbeb48a5b3cad2dc499f6804", 
+                  "role": "master", 
+                  "status": "INIT", 
+                  "status_reason": "Initializing", 
+                  "updated_at": null, 
+                  "user": "5e5bf8027826429c96af157f68dc9072"
+                }
+              }
+            }, 
+            "headers": {
+              "location": {
+                "description": "The URL against which to check the status of the action spawned\nfrom the request.", 
+                "format": "", 
+                "type": "string"
+              }
+            }, 
+            "schema": {
+              "$ref": "#/definitions/createNode_202"
+            }
+          }
+        }, 
+        "summary": "Creates a node.", 
+        "tags": [
+          "clustering-v1-nodes"
+        ], 
+        "x-title": "Create node"
+      }
+    }, 
+    "/v1/nodes/{node_id}": {
+      "delete": {
+        "consumes": [], 
+        "description": "", 
+        "operationId": "deleteNode", 
+        "parameters": [
+          {
+            "description": "The UUID of the node.", 
+            "format": "", 
+            "in": "path", 
+            "name": "node_id", 
+            "required": true, 
+            "type": "string"
+          }
+        ], 
+        "produces": [], 
+        "responses": {
+          "202": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {
+              "location": {
+                "description": "The URL against which to check the status of the action spawned\nfrom the request.", 
+                "format": "", 
+                "type": "string"
+              }
+            }, 
+            "schema": {}
+          }
+        }, 
+        "summary": "Deletes a node.", 
+        "tags": [
+          "clustering-v1-nodes"
+        ], 
+        "x-title": "Delete node"
+      }, 
+      "get": {
+        "consumes": [
+          "application/json"
+        ], 
+        "description": "", 
+        "operationId": "showNode", 
+        "parameters": [
+          {
+            "description": "The UUID of the node.", 
+            "format": "", 
+            "in": "path", 
+            "name": "node_id", 
+            "required": true, 
+            "type": "string"
+          }, 
+          {
+            "description": "Indicates whether the node details are returned. Default is\n``false``.", 
+            "format": "", 
+            "in": "query", 
+            "name": "show_details", 
+            "required": false, 
+            "type": "boolean"
+          }
+        ], 
+        "produces": [
+          "application/json"
+        ], 
+        "responses": {
+          "200": {
+            "description": "", 
+            "examples": {
+              "application/json": {
+                "node": {
+                  "cluster_id": null, 
+                  "created_at": "2015-02-10T12:03:16", 
+                  "data": {}, 
+                  "domain": null, 
+                  "id": "d5779bb0-f0a0-49c9-88cc-6f078adb5a0b", 
+                  "index": -1, 
+                  "init_at": "2015-02-10T12:03:13", 
+                  "metadata": {}, 
+                  "name": "node1", 
+                  "physical_id": "f41537fa-22ab-4bea-94c0-c874e19d0c80", 
+                  "profile_id": "edc63d0a-2ca4-48fa-9854-27926da76a4a", 
+                  "profile_name": "mystack", 
+                  "project": "6e18cc2bdbeb48a5b3cad2dc499f6804", 
+                  "role": null, 
+                  "status": "ACTIVE", 
+                  "status_reason": "Creation succeeded", 
+                  "updated_at": "2015-03-04T04:58:27", 
+                  "user": "5e5bf8027826429c96af157f68dc9072"
+                }
+              }
+            }, 
+            "headers": {}, 
+            "schema": {}
+          }
+        }, 
+        "summary": "Shows data for a node.", 
+        "tags": [
+          "clustering-v1-nodes"
+        ], 
+        "x-title": "Show node details"
+      }, 
+      "patch": {
+        "consumes": [
+          "application/json"
+        ], 
+        "description": "", 
+        "operationId": "updateNode", 
+        "parameters": [
+          {
+            "description": "", 
+            "in": "body", 
+            "name": "body", 
+            "required": false, 
+            "schema": {
+              "$ref": "#/definitions/updateNode"
+            }
+          }, 
+          {
+            "description": "The UUID of the node.", 
+            "format": "", 
+            "in": "path", 
+            "name": "node_id", 
+            "required": true, 
+            "type": "string"
+          }
+        ], 
+        "produces": [
+          "application/json"
+        ], 
+        "responses": {
+          "202": {
+            "description": "", 
+            "examples": {
+              "application/json": {
+                "node": {
+                  "action": "2366d440-c73e-4961-9254-6d1c3af7c167", 
+                  "cluster_id": null, 
+                  "created_at": null, 
+                  "data": {}, 
+                  "domain": null, 
+                  "id": "0df0931b-e251-4f2e-8719-4ebfda3627ba", 
+                  "index": -1, 
+                  "init_at": "2015-03-05T08:53:15", 
+                  "metadata": {}, 
+                  "name": "node009", 
+                  "physical_id": "", 
+                  "profile_id": "edc63d0a-2ca4-48fa-9854-27926da76a4a", 
+                  "profile_name": "mystack", 
+                  "project": "6e18cc2bdbeb48a5b3cad2dc499f6804", 
+                  "role": "master", 
+                  "status": "ACTIVE", 
+                  "status_reason": "Update succeeded", 
+                  "updated_at": "2015-09-01T18:53:15", 
+                  "user": "5e5bf8027826429c96af157f68dc9072"
+                }
+              }
+            }, 
+            "headers": {
+              "location": {
+                "description": "The URL against which to check the status of the action spawned\nfrom the request.", 
+                "format": "", 
+                "type": "string"
+              }
+            }, 
+            "schema": {
+              "$ref": "#/definitions/updateNode_202"
+            }
+          }
+        }, 
+        "summary": "Updates a node.", 
+        "tags": [
+          "clustering-v1-nodes"
+        ], 
+        "x-title": "Update node"
+      }
+    }, 
+    "/v1/nodes/{node_id}/actions": {
+      "post": {
+        "consumes": [], 
+        "description": "", 
+        "operationId": "nodeAction", 
+        "parameters": [
+          {
+            "description": "", 
+            "in": "body", 
+            "name": "body", 
+            "required": false, 
+            "schema": {
+              "$ref": "#/definitions/nodeAction"
+            }
+          }, 
+          {
+            "description": "The UUID of the node.", 
+            "format": "", 
+            "in": "path", 
+            "name": "node_id", 
+            "required": true, 
+            "type": "string"
+          }
+        ], 
+        "produces": [], 
+        "responses": {
+          "202": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {
+              "location": {
+                "description": "The URL against which to check the status of the action spawned\nfrom the request.", 
+                "format": "", 
+                "type": "string"
+              }
+            }, 
+            "schema": {}
+          }
+        }, 
+        "summary": "Triggers an action on a node.", 
+        "tags": [
+          "clustering-v1-nodes"
+        ], 
+        "x-title": "Trigger node action"
+      }
+    }, 
+    "/v1/policies": {
+      "get": {
+        "consumes": [
+          "application/json"
+        ], 
+        "description": "", 
+        "operationId": "listPolicies", 
+        "parameters": [
+          {
+            "description": "Requests a page size of items. Returns a number of items up to a\nlimit value. Use the ``limit`` parameter to make an initial limited\nrequest and use the ID of the last-seen item from the response as\nthe ``marker`` parameter value in a subsequent limited request.", 
+            "format": "", 
+            "in": "query", 
+            "name": "limit", 
+            "required": false, 
+            "type": "integer"
+          }, 
+          {
+            "description": "The ID of the last-seen item. Use the ``limit`` parameter to make\nan initial limited request and use the ID of the last-seen item\nfrom the response as the ``marker`` parameter value in a subsequent\nlimited request.", 
+            "format": "", 
+            "in": "query", 
+            "name": "marker", 
+            "required": false, 
+            "type": "string"
+          }, 
+          {
+            "description": "Sorts the response by one or more attribute and optional sort\ndirection combinations. A valid direction is ``asc`` (ascending) or\n``desc`` (descending). Default direction is ``asc`` (ascending).\n\nSpecify the list as < key > [: < direction > ].\n\nFor example, the following query parameters in the URI sort the\nobjects in the response by ``name`` in ascending order and then by\n``status`` in descending order:\n\n.. code-block:: json\n\n   GET /v2/images?sort=name:asc,status:desc\n\nThe following query parameters in the URI sort the objects in the\nresponse by ``name`` in descending order and then by ``status`` in\nascending order.\n\n.. code-block:: json\n\n   GET /v2/images?sort=name:desc,status", 
+            "format": "", 
+            "in": "query", 
+            "name": "sort", 
+            "required": false, 
+            "type": "string"
+          }, 
+          {
+            "description": "Indicates whether to include objects for all projects or objects\nfor the current project in the response.\n\nIf you are an administrative user and you set this value to\n``true``, the call returns all objects from all projects. Default\nis ``false``, which returns only objects in the current project.", 
+            "format": "", 
+            "in": "query", 
+            "name": "global_project", 
+            "required": false, 
+            "type": "boolean"
+          }, 
+          {
+            "description": "Filters the response by the name of a policy.", 
+            "format": "", 
+            "in": "query", 
+            "name": "name", 
+            "required": false, 
+            "type": "string"
+          }, 
+          {
+            "description": "Filters the response by the type of a policy.", 
+            "format": "", 
+            "in": "query", 
+            "name": "type", 
+            "required": false, 
+            "type": "string"
+          }
+        ], 
+        "produces": [
+          "application/json"
+        ], 
+        "responses": {
+          "200": {
+            "description": "", 
+            "examples": {
+              "application/json": {
+                "policies": [
+                  {
+                    "created_at": "2015-02-15T08:33:13.000000", 
+                    "data": {}, 
+                    "domain": null, 
+                    "id": "7192d8df-73be-4e98-ab99-1cf6d5066729", 
+                    "name": "test_policy_1", 
+                    "project": "42d9e9663331431f97b75e25136307ff", 
+                    "spec": {
+                      "description": "A test policy", 
+                      "properties": {
+                        "criteria": "OLDEST_FIRST", 
+                        "destroy_after_deletion": true, 
+                        "grace_period": 60, 
+                        "reduce_desired_capacity": false
+                      }, 
+                      "type": "senlin.policy.deletion", 
+                      "version": "1.0"
+                    }, 
+                    "type": "senlin.policy.deletion-1.0", 
+                    "updated_at": null, 
+                    "user": "5e5bf8027826429c96af157f68dc9072"
+                  }
+                ]
+              }
+            }, 
+            "headers": {}, 
+            "schema": {
+              "$ref": "#/definitions/listPolicies_200"
+            }
+          }
+        }, 
+        "summary": "Lists all policies.", 
+        "tags": [
+          "clustering-v1-policies"
+        ], 
+        "x-title": "List policies"
+      }, 
+      "post": {
+        "consumes": [
+          "application/json"
+        ], 
+        "description": "", 
+        "operationId": "createPolicy", 
+        "parameters": [
+          {
+            "description": "", 
+            "in": "body", 
+            "name": "body", 
+            "required": false, 
+            "schema": {
+              "$ref": "#/definitions/createPolicy"
+            }
+          }
+        ], 
+        "produces": [
+          "application/json"
+        ], 
+        "responses": {
+          "201": {
+            "description": "", 
+            "examples": {
+              "application/json": {
+                "policy": {
+                  "created_at": "2015-03-02T07:40:31", 
+                  "data": {}, 
+                  "domain": null, 
+                  "id": "02f62195-2198-4797-b0a9-877632208527", 
+                  "name": "sp001", 
+                  "project": "42d9e9663331431f97b75e25136307ff", 
+                  "spec": {
+                    "properties": {
+                      "adjustment": {
+                        "best_effort": true, 
+                        "min_step": 1, 
+                        "number": 1, 
+                        "type": "CHANGE_IN_CAPACITY"
+                      }, 
+                      "event": "CLUSTER_SCALE_IN"
+                    }, 
+                    "type": "senlin.policy.scaling", 
+                    "version": "1.0"
+                  }, 
+                  "type": "senlin.policy.scaling-1.0", 
+                  "updated_at": null, 
+                  "user": "5e5bf8027826429c96af157f68dc9072"
+                }
+              }
+            }, 
+            "headers": {
+              "location": {
+                "description": "The URL against which to check the status of the resource.", 
+                "format": "", 
+                "type": "string"
+              }
+            }, 
+            "schema": {
+              "$ref": "#/definitions/createPolicy_201"
+            }
+          }
+        }, 
+        "summary": "Creates a policy.", 
+        "tags": [
+          "clustering-v1-policies"
+        ], 
+        "x-title": "Create policy"
+      }
+    }, 
+    "/v1/policies/{policy_id}": {
+      "delete": {
+        "consumes": [], 
+        "description": "", 
+        "operationId": "deletePolicy", 
+        "parameters": [
+          {
+            "description": "The UUID of the policy.", 
+            "format": "", 
+            "in": "path", 
+            "name": "policy_id", 
+            "required": true, 
+            "type": "string"
+          }
+        ], 
+        "produces": [], 
+        "responses": {
+          "204": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }
+        }, 
+        "summary": "Deletes a policy.", 
+        "tags": [
+          "clustering-v1-policies"
+        ], 
+        "x-title": "Delete policy"
+      }, 
+      "get": {
+        "consumes": [
+          "application/json"
+        ], 
+        "description": "", 
+        "operationId": "showPolicy", 
+        "parameters": [
+          {
+            "description": "The UUID of the policy.", 
+            "format": "", 
+            "in": "path", 
+            "name": "policy_id", 
+            "required": true, 
+            "type": "string"
+          }
+        ], 
+        "produces": [
+          "application/json"
+        ], 
+        "responses": {
+          "200": {
+            "description": "", 
+            "examples": {
+              "application/json": {
+                "policy": {
+                  "created_at": "2015-03-02T07:40:31", 
+                  "data": {}, 
+                  "domain": null, 
+                  "id": "02f62195-2198-4797-b0a9-877632208527", 
+                  "name": "sp001", 
+                  "project": "42d9e9663331431f97b75e25136307ff", 
+                  "spec": {
+                    "properties": {
+                      "adjustment": {
+                        "best_effort": true, 
+                        "min_step": 1, 
+                        "number": 1, 
+                        "type": "CHANGE_IN_CAPACITY"
+                      }, 
+                      "event": "CLUSTER_SCALE_IN"
+                    }, 
+                    "type": "senlin.policy.scaling", 
+                    "version": "1.0"
+                  }, 
+                  "type": "senlin.policy.scaling-1.0", 
+                  "updated_at": null, 
+                  "user": "5e5bf8027826429c96af157f68dc9072"
+                }
+              }
+            }, 
+            "headers": {}, 
+            "schema": {}
+          }
+        }, 
+        "summary": "Shows details for a policy.", 
+        "tags": [
+          "clustering-v1-policies"
+        ], 
+        "x-title": "Show policy details"
+      }, 
+      "patch": {
+        "consumes": [
+          "application/json"
+        ], 
+        "description": "", 
+        "operationId": "updatePolicy", 
+        "parameters": [
+          {
+            "description": "", 
+            "in": "body", 
+            "name": "body", 
+            "required": false, 
+            "schema": {
+              "$ref": "#/definitions/updatePolicy"
+            }
+          }, 
+          {
+            "description": "The UUID of the policy.", 
+            "format": "", 
+            "in": "path", 
+            "name": "policy_id", 
+            "required": true, 
+            "type": "string"
+          }
+        ], 
+        "produces": [
+          "application/json"
+        ], 
+        "responses": {
+          "200": {
+            "description": "", 
+            "examples": {
+              "application/json": {
+                "policy": {
+                  "created_at": "2015-10-14T09:14:53", 
+                  "data": {}, 
+                  "domain": null, 
+                  "id": "ac5415bd-f522-4160-8be0-f8853e4bc332", 
+                  "name": "dp01", 
+                  "project": "42d9e9663331431f97b75e25136307ff", 
+                  "spec": {
+                    "description": "A policy for node deletion.", 
+                    "properties": {
+                      "criteria": "OLDEST_FIRST", 
+                      "destroy_after_deletion": true, 
+                      "grace_period": 60, 
+                      "reduce_desired_capacity": false
+                    }, 
+                    "type": "senlin.policy.deletion", 
+                    "version": "1.0"
+                  }, 
+                  "type": "senlin.policy.deletion-1.0", 
+                  "updated_at": null, 
+                  "user": "5e5bf8027826429c96af157f68dc9072"
+                }
+              }
+            }, 
+            "headers": {}, 
+            "schema": {}
+          }
+        }, 
+        "summary": "Updates a policy.", 
+        "tags": [
+          "clustering-v1-policies"
+        ], 
+        "x-title": "Update policy"
+      }
+    }, 
+    "/v1/policy-types": {
+      "get": {
+        "consumes": [
+          "application/json"
+        ], 
+        "description": "", 
+        "operationId": "listPolicyType", 
+        "parameters": [], 
+        "produces": [
+          "application/json"
+        ], 
+        "responses": {
+          "200": {
+            "description": "", 
+            "examples": {
+              "application/json": {
+                "policy_types": [
+                  {
+                    "name": "ScalingPolicy"
+                  }, 
+                  {
+                    "name": "PlacementPolicy"
+                  }, 
+                  {
+                    "name": "DeletionPolicy"
+                  }, 
+                  {
+                    "name": "LoadBalancingPolicy"
+                  }, 
+                  {
+                    "name": "HealthPolicy"
+                  }, 
+                  {
+                    "name": "UpdatePolicy"
+                  }
+                ]
+              }
+            }, 
+            "headers": {}, 
+            "schema": {
+              "$ref": "#/definitions/listPolicyType_200"
+            }
+          }
+        }, 
+        "summary": "Lists all supported policy types.", 
+        "tags": [
+          "clustering-v1-policy_types"
+        ], 
+        "x-title": "List policy types"
+      }
+    }, 
+    "/v1/policy-types/{policy_type}": {
+      "get": {
+        "consumes": [
+          "application/json"
+        ], 
+        "description": "", 
+        "operationId": "showPolicyType", 
+        "parameters": [
+          {
+            "description": "The name of the policy type.", 
+            "format": "", 
+            "in": "path", 
+            "name": "policy_type", 
+            "required": true, 
+            "type": "string"
+          }
+        ], 
+        "produces": [
+          "application/json"
+        ], 
+        "responses": {
+          "200": {
+            "description": "", 
+            "examples": {
+              "application/json": {
+                "policy_type": {
+                  "name": "senlin.policy.deletion", 
+                  "schema": {
+                    "criteria": {
+                      "constraints": [
+                        {
+                          "constraint": [
+                            "OLDEST_FIRST", 
+                            "OLDEST_PROFILE_FRIST", 
+                            "YOUNGEST_FIRST", 
+                            "RANDOM"
+                          ], 
+                          "type": "AllowedValues"
+                        }
+                      ], 
+                      "default": "RANDOM", 
+                      "description": "Criteria used in selecting candidates for deletion", 
+                      "required": false, 
+                      "type": "String"
+                    }, 
+                    "destroy_after_deletion": {
+                      "default": true, 
+                      "description": "Whether a node should be completely destroyed after deletion. Default to true", 
+                      "required": false, 
+                      "type": "Boolean"
+                    }, 
+                    "grace_period": {
+                      "default": 0, 
+                      "description": "Number of seconds before real deletion happens.", 
+                      "required": false, 
+                      "type": "Integer"
+                    }, 
+                    "reduce_desired_capacity": {
+                      "default": false, 
+                      "description": "Whether the desired capacity of the cluster should be reduced along the deletion. Default to false.", 
+                      "required": false, 
+                      "type": "Boolean"
+                    }
+                  }
+                }
+              }
+            }, 
+            "headers": {}, 
+            "schema": {}
+          }
+        }, 
+        "summary": "Shows details for a policy type.", 
+        "tags": [
+          "clustering-v1-policy_types"
+        ], 
+        "x-title": "Show policy type details"
+      }
+    }, 
+    "/v1/profile-types": {
+      "get": {
+        "consumes": [
+          "application/json"
+        ], 
+        "description": "", 
+        "operationId": "listProfileTypes", 
+        "parameters": [], 
+        "produces": [
+          "application/json"
+        ], 
+        "responses": {
+          "200": {
+            "description": "", 
+            "examples": {
+              "application/json": {
+                "profile_types": [
+                  {
+                    "name": "os.heat.stack"
+                  }, 
+                  {
+                    "name": "os.heat.resource"
+                  }, 
+                  {
+                    "name": "os.nova.server"
+                  }
+                ]
+              }
+            }, 
+            "headers": {}, 
+            "schema": {}
+          }
+        }, 
+        "summary": "Lists supported profile types.", 
+        "tags": [
+          "clustering-v1-profile_types"
+        ], 
+        "x-title": "List profile types"
+      }
+    }, 
+    "/v1/profile-types/{profile_type}": {
+      "get": {
+        "consumes": [
+          "application/json"
+        ], 
+        "description": "", 
+        "operationId": "showProfileType", 
+        "parameters": [
+          {
+            "description": "The name of the profile type.", 
+            "format": "", 
+            "in": "path", 
+            "name": "profile_type", 
+            "required": true, 
+            "type": "string"
+          }
+        ], 
+        "produces": [
+          "application/json"
+        ], 
+        "responses": {
+          "200": {
+            "description": "", 
+            "examples": {
+              "application/json": {
+                "profile_type": {
+                  "name": "os.heat.stack", 
+                  "schema": {
+                    "context": {
+                      "default": {}, 
+                      "description": "A dictionary for specifying the customized context for stack operations", 
+                      "required": false, 
+                      "type": "Map"
+                    }, 
+                    "disable_rollback": {
+                      "default": true, 
+                      "description": "A boolean specifying whether a stack operation can be rolled back.", 
+                      "required": false, 
+                      "type": "Boolean"
+                    }, 
+                    "environment": {
+                      "default": {}, 
+                      "description": "A map that specifies the environment used for stack operations.", 
+                      "required": false, 
+                      "type": "Map"
+                    }, 
+                    "files": {
+                      "default": {}, 
+                      "description": "Contents of files referenced by the template, if any.", 
+                      "required": false, 
+                      "type": "Map"
+                    }, 
+                    "parameters": {
+                      "default": {}, 
+                      "description": "Parameters to be passed to Heat for stack operations.", 
+                      "required": false, 
+                      "type": "Map"
+                    }, 
+                    "template": {
+                      "description": "Heat stack template.", 
+                      "required": true, 
+                      "type": "Map"
+                    }, 
+                    "timeout": {
+                      "description": "A integer that specifies the number of minutes that a stack operation times out.", 
+                      "required": false, 
+                      "type": "Integer"
+                    }
+                  }
+                }
+              }
+            }, 
+            "headers": {}, 
+            "schema": {}
+          }
+        }, 
+        "summary": "Shows details for a profile type.", 
+        "tags": [
+          "clustering-v1-profile_types"
+        ], 
+        "x-title": "Show profile type details"
+      }
+    }, 
+    "/v1/profiles": {
+      "get": {
+        "consumes": [
+          "application/json"
+        ], 
+        "description": "", 
+        "operationId": "listProfiles", 
+        "parameters": [
+          {
+            "description": "Requests a page size of items. Returns a number of items up to a\nlimit value. Use the ``limit`` parameter to make an initial limited\nrequest and use the ID of the last-seen item from the response as\nthe ``marker`` parameter value in a subsequent limited request.", 
+            "format": "", 
+            "in": "query", 
+            "name": "limit", 
+            "required": false, 
+            "type": "integer"
+          }, 
+          {
+            "description": "The ID of the last-seen item. Use the ``limit`` parameter to make\nan initial limited request and use the ID of the last-seen item\nfrom the response as the ``marker`` parameter value in a subsequent\nlimited request.", 
+            "format": "", 
+            "in": "query", 
+            "name": "marker", 
+            "required": false, 
+            "type": "string"
+          }, 
+          {
+            "description": "Sorts the response by one or more attribute and optional sort\ndirection combinations. A valid direction is ``asc`` (ascending) or\n``desc`` (descending). Default direction is ``asc`` (ascending).\n\nSpecify the list as < key > [: < direction > ].\n\nFor example, the following query parameters in the URI sort the\nobjects in the response by ``name`` in ascending order and then by\n``status`` in descending order:\n\n.. code-block:: json\n\n   GET /v2/images?sort=name:asc,status:desc\n\nThe following query parameters in the URI sort the objects in the\nresponse by ``name`` in descending order and then by ``status`` in\nascending order.\n\n.. code-block:: json\n\n   GET /v2/images?sort=name:desc,status", 
+            "format": "", 
+            "in": "query", 
+            "name": "sort", 
+            "required": false, 
+            "type": "string"
+          }, 
+          {
+            "description": "Indicates whether to include objects for all projects or objects\nfor the current project in the response.\n\nIf you are an administrative user and you set this value to\n``true``, the call returns all objects from all projects. Default\nis ``false``, which returns only objects in the current project.", 
+            "format": "", 
+            "in": "query", 
+            "name": "global_project", 
+            "required": false, 
+            "type": "boolean"
+          }, 
+          {
+            "description": "Filters the response by the name of a profile.", 
+            "format": "", 
+            "in": "query", 
+            "name": "name", 
+            "required": false, 
+            "type": "string"
+          }, 
+          {
+            "description": "Filters the response by the type of a profile.", 
+            "format": "", 
+            "in": "query", 
+            "name": "type", 
+            "required": false, 
+            "type": "string"
+          }, 
+          {
+            "description": "Filters the response by a metadata key and value pair.", 
+            "format": "", 
+            "in": "query", 
+            "name": "metadata", 
+            "required": false, 
+            "type": "object"
+          }
+        ], 
+        "produces": [
+          "application/json"
+        ], 
+        "responses": {
+          "200": {
+            "description": "", 
+            "examples": {
+              "application/json": {
+                "profiles": [
+                  {
+                    "created_at": "2015-02-10T11:46:33.000000", 
+                    "domain": null, 
+                    "id": "edc63d0a-2ca4-48fa-9854-27926da76a4a", 
+                    "metadata": {}, 
+                    "name": "mystack", 
+                    "project": "42d9e9663331431f97b75e25136307ff", 
+                    "spec": {
+                      "properties": {
+                        "disable_rollback": false, 
+                        "environment": {
+                          "resource_registry": {
+                            "os.heat.server": "OS::Heat::Server"
+                          }
+                        }, 
+                        "files": {
+                          "file:///opt/stack/senlin/examples/profiles/test_script.sh": "#!/bin/bash\n\necho \"this is a test script file\"\n"
+                        }, 
+                        "name": "random_string_stack", 
+                        "parameters": {}, 
+                        "rollback": false, 
+                        "template": {
+                          "heat_template_version": "2014-10-16", 
+                          "outputs": {
+                            "result": {
+                              "value": {
+                                "get_attr": [
+                                  "random", 
+                                  "value"
+                                ]
+                              }
+                            }
+                          }, 
+                          "parameters": {
+                            "file": {
+                              "default": {
+                                "get_file": "file:///opt/stack/senlin/examples/profiles/test_script.sh"
+                              }, 
+                              "type": "string"
+                            }
+                          }, 
+                          "resources": {
+                            "random": {
+                              "properties": {
+                                "length": 64
+                              }, 
+                              "type": "OS::Heat::RandomString"
+                            }
+                          }
+                        }, 
+                        "timeout": 60
+                      }, 
+                      "type": "os.heat.stack", 
+                      "version": "1.0"
+                    }, 
+                    "type": "os.heat.stack-1.0", 
+                    "updated_at": null, 
+                    "user": "5e5bf8027826429c96af157f68dc9072"
+                  }
+                ]
+              }
+            }, 
+            "headers": {}, 
+            "schema": {
+              "$ref": "#/definitions/listProfiles_200"
+            }
+          }
+        }, 
+        "summary": "Lists all profiles.", 
+        "tags": [
+          "clustering-v1-profiles"
+        ], 
+        "x-title": "List profiles"
+      }, 
+      "post": {
+        "consumes": [
+          "application/json"
+        ], 
+        "description": "", 
+        "operationId": "createProfile", 
+        "parameters": [
+          {
+            "description": "", 
+            "in": "body", 
+            "name": "body", 
+            "required": false, 
+            "schema": {
+              "$ref": "#/definitions/createProfile"
+            }
+          }
+        ], 
+        "produces": [
+          "application/json"
+        ], 
+        "responses": {
+          "201": {
+            "description": "", 
+            "examples": {
+              "application/json": {
+                "profile": {
+                  "created_at": "2015-03-01T14:28:25", 
+                  "domain": null, 
+                  "id": "7fa885cd-fa39-4531-a42d-780af95c84a4", 
+                  "metadata": {}, 
+                  "name": "test_prof1", 
+                  "project": "42d9e9663331431f97b75e25136307ff", 
+                  "spec": {
+                    "properties": {
+                      "disable_rollback": false, 
+                      "environment": {
+                        "resource_registry": {
+                          "os.heat.server": "OS::Heat::Server"
+                        }
+                      }, 
+                      "files": {
+                        "file:///opt/stack/senlin/examples/profiles/test_script.sh": "#!/bin/bash\n\necho \"this is a test script file\"\n"
+                      }, 
+                      "parameters": {}, 
+                      "template": {
+                        "heat_template_version": "2014-10-16", 
+                        "outputs": {
+                          "result": {
+                            "value": {
+                              "get_attr": [
+                                "random", 
+                                "value"
+                              ]
+                            }
+                          }
+                        }, 
+                        "parameters": {
+                          "file": {
+                            "default": {
+                              "get_file": "file:///opt/stack/senlin/examples/profiles/test_script.sh"
+                            }, 
+                            "type": "string"
+                          }
+                        }, 
+                        "resources": {
+                          "random": {
+                            "properties": {
+                              "length": 64
+                            }, 
+                            "type": "OS::Heat::RandomString"
+                          }
+                        }
+                      }, 
+                      "timeout": 60
+                    }, 
+                    "type": "os.heat.stack", 
+                    "version": "1.0"
+                  }, 
+                  "type": "os.heat.stack-1.0", 
+                  "updated_at": null, 
+                  "user": "5e5bf8027826429c96af157f68dc9072"
+                }
+              }
+            }, 
+            "headers": {
+              "location": {
+                "description": "The URL against which to check the status of the resource.", 
+                "format": "", 
+                "type": "string"
+              }
+            }, 
+            "schema": {
+              "$ref": "#/definitions/createProfile_201"
+            }
+          }
+        }, 
+        "summary": "Creates a profile.", 
+        "tags": [
+          "clustering-v1-profiles"
+        ], 
+        "x-title": "Create profile"
+      }
+    }, 
+    "/v1/profiles/{profile_id}": {
+      "delete": {
+        "consumes": [], 
+        "description": "", 
+        "operationId": "deleteProfile", 
+        "parameters": [
+          {
+            "description": "The UUID of the profile.", 
+            "format": "", 
+            "in": "path", 
+            "name": "profile_id", 
+            "required": true, 
+            "type": "string"
+          }
+        ], 
+        "produces": [], 
+        "responses": {
+          "204": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }
+        }, 
+        "summary": "Deletes a profile.", 
+        "tags": [
+          "clustering-v1-profiles"
+        ], 
+        "x-title": "Delete profile"
+      }, 
+      "get": {
+        "consumes": [
+          "application/json"
+        ], 
+        "description": "", 
+        "operationId": "showProfile", 
+        "parameters": [
+          {
+            "description": "The UUID of the profile.", 
+            "format": "", 
+            "in": "path", 
+            "name": "profile_id", 
+            "required": true, 
+            "type": "string"
+          }
+        ], 
+        "produces": [
+          "application/json"
+        ], 
+        "responses": {
+          "200": {
+            "description": "", 
+            "examples": {
+              "application/json": {
+                "profile": {
+                  "created_at": "2015-03-01T14:28:25", 
+                  "domain": null, 
+                  "id": "7fa885cd-fa39-4531-a42d-780af95c84a4", 
+                  "metadata": {}, 
+                  "name": "test_prof1", 
+                  "project": "42d9e9663331431f97b75e25136307ff", 
+                  "spec": {
+                    "disable_rollback": false, 
+                    "environment": {
+                      "resource_registry": {
+                        "os.heat.server": "OS::Heat::Server"
+                      }
+                    }, 
+                    "files": {
+                      "file:///opt/stack/senlin/examples/profiles/test_script.sh": "#!/bin/bash\n\necho \"this is a test script file\"\n"
+                    }, 
+                    "parameters": {}, 
+                    "template": {
+                      "heat_template_version": "2014-10-16", 
+                      "outputs": {
+                        "result": {
+                          "value": {
+                            "get_attr": [
+                              "random", 
+                              "value"
+                            ]
+                          }
+                        }
+                      }, 
+                      "parameters": {
+                        "file": {
+                          "default": {
+                            "get_file": "file:///opt/stack/senlin/examples/profiles/test_script.sh"
+                          }, 
+                          "type": "string"
+                        }
+                      }, 
+                      "resources": {
+                        "random": {
+                          "properties": {
+                            "length": 64
+                          }, 
+                          "type": "OS::Heat::RandomString"
+                        }
+                      }, 
+                      "timeout": 60
+                    }, 
+                    "type": "os.heat.stack", 
+                    "version": "1.0"
+                  }, 
+                  "type": "os.heat.stack-1.0", 
+                  "updated_at": null, 
+                  "user": "5e5bf8027826429c96af157f68dc9072"
+                }
+              }
+            }, 
+            "headers": {}, 
+            "schema": {}
+          }
+        }, 
+        "summary": "Shows details for a profile.", 
+        "tags": [
+          "clustering-v1-profiles"
+        ], 
+        "x-title": "Show profile details"
+      }, 
+      "patch": {
+        "consumes": [
+          "application/json"
+        ], 
+        "description": "", 
+        "operationId": "updateProfile", 
+        "parameters": [
+          {
+            "description": "", 
+            "in": "body", 
+            "name": "body", 
+            "required": false, 
+            "schema": {
+              "$ref": "#/definitions/updateProfile"
+            }
+          }, 
+          {
+            "description": "The UUID of the profile.", 
+            "format": "", 
+            "in": "path", 
+            "name": "profile_id", 
+            "required": true, 
+            "type": "string"
+          }
+        ], 
+        "produces": [
+          "application/json"
+        ], 
+        "responses": {
+          "200": {
+            "description": "", 
+            "examples": {
+              "application/json": {
+                "profile": {
+                  "created_at": "2015-03-01T14:28:25", 
+                  "domain": null, 
+                  "id": "7fa885cd-fa39-4531-a42d-780af95c84a4", 
+                  "metadata": {}, 
+                  "name": "test_prof1", 
+                  "project": "42d9e9663331431f97b75e25136307ff", 
+                  "spec": {
+                    "disable_rollback": false, 
+                    "environment": {
+                      "resource_registry": {
+                        "os.heat.server": "OS::Heat::Server"
+                      }
+                    }, 
+                    "files": {
+                      "file:///opt/stack/senlin/examples/profiles/test_script.sh": "#!/bin/bash\n\necho \"this is a test script file\"\n"
+                    }, 
+                    "parameters": {}, 
+                    "template": {
+                      "heat_template_version": "2014-10-16", 
+                      "outputs": {
+                        "result": {
+                          "value": {
+                            "get_attr": [
+                              "random", 
+                              "value"
+                            ]
+                          }
+                        }
+                      }, 
+                      "parameters": {
+                        "file": {
+                          "default": {
+                            "get_file": "file:///opt/stack/senlin/examples/profiles/test_script.sh"
+                          }, 
+                          "type": "string"
+                        }
+                      }, 
+                      "resources": {
+                        "random": {
+                          "properties": {
+                            "length": 64
+                          }, 
+                          "type": "OS::Heat::RandomString"
+                        }
+                      }, 
+                      "timeout": 60
+                    }, 
+                    "type": "os.heat.stack", 
+                    "version": "1.0"
+                  }, 
+                  "type": "os.heat.stack-1.0", 
+                  "updated_at": null, 
+                  "user": "5e5bf8027826429c96af157f68dc9072"
+                }
+              }
+            }, 
+            "headers": {}, 
+            "schema": {}
+          }
+        }, 
+        "summary": "Updates a profile.", 
+        "tags": [
+          "clustering-v1-profiles"
+        ], 
+        "x-title": "Update profile"
+      }
+    }, 
+    "/v1/receivers": {
+      "get": {
+        "consumes": [
+          "application/json"
+        ], 
+        "description": "", 
+        "operationId": "listReceivers", 
+        "parameters": [
+          {
+            "description": "Requests a page size of items. Returns a number of items up to a\nlimit value. Use the ``limit`` parameter to make an initial limited\nrequest and use the ID of the last-seen item from the response as\nthe ``marker`` parameter value in a subsequent limited request.", 
+            "format": "", 
+            "in": "query", 
+            "name": "limit", 
+            "required": false, 
+            "type": "integer"
+          }, 
+          {
+            "description": "The ID of the last-seen item. Use the ``limit`` parameter to make\nan initial limited request and use the ID of the last-seen item\nfrom the response as the ``marker`` parameter value in a subsequent\nlimited request.", 
+            "format": "", 
+            "in": "query", 
+            "name": "marker", 
+            "required": false, 
+            "type": "string"
+          }, 
+          {
+            "description": "Sorts the response by one or more attribute and optional sort\ndirection combinations. A valid direction is ``asc`` (ascending) or\n``desc`` (descending). Default direction is ``asc`` (ascending).\n\nSpecify the list as < key > [: < direction > ].\n\nFor example, the following query parameters in the URI sort the\nobjects in the response by ``name`` in ascending order and then by\n``status`` in descending order:\n\n.. code-block:: json\n\n   GET /v2/images?sort=name:asc,status:desc\n\nThe following query parameters in the URI sort the objects in the\nresponse by ``name`` in descending order and then by ``status`` in\nascending order.\n\n.. code-block:: json\n\n   GET /v2/images?sort=name:desc,status", 
+            "format": "", 
+            "in": "query", 
+            "name": "sort", 
+            "required": false, 
+            "type": "string"
+          }, 
+          {
+            "description": "Indicates whether to include objects for all projects or objects\nfor the current project in the response.\n\nIf you are an administrative user and you set this value to\n``true``, the call returns all objects from all projects. Default\nis ``false``, which returns only objects in the current project.", 
+            "format": "", 
+            "in": "query", 
+            "name": "global_project", 
+            "required": false, 
+            "type": "boolean"
+          }, 
+          {
+            "description": "Filters the response by the name of a receiver.", 
+            "format": "", 
+            "in": "query", 
+            "name": "name", 
+            "required": false, 
+            "type": "string"
+          }, 
+          {
+            "description": "Filters the response by the type of a receiver.", 
+            "format": "", 
+            "in": "query", 
+            "name": "type", 
+            "required": false, 
+            "type": "string"
+          }, 
+          {
+            "description": "Filters the response by the user name of a receiver.", 
+            "format": "", 
+            "in": "query", 
+            "name": "user", 
+            "required": false, 
+            "type": "string"
+          }, 
+          {
+            "description": "Filters the response by the ID of the targeted cluster of a\nreceiver.", 
+            "format": "", 
+            "in": "query", 
+            "name": "cluster_id", 
+            "required": false, 
+            "type": "string"
+          }, 
+          {
+            "description": "Filters the response by the targeted action of a receiver.", 
+            "format": "", 
+            "in": "query", 
+            "name": "action", 
+            "required": false, 
+            "type": "string"
+          }
+        ], 
+        "produces": [
+          "application/json"
+        ], 
+        "responses": {
+          "200": {
+            "description": "", 
+            "examples": {
+              "application/json": {
+                "receivers": [
+                  {
+                    "action": "CLUSTER_SCALE_OUT", 
+                    "actor": {
+                      "trust_id": [
+                        "6dc6d336e3fc4c0a951b5698cd1236d9"
+                      ]
+                    }, 
+                    "channel": {
+                      "alarm_url": "http://node1:8778/v1/webhooks/e03dd2e5-8f2e-4ec1-8c6a-74ba891e5422/trigger?V=1&count=1"
+                    }, 
+                    "cluster_id": "ae63a10b-4a90-452c-aef1-113a0b255ee3", 
+                    "created_at": "2015-06-27T05:09:43", 
+                    "domain": "Default", 
+                    "id": "573aa1ba-bf45-49fd-907d-6b5d6e6adfd3", 
+                    "name": "cluster_inflate", 
+                    "params": {
+                      "count": "1"
+                    }, 
+                    "project": "6e18cc2bdbeb48a5b3cad2dc499f6804", 
+                    "type": "webhook", 
+                    "updated_at": null, 
+                    "user": "b4ad2d6e18cc2b9c48049f6dbe8a5b3c"
+                  }
+                ]
+              }
+            }, 
+            "headers": {}, 
+            "schema": {}
+          }
+        }, 
+        "summary": "Lists all receivers.", 
+        "tags": [
+          "clustering-v1-receivers"
+        ], 
+        "x-title": "List receivers"
+      }, 
+      "post": {
+        "consumes": [
+          "application/json"
+        ], 
+        "description": "", 
+        "operationId": "createReceiver", 
+        "parameters": [
+          {
+            "description": "", 
+            "in": "body", 
+            "name": "body", 
+            "required": false, 
+            "schema": {
+              "$ref": "#/definitions/createReceiver"
+            }
+          }
+        ], 
+        "produces": [
+          "application/json"
+        ], 
+        "responses": {
+          "201": {
+            "description": "", 
+            "examples": {
+              "application/json": {
+                "receiver": {
+                  "action": "CLUSTER_SCALE_OUT", 
+                  "actor": {
+                    "trust_id": [
+                      "6dc6d336e3fc4c0a951b5698cd1236d9"
+                    ]
+                  }, 
+                  "channel": {
+                    "alarm_url": "http://node1:8778/v1/webhooks/e03dd2e5-8f2e-4ec1-8c6a-74ba891e5422/trigger?V=1&count=1"
+                  }, 
+                  "cluster_id": "ae63a10b-4a90-452c-aef1-113a0b255ee3", 
+                  "created_at": "2015-06-27T05:09:43", 
+                  "domain": "Default", 
+                  "id": "573aa1ba-bf45-49fd-907d-6b5d6e6adfd3", 
+                  "name": "cluster_inflate", 
+                  "params": {
+                    "count": "1"
+                  }, 
+                  "project": "6e18cc2bdbeb48a5b3cad2dc499f6804", 
+                  "type": "webhook", 
+                  "updated_at": null, 
+                  "user": "b4ad2d6e18cc2b9c48049f6dbe8a5b3c"
+                }
+              }
+            }, 
+            "headers": {
+              "location": {
+                "description": "The URL against which to check the status of the resource.", 
+                "format": "", 
+                "type": "string"
+              }
+            }, 
+            "schema": {
+              "$ref": "#/definitions/createReceiver_201"
+            }
+          }
+        }, 
+        "summary": "Creates a receiver.", 
+        "tags": [
+          "clustering-v1-receivers"
+        ], 
+        "x-title": "Create receiver"
+      }
+    }, 
+    "/v1/receivers/{receiver_id}": {
+      "delete": {
+        "consumes": [], 
+        "description": "", 
+        "operationId": "deleteReceiver", 
+        "parameters": [
+          {
+            "description": "The UUID of the receiver.", 
+            "format": "", 
+            "in": "path", 
+            "name": "receiver_id", 
+            "required": true, 
+            "type": "string"
+          }
+        ], 
+        "produces": [], 
+        "responses": {
+          "204": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }
+        }, 
+        "summary": "Deletes a receiver.", 
+        "tags": [
+          "clustering-v1-receivers"
+        ], 
+        "x-title": "Delete receiver"
+      }, 
+      "get": {
+        "consumes": [
+          "application/json"
+        ], 
+        "description": "", 
+        "operationId": "showReceiver", 
+        "parameters": [
+          {
+            "description": "The UUID of the receiver.", 
+            "format": "", 
+            "in": "path", 
+            "name": "receiver_id", 
+            "required": true, 
+            "type": "string"
+          }
+        ], 
+        "produces": [
+          "application/json"
+        ], 
+        "responses": {
+          "200": {
+            "description": "", 
+            "examples": {
+              "application/json": {
+                "receiver": {
+                  "action": "CLUSTER_SCALE_OUT", 
+                  "actor": {
+                    "trust_id": [
+                      "6dc6d336e3fc4c0a951b5698cd1236d9"
+                    ]
+                  }, 
+                  "channel": {
+                    "alarm_url": "http://node1:8778/v1/webhooks/e03dd2e5-8f2e-4ec1-8c6a-74ba891e5422/trigger?V=1&count=1"
+                  }, 
+                  "cluster_id": "ae63a10b-4a90-452c-aef1-113a0b255ee3", 
+                  "created_at": "2015-06-27T05:09:43", 
+                  "domain": "Default", 
+                  "id": "573aa1ba-bf45-49fd-907d-6b5d6e6adfd3", 
+                  "name": "cluster_inflate", 
+                  "params": {
+                    "count": "1"
+                  }, 
+                  "project": "6e18cc2bdbeb48a5b3cad2dc499f6804", 
+                  "type": "webhook", 
+                  "updated_at": null, 
+                  "user": "b4ad2d6e18cc2b9c48049f6dbe8a5b3c"
+                }
+              }
+            }, 
+            "headers": {}, 
+            "schema": {}
+          }
+        }, 
+        "summary": "Shows details for a receiver.", 
+        "tags": [
+          "clustering-v1-receivers"
+        ], 
+        "x-title": "Show receiver details"
+      }
+    }, 
+    "/v1/webhooks/{webhook_id}/trigger": {
+      "post": {
+        "consumes": [], 
+        "description": "", 
+        "operationId": "triggerWebhook", 
+        "parameters": [
+          {
+            "description": "The UUID of the webhook.", 
+            "format": "", 
+            "in": "path", 
+            "name": "webhook_id", 
+            "required": true, 
+            "type": "string"
+          }, 
+          {
+            "description": "The webhook implementation version requested.", 
+            "format": "", 
+            "in": "query", 
+            "name": "V", 
+            "required": true, 
+            "type": "string"
+          }, 
+          {
+            "description": "The query string that forms the inputs to use for the targeted\naction.", 
+            "format": "", 
+            "in": "query", 
+            "name": "params", 
+            "required": false, 
+            "type": "object"
+          }
+        ], 
+        "produces": [], 
+        "responses": {
+          "202": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {
+              "location": {
+                "description": "The URL against which to check the status of the action spawned\nfrom the request.", 
+                "format": "", 
+                "type": "string"
+              }
+            }, 
+            "schema": {}
+          }
+        }, 
+        "summary": "Triggers a webhook receiver.", 
+        "tags": [
+          "clustering-v1-webhooks"
+        ], 
+        "x-title": "Trigger webhook action"
+      }
+    }
+  }, 
+  "produces": [
+    "application/json"
+  ], 
+  "swagger": "2.0", 
+  "tags": [
+    {
+      "description": "API versions", 
+      "name": "senlin-versions", 
+      "x-summary": "Lists information for all Clustering API versions."
+    }, 
+    {
+      "description": "Actions", 
+      "name": "clustering-v1-actions", 
+      "x-summary": "Lists all actions and shows details for an action."
+    }, 
+    {
+      "description": "Build information", 
+      "name": "clustering-v1-build-info", 
+      "x-summary": "Shows build information for a `Senlin\n<https://wiki.openstack.org/wiki/Senlin>`_ deployment."
+    }, 
+    {
+      "description": "Clusters", 
+      "name": "clustering-v1-clusters", 
+      "x-summary": "Lists all clusters and creates, shows information for, updates,\ndeletes, and triggers an action on a cluster."
+    }, 
+    {
+      "description": "Cluster policies", 
+      "name": "clustering-v1-cluster_policies", 
+      "x-summary": "Lists all cluster policies and shows information for a cluster\npolicy."
+    }, 
+    {
+      "description": "Events", 
+      "name": "clustering-v1-events", 
+      "x-summary": "Lists all events and shows information for an event."
+    }, 
+    {
+      "description": "Nodes", 
+      "name": "clustering-v1-nodes", 
+      "x-summary": "Lists all nodes, and creates, shows information for, updates,\ndeletes a node."
+    }, 
+    {
+      "description": "Policies", 
+      "name": "clustering-v1-policies", 
+      "x-summary": "Lists all policies and creates, shows information for, updates, and\ndeletes a policy."
+    }, 
+    {
+      "description": "Policy types", 
+      "name": "clustering-v1-policy_types", 
+      "x-summary": "Lists all policy types and shows details for a policy type."
+    }, 
+    {
+      "description": "Profiles", 
+      "name": "clustering-v1-profiles", 
+      "x-summary": "Lists all profiles and creates, shows information for, updates, and\ndeletes a profile."
+    }, 
+    {
+      "description": "Profile types", 
+      "name": "clustering-v1-profile_types", 
+      "x-summary": "Lists all profile types and shows details for a profile type."
+    }, 
+    {
+      "description": "Receivers", 
+      "name": "clustering-v1-receivers", 
+      "x-summary": "Lists all receivers and creates, shows information for, and deletes\na receiver."
+    }, 
+    {
+      "description": "Webhooks", 
+      "name": "clustering-v1-webhooks", 
+      "x-summary": "Triggers an action represented by a webhook."
+    }
+  ]
+}

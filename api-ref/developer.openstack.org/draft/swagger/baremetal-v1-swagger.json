@@ -1,0 +1,2682 @@
+{
+  "basePath": "/", 
+  "consumes": [
+    "application/json"
+  ], 
+  "definitions": {
+    "createChassis": {
+      "example": {
+        "application/json": {
+          "chassis": [
+            {
+              "description": "Sample chassis"
+            }
+          ]
+        }
+      }, 
+      "properties": {
+        "chassis": {
+          "description": "A ``chassis`` object.", 
+          "format": "", 
+          "items": {
+            "type": "string"
+          }, 
+          "type": "array"
+        }, 
+        "description": {
+          "description": "A description for the chassis.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "extra": {
+          "description": "A set of one or more arbitrary metadata key and value pairs for the\nchassis.", 
+          "format": "", 
+          "type": "object"
+        }
+      }, 
+      "required": [
+        "chassis"
+      ], 
+      "type": "object"
+    }, 
+    "createChassis_201": {
+      "properties": {
+        "created_at": {
+          "description": "The date and time when the resource was created.\n\nThe date and time stamp format is `ISO 8601\n<https://en.wikipedia.org/wiki/ISO_8601>`_:\n\n::\n\n   CCYY-MM-DDThh:mm:ss\u00b1hh:mm\n\nFor example, ``2015-08-27T09:49:58-05:00``.\n\nThe ``\u00b1hh:mm`` value, if included, is the time zone as an offset\nfrom UTC.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "description": {
+          "description": "A description for the chassis.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "extra": {
+          "description": "A set of zero or more arbitrary metadata key and value pairs for\nthe chassis.", 
+          "format": "", 
+          "type": "object"
+        }, 
+        "links": {
+          "description": "A list that contains a self link and associated chassis links.", 
+          "format": "", 
+          "items": {
+            "type": "string"
+          }, 
+          "type": "array"
+        }, 
+        "nodes": {
+          "description": "Links to the collection of nodes contained in this chassis.", 
+          "format": "", 
+          "items": {
+            "type": "string"
+          }, 
+          "type": "array"
+        }, 
+        "updated_at": {
+          "description": "The date and time when the resource was updated.\n\nThe date and time stamp format is `ISO 8601\n<https://en.wikipedia.org/wiki/ISO_8601>`_:\n\n::\n\n   CCYY-MM-DDThh:mm:ss\u00b1hh:mm\n\nFor example, ``2015-08-27T09:49:58-05:00``.\n\nThe ``\u00b1hh:mm`` value, if included, is the time zone as an offset\nfrom UTC. In the previous example, the offset value is ``-05:00``.\n\nIf the ``updated_at`` date and time stamp is not set, its value is\n``null``.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "uuid": {
+          "description": "The UUID for the chassis.", 
+          "format": "", 
+          "type": "string"
+        }
+      }, 
+      "required": [
+        "created_at", 
+        "description", 
+        "extra", 
+        "links", 
+        "nodes", 
+        "updated_at", 
+        "uuid"
+      ], 
+      "type": "object"
+    }, 
+    "listChassisDetail_200": {
+      "properties": {
+        "chassis": {
+          "description": "A list of chassis objects.", 
+          "format": "", 
+          "items": {
+            "type": "string"
+          }, 
+          "type": "array"
+        }, 
+        "description": {
+          "description": "A description for the chassis.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "extra": {
+          "description": "A set of zero or more arbitrary metadata key and value pairs for\nthe chassis.", 
+          "format": "", 
+          "type": "object"
+        }, 
+        "uuid": {
+          "description": "The UUID for the chassis.", 
+          "format": "", 
+          "type": "string"
+        }
+      }, 
+      "required": [
+        "chassis", 
+        "description", 
+        "extra", 
+        "uuid"
+      ], 
+      "type": "object"
+    }, 
+    "listChassis_200": {
+      "properties": {
+        "chassis": {
+          "description": "A list of chassis objects.", 
+          "format": "", 
+          "items": {
+            "type": "string"
+          }, 
+          "type": "array"
+        }, 
+        "description": {
+          "description": "A description for the chassis.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "extra": {
+          "description": "A set of zero or more arbitrary metadata key and value pairs for\nthe chassis.", 
+          "format": "", 
+          "type": "object"
+        }, 
+        "uuid": {
+          "description": "The UUID for the chassis.", 
+          "format": "", 
+          "type": "string"
+        }
+      }, 
+      "required": [
+        "chassis", 
+        "description", 
+        "extra", 
+        "uuid"
+      ], 
+      "type": "object"
+    }, 
+    "listDrivers_200": {
+      "properties": {
+        "drivers": {
+          "description": "A list of ``drivers`` objects.", 
+          "format": "", 
+          "items": {
+            "type": "string"
+          }, 
+          "type": "array"
+        }, 
+        "hosts": {
+          "description": "A list of active hosts that support this driver.", 
+          "format": "", 
+          "items": {
+            "type": "string"
+          }, 
+          "type": "array"
+        }, 
+        "name": {
+          "description": "The name of the driver.", 
+          "format": "", 
+          "type": "string"
+        }
+      }, 
+      "required": [
+        "drivers", 
+        "hosts", 
+        "name"
+      ], 
+      "type": "object"
+    }, 
+    "showChassis_200": {
+      "properties": {
+        "chassis": {
+          "description": "A list of chassis objects.", 
+          "format": "", 
+          "items": {
+            "type": "string"
+          }, 
+          "type": "array"
+        }, 
+        "description": {
+          "description": "A description for the chassis.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "extra": {
+          "description": "A set of zero or more arbitrary metadata key and value pairs for\nthe chassis.", 
+          "format": "", 
+          "type": "object"
+        }, 
+        "uuid": {
+          "description": "The UUID for the chassis.", 
+          "format": "", 
+          "type": "string"
+        }
+      }, 
+      "required": [
+        "chassis", 
+        "description", 
+        "extra", 
+        "uuid"
+      ], 
+      "type": "object"
+    }, 
+    "showDriverProperties_200": {
+      "properties": {
+        "hosts": {
+          "description": "A list of active hosts that support this driver.", 
+          "format": "", 
+          "items": {
+            "type": "string"
+          }, 
+          "type": "array"
+        }, 
+        "links": {
+          "description": "A list of relative links. Includes the self and bookmark links.", 
+          "format": "", 
+          "items": {
+            "type": "string"
+          }, 
+          "type": "array"
+        }, 
+        "name": {
+          "description": "The name of the driver.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "properties": {
+          "description": "A list of links to driver properties.", 
+          "format": "", 
+          "items": {
+            "type": "string"
+          }, 
+          "type": "array"
+        }
+      }, 
+      "required": [
+        "hosts", 
+        "links", 
+        "name", 
+        "properties"
+      ], 
+      "type": "object"
+    }, 
+    "showDriver_200": {
+      "properties": {
+        "hosts": {
+          "description": "A list of active hosts that support this driver.", 
+          "format": "", 
+          "items": {
+            "type": "string"
+          }, 
+          "type": "array"
+        }, 
+        "name": {
+          "description": "The name of the driver.", 
+          "format": "", 
+          "type": "string"
+        }
+      }, 
+      "required": [
+        "hosts", 
+        "name"
+      ], 
+      "type": "object"
+    }, 
+    "showLogicalDiskProperties_200": {
+      "properties": {
+        "hosts": {
+          "description": "A list of active hosts that support this driver.", 
+          "format": "", 
+          "items": {
+            "type": "string"
+          }, 
+          "type": "array"
+        }, 
+        "links": {
+          "description": "A list of relative links. Includes the self and bookmark links.", 
+          "format": "", 
+          "items": {
+            "type": "string"
+          }, 
+          "type": "array"
+        }, 
+        "name": {
+          "description": "The name of the driver.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "properties": {
+          "description": "A list of links to driver properties.", 
+          "format": "", 
+          "items": {
+            "type": "string"
+          }, 
+          "type": "array"
+        }
+      }, 
+      "required": [
+        "hosts", 
+        "links", 
+        "name", 
+        "properties"
+      ], 
+      "type": "object"
+    }, 
+    "showVendorMethods_200": {
+      "properties": {
+        "hosts": {
+          "description": "A list of active hosts that support this driver.", 
+          "format": "", 
+          "items": {
+            "type": "string"
+          }, 
+          "type": "array"
+        }, 
+        "links": {
+          "description": "A list of relative links. Includes the self and bookmark links.", 
+          "format": "", 
+          "items": {
+            "type": "string"
+          }, 
+          "type": "array"
+        }, 
+        "name": {
+          "description": "The name of the driver.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "properties": {
+          "description": "A list of links to driver properties.", 
+          "format": "", 
+          "items": {
+            "type": "string"
+          }, 
+          "type": "array"
+        }
+      }, 
+      "required": [
+        "hosts", 
+        "links", 
+        "name", 
+        "properties"
+      ], 
+      "type": "object"
+    }, 
+    "updateChassis": {
+      "example": {
+        "application/json": {
+          "chassis": [
+            {
+              "description": "Sample chassis"
+            }
+          ]
+        }
+      }, 
+      "properties": {
+        "chassis": {
+          "description": "A ``chassis`` object.", 
+          "format": "", 
+          "items": {
+            "type": "string"
+          }, 
+          "type": "array"
+        }, 
+        "description": {
+          "description": "A description for the chassis.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "extra": {
+          "description": "A set of one or more arbitrary metadata key and value pairs for the\nchassis.", 
+          "format": "", 
+          "type": "object"
+        }
+      }, 
+      "required": [
+        "chassis"
+      ], 
+      "type": "object"
+    }, 
+    "updateChassis_200": {
+      "properties": {
+        "chassis": {
+          "description": "A list of chassis objects.", 
+          "format": "", 
+          "items": {
+            "type": "string"
+          }, 
+          "type": "array"
+        }, 
+        "created_at": {
+          "description": "The date and time when the resource was created.\n\nThe date and time stamp format is `ISO 8601\n<https://en.wikipedia.org/wiki/ISO_8601>`_:\n\n::\n\n   CCYY-MM-DDThh:mm:ss\u00b1hh:mm\n\nFor example, ``2015-08-27T09:49:58-05:00``.\n\nThe ``\u00b1hh:mm`` value, if included, is the time zone as an offset\nfrom UTC.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "description": {
+          "description": "A description for the chassis.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "extra": {
+          "description": "A set of zero or more arbitrary metadata key and value pairs for\nthe chassis.", 
+          "format": "", 
+          "type": "object"
+        }, 
+        "links": {
+          "description": "A list that contains a self link and associated chassis links.", 
+          "format": "", 
+          "items": {
+            "type": "string"
+          }, 
+          "type": "array"
+        }, 
+        "nodes": {
+          "description": "Links to the collection of nodes contained in this chassis.", 
+          "format": "", 
+          "items": {
+            "type": "string"
+          }, 
+          "type": "array"
+        }, 
+        "updated_at": {
+          "description": "The date and time when the resource was updated.\n\nThe date and time stamp format is `ISO 8601\n<https://en.wikipedia.org/wiki/ISO_8601>`_:\n\n::\n\n   CCYY-MM-DDThh:mm:ss\u00b1hh:mm\n\nFor example, ``2015-08-27T09:49:58-05:00``.\n\nThe ``\u00b1hh:mm`` value, if included, is the time zone as an offset\nfrom UTC. In the previous example, the offset value is ``-05:00``.\n\nIf the ``updated_at`` date and time stamp is not set, its value is\n``null``.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "uuid": {
+          "description": "The UUID for the chassis.", 
+          "format": "", 
+          "type": "string"
+        }
+      }, 
+      "required": [
+        "created_at", 
+        "description", 
+        "chassis", 
+        "extra", 
+        "links", 
+        "nodes", 
+        "updated_at", 
+        "uuid"
+      ], 
+      "type": "object"
+    }
+  }, 
+  "externalDocs": {
+    "description": "OpenStack Docs", 
+    "url": "http://docs.openstack.org"
+  }, 
+  "host": "developer.openstack.org", 
+  "info": {
+    "license": {
+      "name": "Apache 2.0", 
+      "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+    }, 
+    "title": "Bare Metal", 
+    "version": "v1", 
+    "x-service": "baremetal"
+  }, 
+  "paths": {
+    "/v1/chassis": {
+      "get": {
+        "consumes": [
+          "application/json"
+        ], 
+        "description": "", 
+        "operationId": "listChassis", 
+        "parameters": [
+          {
+            "description": "Requests a page size of items. Returns a number of items up to a\nlimit value. Use the ``limit`` parameter to make an initial limited\nrequest and use the ID of the last-seen item from the response as\nthe ``marker`` parameter value in a subsequent limited request.", 
+            "format": "", 
+            "in": "query", 
+            "name": "limit", 
+            "required": false, 
+            "type": "integer"
+          }, 
+          {
+            "description": "The ID of the last-seen item. Use the ``limit`` parameter to make\nan initial limited request and use the ID of the last-seen item\nfrom the response as the ``marker`` parameter value in a subsequent\nlimited request.", 
+            "format": "", 
+            "in": "query", 
+            "name": "marker", 
+            "required": false, 
+            "type": "string"
+          }, 
+          {
+            "description": "Sorts the response by the requested sort direction. A valid value\nis ``asc`` (ascending) or ``desc`` (descending). Default is\n``asc``. You can specify multiple pairs of sort key and sort\ndirection query parameters. If you omit the sort direction in a\npair, the API uses the natural sorting direction of the server\nattribute that is provided as the ``sort_key``.", 
+            "format": "", 
+            "in": "query", 
+            "name": "sort_dir", 
+            "required": false, 
+            "type": "string"
+          }, 
+          {
+            "description": "Sorts the response by the this attribute value. Default is ``id``.\nYou can specify multiple pairs of sort key and sort direction query\nparameters. If you omit the sort direction in a pair, the API uses\nthe natural sorting direction of the server attribute that is\nprovided as the ``sort_key``.", 
+            "format": "", 
+            "in": "query", 
+            "name": "sort_key", 
+            "required": false, 
+            "type": "string"
+          }, 
+          {
+            "description": "One or more chassis fields to be returned in the response.\n\nFor example, the following request returns only the ``description``\nfield for each chassis:\n\n::\n\n   GET /v1/chassis?fields=description", 
+            "format": "", 
+            "in": "query", 
+            "items": {
+              "type": "string"
+            }, 
+            "name": "fields", 
+            "required": false, 
+            "type": "array"
+          }
+        ], 
+        "produces": [
+          "application/json"
+        ], 
+        "responses": {
+          "200": {
+            "description": "", 
+            "examples": {
+              "application/json": {
+                "chassis": [
+                  {
+                    "description": "Sample chassis", 
+                    "links": [
+                      {
+                        "href": "http://localhost:6385/v1/chassis/eaaca217-e7d8-47b4-bb41-3f99f20eed89", 
+                        "rel": "self"
+                      }, 
+                      {
+                        "href": "http://localhost:6385/chassis/eaaca217-e7d8-47b4-bb41-3f99f20eed89", 
+                        "rel": "bookmark"
+                      }
+                    ], 
+                    "uuid": "eaaca217-e7d8-47b4-bb41-3f99f20eed89"
+                  }
+                ]
+              }
+            }, 
+            "headers": {}, 
+            "schema": {
+              "$ref": "#/definitions/listChassis_200"
+            }
+          }, 
+          "400": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "401": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "403": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "404": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "405": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "413": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "503": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }
+        }, 
+        "summary": "Lists all chassis.", 
+        "tags": [
+          "baremetal-api-v1-chassis"
+        ], 
+        "x-title": "List chassis"
+      }, 
+      "post": {
+        "consumes": [
+          "application/json"
+        ], 
+        "description": "", 
+        "operationId": "createChassis", 
+        "parameters": [
+          {
+            "description": "", 
+            "in": "body", 
+            "name": "body", 
+            "required": false, 
+            "schema": {
+              "$ref": "#/definitions/createChassis"
+            }
+          }
+        ], 
+        "produces": [
+          "application/json"
+        ], 
+        "responses": {
+          "201": {
+            "description": "", 
+            "examples": {
+              "application/json": {
+                "created_at": "2000-01-01T12:00:00", 
+                "description": "Sample chassis", 
+                "extra": {}, 
+                "links": [
+                  {
+                    "href": "http://localhost:6385/v1/chassis/eaaca217-e7d8-47b4-bb41-3f99f20eed89", 
+                    "rel": "self"
+                  }, 
+                  {
+                    "href": "http://localhost:6385/chassis/eaaca217-e7d8-47b4-bb41-3f99f20eed89", 
+                    "rel": "bookmark"
+                  }
+                ], 
+                "nodes": [
+                  {
+                    "href": "http://localhost:6385/v1/chassis/eaaca217-e7d8-47b4-bb41-3f99f20eed89/nodes", 
+                    "rel": "self"
+                  }, 
+                  {
+                    "href": "http://localhost:6385/chassis/eaaca217-e7d8-47b4-bb41-3f99f20eed89/nodes", 
+                    "rel": "bookmark"
+                  }
+                ], 
+                "updated_at": "2000-01-01T12:00:00", 
+                "uuid": "eaaca217-e7d8-47b4-bb41-3f99f20eed89"
+              }
+            }, 
+            "headers": {}, 
+            "schema": {
+              "$ref": "#/definitions/createChassis_201"
+            }
+          }, 
+          "400": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "401": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "403": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "404": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "405": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "409": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "413": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "415": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "503": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }
+        }, 
+        "summary": "Creates a chassis.", 
+        "tags": [
+          "baremetal-api-v1-chassis"
+        ], 
+        "x-title": "Create chassis"
+      }
+    }, 
+    "/v1/chassis/detail": {
+      "get": {
+        "consumes": [
+          "application/json"
+        ], 
+        "description": "", 
+        "operationId": "listChassisDetail", 
+        "parameters": [
+          {
+            "description": "Requests a page size of items. Returns a number of items up to a\nlimit value. Use the ``limit`` parameter to make an initial limited\nrequest and use the ID of the last-seen item from the response as\nthe ``marker`` parameter value in a subsequent limited request.", 
+            "format": "", 
+            "in": "query", 
+            "name": "limit", 
+            "required": false, 
+            "type": "integer"
+          }, 
+          {
+            "description": "The ID of the last-seen item. Use the ``limit`` parameter to make\nan initial limited request and use the ID of the last-seen item\nfrom the response as the ``marker`` parameter value in a subsequent\nlimited request.", 
+            "format": "", 
+            "in": "query", 
+            "name": "marker", 
+            "required": false, 
+            "type": "string"
+          }, 
+          {
+            "description": "Sorts the response by the requested sort direction. A valid value\nis ``asc`` (ascending) or ``desc`` (descending). Default is\n``asc``. You can specify multiple pairs of sort key and sort\ndirection query parameters. If you omit the sort direction in a\npair, the API uses the natural sorting direction of the server\nattribute that is provided as the ``sort_key``.", 
+            "format": "", 
+            "in": "query", 
+            "name": "sort_dir", 
+            "required": false, 
+            "type": "string"
+          }, 
+          {
+            "description": "Sorts the response by the this attribute value. Default is ``id``.\nYou can specify multiple pairs of sort key and sort direction query\nparameters. If you omit the sort direction in a pair, the API uses\nthe natural sorting direction of the server attribute that is\nprovided as the ``sort_key``.", 
+            "format": "", 
+            "in": "query", 
+            "name": "sort_key", 
+            "required": false, 
+            "type": "string"
+          }
+        ], 
+        "produces": [
+          "application/json"
+        ], 
+        "responses": {
+          "200": {
+            "description": "", 
+            "examples": {
+              "application/json": {
+                "chassis": [
+                  {
+                    "description": "Sample chassis", 
+                    "links": [
+                      {
+                        "href": "http://localhost:6385/v1/chassis/eaaca217-e7d8-47b4-bb41-3f99f20eed89", 
+                        "rel": "self"
+                      }, 
+                      {
+                        "href": "http://localhost:6385/chassis/eaaca217-e7d8-47b4-bb41-3f99f20eed89", 
+                        "rel": "bookmark"
+                      }
+                    ], 
+                    "uuid": "eaaca217-e7d8-47b4-bb41-3f99f20eed89"
+                  }
+                ]
+              }
+            }, 
+            "headers": {}, 
+            "schema": {
+              "$ref": "#/definitions/listChassisDetail_200"
+            }
+          }, 
+          "400": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "401": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "403": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "404": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "405": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "413": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "503": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }
+        }, 
+        "summary": "Lists all chassis with details.", 
+        "tags": [
+          "baremetal-api-v1-chassis"
+        ], 
+        "x-title": "List chassis with details"
+      }
+    }, 
+    "/v1/chassis/{chassis_id}": {
+      "delete": {
+        "consumes": [], 
+        "description": "", 
+        "operationId": "deleteChassis", 
+        "parameters": [], 
+        "produces": [], 
+        "responses": {
+          "204": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "400": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "401": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "403": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "404": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "405": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "409": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "413": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "415": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "503": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }
+        }, 
+        "summary": "Deletes a chassis.", 
+        "tags": [
+          "baremetal-api-v1-chassis"
+        ], 
+        "x-title": "Delete chassis"
+      }, 
+      "get": {
+        "consumes": [
+          "application/json"
+        ], 
+        "description": "", 
+        "operationId": "showChassis", 
+        "parameters": [
+          {
+            "description": "One or more chassis fields to be returned in the response.\n\nFor example, the following request returns only the ``description``\nfield for each chassis:\n\n::\n\n   GET /v1/chassis?fields=description", 
+            "format": "", 
+            "in": "query", 
+            "items": {
+              "type": "string"
+            }, 
+            "name": "fields", 
+            "required": false, 
+            "type": "array"
+          }
+        ], 
+        "produces": [
+          "application/json"
+        ], 
+        "responses": {
+          "200": {
+            "description": "", 
+            "examples": {
+              "application/json": {
+                "created_at": "2000-01-01T12:00:00", 
+                "description": "Sample chassis", 
+                "extra": {}, 
+                "links": [
+                  {
+                    "href": "http://localhost:6385/v1/chassis/eaaca217-e7d8-47b4-bb41-3f99f20eed89", 
+                    "rel": "self"
+                  }, 
+                  {
+                    "href": "http://localhost:6385/chassis/eaaca217-e7d8-47b4-bb41-3f99f20eed89", 
+                    "rel": "bookmark"
+                  }
+                ], 
+                "nodes": [
+                  {
+                    "href": "http://localhost:6385/v1/chassis/eaaca217-e7d8-47b4-bb41-3f99f20eed89/nodes", 
+                    "rel": "self"
+                  }, 
+                  {
+                    "href": "http://localhost:6385/chassis/eaaca217-e7d8-47b4-bb41-3f99f20eed89/nodes", 
+                    "rel": "bookmark"
+                  }
+                ], 
+                "updated_at": "2000-01-01T12:00:00", 
+                "uuid": "eaaca217-e7d8-47b4-bb41-3f99f20eed89"
+              }
+            }, 
+            "headers": {}, 
+            "schema": {
+              "$ref": "#/definitions/showChassis_200"
+            }
+          }, 
+          "400": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "401": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "403": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "404": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "405": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "413": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "503": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }
+        }, 
+        "summary": "Shows details for a chassis.", 
+        "tags": [
+          "baremetal-api-v1-chassis"
+        ], 
+        "x-title": "Show chassis details"
+      }, 
+      "patch": {
+        "consumes": [
+          "application/json"
+        ], 
+        "description": "", 
+        "operationId": "updateChassis", 
+        "parameters": [
+          {
+            "description": "", 
+            "in": "body", 
+            "name": "body", 
+            "required": false, 
+            "schema": {
+              "$ref": "#/definitions/updateChassis"
+            }
+          }
+        ], 
+        "produces": [
+          "application/json"
+        ], 
+        "responses": {
+          "200": {
+            "description": "", 
+            "examples": {
+              "application/json": {
+                "created_at": "2000-01-01T12:00:00", 
+                "description": "Sample chassis", 
+                "extra": {}, 
+                "links": [
+                  {
+                    "href": "http://localhost:6385/v1/chassis/eaaca217-e7d8-47b4-bb41-3f99f20eed89", 
+                    "rel": "self"
+                  }, 
+                  {
+                    "href": "http://localhost:6385/chassis/eaaca217-e7d8-47b4-bb41-3f99f20eed89", 
+                    "rel": "bookmark"
+                  }
+                ], 
+                "nodes": [
+                  {
+                    "href": "http://localhost:6385/v1/chassis/eaaca217-e7d8-47b4-bb41-3f99f20eed89/nodes", 
+                    "rel": "self"
+                  }, 
+                  {
+                    "href": "http://localhost:6385/chassis/eaaca217-e7d8-47b4-bb41-3f99f20eed89/nodes", 
+                    "rel": "bookmark"
+                  }
+                ], 
+                "updated_at": "2000-01-01T12:00:00", 
+                "uuid": "eaaca217-e7d8-47b4-bb41-3f99f20eed89"
+              }
+            }, 
+            "headers": {}, 
+            "schema": {
+              "$ref": "#/definitions/updateChassis_200"
+            }
+          }, 
+          "400": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "401": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "403": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "404": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "405": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "409": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "413": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "415": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "503": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }
+        }, 
+        "summary": "Updates a chassis.", 
+        "tags": [
+          "baremetal-api-v1-chassis"
+        ], 
+        "x-title": "Update chassis"
+      }
+    }, 
+    "/v1/drivers": {
+      "get": {
+        "consumes": [
+          "application/json"
+        ], 
+        "description": "", 
+        "operationId": "listDrivers", 
+        "parameters": [], 
+        "produces": [
+          "application/json"
+        ], 
+        "responses": {
+          "200": {
+            "description": "", 
+            "examples": {
+              "application/json": {
+                "drivers": [
+                  {
+                    "hosts": [
+                      "fake-host"
+                    ], 
+                    "name": "sample-driver"
+                  }
+                ]
+              }
+            }, 
+            "headers": {}, 
+            "schema": {
+              "$ref": "#/definitions/listDrivers_200"
+            }
+          }, 
+          "400": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "401": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "403": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "404": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "405": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "413": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "503": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }
+        }, 
+        "summary": "Lists all drivers.", 
+        "tags": [
+          "baremetal-api-v1-drivers"
+        ], 
+        "x-title": "List drivers"
+      }
+    }, 
+    "/v1/drivers/{driver_name}": {
+      "get": {
+        "consumes": [
+          "application/json"
+        ], 
+        "description": "", 
+        "operationId": "showDriver", 
+        "parameters": [
+          {
+            "description": "The name of the driver.", 
+            "format": "", 
+            "in": "path", 
+            "name": "driver_name", 
+            "required": true, 
+            "type": "string"
+          }
+        ], 
+        "produces": [
+          "application/json"
+        ], 
+        "responses": {
+          "200": {
+            "description": "", 
+            "examples": {
+              "application/json": {
+                "hosts": [
+                  "fake-host"
+                ], 
+                "name": "sample-driver"
+              }
+            }, 
+            "headers": {}, 
+            "schema": {
+              "$ref": "#/definitions/showDriver_200"
+            }
+          }, 
+          "400": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "401": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "403": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "404": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "405": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "413": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "503": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }
+        }, 
+        "summary": "Shows details for a driver.", 
+        "tags": [
+          "baremetal-api-v1-drivers"
+        ], 
+        "x-title": "Show driver details"
+      }
+    }, 
+    "/v1/drivers/{driver_name}/properties": {
+      "get": {
+        "consumes": [
+          "application/json"
+        ], 
+        "description": "", 
+        "operationId": "showDriverProperties", 
+        "parameters": [
+          {
+            "description": "The name of the driver.", 
+            "format": "", 
+            "in": "path", 
+            "name": "driver_name", 
+            "required": true, 
+            "type": "string"
+          }
+        ], 
+        "produces": [
+          "application/json"
+        ], 
+        "responses": {
+          "200": {
+            "description": "", 
+            "examples": {
+              "application/json": {
+                "hosts": [
+                  "fake-host"
+                ], 
+                "name": "sample-driver"
+              }
+            }, 
+            "headers": {}, 
+            "schema": {
+              "$ref": "#/definitions/showDriverProperties_200"
+            }
+          }, 
+          "400": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "401": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "403": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "404": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "405": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "413": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "503": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }
+        }, 
+        "summary": "Shows properties for a driver.", 
+        "tags": [
+          "baremetal-api-v1-drivers"
+        ], 
+        "x-title": "Show driver properties"
+      }
+    }, 
+    "/v1/drivers/{driver_name}/raid/logical_disk_properties": {
+      "get": {
+        "consumes": [
+          "application/json"
+        ], 
+        "description": "", 
+        "operationId": "showLogicalDiskProperties", 
+        "parameters": [
+          {
+            "description": "The name of the driver.", 
+            "format": "", 
+            "in": "path", 
+            "name": "driver_name", 
+            "required": true, 
+            "type": "string"
+          }
+        ], 
+        "produces": [
+          "application/json"
+        ], 
+        "responses": {
+          "200": {
+            "description": "", 
+            "examples": {
+              "application/json": {
+                "hosts": [
+                  "fake-host"
+                ], 
+                "name": "sample-driver"
+              }
+            }, 
+            "headers": {}, 
+            "schema": {
+              "$ref": "#/definitions/showLogicalDiskProperties_200"
+            }
+          }, 
+          "400": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "401": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "403": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "404": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "405": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "413": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "503": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }
+        }, 
+        "summary": "Shows logical disk properties for a driver.", 
+        "tags": [
+          "baremetal-api-v1-drivers"
+        ], 
+        "x-title": "Show driver logical disk properties"
+      }
+    }, 
+    "/v1/drivers/{driver_name}/vendor_passthru/methods": {
+      "get": {
+        "consumes": [
+          "application/json"
+        ], 
+        "description": "", 
+        "operationId": "showVendorMethods", 
+        "parameters": [
+          {
+            "description": "The name of the driver.", 
+            "format": "", 
+            "in": "path", 
+            "name": "driver_name", 
+            "required": true, 
+            "type": "string"
+          }
+        ], 
+        "produces": [
+          "application/json"
+        ], 
+        "responses": {
+          "200": {
+            "description": "", 
+            "examples": {
+              "application/json": {
+                "hosts": [
+                  "fake-host"
+                ], 
+                "name": "sample-driver"
+              }
+            }, 
+            "headers": {}, 
+            "schema": {
+              "$ref": "#/definitions/showVendorMethods_200"
+            }
+          }, 
+          "400": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "401": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "403": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "404": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "405": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "413": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "503": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }
+        }, 
+        "summary": "Shows vendor methods for a driver.", 
+        "tags": [
+          "baremetal-api-v1-drivers"
+        ], 
+        "x-title": "Show driver vendor methods"
+      }
+    }, 
+    "/v1/nodes": {
+      "get": {
+        "consumes": [
+          "application/json"
+        ], 
+        "description": "", 
+        "operationId": "listNodes", 
+        "parameters": [], 
+        "produces": [
+          "application/json"
+        ], 
+        "responses": {
+          "200": {
+            "description": "", 
+            "examples": {
+              "application/json": {
+                "nodes": [
+                  {
+                    "instance_uuid": "dcf1fbc5-93fc-4596-9395-b80572f6267b", 
+                    "links": [
+                      {
+                        "href": "http://localhost:6385/v1/nodes/1be26c0b-03f2-4d2e-ae87-c02d7f33c123", 
+                        "rel": "self"
+                      }, 
+                      {
+                        "href": "http://localhost:6385/nodes/1be26c0b-03f2-4d2e-ae87-c02d7f33c123", 
+                        "rel": "bookmark"
+                      }
+                    ], 
+                    "maintenance": false, 
+                    "name": "database16-dc02", 
+                    "power_state": "power on", 
+                    "provision_state": "active", 
+                    "uuid": "1be26c0b-03f2-4d2e-ae87-c02d7f33c123"
+                  }
+                ]
+              }
+            }, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "400": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "401": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "403": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "404": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "405": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "413": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "503": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }
+        }, 
+        "summary": "Lists all nodes.", 
+        "tags": [
+          "baremetal-api-v1-nodes"
+        ], 
+        "x-title": "List nodes"
+      }, 
+      "post": {
+        "consumes": [], 
+        "description": "", 
+        "operationId": "createNode", 
+        "parameters": [], 
+        "produces": [], 
+        "responses": {
+          "201": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "400": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "401": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "403": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "404": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "405": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "409": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "413": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "415": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "503": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }
+        }, 
+        "summary": "Creates a node.", 
+        "tags": [
+          "baremetal-api-v1-nodes"
+        ], 
+        "x-title": "Create node"
+      }
+    }, 
+    "/v1/nodes/detail": {
+      "get": {
+        "consumes": [
+          "application/json"
+        ], 
+        "description": "", 
+        "operationId": "listNodesDetail", 
+        "parameters": [], 
+        "produces": [
+          "application/json"
+        ], 
+        "responses": {
+          "200": {
+            "description": "", 
+            "examples": {
+              "application/json": {
+                "nodes": [
+                  {
+                    "chassis_uuid": "633f9f21-5bd5-4166-b811-1eb01490c4ab", 
+                    "clean_step": {}, 
+                    "console_enabled": false, 
+                    "created_at": "2016-04-23T10:52:43+00:00", 
+                    "driver": "pxe_ssh", 
+                    "driver_info": {
+                      "deploy_kernel": "aadebece-ce44-4cf6-a9e8-545f0e8ac9f3", 
+                      "deploy_ramdisk": "cfe6f9ce-b2e6-4a7a-9246-0cc7eeb89a71", 
+                      "ssh_address": "localhost", 
+                      "ssh_key_filename": "/opt/stack/data/ironic/ssh_keys/ironic_key", 
+                      "ssh_port": 22, 
+                      "ssh_username": "ubuntu", 
+                      "ssh_virt_type": "virsh"
+                    }, 
+                    "driver_internal_info": {}, 
+                    "extra": {}, 
+                    "inspection_finished_at": null, 
+                    "inspection_started_at": null, 
+                    "instance_info": {}, 
+                    "instance_uuid": null, 
+                    "last_error": null, 
+                    "links": [
+                      {
+                        "href": "http://localhost:6385/v1/nodes/277c9fe9-a385-4e45-9399-660f3287e48c", 
+                        "rel": "self"
+                      }, 
+                      {
+                        "href": "http://localhost:6385/nodes/277c9fe9-a385-4e45-9399-660f3287e48c", 
+                        "rel": "bookmark"
+                      }
+                    ], 
+                    "maintenance": false, 
+                    "maintenance_reason": null, 
+                    "name": "node-0", 
+                    "ports": [
+                      {
+                        "href": "http://localhost:6385/v1/nodes/277c9fe9-a385-4e45-9399-660f3287e48c/ports", 
+                        "rel": "self"
+                      }, 
+                      {
+                        "href": "http://localhost:6385/nodes/277c9fe9-a385-4e45-9399-660f3287e48c/ports", 
+                        "rel": "bookmark"
+                      }
+                    ], 
+                    "power_state": "power off", 
+                    "properties": {
+                      "cpu_arch": "x86_64", 
+                      "cpus": 1, 
+                      "local_gb": 10, 
+                      "memory_mb": 1024
+                    }, 
+                    "provision_state": "available", 
+                    "provision_updated_at": null, 
+                    "reservation": null, 
+                    "target_power_state": null, 
+                    "target_provision_state": null, 
+                    "updated_at": "2016-04-23T10:53:37+00:00", 
+                    "uuid": "277c9fe9-a385-4e45-9399-660f3287e48c"
+                  }
+                ]
+              }
+            }, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "400": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "401": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "403": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "404": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "405": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "413": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "503": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }
+        }, 
+        "summary": "Lists all nodes with details.", 
+        "tags": [
+          "baremetal-api-v1-nodes"
+        ], 
+        "x-title": "List nodes with details"
+      }
+    }, 
+    "/v1/nodes/{node_id}": {
+      "delete": {
+        "consumes": [], 
+        "description": "", 
+        "operationId": "deleteNode", 
+        "parameters": [
+          {
+            "description": "The UUID of the node.", 
+            "format": "", 
+            "in": "path", 
+            "name": "node_id", 
+            "required": true, 
+            "type": "string"
+          }
+        ], 
+        "produces": [], 
+        "responses": {
+          "204": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "400": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "401": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "403": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "404": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "405": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "409": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "413": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "415": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "503": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }
+        }, 
+        "summary": "Deletes a node.", 
+        "tags": [
+          "baremetal-api-v1-nodes"
+        ], 
+        "x-title": "Delete node"
+      }, 
+      "get": {
+        "consumes": [
+          "application/json"
+        ], 
+        "description": "", 
+        "operationId": "showNode", 
+        "parameters": [
+          {
+            "description": "The UUID of the node.", 
+            "format": "", 
+            "in": "path", 
+            "name": "node_id", 
+            "required": true, 
+            "type": "string"
+          }, 
+          {
+            "description": "One or more chassis fields to be returned in the response.\n\nFor example, the following request returns only the ``description``\nfield for each chassis:\n\n::\n\n   GET /v1/chassis?fields=description", 
+            "format": "", 
+            "in": "query", 
+            "items": {
+              "type": "string"
+            }, 
+            "name": "fields", 
+            "required": false, 
+            "type": "array"
+          }
+        ], 
+        "produces": [
+          "application/json"
+        ], 
+        "responses": {
+          "200": {
+            "description": "", 
+            "examples": {
+              "application/json": {
+                "chassis_uuid": "edcad704-b2da-41d5-96d9-afd580ecfa12", 
+                "clean_step": {}, 
+                "console_enabled": false, 
+                "created_at": "2000-01-01T12:00:00", 
+                "driver": "fake", 
+                "driver_info": {}, 
+                "driver_internal_info": {}, 
+                "extra": {}, 
+                "inspection_finished_at": null, 
+                "inspection_started_at": "2000-01-01T12:00:00", 
+                "instance_info": {}, 
+                "instance_uuid": "dcf1fbc5-93fc-4596-9395-b80572f6267b", 
+                "last_error": null, 
+                "links": [
+                  {
+                    "href": "http://localhost:6385/v1/nodes/1be26c0b-03f2-4d2e-ae87-c02d7f33c123", 
+                    "rel": "self"
+                  }, 
+                  {
+                    "href": "http://localhost:6385/nodes/1be26c0b-03f2-4d2e-ae87-c02d7f33c123", 
+                    "rel": "bookmark"
+                  }
+                ], 
+                "maintenance": false, 
+                "maintenance_reason": null, 
+                "name": "database16-dc02", 
+                "ports": [
+                  {
+                    "href": "http://localhost:6385/v1/nodes/1be26c0b-03f2-4d2e-ae87-c02d7f33c123/ports", 
+                    "rel": "self"
+                  }, 
+                  {
+                    "href": "http://localhost:6385/nodes/1be26c0b-03f2-4d2e-ae87-c02d7f33c123/ports", 
+                    "rel": "bookmark"
+                  }
+                ], 
+                "power_state": "power on", 
+                "properties": {
+                  "cpus": "1", 
+                  "local_gb": "10", 
+                  "memory_mb": "1024"
+                }, 
+                "provision_state": "active", 
+                "provision_updated_at": "2000-01-01T12:00:00", 
+                "raid_config": null, 
+                "reservation": null, 
+                "states": [
+                  {
+                    "href": "http://localhost:6385/v1/nodes/1be26c0b-03f2-4d2e-ae87-c02d7f33c123/states", 
+                    "rel": "self"
+                  }, 
+                  {
+                    "href": "http://localhost:6385/nodes/1be26c0b-03f2-4d2e-ae87-c02d7f33c123/states", 
+                    "rel": "bookmark"
+                  }
+                ], 
+                "target_power_state": null, 
+                "target_provision_state": null, 
+                "target_raid_config": null, 
+                "updated_at": "2000-01-01T12:00:00", 
+                "uuid": "1be26c0b-03f2-4d2e-ae87-c02d7f33c123"
+              }
+            }, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "400": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "401": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "403": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "404": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "405": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "413": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "503": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }
+        }, 
+        "summary": "Shows details for a node.", 
+        "tags": [
+          "baremetal-api-v1-nodes"
+        ], 
+        "x-title": "Show node details"
+      }, 
+      "patch": {
+        "consumes": [], 
+        "description": "", 
+        "operationId": "updateNode", 
+        "parameters": [
+          {
+            "description": "The UUID of the node.", 
+            "format": "", 
+            "in": "path", 
+            "name": "node_id", 
+            "required": true, 
+            "type": "string"
+          }
+        ], 
+        "produces": [], 
+        "responses": {
+          "200": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "400": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "401": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "403": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "404": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "405": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "409": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "413": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "415": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "503": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }
+        }, 
+        "summary": "Updates a node.", 
+        "tags": [
+          "baremetal-api-v1-nodes"
+        ], 
+        "x-title": "Update node"
+      }
+    }, 
+    "/v1/ports": {
+      "get": {
+        "consumes": [], 
+        "description": "", 
+        "operationId": "listPorts", 
+        "parameters": [], 
+        "produces": [], 
+        "responses": {
+          "200": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "400": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "401": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "403": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "404": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "405": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "413": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "503": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }
+        }, 
+        "summary": "Lists all ports.", 
+        "tags": [
+          "baremetal-api-v1-ports"
+        ], 
+        "x-title": "List ports"
+      }, 
+      "post": {
+        "consumes": [], 
+        "description": "", 
+        "operationId": "createPort", 
+        "parameters": [], 
+        "produces": [], 
+        "responses": {
+          "201": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "400": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "401": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "403": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "404": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "405": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "409": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "413": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "415": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "503": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }
+        }, 
+        "summary": "Creates a port.", 
+        "tags": [
+          "baremetal-api-v1-ports"
+        ], 
+        "x-title": "Create port"
+      }
+    }, 
+    "/v1/ports/detail": {
+      "get": {
+        "consumes": [], 
+        "description": "", 
+        "operationId": "listPortsDetail", 
+        "parameters": [], 
+        "produces": [], 
+        "responses": {
+          "200": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "400": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "401": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "403": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "404": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "405": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "413": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "503": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }
+        }, 
+        "summary": "Lists all ports with details.", 
+        "tags": [
+          "baremetal-api-v1-ports"
+        ], 
+        "x-title": "List ports with details"
+      }
+    }, 
+    "/v1/ports/{port_id}": {
+      "delete": {
+        "consumes": [], 
+        "description": "", 
+        "operationId": "deletePort", 
+        "parameters": [
+          {
+            "description": "The UUID of the port.", 
+            "format": "", 
+            "in": "path", 
+            "name": "port_id", 
+            "required": true, 
+            "type": "string"
+          }
+        ], 
+        "produces": [], 
+        "responses": {
+          "204": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "400": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "401": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "403": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "404": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "405": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "409": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "413": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "415": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "503": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }
+        }, 
+        "summary": "Deletes a port.", 
+        "tags": [
+          "baremetal-api-v1-ports"
+        ], 
+        "x-title": "Delete port"
+      }, 
+      "get": {
+        "consumes": [], 
+        "description": "", 
+        "operationId": "showPort", 
+        "parameters": [
+          {
+            "description": "The UUID of the port.", 
+            "format": "", 
+            "in": "path", 
+            "name": "port_id", 
+            "required": true, 
+            "type": "string"
+          }, 
+          {
+            "description": "One or more chassis fields to be returned in the response.\n\nFor example, the following request returns only the ``description``\nfield for each chassis:\n\n::\n\n   GET /v1/chassis?fields=description", 
+            "format": "", 
+            "in": "query", 
+            "items": {
+              "type": "string"
+            }, 
+            "name": "fields", 
+            "required": false, 
+            "type": "array"
+          }
+        ], 
+        "produces": [], 
+        "responses": {
+          "200": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "400": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "401": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "403": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "404": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "405": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "413": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "503": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }
+        }, 
+        "summary": "Shows details for a port.", 
+        "tags": [
+          "baremetal-api-v1-ports"
+        ], 
+        "x-title": "Show port details"
+      }, 
+      "patch": {
+        "consumes": [], 
+        "description": "", 
+        "operationId": "updatePort", 
+        "parameters": [
+          {
+            "description": "The UUID of the port.", 
+            "format": "", 
+            "in": "path", 
+            "name": "port_id", 
+            "required": true, 
+            "type": "string"
+          }
+        ], 
+        "produces": [], 
+        "responses": {
+          "200": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "400": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "401": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "403": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "404": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "405": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "409": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "413": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "415": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "503": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }
+        }, 
+        "summary": "Updates a port.", 
+        "tags": [
+          "baremetal-api-v1-ports"
+        ], 
+        "x-title": "Update port"
+      }
+    }
+  }, 
+  "produces": [
+    "application/json"
+  ], 
+  "swagger": "2.0", 
+  "tags": [
+    {
+      "description": "Chassis (chassis)", 
+      "name": "baremetal-api-v1-chassis", 
+      "x-summary": "Chassis operations."
+    }, 
+    {
+      "description": "Drivers (drivers)", 
+      "name": "baremetal-api-v1-drivers", 
+      "x-summary": ""
+    }, 
+    {
+      "description": "Nodes (nodes)", 
+      "name": "baremetal-api-v1-nodes", 
+      "x-summary": ""
+    }, 
+    {
+      "description": "Ports (ports)", 
+      "name": "baremetal-api-v1-ports", 
+      "x-summary": ""
+    }
+  ]
+}

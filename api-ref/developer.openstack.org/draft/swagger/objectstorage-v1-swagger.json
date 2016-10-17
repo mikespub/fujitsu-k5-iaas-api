@@ -1,0 +1,2627 @@
+{
+  "basePath": "/", 
+  "consumes": [
+    "application/json"
+  ], 
+  "definitions": {
+    "createOrReplaceObject_201": {
+      "properties": {
+        "last_modified": {
+          "description": "The date and time when the object was last modified.\n\nThe date and time stamp format is `ISO 8601\n<https://en.wikipedia.org/wiki/ISO_8601>`_:\n\n::\n\n   CCYY-MM-DDThh:mm:ss\u00b1hh:mm\n\nFor example, ``2015-08-27T09:49:58-05:00``.\n\nThe ``\u00b1hh:mm`` value, if included, is the time zone as an offset\nfrom UTC. In the previous example, the offset value is ``-05:00``.", 
+          "format": "", 
+          "type": "string"
+        }
+      }, 
+      "required": [
+        "last_modified"
+      ], 
+      "type": "object"
+    }, 
+    "showAccountDetails_200": {
+      "properties": {
+        "bytes": {
+          "description": "The total number of bytes that are stored in Object Storage for the\naccount.", 
+          "format": "", 
+          "type": "integer"
+        }, 
+        "count": {
+          "description": "The number of objects in the container.", 
+          "format": "", 
+          "type": "integer"
+        }, 
+        "name": {
+          "description": "The name of the container.", 
+          "format": "", 
+          "type": "string"
+        }
+      }, 
+      "required": [
+        "name", 
+        "count", 
+        "bytes"
+      ], 
+      "type": "object"
+    }, 
+    "showContainerDetails_200": {
+      "properties": {
+        "bytes": {
+          "description": "The total number of bytes that are stored in Object Storage for the\naccount.", 
+          "format": "", 
+          "type": "integer"
+        }, 
+        "content_type": {
+          "description": "The content type of the object.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "hash": {
+          "description": "The MD5 checksum value of the object content.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "last_modified": {
+          "description": "The date and time when the object was last modified.\n\nThe date and time stamp format is `ISO 8601\n<https://en.wikipedia.org/wiki/ISO_8601>`_:\n\n::\n\n   CCYY-MM-DDThh:mm:ss\u00b1hh:mm\n\nFor example, ``2015-08-27T09:49:58-05:00``.\n\nThe ``\u00b1hh:mm`` value, if included, is the time zone as an offset\nfrom UTC. In the previous example, the offset value is ``-05:00``.", 
+          "format": "", 
+          "type": "string"
+        }, 
+        "name": {
+          "description": "The name of the container.", 
+          "format": "", 
+          "type": "string"
+        }
+      }, 
+      "required": [
+        "name", 
+        "hash", 
+        "bytes", 
+        "content_type", 
+        "last_modified"
+      ], 
+      "type": "object"
+    }
+  }, 
+  "externalDocs": {
+    "description": "OpenStack Docs", 
+    "url": "http://docs.openstack.org"
+  }, 
+  "host": "developer.openstack.org", 
+  "info": {
+    "license": {
+      "name": "Apache 2.0", 
+      "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+    }, 
+    "title": "Object Storage", 
+    "version": "v1", 
+    "x-service": "objectstorage"
+  }, 
+  "paths": {
+    "/info": {
+      "get": {
+        "consumes": [
+          "application/json"
+        ], 
+        "description": "", 
+        "operationId": "infoDiscoverability", 
+        "parameters": [
+          {
+            "description": "A hash-based message authentication code (HMAC) that enables access\nto administrator-only information. To use this parameter, the\n``swiftinfo_expires`` parameter is also required.", 
+            "format": "", 
+            "in": "query", 
+            "name": "swiftinfo_sig", 
+            "required": false, 
+            "type": "string"
+          }, 
+          {
+            "description": "Filters the response by the expiration date and time in `UNIX Epoch\ntime stamp format <https://en.wikipedia.org/wiki/Unix_time>`_.\n\nFor example, ``1440619048`` is equivalent to ``Mon, Wed, 26 Aug\n2015 19:57:28 GMT``.", 
+            "format": "", 
+            "in": "query", 
+            "name": "swiftinfo_expires", 
+            "required": false, 
+            "type": "integer"
+          }
+        ], 
+        "produces": [
+          "application/json"
+        ], 
+        "responses": {
+          "200": {
+            "description": "", 
+            "examples": {
+              "application/json": {
+                "staticweb": {}, 
+                "swift": {
+                  "version": "1.11.0"
+                }, 
+                "tempurl": {}
+              }
+            }, 
+            "headers": {}, 
+            "schema": {}
+          }
+        }, 
+        "summary": "Lists the activated capabilities for this version of the OpenStack Object Storage API.", 
+        "tags": [
+          "storage_info"
+        ], 
+        "x-title": "List activated capabilities"
+      }
+    }, 
+    "/v1/endpoints": {
+      "get": {
+        "consumes": [
+          "application/json"
+        ], 
+        "description": "When the cloud provider enables middleware to list the\n``/endpoints/`` path, software that needs data location information\ncan use this call to avoid network overhead. The cloud provider can\nmap the ``/endpoints/`` path to another resource, so this exact\nresource might vary from provider to provider. Because it goes\nstraight to the middleware, the call is not authenticated, so be\nsure you have tightly secured the environment and network when\nusing this call.", 
+        "operationId": "listEndpoints", 
+        "parameters": [], 
+        "produces": [
+          "application/json"
+        ], 
+        "responses": {
+          "201": {
+            "description": "", 
+            "examples": {
+              "application/json": {
+                "endpoints": [
+                  "http://storage01.swiftdrive.com:6008/d8/583/AUTH_dev/EC_cont1/obj", 
+                  "http://storage02.swiftdrive.com:6008/d2/583/AUTH_dev/EC_cont1/obj", 
+                  "http://storage02.swiftdrive.com:6006/d3/583/AUTH_dev/EC_cont1/obj", 
+                  "http://storage02.swiftdrive.com:6008/d5/583/AUTH_dev/EC_cont1/obj", 
+                  "http://storage01.swiftdrive.com:6007/d7/583/AUTH_dev/EC_cont1/obj", 
+                  "http://storage02.swiftdrive.com:6007/d4/583/AUTH_dev/EC_cont1/obj", 
+                  "http://storage01.swiftdrive.com:6006/d6/583/AUTH_dev/EC_cont1/obj"
+                ], 
+                "headers": {
+                  "X-Backend-Storage-Policy-Index": "2"
+                }
+              }
+            }, 
+            "headers": {}, 
+            "schema": {}
+          }
+        }, 
+        "summary": "Lists endpoints for an object, account, or container.", 
+        "tags": [
+          "storage_endpoints"
+        ], 
+        "x-title": "List endpoints"
+      }
+    }, 
+    "/v1/{account}": {
+      "get": {
+        "consumes": [
+          "application/json"
+        ], 
+        "description": "The sort order for the name is based on a binary comparison, a\nsingle built-in collating sequence that compares string data by\nusing the SQLite memcmp() function, regardless of text encoding.\nSee `Collating Sequences\n<http://www.sqlite.org/datatype3.html#collation>`_.\n\nExample requests and responses:\n\n- Show account details and list containers and ask for a JSON\n  response:\n\n  ::\n\n     curl -i $publicURL?format=json -X GET -H \"X-Auth-Token: $token\"\n\n\n- List containers and ask for an XML response:\n\n  ::\n\n     curl -i $publicURL?format=xml -X GET -H \"X-Auth-Token: $token\"\n\n\nThe response body returns a list of containers. The default\nresponse (``text/plain``) returns one container per line.\n\nIf you use query parameters to page through a long list of\ncontainers, you have reached the end of the list if the number of\nitems in the returned list is less than the request ``limit``\nvalue. The list contains more items if the number of items in the\nreturned list equals the ``limit`` value.\n\nWhen asking for a list of containers and there are none, the\nresponse behavior changes depending on whether the request format\nis text, JSON, or XML. For a text response, you get a 204 , because\nthere is no content. However, for a JSON or XML response, you get a\n200 with content indicating an empty array.\n\nIf the request succeeds, the operation returns one of these status\ncodes:\n\n- ``OK (200)``. Success. The response body lists the containers.\n\n- ``No Content (204)``. Success. The response body shows no\n  containers. Either the account has no containers or you are\n  paging through a long list of names by using the ``marker``,\n  ``limit``, or ``end_marker`` query parameter and you have reached\n  the end of the list.", 
+        "operationId": "showAccountDetails", 
+        "parameters": [
+          {
+            "description": "The unique name for the account. An account is also known as the\nproject or tenant.", 
+            "format": "", 
+            "in": "path", 
+            "name": "account", 
+            "required": true, 
+            "type": "string"
+          }, 
+          {
+            "description": "For an integer value n , limits the number of results to n .", 
+            "format": "", 
+            "in": "query", 
+            "name": "limit", 
+            "required": false, 
+            "type": "integer"
+          }, 
+          {
+            "description": "For a string value, x , returns container names that are greater\nthan the marker value.", 
+            "format": "", 
+            "in": "query", 
+            "name": "marker", 
+            "required": false, 
+            "type": "string"
+          }, 
+          {
+            "description": "For a string value, x , returns container names that are less than\nthe marker value.", 
+            "format": "", 
+            "in": "query", 
+            "name": "end_marker", 
+            "required": false, 
+            "type": "string"
+          }, 
+          {
+            "description": "The response format. Valid values are ``json``, ``xml``, or\n``plain``. The default is ``plain``.\n\nIf you append the ``format=xml`` or ``format=json`` query parameter\nto the storage account URL, the response shows extended container\ninformation serialized in that format.\n\nIf you append the ``format=plain`` query parameter, the response\nlists the container names separated by newlines.", 
+            "format": "", 
+            "in": "query", 
+            "name": "format", 
+            "required": false, 
+            "type": "string"
+          }, 
+          {
+            "description": "Prefix value. Named items in the response begin with this value.", 
+            "format": "", 
+            "in": "query", 
+            "name": "prefix", 
+            "required": false, 
+            "type": "string"
+          }, 
+          {
+            "description": "Delimiter value, which returns the object names that are nested in\nthe container. If you do not set a prefix and set the delimiter to\n\"/\" you may get unexpected results where all the objects are\nreturned instead of only those with the delimiter set.", 
+            "format": "", 
+            "in": "query", 
+            "name": "delimiter", 
+            "required": false, 
+            "type": "string"
+          }, 
+          {
+            "description": "Authentication token.", 
+            "format": "", 
+            "in": "header", 
+            "name": "X-Auth-Token", 
+            "required": true, 
+            "type": "string"
+          }, 
+          {
+            "description": "If set to true , Object Storage queries all replicas to return the\nmost recent one. If you omit this header, Object Storage responds\nfaster after it finds one valid replica. Because setting this\nheader to true is more expensive for the back end, use it only when\nit is absolutely needed.", 
+            "format": "", 
+            "in": "header", 
+            "name": "X-Newest", 
+            "required": false, 
+            "type": "boolean"
+          }, 
+          {
+            "description": "Instead of using the ``format`` query parameter, set this header to\n``application/json``, ``application/xml``, or ``text/xml``.", 
+            "format": "", 
+            "in": "header", 
+            "name": "Accept", 
+            "required": false, 
+            "type": "string"
+          }, 
+          {
+            "description": "Extra transaction information. Use the ``X-Trans-Id-Extra`` request\nheader to include extra information to help you debug any errors\nthat might occur with large object upload and other Object Storage\ntransactions.\n\nObject Storage appends the first 32 characters of the ``X-Trans-Id-\nExtra`` request header value to the transaction ID value in the\ngenerated ``X-Trans-Id`` response header. You must UTF-8-encode and\nthen URL-encode the extra transaction information before you\ninclude it in the ``X-Trans-Id-Extra`` request header.\n\nFor example, you can include extra transaction information when you\nupload `large objects <http://docs.openstack.org/user-\nguide/cli_swift_large_object_creation.html>`_ such as images. When\nyou upload each segment and the manifest, include the same value in\nthe ``X-Trans-Id-Extra`` request header. If an error occurs, you\ncan find all requests that are related to the large object upload\nin the Object Storage logs.\n\nYou can also use ``X-Trans-Id-Extra`` strings to help operators\ndebug requests that fail to receive responses. The operator can\nsearch for the extra information in the logs.", 
+            "format": "", 
+            "in": "header", 
+            "name": "X-Trans-Id-Extra", 
+            "required": false, 
+            "type": "string"
+          }
+        ], 
+        "produces": [
+          "application/json"
+        ], 
+        "responses": {
+          "200": {
+            "description": "", 
+            "examples": {
+              "application/json": [
+                {
+                  "bytes": 0, 
+                  "count": 0, 
+                  "name": "janeausten"
+                }, 
+                {
+                  "bytes": 14, 
+                  "count": 1, 
+                  "name": "marktwain"
+                }
+              ], 
+              "text/plain": "HTTP/1.1 200 OK\nContent-Length: 262\nX-Account-Object-Count: 1\nX-Timestamp: 1389453423.35964\nX-Account-Meta-Subject: Literature\nX-Account-Bytes-Used: 14\nX-Account-Container-Count: 2\nContent-Type: application/xml; charset=utf-8\nAccept-Ranges: bytes\nX-Trans-Id: tx69f60bc9f7634a01988e6-0052d9544b\nDate: Fri, 17 Jan 2014 16:03:23 GMT"
+            }, 
+            "headers": {
+              "Content-Length": {
+                "description": "The length of the response body that contains the list of names. If\nthe operation fails, this value is the length of the error text in\nthe response body.", 
+                "format": "", 
+                "type": "string"
+              }, 
+              "Content-Type": {
+                "description": "The MIME type of the list of names. If the operation fails, this\nvalue is the MIME type of the error text in the response body.", 
+                "format": "", 
+                "type": "string"
+              }, 
+              "Date": {
+                "description": "The transaction date and time.\n\nThe date and time stamp format is `ISO 8601\n<https://en.wikipedia.org/wiki/ISO_8601>`_:\n\n::\n\n   CCYY-MM-DDThh:mm:ss\u00b1hh:mm\n\nFor example, ``2015-08-27T09:49:58-05:00``.\n\nThe ``\u00b1hh:mm`` value, if included, is the time zone as an offset\nfrom UTC. In the previous example, the offset value is ``-05:00``.\n\nA ``null`` value indicates that the token never expires.", 
+                "format": "", 
+                "type": "string"
+              }, 
+              "X-Account-Bytes-Used": {
+                "description": "The total number of bytes that are stored in Object Storage for the\naccount.", 
+                "format": "", 
+                "type": "integer"
+              }, 
+              "X-Account-Container-Count": {
+                "description": "The number of containers.", 
+                "format": "", 
+                "type": "integer"
+              }, 
+              "X-Account-Meta-Temp-URL-Key": {
+                "description": "The secret key value for temporary URLs. If not set, this header is\nnot returned in the response.", 
+                "format": "", 
+                "type": "string"
+              }, 
+              "X-Account-Meta-Temp-URL-Key-2": {
+                "description": "A second secret key value for temporary URLs. If not set, this\nheader is not returned in the response.", 
+                "format": "", 
+                "type": "string"
+              }, 
+              "X-Account-Meta-name": {
+                "description": "The custom account metadata item, where ``{name}`` is the name of\nthe metadata item.\n\nOne ``X-Account-Meta- {name}`` response header appears for each\nmetadata item (for each ``{name}``).", 
+                "format": "", 
+                "type": "string"
+              }, 
+              "X-Account-Object-Count": {
+                "description": "The number of objects in the account.", 
+                "format": "", 
+                "type": "integer"
+              }, 
+              "X-Timestamp": {
+                "description": "The date and time in `UNIX Epoch time stamp format\n<https://en.wikipedia.org/wiki/Unix_time>`_ when the account,\ncontainer, or object was initially created as a current version.\n\nFor example, ``1440619048`` is equivalent to ``Mon, Wed, 26 Aug\n2015 19:57:28 GMT``.", 
+                "format": "", 
+                "type": "integer"
+              }, 
+              "X-Trans-Id": {
+                "description": "A unique transaction ID for this request. Your service provider\nmight need this value if you report a problem.", 
+                "format": "", 
+                "type": "string"
+              }
+            }, 
+            "schema": {
+              "$ref": "#/definitions/showAccountDetails_200"
+            }
+          }, 
+          "204": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }
+        }, 
+        "summary": "Shows details for an account and lists containers, sorted by name, in the account.", 
+        "tags": [
+          "storage-account-services"
+        ], 
+        "x-title": "Show account details and list containers"
+      }, 
+      "head": {
+        "consumes": [], 
+        "description": "Metadata for the account includes:\n\n- Number of containers\n\n- Number of objects\n\n- Total number of bytes that are stored in Object Storage for the\n  account\n\nBecause the storage system can store large amounts of data, take\ncare when you represent the total bytes response as an integer;\nwhen possible, convert it to a 64-bit unsigned integer if your\nplatform supports that primitive type.\n\nDo not include metadata headers in this request.\n\nShow account metadata request:\n\n::\n\n   curl -i $publicURL -X HEAD -H \"X-Auth-Token: $token\"\n\n\n\n\n::\n\n   HTTP/1.1 204 No Content\n   Content-Length: 0\n   X-Account-Object-Count: 1\n   X-Account-Meta-Book: MobyDick\n   X-Timestamp: 1389453423.35964\n   X-Account-Bytes-Used: 14\n   X-Account-Container-Count: 2\n   Content-Type: text/plain; charset=utf-8\n   Accept-Ranges: bytes\n   X-Trans-Id: txafb3504870144b8ca40f7-0052d955d4\n   Date: Fri, 17 Jan 2014 16:09:56 GMT\n\n\nIf the account or authentication token is not valid, the operation\nreturns the ``Unauthorized (401)`` response code.", 
+        "operationId": "showAccountMeta", 
+        "parameters": [
+          {
+            "description": "The unique name for the account. An account is also known as the\nproject or tenant.", 
+            "format": "", 
+            "in": "path", 
+            "name": "account", 
+            "required": true, 
+            "type": "string"
+          }, 
+          {
+            "description": "Authentication token.", 
+            "format": "", 
+            "in": "header", 
+            "name": "X-Auth-Token", 
+            "required": true, 
+            "type": "string"
+          }, 
+          {
+            "description": "If set to true , Object Storage queries all replicas to return the\nmost recent one. If you omit this header, Object Storage responds\nfaster after it finds one valid replica. Because setting this\nheader to true is more expensive for the back end, use it only when\nit is absolutely needed.", 
+            "format": "", 
+            "in": "header", 
+            "name": "X-Newest", 
+            "required": false, 
+            "type": "boolean"
+          }, 
+          {
+            "description": "Extra transaction information. Use the ``X-Trans-Id-Extra`` request\nheader to include extra information to help you debug any errors\nthat might occur with large object upload and other Object Storage\ntransactions.\n\nObject Storage appends the first 32 characters of the ``X-Trans-Id-\nExtra`` request header value to the transaction ID value in the\ngenerated ``X-Trans-Id`` response header. You must UTF-8-encode and\nthen URL-encode the extra transaction information before you\ninclude it in the ``X-Trans-Id-Extra`` request header.\n\nFor example, you can include extra transaction information when you\nupload `large objects <http://docs.openstack.org/user-\nguide/cli_swift_large_object_creation.html>`_ such as images. When\nyou upload each segment and the manifest, include the same value in\nthe ``X-Trans-Id-Extra`` request header. If an error occurs, you\ncan find all requests that are related to the large object upload\nin the Object Storage logs.\n\nYou can also use ``X-Trans-Id-Extra`` strings to help operators\ndebug requests that fail to receive responses. The operator can\nsearch for the extra information in the logs.", 
+            "format": "", 
+            "in": "header", 
+            "name": "X-Trans-Id-Extra", 
+            "required": false, 
+            "type": "string"
+          }
+        ], 
+        "produces": [], 
+        "responses": {
+          "204": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {
+              "Content-Length": {
+                "description": "If the operation succeeds, this value is zero (0). If the operation\nfails, this value is the length of the error text in the response\nbody.", 
+                "format": "", 
+                "type": "string"
+              }, 
+              "Content-Type": {
+                "description": "If the operation fails, this value is the MIME type of the error\ntext in the response body.", 
+                "format": "", 
+                "type": "string"
+              }, 
+              "Date": {
+                "description": "The transaction date and time.\n\nThe date and time stamp format is `ISO 8601\n<https://en.wikipedia.org/wiki/ISO_8601>`_:\n\n::\n\n   CCYY-MM-DDThh:mm:ss\u00b1hh:mm\n\nFor example, ``2015-08-27T09:49:58-05:00``.\n\nThe ``\u00b1hh:mm`` value, if included, is the time zone as an offset\nfrom UTC. In the previous example, the offset value is ``-05:00``.\n\nA ``null`` value indicates that the token never expires.", 
+                "format": "", 
+                "type": "string"
+              }, 
+              "X-Account-Bytes-Used": {
+                "description": "The total number of bytes that are stored in Object Storage for the\naccount.", 
+                "format": "", 
+                "type": "integer"
+              }, 
+              "X-Account-Container-Count": {
+                "description": "The number of containers.", 
+                "format": "", 
+                "type": "integer"
+              }, 
+              "X-Account-Meta-Temp-URL-Key": {
+                "description": "The secret key value for temporary URLs. If not set, this header is\nnot returned in the response.", 
+                "format": "", 
+                "type": "string"
+              }, 
+              "X-Account-Meta-Temp-URL-Key-2": {
+                "description": "A second secret key value for temporary URLs. If not set, this\nheader is not returned in the response.", 
+                "format": "", 
+                "type": "string"
+              }, 
+              "X-Account-Meta-name": {
+                "description": "The custom account metadata item, where ``{name}`` is the name of\nthe metadata item.\n\nOne ``X-Account-Meta- {name}`` response header appears for each\nmetadata item (for each ``{name}``).", 
+                "format": "", 
+                "type": "string"
+              }, 
+              "X-Account-Object-Count": {
+                "description": "The number of objects in the account.", 
+                "format": "", 
+                "type": "integer"
+              }, 
+              "X-Timestamp": {
+                "description": "The date and time in `UNIX Epoch time stamp format\n<https://en.wikipedia.org/wiki/Unix_time>`_ when the account,\ncontainer, or object was initially created as a current version.\n\nFor example, ``1440619048`` is equivalent to ``Mon, Wed, 26 Aug\n2015 19:57:28 GMT``.", 
+                "format": "", 
+                "type": "integer"
+              }, 
+              "X-Trans-Id": {
+                "description": "A unique transaction ID for this request. Your service provider\nmight need this value if you report a problem.", 
+                "format": "", 
+                "type": "string"
+              }
+            }, 
+            "schema": {}
+          }, 
+          "401": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }
+        }, 
+        "summary": "Shows metadata for an account.", 
+        "tags": [
+          "storage-account-services"
+        ], 
+        "x-title": "Show account metadata"
+      }, 
+      "post": {
+        "consumes": [], 
+        "description": "To create, update, or delete metadata, use the ``X-Account-\nMeta-{name}`` request header, where ``{name}`` is the name of the\nmetadata item.\n\nSubsequent requests for the same key and value pair overwrite the\nexisting value.\n\nTo delete a metadata header, send an empty value for that header,\nsuch as for the ``X-Account-Meta-Book`` header. If the tool you use\nto communicate with Object Storage, such as an older version of\ncURL, does not support empty headers, send the ``X-Remove-Account-\nMeta-{name}`` header with an arbitrary value. For example, ``X\n-Remove-Account-Meta-Book: x``. The operation ignores the arbitrary\nvalue.\n\nIf the container already has other custom metadata items, a request\nto create, update, or delete metadata does not affect those items.\n\nThis operation does not accept a request body.\n\nExample requests and responses:\n\n- Create account metadata:\n\n  ::\n\n     curl -i $publicURL -X POST -H \"X-Auth-Token: $token\" -H \"X-Account-Meta-Book: MobyDick\" -H \"X-Account-Meta-Subject: Literature\"\n\n\n\n\n  ::\n\n     HTTP/1.1 204 No Content\n     Content-Length: 0\n     Content-Type: text/html; charset=UTF-8\n     X-Trans-Id: tx8c2dd6aee35442a4a5646-0052d954fb\n     Date: Fri, 17 Jan 2014 16:06:19 GMT\n\n\n- Update account metadata:\n\n  ::\n\n     curl -i $publicURL -X POST -H \"X-Auth-Token: $token\" -H \"X-Account-Meta-Subject: AmericanLiterature\"\n\n\n\n\n  ::\n\n     HTTP/1.1 204 No Content\n     Content-Length: 0\n     Content-Type: text/html; charset=UTF-8\n     X-Trans-Id: tx1439b96137364ab581156-0052d95532\n     Date: Fri, 17 Jan 2014 16:07:14 GMT\n\n\n- Delete account metadata:\n\n  ::\n\n     curl -i $publicURL -X POST -H \"X-Auth-Token: $token\" -H \"X-Remove-Account-Meta-Subject: x\"\n\n\n\n\n  ::\n\n     HTTP/1.1 204 No Content\n     Content-Length: 0\n     Content-Type: text/html; charset=UTF-8\n     X-Trans-Id: tx411cf57701424da99948a-0052d9556f\n     Date: Fri, 17 Jan 2014 16:08:15 GMT\n\n\nIf the request succeeds, the operation returns the ``No Content\n(204)`` response code.\n\nTo confirm your changes, issue a show account metadata request.", 
+        "operationId": "updateAccountMeta", 
+        "parameters": [
+          {
+            "description": "The unique name for the account. An account is also known as the\nproject or tenant.", 
+            "format": "", 
+            "in": "path", 
+            "name": "account", 
+            "required": true, 
+            "type": "string"
+          }, 
+          {
+            "description": "Authentication token.", 
+            "format": "", 
+            "in": "header", 
+            "name": "X-Auth-Token", 
+            "required": true, 
+            "type": "string"
+          }, 
+          {
+            "description": "The secret key value for temporary URLs.", 
+            "format": "", 
+            "in": "header", 
+            "name": "X-Account-Meta-Temp-URL-Key", 
+            "required": false, 
+            "type": "string"
+          }, 
+          {
+            "description": "A second secret key value for temporary URLs. The second key\nenables you to rotate keys by having two active keys at the same\ntime.", 
+            "format": "", 
+            "in": "header", 
+            "name": "X-Account-Meta-Temp-URL-Key-2", 
+            "required": false, 
+            "type": "string"
+          }, 
+          {
+            "description": "The account metadata. The ``{name}`` is the name of metadata item\nthat you want to add, update, or delete. To delete this item, send\nan empty value in this header.\n\nYou must specify an ``X-Account-Meta- {name}`` header for each\nmetadata item (for each ``{name}``) that you want to add, update,\nor delete.", 
+            "format": "", 
+            "in": "header", 
+            "name": "X-Account-Meta-name", 
+            "required": false, 
+            "type": "string"
+          }, 
+          {
+            "description": "Changes the MIME type for the object.", 
+            "format": "", 
+            "in": "header", 
+            "name": "Content-Type", 
+            "required": false, 
+            "type": "string"
+          }, 
+          {
+            "description": "If set to ``true``, Object Storage guesses the content type based\non the file extension and ignores the value sent in the ``Content-\nType`` header, if present.", 
+            "format": "", 
+            "in": "header", 
+            "name": "X-Detect-Content-Type", 
+            "required": false, 
+            "type": "boolean"
+          }, 
+          {
+            "description": "Extra transaction information. Use the ``X-Trans-Id-Extra`` request\nheader to include extra information to help you debug any errors\nthat might occur with large object upload and other Object Storage\ntransactions.\n\nObject Storage appends the first 32 characters of the ``X-Trans-Id-\nExtra`` request header value to the transaction ID value in the\ngenerated ``X-Trans-Id`` response header. You must UTF-8-encode and\nthen URL-encode the extra transaction information before you\ninclude it in the ``X-Trans-Id-Extra`` request header.\n\nFor example, you can include extra transaction information when you\nupload `large objects <http://docs.openstack.org/user-\nguide/cli_swift_large_object_creation.html>`_ such as images. When\nyou upload each segment and the manifest, include the same value in\nthe ``X-Trans-Id-Extra`` request header. If an error occurs, you\ncan find all requests that are related to the large object upload\nin the Object Storage logs.\n\nYou can also use ``X-Trans-Id-Extra`` strings to help operators\ndebug requests that fail to receive responses. The operator can\nsearch for the extra information in the logs.", 
+            "format": "", 
+            "in": "header", 
+            "name": "X-Trans-Id-Extra", 
+            "required": false, 
+            "type": "string"
+          }
+        ], 
+        "produces": [], 
+        "responses": {
+          "204": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {
+              "Content-Length": {
+                "description": "If the operation succeeds, this value is zero (0). If the operation\nfails, this value is the length of the error text in the response\nbody.", 
+                "format": "", 
+                "type": "string"
+              }, 
+              "Content-Type": {
+                "description": "If the operation fails, this value is the MIME type of the error\ntext in the response body.", 
+                "format": "", 
+                "type": "string"
+              }, 
+              "Date": {
+                "description": "The transaction date and time.\n\nThe date and time stamp format is `ISO 8601\n<https://en.wikipedia.org/wiki/ISO_8601>`_:\n\n::\n\n   CCYY-MM-DDThh:mm:ss\u00b1hh:mm\n\nFor example, ``2015-08-27T09:49:58-05:00``.\n\nThe ``\u00b1hh:mm`` value, if included, is the time zone as an offset\nfrom UTC. In the previous example, the offset value is ``-05:00``.\n\nA ``null`` value indicates that the token never expires.", 
+                "format": "", 
+                "type": "string"
+              }, 
+              "X-Timestamp": {
+                "description": "The date and time in `UNIX Epoch time stamp format\n<https://en.wikipedia.org/wiki/Unix_time>`_ when the account,\ncontainer, or object was initially created as a current version.\n\nFor example, ``1440619048`` is equivalent to ``Mon, Wed, 26 Aug\n2015 19:57:28 GMT``.", 
+                "format": "", 
+                "type": "integer"
+              }, 
+              "X-Trans-Id": {
+                "description": "A unique transaction ID for this request. Your service provider\nmight need this value if you report a problem.", 
+                "format": "", 
+                "type": "string"
+              }
+            }, 
+            "schema": {}
+          }
+        }, 
+        "summary": "Creates, updates, or deletes account metadata.", 
+        "tags": [
+          "storage-account-services"
+        ], 
+        "x-title": "Create, update, or delete account metadata"
+      }
+    }, 
+    "/v1/{account}/{container}": {
+      "delete": {
+        "consumes": [], 
+        "description": "This operation fails unless the container is empty. An empty\ncontainer has no objects.\n\nDelete the ``steven`` container:\n\n::\n\n   curl -i $publicURL/steven -X DELETE -H \"X-Auth-Token: $token\"\n\n\nIf the container does not exist, the response is:\n\n::\n\n   HTTP/1.1 404 Not Found\n   Content-Length: 70\n   Content-Type: text/html; charset=UTF-8\n   X-Trans-Id: tx4d728126b17b43b598bf7-0052d81e34\n   Date: Thu, 16 Jan 2014 18:00:20 GMT\n\n\nIf the container exists and the deletion succeeds, the response is:\n\n::\n\n   HTTP/1.1 204 No Content\n   Content-Length: 0\n   Content-Type: text/html; charset=UTF-8\n   X-Trans-Id: txf76c375ebece4df19c84c-0052d81f14\n   Date: Thu, 16 Jan 2014 18:04:04 GMT\n\n\nIf the container exists but is not empty, the response is:\n\n::\n\n   HTTP/1.1 409 Conflict\n   Content-Length: 95\n   Content-Type: text/html; charset=UTF-8\n   X-Trans-Id: tx7782dc6a97b94a46956b5-0052d81f6b\n   Date: Thu, 16 Jan 2014 18:05:31 GMT\n   <html>\n   <h1>Conflict\n   </h1>\n   <p>There was a conflict when trying to complete your request.\n   </p>\n   </html>", 
+        "operationId": "deleteContainer", 
+        "parameters": [
+          {
+            "description": "The unique name for the container.\n\nThe container name must be from 1 to 256 characters long and can\nstart with any character and contain any pattern. Character set\nmust be UTF-8. The container name cannot contain a slash (``/``)\ncharacter because this character delimits the container and object\nname. For example, ``/account/container/object``.", 
+            "format": "", 
+            "in": "path", 
+            "name": "container", 
+            "required": true, 
+            "type": "string"
+          }, 
+          {
+            "description": "The unique name for the account. An account is also known as the\nproject or tenant.", 
+            "format": "", 
+            "in": "path", 
+            "name": "account", 
+            "required": true, 
+            "type": "string"
+          }, 
+          {
+            "description": "Authentication token.", 
+            "format": "", 
+            "in": "header", 
+            "name": "X-Auth-Token", 
+            "required": true, 
+            "type": "string"
+          }, 
+          {
+            "description": "The secret key value for temporary URLs.", 
+            "format": "", 
+            "in": "header", 
+            "name": "X-Container-Meta-Temp-URL-Key", 
+            "required": false, 
+            "type": "string"
+          }, 
+          {
+            "description": "A second secret key value for temporary URLs. The second key\nenables you to rotate keys by having two active keys at the same\ntime.", 
+            "format": "", 
+            "in": "header", 
+            "name": "X-Container-Meta-Temp-URL-Key-2", 
+            "required": false, 
+            "type": "string"
+          }, 
+          {
+            "description": "Extra transaction information. Use the ``X-Trans-Id-Extra`` request\nheader to include extra information to help you debug any errors\nthat might occur with large object upload and other Object Storage\ntransactions.\n\nObject Storage appends the first 32 characters of the ``X-Trans-Id-\nExtra`` request header value to the transaction ID value in the\ngenerated ``X-Trans-Id`` response header. You must UTF-8-encode and\nthen URL-encode the extra transaction information before you\ninclude it in the ``X-Trans-Id-Extra`` request header.\n\nFor example, you can include extra transaction information when you\nupload `large objects <http://docs.openstack.org/user-\nguide/cli_swift_large_object_creation.html>`_ such as images. When\nyou upload each segment and the manifest, include the same value in\nthe ``X-Trans-Id-Extra`` request header. If an error occurs, you\ncan find all requests that are related to the large object upload\nin the Object Storage logs.\n\nYou can also use ``X-Trans-Id-Extra`` strings to help operators\ndebug requests that fail to receive responses. The operator can\nsearch for the extra information in the logs.", 
+            "format": "", 
+            "in": "header", 
+            "name": "X-Trans-Id-Extra", 
+            "required": false, 
+            "type": "string"
+          }
+        ], 
+        "produces": [], 
+        "responses": {
+          "204": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {
+              "Content-Length": {
+                "description": "If the operation succeeds, this value is zero (0). If the operation\nfails, this value is the length of the error text in the response\nbody.", 
+                "format": "", 
+                "type": "string"
+              }, 
+              "Content-Type": {
+                "description": "If the operation fails, this value is the MIME type of the error\ntext in the response body.", 
+                "format": "", 
+                "type": "string"
+              }, 
+              "Date": {
+                "description": "The transaction date and time.\n\nThe date and time stamp format is `ISO 8601\n<https://en.wikipedia.org/wiki/ISO_8601>`_:\n\n::\n\n   CCYY-MM-DDThh:mm:ss\u00b1hh:mm\n\nFor example, ``2015-08-27T09:49:58-05:00``.\n\nThe ``\u00b1hh:mm`` value, if included, is the time zone as an offset\nfrom UTC. In the previous example, the offset value is ``-05:00``.\n\nA ``null`` value indicates that the token never expires.", 
+                "format": "", 
+                "type": "string"
+              }, 
+              "X-Timestamp": {
+                "description": "The date and time in `UNIX Epoch time stamp format\n<https://en.wikipedia.org/wiki/Unix_time>`_ when the account,\ncontainer, or object was initially created as a current version.\n\nFor example, ``1440619048`` is equivalent to ``Mon, Wed, 26 Aug\n2015 19:57:28 GMT``.", 
+                "format": "", 
+                "type": "integer"
+              }, 
+              "X-Trans-Id": {
+                "description": "A unique transaction ID for this request. Your service provider\nmight need this value if you report a problem.", 
+                "format": "", 
+                "type": "string"
+              }
+            }, 
+            "schema": {}
+          }, 
+          "404": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "409": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }
+        }, 
+        "summary": "Deletes an empty container.", 
+        "tags": [
+          "storage-container-services"
+        ], 
+        "x-title": "Delete container"
+      }, 
+      "get": {
+        "consumes": [
+          "application/json"
+        ], 
+        "description": "Specify query parameters in the request to filter the list and\nreturn a subset of object names. Omit query parameters to return\nthe complete list of object names that are stored in the container,\nup to 10,000 names. The 10,000 maximum value is configurable. To\nview the value for the cluster, issue a GET ``/info`` request.\n\nExample requests and responses:\n\n- ``OK (200)``. Success. The response body lists the objects.\n\n- ``No Content (204)``. Success. The response body shows no objects.\n  Either the container has no objects or you are paging through a\n  long list of names by using the ``marker``, ``limit``, or\n  ``end_marker`` query parameter and you have reached the end of\n  the list.\n\nIf the container does not exist, the call returns the ``Not Found\n(404)`` response code.\n\nThe operation returns the ``Range Not Satisfiable (416)`` response\ncode for any ranged GET requests that specify more than:\n\n- Fifty ranges.\n\n- Three overlapping ranges.\n\n- Eight non-increasing ranges.", 
+        "operationId": "showContainerDetails", 
+        "parameters": [
+          {
+            "description": "The unique name for the container.\n\nThe container name must be from 1 to 256 characters long and can\nstart with any character and contain any pattern. Character set\nmust be UTF-8. The container name cannot contain a slash (``/``)\ncharacter because this character delimits the container and object\nname. For example, ``/account/container/object``.", 
+            "format": "", 
+            "in": "path", 
+            "name": "container", 
+            "required": true, 
+            "type": "string"
+          }, 
+          {
+            "description": "The unique name for the account. An account is also known as the\nproject or tenant.", 
+            "format": "", 
+            "in": "path", 
+            "name": "account", 
+            "required": true, 
+            "type": "string"
+          }, 
+          {
+            "description": "For an integer value n , limits the number of results to n .", 
+            "format": "", 
+            "in": "query", 
+            "name": "limit", 
+            "required": false, 
+            "type": "integer"
+          }, 
+          {
+            "description": "For a string value, x , returns container names that are greater\nthan the marker value.", 
+            "format": "", 
+            "in": "query", 
+            "name": "marker", 
+            "required": false, 
+            "type": "string"
+          }, 
+          {
+            "description": "For a string value, x , returns container names that are less than\nthe marker value.", 
+            "format": "", 
+            "in": "query", 
+            "name": "end_marker", 
+            "required": false, 
+            "type": "string"
+          }, 
+          {
+            "description": "Prefix value. Named items in the response begin with this value.", 
+            "format": "", 
+            "in": "query", 
+            "name": "prefix", 
+            "required": false, 
+            "type": "string"
+          }, 
+          {
+            "description": "The response format. Valid values are ``json``, ``xml``, or\n``plain``. The default is ``plain``.\n\nIf you append the ``format=xml`` or ``format=json`` query parameter\nto the storage account URL, the response shows extended container\ninformation serialized in that format.\n\nIf you append the ``format=plain`` query parameter, the response\nlists the container names separated by newlines.", 
+            "format": "", 
+            "in": "query", 
+            "name": "format", 
+            "required": false, 
+            "type": "string"
+          }, 
+          {
+            "description": "Delimiter value, which returns the object names that are nested in\nthe container. If you do not set a prefix and set the delimiter to\n\"/\" you may get unexpected results where all the objects are\nreturned instead of only those with the delimiter set.", 
+            "format": "", 
+            "in": "query", 
+            "name": "delimiter", 
+            "required": false, 
+            "type": "string"
+          }, 
+          {
+            "description": "For a string value, returns the object names that are nested in the\npseudo path.", 
+            "format": "", 
+            "in": "query", 
+            "name": "path", 
+            "required": false, 
+            "type": "string"
+          }, 
+          {
+            "description": "Authentication token.", 
+            "format": "", 
+            "in": "header", 
+            "name": "X-Auth-Token", 
+            "required": true, 
+            "type": "string"
+          }, 
+          {
+            "description": "If set to true , Object Storage queries all replicas to return the\nmost recent one. If you omit this header, Object Storage responds\nfaster after it finds one valid replica. Because setting this\nheader to true is more expensive for the back end, use it only when\nit is absolutely needed.", 
+            "format": "", 
+            "in": "header", 
+            "name": "X-Newest", 
+            "required": false, 
+            "type": "boolean"
+          }, 
+          {
+            "description": "Instead of using the ``format`` query parameter, set this header to\n``application/json``, ``application/xml``, or ``text/xml``.", 
+            "format": "", 
+            "in": "header", 
+            "name": "Accept", 
+            "required": false, 
+            "type": "string"
+          }, 
+          {
+            "description": "The secret key value for temporary URLs.", 
+            "format": "", 
+            "in": "header", 
+            "name": "X-Container-Meta-Temp-URL-Key", 
+            "required": false, 
+            "type": "string"
+          }, 
+          {
+            "description": "A second secret key value for temporary URLs. The second key\nenables you to rotate keys by having two active keys at the same\ntime.", 
+            "format": "", 
+            "in": "header", 
+            "name": "X-Container-Meta-Temp-URL-Key-2", 
+            "required": false, 
+            "type": "string"
+          }, 
+          {
+            "description": "Extra transaction information. Use the ``X-Trans-Id-Extra`` request\nheader to include extra information to help you debug any errors\nthat might occur with large object upload and other Object Storage\ntransactions.\n\nObject Storage appends the first 32 characters of the ``X-Trans-Id-\nExtra`` request header value to the transaction ID value in the\ngenerated ``X-Trans-Id`` response header. You must UTF-8-encode and\nthen URL-encode the extra transaction information before you\ninclude it in the ``X-Trans-Id-Extra`` request header.\n\nFor example, you can include extra transaction information when you\nupload `large objects <http://docs.openstack.org/user-\nguide/cli_swift_large_object_creation.html>`_ such as images. When\nyou upload each segment and the manifest, include the same value in\nthe ``X-Trans-Id-Extra`` request header. If an error occurs, you\ncan find all requests that are related to the large object upload\nin the Object Storage logs.\n\nYou can also use ``X-Trans-Id-Extra`` strings to help operators\ndebug requests that fail to receive responses. The operator can\nsearch for the extra information in the logs.", 
+            "format": "", 
+            "in": "header", 
+            "name": "X-Trans-Id-Extra", 
+            "required": false, 
+            "type": "string"
+          }
+        ], 
+        "produces": [
+          "application/json"
+        ], 
+        "responses": {
+          "200": {
+            "description": "", 
+            "examples": {
+              "application/json": [
+                {
+                  "bytes": 14, 
+                  "content_type": "application/octet-stream", 
+                  "hash": "451e372e48e0f6b1114fa0724aa79fa1", 
+                  "last_modified": "2014-01-15T16:41:49.390270", 
+                  "name": "goodbye"
+                }, 
+                {
+                  "bytes": 12, 
+                  "content_type": "application/octet-stream", 
+                  "hash": "ed076287532e86365e841e92bfc50d8c", 
+                  "last_modified": "2014-01-15T16:37:43.427570", 
+                  "name": "helloworld"
+                }
+              ], 
+              "text/plain": "HTTP/1.1 200 OK\nContent-Length: 500\nX-Container-Object-Count: 2\nAccept-Ranges: bytes\nX-Container-Meta-Book: TomSawyer\nX-Timestamp: 1389727543.65372\nX-Container-Bytes-Used: 26\nContent-Type: application/xml; charset=utf-8\nX-Trans-Id: txc75ea9a6e66f47d79e0c5-0052d6be76\nDate: Wed, 15 Jan 2014 16:59:35 GMT"
+            }, 
+            "headers": {
+              "Accept-Ranges": {
+                "description": "The type of ranges that the object accepts.", 
+                "format": "", 
+                "type": "string"
+              }, 
+              "Content-Length": {
+                "description": "The length of the response body that contains the list of names. If\nthe operation fails, this value is the length of the error text in\nthe response body.", 
+                "format": "", 
+                "type": "string"
+              }, 
+              "Content-Type": {
+                "description": "The MIME type of the list of names. If the operation fails, this\nvalue is the MIME type of the error text in the response body.", 
+                "format": "", 
+                "type": "string"
+              }, 
+              "Date": {
+                "description": "The transaction date and time.\n\nThe date and time stamp format is `ISO 8601\n<https://en.wikipedia.org/wiki/ISO_8601>`_:\n\n::\n\n   CCYY-MM-DDThh:mm:ss\u00b1hh:mm\n\nFor example, ``2015-08-27T09:49:58-05:00``.\n\nThe ``\u00b1hh:mm`` value, if included, is the time zone as an offset\nfrom UTC. In the previous example, the offset value is ``-05:00``.\n\nA ``null`` value indicates that the token never expires.", 
+                "format": "", 
+                "type": "string"
+              }, 
+              "X-Container-Bytes-Used": {
+                "description": "The total number of bytes used.", 
+                "format": "", 
+                "type": "integer"
+              }, 
+              "X-Container-Meta-Temp-URL-Key": {
+                "description": "The secret key value for temporary URLs.", 
+                "format": "", 
+                "type": "string"
+              }, 
+              "X-Container-Meta-Temp-URL-Key-2": {
+                "description": "A second secret key value for temporary URLs. The second key\nenables you to rotate keys by having two active keys at the same\ntime.", 
+                "format": "", 
+                "type": "string"
+              }, 
+              "X-Container-Meta-name": {
+                "description": "The custom container metadata item, where ``{name}`` is the name of\nthe metadata item.\n\nOne ``X-Container-Meta- {name}`` response header appears for each\nmetadata item (for each ``{name}``).", 
+                "format": "", 
+                "type": "string"
+              }, 
+              "X-Container-Object-Count": {
+                "description": "The number of objects.", 
+                "format": "", 
+                "type": "integer"
+              }, 
+              "X-Timestamp": {
+                "description": "The date and time in `UNIX Epoch time stamp format\n<https://en.wikipedia.org/wiki/Unix_time>`_ when the account,\ncontainer, or object was initially created as a current version.\n\nFor example, ``1440619048`` is equivalent to ``Mon, Wed, 26 Aug\n2015 19:57:28 GMT``.", 
+                "format": "", 
+                "type": "integer"
+              }, 
+              "X-Trans-Id": {
+                "description": "A unique transaction ID for this request. Your service provider\nmight need this value if you report a problem.", 
+                "format": "", 
+                "type": "string"
+              }
+            }, 
+            "schema": {
+              "$ref": "#/definitions/showContainerDetails_200"
+            }
+          }, 
+          "204": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "404": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "416": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }
+        }, 
+        "summary": "Shows details for a container and lists objects, sorted by name, in the container.", 
+        "tags": [
+          "storage-container-services"
+        ], 
+        "x-title": "Show container details and list objects"
+      }, 
+      "head": {
+        "consumes": [], 
+        "description": "Show container metadata request:\n\n::\n\n   curl -i $publicURL/marktwain -X HEAD -H \"X-Auth-Token: $token\"\n\n\n\n\n::\n\n   HTTP/1.1 204 No Content\n   Content-Length: 0\n   X-Container-Object-Count: 1\n   Accept-Ranges: bytes\n   X-Container-Meta-Book: TomSawyer\n   X-Timestamp: 1389727543.65372\n   X-Container-Meta-Author: SamuelClemens\n   X-Container-Bytes-Used: 14\n   Content-Type: text/plain; charset=utf-8\n   X-Trans-Id: tx0287b982a268461b9ec14-0052d826e2\n   Date: Thu, 16 Jan 2014 18:37:22 GMT\n\n\nIf the request succeeds, the operation returns the ``No Content\n(204)`` response code.", 
+        "operationId": "showContainerMeta", 
+        "parameters": [
+          {
+            "description": "The unique name for the container.\n\nThe container name must be from 1 to 256 characters long and can\nstart with any character and contain any pattern. Character set\nmust be UTF-8. The container name cannot contain a slash (``/``)\ncharacter because this character delimits the container and object\nname. For example, ``/account/container/object``.", 
+            "format": "", 
+            "in": "path", 
+            "name": "container", 
+            "required": true, 
+            "type": "string"
+          }, 
+          {
+            "description": "The unique name for the account. An account is also known as the\nproject or tenant.", 
+            "format": "", 
+            "in": "path", 
+            "name": "account", 
+            "required": true, 
+            "type": "string"
+          }, 
+          {
+            "description": "Authentication token. If you omit this header, your request fails\nunless the account owner has granted you access through an access\ncontrol list (ACL).", 
+            "format": "", 
+            "in": "header", 
+            "name": "X-Auth-Token", 
+            "required": false, 
+            "type": "string"
+          }, 
+          {
+            "description": "If set to true , Object Storage queries all replicas to return the\nmost recent one. If you omit this header, Object Storage responds\nfaster after it finds one valid replica. Because setting this\nheader to true is more expensive for the back end, use it only when\nit is absolutely needed.", 
+            "format": "", 
+            "in": "header", 
+            "name": "X-Newest", 
+            "required": false, 
+            "type": "boolean"
+          }, 
+          {
+            "description": "The secret key value for temporary URLs.", 
+            "format": "", 
+            "in": "header", 
+            "name": "X-Container-Meta-Temp-URL-Key", 
+            "required": false, 
+            "type": "string"
+          }, 
+          {
+            "description": "A second secret key value for temporary URLs. The second key\nenables you to rotate keys by having two active keys at the same\ntime.", 
+            "format": "", 
+            "in": "header", 
+            "name": "X-Container-Meta-Temp-URL-Key-2", 
+            "required": false, 
+            "type": "string"
+          }, 
+          {
+            "description": "Extra transaction information. Use the ``X-Trans-Id-Extra`` request\nheader to include extra information to help you debug any errors\nthat might occur with large object upload and other Object Storage\ntransactions.\n\nObject Storage appends the first 32 characters of the ``X-Trans-Id-\nExtra`` request header value to the transaction ID value in the\ngenerated ``X-Trans-Id`` response header. You must UTF-8-encode and\nthen URL-encode the extra transaction information before you\ninclude it in the ``X-Trans-Id-Extra`` request header.\n\nFor example, you can include extra transaction information when you\nupload `large objects <http://docs.openstack.org/user-\nguide/cli_swift_large_object_creation.html>`_ such as images. When\nyou upload each segment and the manifest, include the same value in\nthe ``X-Trans-Id-Extra`` request header. If an error occurs, you\ncan find all requests that are related to the large object upload\nin the Object Storage logs.\n\nYou can also use ``X-Trans-Id-Extra`` strings to help operators\ndebug requests that fail to receive responses. The operator can\nsearch for the extra information in the logs.", 
+            "format": "", 
+            "in": "header", 
+            "name": "X-Trans-Id-Extra", 
+            "required": false, 
+            "type": "string"
+          }
+        ], 
+        "produces": [], 
+        "responses": {
+          "204": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {
+              "Accept-Ranges": {
+                "description": "The type of ranges that the object accepts.", 
+                "format": "", 
+                "type": "string"
+              }, 
+              "Content-Length": {
+                "description": "If the operation succeeds, this value is zero (0). If the operation\nfails, this value is the length of the error text in the response\nbody.", 
+                "format": "", 
+                "type": "string"
+              }, 
+              "Content-Type": {
+                "description": "If the operation fails, this value is the MIME type of the error\ntext in the response body.", 
+                "format": "", 
+                "type": "string"
+              }, 
+              "Date": {
+                "description": "The transaction date and time.\n\nThe date and time stamp format is `ISO 8601\n<https://en.wikipedia.org/wiki/ISO_8601>`_:\n\n::\n\n   CCYY-MM-DDThh:mm:ss\u00b1hh:mm\n\nFor example, ``2015-08-27T09:49:58-05:00``.\n\nThe ``\u00b1hh:mm`` value, if included, is the time zone as an offset\nfrom UTC. In the previous example, the offset value is ``-05:00``.\n\nA ``null`` value indicates that the token never expires.", 
+                "format": "", 
+                "type": "string"
+              }, 
+              "X-Container-Bytes-Used": {
+                "description": "The total number of bytes used.", 
+                "format": "", 
+                "type": "integer"
+              }, 
+              "X-Container-Meta-Access-Control-Allow-Origin": {
+                "description": "Originating URLs allowed to make cross-origin requests (CORS),\nseparated by spaces. This heading applies to the container only,\nand all objects within the container with this header applied are\nCORS-enabled for the allowed origin URLs.\n\nA browser (user-agent) typically issues a `preflighted request\n<https://developer.mozilla.org/en-\nUS/docs/HTTP/Access_control_CORS>`_ , which is an OPTIONS call that\nverifies the origin is allowed to make the request. The Object\nStorage service returns 200 if the originating URL is listed in\nthis header parameter, and issues a 401 if the originating URL is\nnot allowed to make a cross-origin request. Once a 200 is returned,\nthe browser makes a second request to the Object Storage service to\nretrieve the CORS-enabled object.", 
+                "format": "", 
+                "type": "string"
+              }, 
+              "X-Container-Meta-Access-Control-Expose-Headers": {
+                "description": "Headers the Object Storage service exposes to the browser\n(technically, through the ``user-agent`` setting), in the request\nresponse, separated by spaces.\n\nBy default the Object Storage service returns the following values\nfor this header:\n\n- All \u201csimple response headers\u201d as listed on\n  `http://www.w3.org/TR/cors/#simple-response-header\n  <http://www.w3.org/TR/cors/#simple-response-header>`_.\n\n- The headers ``etag``, ``x-timestamp``, ``x-trans-id``.\n\n- All metadata headers (``X-Container-Meta-*`` for containers and\n  ``X-Object-Meta-*`` for objects) headers listed in ``X-Container-\n  Meta-Access-Control-Expose-Headers``.", 
+                "format": "", 
+                "type": "string"
+              }, 
+              "X-Container-Meta-Access-Control-Max-Age": {
+                "description": "Maximum time for the origin to hold the preflight results. A\nbrowser may make an OPTIONS call to verify the origin is allowed to\nmake the request. Set the value to an integer number of seconds\nafter the time that the request was received.", 
+                "format": "", 
+                "type": "string"
+              }, 
+              "X-Container-Meta-Quota-Bytes": {
+                "description": "Sets maximum size of the container, in bytes. Typically these\nvalues are set by an administrator. Returns a 413 response (request\nentity too large) when an object PUT operation exceeds this quota\nvalue.", 
+                "format": "", 
+                "type": "string"
+              }, 
+              "X-Container-Meta-Quota-Count": {
+                "description": "Sets maximum object count of the container. Typically these values\nare set by an administrator. Returns a 413 response (request entity\ntoo large) when an object PUT operation exceeds this quota value.", 
+                "format": "", 
+                "type": "string"
+              }, 
+              "X-Container-Meta-Temp-URL-Key": {
+                "description": "The secret key value for temporary URLs. If not set, this header is\nnot returned in the response.", 
+                "format": "", 
+                "type": "string"
+              }, 
+              "X-Container-Meta-Temp-URL-Key-2": {
+                "description": "A second secret key value for temporary URLs. If not set, this\nheader is not returned in the response.", 
+                "format": "", 
+                "type": "string"
+              }, 
+              "X-Container-Meta-name": {
+                "description": "The custom container metadata item, where ``{name}`` is the name of\nthe metadata item.\n\nOne ``X-Container-Meta- {name}`` response header appears for each\nmetadata item (for each ``{name}``).", 
+                "format": "", 
+                "type": "string"
+              }, 
+              "X-Container-Object-Count": {
+                "description": "The number of objects.", 
+                "format": "", 
+                "type": "integer"
+              }, 
+              "X-Container-Read": {
+                "description": "The ACL that grants read access. If not set, this header is not\nreturned by this operation.", 
+                "format": "", 
+                "type": "string"
+              }, 
+              "X-Container-Sync-Key": {
+                "description": "The secret key for container synchronization. If not set, this\nheader is not returned by this operation.", 
+                "format": "", 
+                "type": "string"
+              }, 
+              "X-Container-Sync-To": {
+                "description": "The destination for container synchronization. If not set, this\nheader is not returned by this operation.", 
+                "format": "", 
+                "type": "string"
+              }, 
+              "X-Container-Write": {
+                "description": "The ACL that grants write access. If not set, this header is not\nreturned by this operation.", 
+                "format": "", 
+                "type": "string"
+              }, 
+              "X-Timestamp": {
+                "description": "The date and time in `UNIX Epoch time stamp format\n<https://en.wikipedia.org/wiki/Unix_time>`_ when the account,\ncontainer, or object was initially created as a current version.\n\nFor example, ``1440619048`` is equivalent to ``Mon, Wed, 26 Aug\n2015 19:57:28 GMT``.", 
+                "format": "", 
+                "type": "integer"
+              }, 
+              "X-Trans-Id": {
+                "description": "A unique transaction ID for this request. Your service provider\nmight need this value if you report a problem.", 
+                "format": "", 
+                "type": "string"
+              }, 
+              "X-Versions-Location": {
+                "description": "Enables versioning on this container. The value is the name of\nanother container. You must UTF-8-encode and then URL-encode the\nname before you include it in the header. To disable versioning,\nset the header to an empty string.", 
+                "format": "", 
+                "type": "string"
+              }
+            }, 
+            "schema": {}
+          }
+        }, 
+        "summary": "Shows container metadata, including the number of objects and the total bytes of all objects stored in the container.", 
+        "tags": [
+          "storage-container-services"
+        ], 
+        "x-title": "Show container metadata"
+      }, 
+      "post": {
+        "consumes": [], 
+        "description": "To create, update, or delete a custom metadata item, use the ``X\n-Container-Meta-{name}`` header, where ``{name}`` is the name of\nthe metadata item.\n\nSubsequent requests for the same key and value pair overwrite the\nprevious value.\n\nTo delete container metadata, send an empty value for that header,\nsuch as for the ``X-Container-Meta-Book`` header. If the tool you\nuse to communicate with Object Storage, such as an older version of\ncURL, does not support empty headers, send the ``X-Remove-\nContainer-Meta-{name}`` header with an arbitrary value. For\nexample, ``X-Remove-Container-Meta-Book: x``. The operation ignores\nthe arbitrary value.\n\nIf the container already has other custom metadata items, a request\nto create, update, or delete metadata does not affect those items.\n\nExample requests and responses:\n\n- Create container metadata:\n\n  ::\n\n     curl -i $publicURL/marktwain -X POST -H \"X-Auth-Token: $token\" -H \"X-Container-Meta-Author: MarkTwain\" -H \"X-Container-Meta-Web-Directory-Type: text/directory\" -H \"X-Container-Meta-Century: Nineteenth\"\n\n\n\n\n  ::\n\n     HTTP/1.1 204 No Content\n     Content-Length: 0\n     Content-Type: text/html; charset=UTF-8\n     X-Trans-Id: tx05dbd434c651429193139-0052d82635\n     Date: Thu, 16 Jan 2014 18:34:29 GMT\n\n\n- Update container metadata:\n\n  ::\n\n     curl -i $publicURL/marktwain -X POST -H \"X-Auth-Token: $token\" -H \"X-Container-Meta-Author: SamuelClemens\"\n\n\n\n\n  ::\n\n     HTTP/1.1 204 No Content\n     Content-Length: 0\n     Content-Type: text/html; charset=UTF-8\n     X-Trans-Id: txe60c7314bf614bb39dfe4-0052d82653\n     Date: Thu, 16 Jan 2014 18:34:59 GMT\n\n\n- Delete container metadata:\n\n  ::\n\n     curl -i $publicURL/marktwain -X POST -H \"X-Auth-Token: $token\" -H \"X-Remove-Container-Meta-Century: x\"\n\n\n\n\n  ::\n\n     HTTP/1.1 204 No Content\n     Content-Length: 0\n     Content-Type: text/html; charset=UTF-8\n     X-Trans-Id: tx7997e18da2a34a9e84ceb-0052d826d0\n     Date: Thu, 16 Jan 2014 18:37:04 GMT\n\n\nIf the request succeeds, the operation returns the ``No Content\n(204)`` response code.\n\nTo confirm your changes, issue a show container metadata request.", 
+        "operationId": "updateContainerMeta", 
+        "parameters": [
+          {
+            "description": "The unique name for the container.\n\nThe container name must be from 1 to 256 characters long and can\nstart with any character and contain any pattern. Character set\nmust be UTF-8. The container name cannot contain a slash (``/``)\ncharacter because this character delimits the container and object\nname. For example, ``/account/container/object``.", 
+            "format": "", 
+            "in": "path", 
+            "name": "container", 
+            "required": true, 
+            "type": "string"
+          }, 
+          {
+            "description": "The unique name for the account. An account is also known as the\nproject or tenant.", 
+            "format": "", 
+            "in": "path", 
+            "name": "account", 
+            "required": true, 
+            "type": "string"
+          }, 
+          {
+            "description": "Authentication token.", 
+            "format": "", 
+            "in": "header", 
+            "name": "X-Auth-Token", 
+            "required": true, 
+            "type": "string"
+          }, 
+          {
+            "description": "Sets a container access control list (ACL) that grants read access.\nContainer ACLs are available on any Object Storage cluster, and are\nenabled by container rather than by cluster.\n\nTo set the container read ACL:\n\n.. code-block:: bash\n\n   $ curl -X {PUT|POST} -i -H \"X-Auth-Token: TOKEN\" -H \\\n          \"X-Container-Read: ACL\" STORAGE_URL/CONTAINER\n\nFor example:\n\n.. code-block:: bash\n\n   $ curl -X PUT -i \\\n          -H \"X-Auth-Token: 0101010101\" \\\n          -H \"X-Container-Read: .r:*\" \\\n          http://swift.example.com/v1/AUTH_bob/read_container\n\nIn the command, specify the ACL in the ``X-Container-Read`` header,\nas follows:\n\n- ``.r:*`` \u0097 All referrers.\n\n- ``.r:example.com,swift.example.com`` \u0097 Comma-separated list of\n  referrers.\n\n- ``.rlistings`` \u0097 Container listing access.\n\n- ``AUTH_username`` \u0097 Access to a user who authenticates through a\n  legacy or non-OpenStack-Identity-based authentication system.\n\n- ``LDAP_`` \u0097 Access to all users who authenticate through an LDAP-\n  based legacy or non-OpenStack-Identity-based authentication\n  system.", 
+            "format": "", 
+            "in": "header", 
+            "name": "X-Container-Read", 
+            "required": false, 
+            "type": "string"
+          }, 
+          {
+            "description": "Removes the metadata item named ``{name}``. For example, ``X\n-Remove-Container-Read`` removes the ``X-Container-Read`` metadata\nitem.", 
+            "format": "", 
+            "in": "header", 
+            "name": "X-Remove-Container-name", 
+            "required": false, 
+            "type": "string"
+          }, 
+          {
+            "description": "Sets an ACL that grants write access.", 
+            "format": "", 
+            "in": "header", 
+            "name": "X-Container-Write", 
+            "required": false, 
+            "type": "string"
+          }, 
+          {
+            "description": "Sets the destination for container synchronization. Used with the\nsecret key indicated in the ``X-Container-Sync-Key`` header. If you\nwant to stop a container from synchronizing, send a blank value for\nthe ``X-Container-Sync-Key`` header.", 
+            "format": "", 
+            "in": "header", 
+            "name": "X-Container-Sync-To", 
+            "required": false, 
+            "type": "string"
+          }, 
+          {
+            "description": "Sets the secret key for container synchronization. If you remove\nthe secret key, synchronization is halted.", 
+            "format": "", 
+            "in": "header", 
+            "name": "X-Container-Sync-Key", 
+            "required": false, 
+            "type": "string"
+          }, 
+          {
+            "description": "Enables versioning on this container. The value is the name of\nanother container. You must UTF-8-encode and then URL-encode the\nname before you include it in the header. To disable versioning,\nset the header to an empty string.", 
+            "format": "", 
+            "in": "header", 
+            "name": "X-Versions-Location", 
+            "required": false, 
+            "type": "string"
+          }, 
+          {
+            "description": "Set to any value to disable versioning.", 
+            "format": "", 
+            "in": "header", 
+            "name": "X-Remove-Versions-Location", 
+            "required": false, 
+            "type": "string"
+          }, 
+          {
+            "description": "The container metadata, where ``{name}`` is the name of metadata\nitem.\n\nYou must specify an ``X-Container-Meta- {name}`` header for each\nmetadata item (for each ``{name}``) that you want to add or update.", 
+            "format": "", 
+            "in": "header", 
+            "name": "X-Container-Meta-name", 
+            "required": false, 
+            "type": "string"
+          }, 
+          {
+            "description": "Originating URLs allowed to make cross-origin requests (CORS),\nseparated by spaces. This heading applies to the container only,\nand all objects within the container with this header applied are\nCORS-enabled for the allowed origin URLs.\n\nA browser (user-agent) typically issues a `preflighted request\n<https://developer.mozilla.org/en-\nUS/docs/HTTP/Access_control_CORS>`_ , which is an OPTIONS call that\nverifies the origin is allowed to make the request. The Object\nStorage service returns 200 if the originating URL is listed in\nthis header parameter, and issues a 401 if the originating URL is\nnot allowed to make a cross-origin request. Once a 200 is returned,\nthe browser makes a second request to the Object Storage service to\nretrieve the CORS-enabled object.", 
+            "format": "", 
+            "in": "header", 
+            "name": "X-Container-Meta-Access-Control-Allow-Origin", 
+            "required": false, 
+            "type": "string"
+          }, 
+          {
+            "description": "Maximum time for the origin to hold the preflight results. A\nbrowser may make an OPTIONS call to verify the origin is allowed to\nmake the request. Set the value to an integer number of seconds\nafter the time that the request was received.", 
+            "format": "", 
+            "in": "header", 
+            "name": "X-Container-Meta-Access-Control-Max-Age", 
+            "required": false, 
+            "type": "string"
+          }, 
+          {
+            "description": "Headers the Object Storage service exposes to the browser\n(technically, through the ``user-agent`` setting), in the request\nresponse, separated by spaces.\n\nBy default the Object Storage service returns the following values\nfor this header:\n\n- All \u201csimple response headers\u201d as listed on\n  `http://www.w3.org/TR/cors/#simple-response-header\n  <http://www.w3.org/TR/cors/#simple-response-header>`_.\n\n- The headers ``etag``, ``x-timestamp``, ``x-trans-id``.\n\n- All metadata headers (``X-Container-Meta-*`` for containers and\n  ``X-Object-Meta-*`` for objects) headers listed in ``X-Container-\n  Meta-Access-Control-Expose-Headers``.", 
+            "format": "", 
+            "in": "header", 
+            "name": "X-Container-Meta-Access-Control-Expose-Headers", 
+            "required": false, 
+            "type": "string"
+          }, 
+          {
+            "description": "Sets maximum size of the container, in bytes. Typically these\nvalues are set by an administrator. Returns a 413 response (request\nentity too large) when an object PUT operation exceeds this quota\nvalue.", 
+            "format": "", 
+            "in": "header", 
+            "name": "X-Container-Meta-Quota-Bytes", 
+            "required": false, 
+            "type": "string"
+          }, 
+          {
+            "description": "Sets maximum object count of the container. Typically these values\nare set by an administrator. Returns a 413 response (request entity\ntoo large) when an object PUT operation exceeds this quota value.", 
+            "format": "", 
+            "in": "header", 
+            "name": "X-Container-Meta-Quota-Count", 
+            "required": false, 
+            "type": "string"
+          }, 
+          {
+            "description": "Sets the content-type of directory marker objects. If the header is\nnot set, default is ``application/directory``. Directory marker\nobjects are 0-byte objects that represent directories to create a\nsimulated hierarchical structure.\n\nFor example, if you set ``\"X-Container-Meta-Web-Directory- Type:\ntext/directory\"``, Object Storage treats 0-byte objects with a\ncontent-type of ``text/directory`` as directories rather than\nobjects.", 
+            "format": "", 
+            "in": "header", 
+            "name": "X-Container-Meta-Web-Directory-Type", 
+            "required": false, 
+            "type": "string"
+          }, 
+          {
+            "description": "Changes the MIME type for the object.", 
+            "format": "", 
+            "in": "header", 
+            "name": "Content-Type", 
+            "required": false, 
+            "type": "string"
+          }, 
+          {
+            "description": "If set to ``true``, Object Storage guesses the content type based\non the file extension and ignores the value sent in the ``Content-\nType`` header, if present.", 
+            "format": "", 
+            "in": "header", 
+            "name": "X-Detect-Content-Type", 
+            "required": false, 
+            "type": "boolean"
+          }, 
+          {
+            "description": "The secret key value for temporary URLs.", 
+            "format": "", 
+            "in": "header", 
+            "name": "X-Container-Meta-Temp-URL-Key", 
+            "required": false, 
+            "type": "string"
+          }, 
+          {
+            "description": "A second secret key value for temporary URLs. The second key\nenables you to rotate keys by having two active keys at the same\ntime.", 
+            "format": "", 
+            "in": "header", 
+            "name": "X-Container-Meta-Temp-URL-Key-2", 
+            "required": false, 
+            "type": "string"
+          }, 
+          {
+            "description": "Extra transaction information. Use the ``X-Trans-Id-Extra`` request\nheader to include extra information to help you debug any errors\nthat might occur with large object upload and other Object Storage\ntransactions.\n\nObject Storage appends the first 32 characters of the ``X-Trans-Id-\nExtra`` request header value to the transaction ID value in the\ngenerated ``X-Trans-Id`` response header. You must UTF-8-encode and\nthen URL-encode the extra transaction information before you\ninclude it in the ``X-Trans-Id-Extra`` request header.\n\nFor example, you can include extra transaction information when you\nupload `large objects <http://docs.openstack.org/user-\nguide/cli_swift_large_object_creation.html>`_ such as images. When\nyou upload each segment and the manifest, include the same value in\nthe ``X-Trans-Id-Extra`` request header. If an error occurs, you\ncan find all requests that are related to the large object upload\nin the Object Storage logs.\n\nYou can also use ``X-Trans-Id-Extra`` strings to help operators\ndebug requests that fail to receive responses. The operator can\nsearch for the extra information in the logs.", 
+            "format": "", 
+            "in": "header", 
+            "name": "X-Trans-Id-Extra", 
+            "required": false, 
+            "type": "string"
+          }
+        ], 
+        "produces": [], 
+        "responses": {
+          "204": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {
+              "Content-Length": {
+                "description": "If the operation succeeds, this value is zero (0). If the operation\nfails, this value is the length of the error text in the response\nbody.", 
+                "format": "", 
+                "type": "string"
+              }, 
+              "Content-Type": {
+                "description": "If the operation fails, this value is the MIME type of the error\ntext in the response body.", 
+                "format": "", 
+                "type": "string"
+              }, 
+              "Date": {
+                "description": "The transaction date and time.\n\nThe date and time stamp format is `ISO 8601\n<https://en.wikipedia.org/wiki/ISO_8601>`_:\n\n::\n\n   CCYY-MM-DDThh:mm:ss\u00b1hh:mm\n\nFor example, ``2015-08-27T09:49:58-05:00``.\n\nThe ``\u00b1hh:mm`` value, if included, is the time zone as an offset\nfrom UTC. In the previous example, the offset value is ``-05:00``.\n\nA ``null`` value indicates that the token never expires.", 
+                "format": "", 
+                "type": "string"
+              }, 
+              "X-Timestamp": {
+                "description": "The date and time in `UNIX Epoch time stamp format\n<https://en.wikipedia.org/wiki/Unix_time>`_ when the account,\ncontainer, or object was initially created as a current version.\n\nFor example, ``1440619048`` is equivalent to ``Mon, Wed, 26 Aug\n2015 19:57:28 GMT``.", 
+                "format": "", 
+                "type": "integer"
+              }, 
+              "X-Trans-Id": {
+                "description": "A unique transaction ID for this request. Your service provider\nmight need this value if you report a problem.", 
+                "format": "", 
+                "type": "string"
+              }
+            }, 
+            "schema": {}
+          }
+        }, 
+        "summary": "Creates, updates, or deletes custom metadata for a container.", 
+        "tags": [
+          "storage-container-services"
+        ], 
+        "x-title": "Create, update, or delete container metadata"
+      }, 
+      "put": {
+        "consumes": [], 
+        "description": "You do not need to check whether a container already exists before\nissuing a PUT operation because the operation is idempotent: It\ncreates a container or updates an existing container, as\nappropriate.\n\nExample requests and responses:\n\n- Create a container with no metadata:\n\n  ::\n\n     curl -i $publicURL/steven -X PUT -H \"Content-Length: 0\" -H \"X-Auth-Token: $token\"\n\n\n\n\n  ::\n\n     HTTP/1.1 201 Created\n     Content-Length: 0\n     Content-Type: text/html; charset=UTF-8\n     X-Trans-Id: tx7f6b7fa09bc2443a94df0-0052d58b56\n     Date: Tue, 14 Jan 2014 19:09:10 GMT\n\n\n- Create a container with metadata:\n\n  ::\n\n     curl -i $publicURL/marktwain -X PUT -H \"X-Auth-Token: $token\" -H \"X-Container-Meta-Book: TomSawyer\"\n\n\n\n\n  ::\n\n     HTTP/1.1 201 Created\n     Content-Length: 0\n     Content-Type: text/html; charset=UTF-8\n     X-Trans-Id: tx06021f10fc8642b2901e7-0052d58f37\n     Date: Tue, 14 Jan 2014 19:25:43 GMT", 
+        "operationId": "createContainer", 
+        "parameters": [
+          {
+            "description": "The unique name for the container.\n\nThe container name must be from 1 to 256 characters long and can\nstart with any character and contain any pattern. Character set\nmust be UTF-8. The container name cannot contain a slash (``/``)\ncharacter because this character delimits the container and object\nname. For example, ``/account/container/object``.", 
+            "format": "", 
+            "in": "path", 
+            "name": "container", 
+            "required": true, 
+            "type": "string"
+          }, 
+          {
+            "description": "The unique name for the account. An account is also known as the\nproject or tenant.", 
+            "format": "", 
+            "in": "path", 
+            "name": "account", 
+            "required": true, 
+            "type": "string"
+          }, 
+          {
+            "description": "Authentication token.", 
+            "format": "", 
+            "in": "header", 
+            "name": "X-Auth-Token", 
+            "required": true, 
+            "type": "string"
+          }, 
+          {
+            "description": "Sets a container access control list (ACL) that grants read access.\nContainer ACLs are available on any Object Storage cluster, and are\nenabled by container rather than by cluster.\n\nTo set the container read ACL:\n\n.. code-block:: bash\n\n   $ curl -X {PUT|POST} -i -H \"X-Auth-Token: TOKEN\" -H \\\n          \"X-Container-Read: ACL\" STORAGE_URL/CONTAINER\n\nFor example:\n\n.. code-block:: bash\n\n   $ curl -X PUT -i \\\n          -H \"X-Auth-Token: 0101010101\" \\\n          -H \"X-Container-Read: .r:*\" \\\n          http://swift.example.com/v1/AUTH_bob/read_container\n\nIn the command, specify the ACL in the ``X-Container-Read`` header,\nas follows:\n\n- ``.r:*`` \u0097 All referrers.\n\n- ``.r:example.com,swift.example.com`` \u0097 Comma-separated list of\n  referrers.\n\n- ``.rlistings`` \u0097 Container listing access.\n\n- ``AUTH_username`` \u0097 Access to a user who authenticates through a\n  legacy or non-OpenStack-Identity-based authentication system.\n\n- ``LDAP_`` \u0097 Access to all users who authenticate through an LDAP-\n  based legacy or non-OpenStack-Identity-based authentication\n  system.", 
+            "format": "", 
+            "in": "header", 
+            "name": "X-Container-Read", 
+            "required": false, 
+            "type": "string"
+          }, 
+          {
+            "description": "Sets an ACL that grants write access.", 
+            "format": "", 
+            "in": "header", 
+            "name": "X-Container-Write", 
+            "required": false, 
+            "type": "string"
+          }, 
+          {
+            "description": "Sets the destination for container synchronization. Used with the\nsecret key indicated in the ``X-Container-Sync-Key`` header. If you\nwant to stop a container from synchronizing, send a blank value for\nthe ``X-Container-Sync-Key`` header.", 
+            "format": "", 
+            "in": "header", 
+            "name": "X-Container-Sync-To", 
+            "required": false, 
+            "type": "string"
+          }, 
+          {
+            "description": "Sets the secret key for container synchronization. If you remove\nthe secret key, synchronization is halted.", 
+            "format": "", 
+            "in": "header", 
+            "name": "X-Container-Sync-Key", 
+            "required": false, 
+            "type": "string"
+          }, 
+          {
+            "description": "Enables versioning on this container. The value is the name of\nanother container. You must UTF-8-encode and then URL-encode the\nname before you include it in the header. To disable versioning,\nset the header to an empty string.", 
+            "format": "", 
+            "in": "header", 
+            "name": "X-Versions-Location", 
+            "required": false, 
+            "type": "string"
+          }, 
+          {
+            "description": "The container metadata, where ``{name}`` is the name of metadata\nitem.\n\nYou must specify an ``X-Container-Meta- {name}`` header for each\nmetadata item (for each ``{name}``) that you want to add or update.", 
+            "format": "", 
+            "in": "header", 
+            "name": "X-Container-Meta-name", 
+            "required": false, 
+            "type": "string"
+          }, 
+          {
+            "description": "Originating URLs allowed to make cross-origin requests (CORS),\nseparated by spaces. This heading applies to the container only,\nand all objects within the container with this header applied are\nCORS-enabled for the allowed origin URLs.\n\nA browser (user-agent) typically issues a `preflighted request\n<https://developer.mozilla.org/en-\nUS/docs/HTTP/Access_control_CORS>`_ , which is an OPTIONS call that\nverifies the origin is allowed to make the request. The Object\nStorage service returns 200 if the originating URL is listed in\nthis header parameter, and issues a 401 if the originating URL is\nnot allowed to make a cross-origin request. Once a 200 is returned,\nthe browser makes a second request to the Object Storage service to\nretrieve the CORS-enabled object.", 
+            "format": "", 
+            "in": "header", 
+            "name": "X-Container-Meta-Access-Control-Allow-Origin", 
+            "required": false, 
+            "type": "string"
+          }, 
+          {
+            "description": "Maximum time for the origin to hold the preflight results. A\nbrowser may make an OPTIONS call to verify the origin is allowed to\nmake the request. Set the value to an integer number of seconds\nafter the time that the request was received.", 
+            "format": "", 
+            "in": "header", 
+            "name": "X-Container-Meta-Access-Control-Max-Age", 
+            "required": false, 
+            "type": "string"
+          }, 
+          {
+            "description": "Headers the Object Storage service exposes to the browser\n(technically, through the ``user-agent`` setting), in the request\nresponse, separated by spaces.\n\nBy default the Object Storage service returns the following values\nfor this header:\n\n- All \u201csimple response headers\u201d as listed on\n  `http://www.w3.org/TR/cors/#simple-response-header\n  <http://www.w3.org/TR/cors/#simple-response-header>`_.\n\n- The headers ``etag``, ``x-timestamp``, ``x-trans-id``.\n\n- All metadata headers (``X-Container-Meta-*`` for containers and\n  ``X-Object-Meta-*`` for objects) headers listed in ``X-Container-\n  Meta-Access-Control-Expose-Headers``.", 
+            "format": "", 
+            "in": "header", 
+            "name": "X-Container-Meta-Access-Control-Expose-Headers", 
+            "required": false, 
+            "type": "string"
+          }, 
+          {
+            "description": "Changes the MIME type for the object.", 
+            "format": "", 
+            "in": "header", 
+            "name": "Content-Type", 
+            "required": false, 
+            "type": "string"
+          }, 
+          {
+            "description": "If set to ``true``, Object Storage guesses the content type based\non the file extension and ignores the value sent in the ``Content-\nType`` header, if present.", 
+            "format": "", 
+            "in": "header", 
+            "name": "X-Detect-Content-Type", 
+            "required": false, 
+            "type": "boolean"
+          }, 
+          {
+            "description": "The secret key value for temporary URLs.", 
+            "format": "", 
+            "in": "header", 
+            "name": "X-Container-Meta-Temp-URL-Key", 
+            "required": false, 
+            "type": "string"
+          }, 
+          {
+            "description": "A second secret key value for temporary URLs. The second key\nenables you to rotate keys by having two active keys at the same\ntime.", 
+            "format": "", 
+            "in": "header", 
+            "name": "X-Container-Meta-Temp-URL-Key-2", 
+            "required": false, 
+            "type": "string"
+          }, 
+          {
+            "description": "Extra transaction information. Use the ``X-Trans-Id-Extra`` request\nheader to include extra information to help you debug any errors\nthat might occur with large object upload and other Object Storage\ntransactions.\n\nObject Storage appends the first 32 characters of the ``X-Trans-Id-\nExtra`` request header value to the transaction ID value in the\ngenerated ``X-Trans-Id`` response header. You must UTF-8-encode and\nthen URL-encode the extra transaction information before you\ninclude it in the ``X-Trans-Id-Extra`` request header.\n\nFor example, you can include extra transaction information when you\nupload `large objects <http://docs.openstack.org/user-\nguide/cli_swift_large_object_creation.html>`_ such as images. When\nyou upload each segment and the manifest, include the same value in\nthe ``X-Trans-Id-Extra`` request header. If an error occurs, you\ncan find all requests that are related to the large object upload\nin the Object Storage logs.\n\nYou can also use ``X-Trans-Id-Extra`` strings to help operators\ndebug requests that fail to receive responses. The operator can\nsearch for the extra information in the logs.", 
+            "format": "", 
+            "in": "header", 
+            "name": "X-Trans-Id-Extra", 
+            "required": false, 
+            "type": "string"
+          }
+        ], 
+        "produces": [], 
+        "responses": {
+          "201": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {
+              "Content-Length": {
+                "description": "If the operation succeeds, this value is zero (0). If the operation\nfails, this value is the length of the error text in the response\nbody.", 
+                "format": "", 
+                "type": "string"
+              }, 
+              "Content-Type": {
+                "description": "If the operation fails, this value is the MIME type of the error\ntext in the response body.", 
+                "format": "", 
+                "type": "string"
+              }, 
+              "Date": {
+                "description": "The transaction date and time.\n\nThe date and time stamp format is `ISO 8601\n<https://en.wikipedia.org/wiki/ISO_8601>`_:\n\n::\n\n   CCYY-MM-DDThh:mm:ss\u00b1hh:mm\n\nFor example, ``2015-08-27T09:49:58-05:00``.\n\nThe ``\u00b1hh:mm`` value, if included, is the time zone as an offset\nfrom UTC. In the previous example, the offset value is ``-05:00``.\n\nA ``null`` value indicates that the token never expires.", 
+                "format": "", 
+                "type": "string"
+              }, 
+              "X-Timestamp": {
+                "description": "The date and time in `UNIX Epoch time stamp format\n<https://en.wikipedia.org/wiki/Unix_time>`_ when the account,\ncontainer, or object was initially created as a current version.\n\nFor example, ``1440619048`` is equivalent to ``Mon, Wed, 26 Aug\n2015 19:57:28 GMT``.", 
+                "format": "", 
+                "type": "integer"
+              }, 
+              "X-Trans-Id": {
+                "description": "A unique transaction ID for this request. Your service provider\nmight need this value if you report a problem.", 
+                "format": "", 
+                "type": "string"
+              }
+            }, 
+            "schema": {}
+          }, 
+          "204": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }
+        }, 
+        "summary": "Creates a container.", 
+        "tags": [
+          "storage-container-services"
+        ], 
+        "x-title": "Create container"
+      }
+    }, 
+    "/v1/{account}/{container}/{object}": {
+      "delete": {
+        "consumes": [], 
+        "description": "You can use the COPY method to copy the object to a new location.\nThen, use the DELETE method to delete the original object.\n\nObject deletion occurs immediately at request time. Any subsequent\nGET , HEAD , POST , or DELETE operations return a ``404 Not Found``\nerror code.\n\nFor static large object manifests, you can add the ``?multipart-\nmanifest=delete`` query parameter. This operation deletes the\nsegment objects and if all deletions succeed, this operation\ndeletes the manifest object.\n\nExample request and response:\n\n- Delete the ``helloworld`` object from the ``marktwain`` container:\n\n  ::\n\n     curl -i $publicURL/marktwain/helloworld -X DELETE -H \"X-Auth-Token: $token\"\n\n\n\n\n  ::\n\n     HTTP/1.1 204 No Content\n     Content-Length: 0\n     Content-Type: text/html; charset=UTF-8\n     X-Trans-Id: tx36c7606fcd1843f59167c-0052d6fdac\n     Date: Wed, 15 Jan 2014 21:29:16 GMT\n\n\nTypically, the DELETE operation does not return a response body.\nHowever, with the ``multipart-manifest=delete`` query parameter,\nthe response body contains a list of manifest and segment objects\nand the status of their DELETE operations.", 
+        "operationId": "deleteObject", 
+        "parameters": [
+          {
+            "description": "The unique name for the container.\n\nThe container name must be from 1 to 256 characters long and can\nstart with any character and contain any pattern. Character set\nmust be UTF-8. The container name cannot contain a slash (``/``)\ncharacter because this character delimits the container and object\nname. For example, ``/account/container/object``.", 
+            "format": "", 
+            "in": "path", 
+            "name": "container", 
+            "required": true, 
+            "type": "string"
+          }, 
+          {
+            "description": "The unique name for the account. An account is also known as the\nproject or tenant.", 
+            "format": "", 
+            "in": "path", 
+            "name": "account", 
+            "required": true, 
+            "type": "string"
+          }, 
+          {
+            "description": "The unique name for the object.", 
+            "format": "", 
+            "in": "path", 
+            "name": "object", 
+            "required": true, 
+            "type": "string"
+          }, 
+          {
+            "description": "If you include the ``multipart-manifest=delete`` query parameter\nand the object is a static large object, the segment objects and\nmanifest object are deleted. If you omit the ``multipart-\nmanifest=delete`` query parameter and the object is a static large\nobject, the manifest object is deleted but the segment objects are\nnot deleted.\n\nFor a bulk delete, the response body looks the same as it does for\na normal bulk delete. In contrast, a plain object DELETE response\nhas an empty body.", 
+            "format": "", 
+            "in": "query", 
+            "name": "multipart-manifest", 
+            "required": false, 
+            "type": "string"
+          }, 
+          {
+            "description": "Authentication token. If you omit this header, your request fails\nunless the account owner has granted you access through an access\ncontrol list (ACL).", 
+            "format": "", 
+            "in": "header", 
+            "name": "X-Auth-Token", 
+            "required": false, 
+            "type": "string"
+          }, 
+          {
+            "description": "Extra transaction information. Use the ``X-Trans-Id-Extra`` request\nheader to include extra information to help you debug any errors\nthat might occur with large object upload and other Object Storage\ntransactions.\n\nObject Storage appends the first 32 characters of the ``X-Trans-Id-\nExtra`` request header value to the transaction ID value in the\ngenerated ``X-Trans-Id`` response header. You must UTF-8-encode and\nthen URL-encode the extra transaction information before you\ninclude it in the ``X-Trans-Id-Extra`` request header.\n\nFor example, you can include extra transaction information when you\nupload `large objects <http://docs.openstack.org/user-\nguide/cli_swift_large_object_creation.html>`_ such as images. When\nyou upload each segment and the manifest, include the same value in\nthe ``X-Trans-Id-Extra`` request header. If an error occurs, you\ncan find all requests that are related to the large object upload\nin the Object Storage logs.\n\nYou can also use ``X-Trans-Id-Extra`` strings to help operators\ndebug requests that fail to receive responses. The operator can\nsearch for the extra information in the logs.", 
+            "format": "", 
+            "in": "header", 
+            "name": "X-Trans-Id-Extra", 
+            "required": false, 
+            "type": "string"
+          }
+        ], 
+        "produces": [], 
+        "responses": {
+          "204": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {
+              "Content-Length": {
+                "description": "If the operation succeeds, this value is zero (0). If the operation\nfails, this value is the length of the error text in the response\nbody.", 
+                "format": "", 
+                "type": "string"
+              }, 
+              "Content-Type": {
+                "description": "The MIME type of the object.", 
+                "format": "", 
+                "type": "string"
+              }, 
+              "Date": {
+                "description": "The transaction date and time.\n\nThe date and time stamp format is `ISO 8601\n<https://en.wikipedia.org/wiki/ISO_8601>`_:\n\n::\n\n   CCYY-MM-DDThh:mm:ss\u00b1hh:mm\n\nFor example, ``2015-08-27T09:49:58-05:00``.\n\nThe ``\u00b1hh:mm`` value, if included, is the time zone as an offset\nfrom UTC. In the previous example, the offset value is ``-05:00``.\n\nA ``null`` value indicates that the token never expires.", 
+                "format": "", 
+                "type": "string"
+              }, 
+              "X-Timestamp": {
+                "description": "The date and time in `UNIX Epoch time stamp format\n<https://en.wikipedia.org/wiki/Unix_time>`_ when the account,\ncontainer, or object was initially created as a current version.\n\nFor example, ``1440619048`` is equivalent to ``Mon, Wed, 26 Aug\n2015 19:57:28 GMT``.", 
+                "format": "", 
+                "type": "integer"
+              }, 
+              "X-Trans-Id": {
+                "description": "A unique transaction ID for this request. Your service provider\nmight need this value if you report a problem.", 
+                "format": "", 
+                "type": "string"
+              }
+            }, 
+            "schema": {}
+          }
+        }, 
+        "summary": "Permanently deletes an object from the object store.", 
+        "tags": [
+          "storage-object-services"
+        ], 
+        "x-title": "Delete object"
+      }, 
+      "get": {
+        "consumes": [], 
+        "description": "This operation returns the object metadata in the response headers\nand the object content in the response body.\n\nIf this is a large object, the response body contains the\nconcatenated content of the segment objects. To get the manifest\ninstead of concatenated segment objects for a static large object,\nuse the ``multipart-manifest`` query parameter.\n\nExample requests and responses:\n\n- Show object details for the ``goodbye`` object in the\n  ``marktwain`` container:\n\n  ::\n\n     curl -i $publicURL/marktwain/goodbye -X GET -H \"X-Auth-Token: $token\"\n\n\n\n\n  ::\n\n     HTTP/1.1 200 OK\n     Content-Length: 14\n     Accept-Ranges: bytes\n     Last-Modified: Wed, 15 Jan 2014 16:41:49 GMT\n     Etag: 451e372e48e0f6b1114fa0724aa79fa1\n     X-Timestamp: 1389804109.39027\n     X-Object-Meta-Orig-Filename: goodbyeworld.txt\n     Content-Type: application/octet-stream\n     X-Trans-Id: tx8145a190241f4cf6b05f5-0052d82a34\n     Date: Thu, 16 Jan 2014 18:51:32 GMT\n     Goodbye World!\n\n\n- Show object details for the ``goodbye`` object, which does not\n  exist, in the ``janeausten`` container:\n\n  ::\n\n     curl -i $publicURL/janeausten/goodbye -X GET -H \"X-Auth-Token: $token\"\n\n\n\n\n  ::\n\n     HTTP/1.1 404 Not Found\n     Content-Length: 70\n     Content-Type: text/html; charset=UTF-8\n     X-Trans-Id: tx073f7cbb850c4c99934b9-0052d82b04\n     Date: Thu, 16 Jan 2014 18:55:00 GMT\n     <html>\n     <h1>Not Found\n     </h1>\n     <p>The resource could not be found.\n     </p>\n     </html>\n\n\nThe operation returns the ``Range Not Satisfiable (416)`` response\ncode for any ranged GET requests that specify more than:\n\n- Fifty ranges.\n\n- Three overlapping ranges.\n\n- Eight non-increasing ranges.", 
+        "operationId": "showObject", 
+        "parameters": [
+          {
+            "description": "The unique name for the container.\n\nThe container name must be from 1 to 256 characters long and can\nstart with any character and contain any pattern. Character set\nmust be UTF-8. The container name cannot contain a slash (``/``)\ncharacter because this character delimits the container and object\nname. For example, ``/account/container/object``.", 
+            "format": "", 
+            "in": "path", 
+            "name": "container", 
+            "required": true, 
+            "type": "string"
+          }, 
+          {
+            "description": "The unique name for the account. An account is also known as the\nproject or tenant.", 
+            "format": "", 
+            "in": "path", 
+            "name": "account", 
+            "required": true, 
+            "type": "string"
+          }, 
+          {
+            "description": "The unique name for the object.", 
+            "format": "", 
+            "in": "path", 
+            "name": "object", 
+            "required": true, 
+            "type": "string"
+          }, 
+          {
+            "description": "Authentication token. If you omit this header, your request fails\nunless the account owner has granted you access through an access\ncontrol list (ACL).", 
+            "format": "", 
+            "in": "header", 
+            "name": "X-Auth-Token", 
+            "required": false, 
+            "type": "string"
+          }, 
+          {
+            "description": "If set to true , Object Storage queries all replicas to return the\nmost recent one. If you omit this header, Object Storage responds\nfaster after it finds one valid replica. Because setting this\nheader to true is more expensive for the back end, use it only when\nit is absolutely needed.", 
+            "format": "", 
+            "in": "header", 
+            "name": "X-Newest", 
+            "required": false, 
+            "type": "boolean"
+          }, 
+          {
+            "description": "Used with temporary URLs to sign the request with an HMAC-SHA1\ncryptographic signature that defines the allowed HTTP method,\nexpiration date, full path to the object, and the secret key for\nthe temporary URL. For more information about temporary URLs, see\n`Temporary URL middleware <http://docs.openstack.org/developer/swif\nt/api/temporary_url_middleware.html>`_.", 
+            "format": "", 
+            "in": "query", 
+            "name": "temp_url_sig", 
+            "required": true, 
+            "type": "string"
+          }, 
+          {
+            "description": "The date and time in `UNIX Epoch time stamp format\n<https://en.wikipedia.org/wiki/Unix_time>`_ when the signature for\ntemporary URLs expires.\n\nFor example, ``1440619048`` is equivalent to ``Mon, Wed, 26 Aug\n2015 19:57:28 GMT``.\n\nFor more information about temporary URLs, see `Temporary URL\nmiddleware <http://docs.openstack.org/developer/swift/api/temporary\n_url_middleware.html>`_.", 
+            "format": "", 
+            "in": "query", 
+            "name": "temp_url_expires", 
+            "required": true, 
+            "type": "integer"
+          }, 
+          {
+            "description": "Overrides the default file name. Object Storage generates a default\nfile name for GET temporary URLs that is based on the object name.\nObject Storage returns this value in the ``Content-Disposition``\nresponse header. Browsers can interpret this file name value as a\nfile attachment to save. For more information about temporary URLs,\nsee `Temporary URL middleware <http://docs.openstack.org/developer/\nswift/api/temporary_url_middleware.html>`_.", 
+            "format": "", 
+            "in": "query", 
+            "name": "filename", 
+            "required": false, 
+            "type": "string"
+          }, 
+          {
+            "description": "If you include the ``multipart-manifest=get`` query parameter and\nthe object is a large object, the object contents are not returned.\nInstead, the manifest is returned in the ``X-Object-Manifest``\nresponse header for dynamic large objects or in the response body\nfor static large objects.", 
+            "format": "", 
+            "in": "query", 
+            "name": "multipart-manifest", 
+            "required": false, 
+            "type": "string"
+          }, 
+          {
+            "description": "The ranges of content to get.\n\nYou can use the ``Range`` header to get portions of data by using\none or more range specifications. To specify many ranges, separate\nthe range specifications with a comma.\n\nThe types of range specifications are:\n\n- **Byte range specification**. Use FIRST_BYTE_OFFSET to specify the\n  start of the data range, and LAST_BYTE_OFFSET to specify the end.\n  You can omit the LAST_BYTE_OFFSET and if you do, the value\n  defaults to the offset of the last byte of data.\n\n- **Suffix byte range specification**. Use LENGTH bytes to specify\n  the length of the data range.\n\nThe following forms of the header specify the following ranges of\ndata:\n\n- ``Range: bytes=-5``. The last five bytes.\n\n- ``Range: bytes=10-15``. The five bytes of data after a 10-byte\n  offset.\n\n- ``Range: bytes=10-15,-5``. A multi-part response that contains the\n  last five bytes and the five bytes of data after a 10-byte\n  offset. The ``Content-Type`` response header contains\n  ``multipart/byteranges``.\n\n- ``Range: bytes=4-6``. Bytes 4 to 6 inclusive.\n\n- ``Range: bytes=2-2``. Byte 2, the third byte of the data.\n\n- ``Range: bytes=6-``. Byte 6 and after.\n\n- ``Range: bytes=1-3,2-5``. A multi-part response that contains\n  bytes 1 to 3 inclusive, and bytes 2 to 5 inclusive. The\n  ``Content-Type`` response header contains\n  ``multipart/byteranges``.", 
+            "format": "", 
+            "in": "header", 
+            "name": "Range", 
+            "required": false, 
+            "type": "string"
+          }, 
+          {
+            "description": "See `Request for Comments: 2616\n<http://www.ietf.org/rfc/rfc2616.txt>`_.", 
+            "format": "", 
+            "in": "header", 
+            "name": "If-Match", 
+            "required": false, 
+            "type": "string"
+          }, 
+          {
+            "description": "In combination with ``Expect: 100-Continue``, specify an ``\"If-\nNone-Match: *\"`` header to query whether the server already has a\ncopy of the object before any data is sent.", 
+            "format": "", 
+            "in": "header", 
+            "name": "If-None-Match", 
+            "required": false, 
+            "type": "string"
+          }, 
+          {
+            "description": "See `Request for Comments: 2616\n<http://www.ietf.org/rfc/rfc2616.txt>`_.", 
+            "format": "", 
+            "in": "header", 
+            "name": "If-Modified-Since", 
+            "required": false, 
+            "type": "string"
+          }, 
+          {
+            "description": "See `Request for Comments: 2616\n<http://www.ietf.org/rfc/rfc2616.txt>`_.", 
+            "format": "", 
+            "in": "header", 
+            "name": "If-Unmodified-Since", 
+            "required": false, 
+            "type": "string"
+          }, 
+          {
+            "description": "Extra transaction information. Use the ``X-Trans-Id-Extra`` request\nheader to include extra information to help you debug any errors\nthat might occur with large object upload and other Object Storage\ntransactions.\n\nObject Storage appends the first 32 characters of the ``X-Trans-Id-\nExtra`` request header value to the transaction ID value in the\ngenerated ``X-Trans-Id`` response header. You must UTF-8-encode and\nthen URL-encode the extra transaction information before you\ninclude it in the ``X-Trans-Id-Extra`` request header.\n\nFor example, you can include extra transaction information when you\nupload `large objects <http://docs.openstack.org/user-\nguide/cli_swift_large_object_creation.html>`_ such as images. When\nyou upload each segment and the manifest, include the same value in\nthe ``X-Trans-Id-Extra`` request header. If an error occurs, you\ncan find all requests that are related to the large object upload\nin the Object Storage logs.\n\nYou can also use ``X-Trans-Id-Extra`` strings to help operators\ndebug requests that fail to receive responses. The operator can\nsearch for the extra information in the logs.", 
+            "format": "", 
+            "in": "header", 
+            "name": "X-Trans-Id-Extra", 
+            "required": false, 
+            "type": "string"
+          }
+        ], 
+        "produces": [], 
+        "responses": {
+          "200": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {
+              "Accept-Ranges": {
+                "description": "The type of ranges that the object accepts.", 
+                "format": "", 
+                "type": "string"
+              }, 
+              "Content-Disposition": {
+                "description": "If set, specifies the override behavior for the browser. For\nexample, this header might specify that the browser use a download\nprogram to save this file rather than show the file, which is the\ndefault.\n\nIf not set, this header is not returned by this operation.", 
+                "format": "", 
+                "type": "string"
+              }, 
+              "Content-Encoding": {
+                "description": "If set, the value of the ``Content-Encoding`` metadata.\n\nIf not set, the operation does not return this header.", 
+                "format": "", 
+                "type": "string"
+              }, 
+              "Content-Length": {
+                "description": "The length of the object content in the response body, in bytes.", 
+                "format": "", 
+                "type": "string"
+              }, 
+              "Content-Type": {
+                "description": "The MIME type of the object.", 
+                "format": "", 
+                "type": "string"
+              }, 
+              "Date": {
+                "description": "The transaction date and time.\n\nThe date and time stamp format is `ISO 8601\n<https://en.wikipedia.org/wiki/ISO_8601>`_:\n\n::\n\n   CCYY-MM-DDThh:mm:ss\u00b1hh:mm\n\nFor example, ``2015-08-27T09:49:58-05:00``.\n\nThe ``\u00b1hh:mm`` value, if included, is the time zone as an offset\nfrom UTC. In the previous example, the offset value is ``-05:00``.\n\nA ``null`` value indicates that the token never expires.", 
+                "format": "", 
+                "type": "string"
+              }, 
+              "ETag": {
+                "description": "For objects smaller than 5 GB, this value is the MD5 checksum of\nthe object content. The value is not quoted.\n\nFor manifest objects, this value is the MD5 checksum of the\nconcatenated string of MD5 checksums and ETags for each of the\nsegments in the manifest, and not the MD5 checksum of the content\nthat was downloaded. Also the value is enclosed in double-quote\ncharacters.\n\nYou are strongly recommended to compute the MD5 checksum of the\nresponse body as it is received and compare this value with the one\nin the ETag header. If they differ, the content was corrupted, so\nretry the operation.", 
+                "format": "", 
+                "type": "string"
+              }, 
+              "Last-Modified": {
+                "description": "The date and time when the object was created or its metadata was\nchanged.\n\nThe date and time stamp format is `ISO 8601\n<https://en.wikipedia.org/wiki/ISO_8601>`_:\n\n::\n\n   CCYY-MM-DDThh:mm:ss\u00b1hh:mm\n\nFor example, ``2015-08-27T09:49:58-05:00``.\n\nThe ``\u00b1hh:mm`` value, if included, is the time zone as an offset\nfrom UTC. In the previous example, the offset value is ``-05:00``.", 
+                "format": "", 
+                "type": "string"
+              }, 
+              "X-Delete-At": {
+                "description": "If set, the date and time in `UNIX Epoch time stamp format\n<https://en.wikipedia.org/wiki/Unix_time>`_ when the system deletes\nthe object.\n\nFor example, ``1440619048`` is equivalent to ``Mon, Wed, 26 Aug\n2015 19:57:28 GMT``.\n\nIf not set, this operation does not return this header.", 
+                "format": "", 
+                "type": "integer"
+              }, 
+              "X-Object-Manifest": {
+                "description": "If set, to this is a dynamic large object manifest object. The\nvalue is the container and object name prefix of the segment\nobjects in the form ``container/prefix``.", 
+                "format": "", 
+                "type": "string"
+              }, 
+              "X-Object-Meta-name": {
+                "description": "The custom object metadata item, where ``{name}`` is the name of\nthe metadata item.\n\nOne ``X-Object-Meta- {name}`` response header appears for each\nmetadata ``{name}`` item.", 
+                "format": "", 
+                "type": "string"
+              }, 
+              "X-Static-Large-Object": {
+                "description": "Set to ``true`` if this object is a static large object manifest\nobject.", 
+                "format": "", 
+                "type": "boolean"
+              }, 
+              "X-Timestamp": {
+                "description": "The date and time in `UNIX Epoch time stamp format\n<https://en.wikipedia.org/wiki/Unix_time>`_ when the account,\ncontainer, or object was initially created as a current version.\n\nFor example, ``1440619048`` is equivalent to ``Mon, Wed, 26 Aug\n2015 19:57:28 GMT``.", 
+                "format": "", 
+                "type": "integer"
+              }, 
+              "X-Trans-Id": {
+                "description": "A unique transaction ID for this request. Your service provider\nmight need this value if you report a problem.", 
+                "format": "", 
+                "type": "string"
+              }
+            }, 
+            "schema": {}
+          }, 
+          "404": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "416": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }
+        }, 
+        "summary": "Downloads the object content and gets the object metadata.", 
+        "tags": [
+          "storage-object-services"
+        ], 
+        "x-title": "Get object content and metadata"
+      }, 
+      "head": {
+        "consumes": [], 
+        "description": "If the ``Content-Length`` response header is non-zero, the example\ncURL command stalls after it prints the response headers because it\nis waiting for a response body. However, the Object Storage system\ndoes not return a response body for the HEAD operation.\n\nExample requests and responses:\n\n- Show object metadata:\n\n  ::\n\n     curl -i $publicURL/marktwain/goodbye -X HEAD -H \"X-Auth-Token: $token\"\n\n\n\n\n  ::\n\n     HTTP/1.1 200 OK\n     Content-Length: 14\n     Accept-Ranges: bytes\n     Last-Modified: Thu, 16 Jan 2014 21:12:31 GMT\n     Etag: 451e372e48e0f6b1114fa0724aa79fa1\n     X-Timestamp: 1389906751.73463\n     X-Object-Meta-Book: GoodbyeColumbus\n     Content-Type: application/octet-stream\n     X-Trans-Id: tx37ea34dcd1ed48ca9bc7d-0052d84b6f\n     Date: Thu, 16 Jan 2014 21:13:19 GMT\n\n\nIf the request succeeds, the operation returns the ``200`` response\ncode.", 
+        "operationId": "showObjectMeta", 
+        "parameters": [
+          {
+            "description": "The unique name for the container.\n\nThe container name must be from 1 to 256 characters long and can\nstart with any character and contain any pattern. Character set\nmust be UTF-8. The container name cannot contain a slash (``/``)\ncharacter because this character delimits the container and object\nname. For example, ``/account/container/object``.", 
+            "format": "", 
+            "in": "path", 
+            "name": "container", 
+            "required": true, 
+            "type": "string"
+          }, 
+          {
+            "description": "The unique name for the account. An account is also known as the\nproject or tenant.", 
+            "format": "", 
+            "in": "path", 
+            "name": "account", 
+            "required": true, 
+            "type": "string"
+          }, 
+          {
+            "description": "The unique name for the object.", 
+            "format": "", 
+            "in": "path", 
+            "name": "object", 
+            "required": true, 
+            "type": "string"
+          }, 
+          {
+            "description": "Authentication token.", 
+            "format": "", 
+            "in": "header", 
+            "name": "X-Auth-Token", 
+            "required": true, 
+            "type": "string"
+          }, 
+          {
+            "description": "Used with temporary URLs to sign the request with an HMAC-SHA1\ncryptographic signature that defines the allowed HTTP method,\nexpiration date, full path to the object, and the secret key for\nthe temporary URL. For more information about temporary URLs, see\n`Temporary URL middleware <http://docs.openstack.org/developer/swif\nt/api/temporary_url_middleware.html>`_.", 
+            "format": "", 
+            "in": "query", 
+            "name": "temp_url_sig", 
+            "required": true, 
+            "type": "string"
+          }, 
+          {
+            "description": "The date and time in `UNIX Epoch time stamp format\n<https://en.wikipedia.org/wiki/Unix_time>`_ when the signature for\ntemporary URLs expires.\n\nFor example, ``1440619048`` is equivalent to ``Mon, Wed, 26 Aug\n2015 19:57:28 GMT``.\n\nFor more information about temporary URLs, see `Temporary URL\nmiddleware <http://docs.openstack.org/developer/swift/api/temporary\n_url_middleware.html>`_.", 
+            "format": "", 
+            "in": "query", 
+            "name": "temp_url_expires", 
+            "required": true, 
+            "type": "integer"
+          }, 
+          {
+            "description": "Overrides the default file name. Object Storage generates a default\nfile name for GET temporary URLs that is based on the object name.\nObject Storage returns this value in the ``Content-Disposition``\nresponse header. Browsers can interpret this file name value as a\nfile attachment to save. For more information about temporary URLs,\nsee `Temporary URL middleware <http://docs.openstack.org/developer/\nswift/api/temporary_url_middleware.html>`_.", 
+            "format": "", 
+            "in": "query", 
+            "name": "filename", 
+            "required": false, 
+            "type": "string"
+          }, 
+          {
+            "description": "If set to true , Object Storage queries all replicas to return the\nmost recent one. If you omit this header, Object Storage responds\nfaster after it finds one valid replica. Because setting this\nheader to true is more expensive for the back end, use it only when\nit is absolutely needed.", 
+            "format": "", 
+            "in": "header", 
+            "name": "X-Newest", 
+            "required": false, 
+            "type": "boolean"
+          }, 
+          {
+            "description": "Extra transaction information. Use the ``X-Trans-Id-Extra`` request\nheader to include extra information to help you debug any errors\nthat might occur with large object upload and other Object Storage\ntransactions.\n\nObject Storage appends the first 32 characters of the ``X-Trans-Id-\nExtra`` request header value to the transaction ID value in the\ngenerated ``X-Trans-Id`` response header. You must UTF-8-encode and\nthen URL-encode the extra transaction information before you\ninclude it in the ``X-Trans-Id-Extra`` request header.\n\nFor example, you can include extra transaction information when you\nupload `large objects <http://docs.openstack.org/user-\nguide/cli_swift_large_object_creation.html>`_ such as images. When\nyou upload each segment and the manifest, include the same value in\nthe ``X-Trans-Id-Extra`` request header. If an error occurs, you\ncan find all requests that are related to the large object upload\nin the Object Storage logs.\n\nYou can also use ``X-Trans-Id-Extra`` strings to help operators\ndebug requests that fail to receive responses. The operator can\nsearch for the extra information in the logs.", 
+            "format": "", 
+            "in": "header", 
+            "name": "X-Trans-Id-Extra", 
+            "required": false, 
+            "type": "string"
+          }
+        ], 
+        "produces": [], 
+        "responses": {
+          "200": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {
+              "Last-Modified": {
+                "description": "The date and time when the object was created or its metadata was\nchanged.\n\nThe date and time stamp format is `ISO 8601\n<https://en.wikipedia.org/wiki/ISO_8601>`_:\n\n::\n\n   CCYY-MM-DDThh:mm:ss\u00b1hh:mm\n\nFor example, ``2015-08-27T09:49:58-05:00``.\n\nThe ``\u00b1hh:mm`` value, if included, is the time zone as an offset\nfrom UTC. In the previous example, the offset value is ``-05:00``.", 
+                "format": "", 
+                "type": "string"
+              }
+            }, 
+            "schema": {}
+          }, 
+          "204": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {
+              "Content-Disposition": {
+                "description": "If set, specifies the override behavior for the browser. For\nexample, this header might specify that the browser use a download\nprogram to save this file rather than show the file, which is the\ndefault.\n\nIf not set, this header is not returned by this operation.", 
+                "format": "", 
+                "type": "string"
+              }, 
+              "Content-Encoding": {
+                "description": "If set, the value of the ``Content-Encoding`` metadata.\n\nIf not set, the operation does not return this header.", 
+                "format": "", 
+                "type": "string"
+              }, 
+              "Content-Length": {
+                "description": "HEAD operations do not return content. The ``Content-Length``\nheader value is not the size of the response body but is the size\nof the object, in bytes.", 
+                "format": "", 
+                "type": "string"
+              }, 
+              "Content-Type": {
+                "description": "The MIME type of the object.", 
+                "format": "", 
+                "type": "string"
+              }, 
+              "Date": {
+                "description": "The transaction date and time.\n\nThe date and time stamp format is `ISO 8601\n<https://en.wikipedia.org/wiki/ISO_8601>`_:\n\n::\n\n   CCYY-MM-DDThh:mm:ss\u00b1hh:mm\n\nFor example, ``2015-08-27T09:49:58-05:00``.\n\nThe ``\u00b1hh:mm`` value, if included, is the time zone as an offset\nfrom UTC. In the previous example, the offset value is ``-05:00``.\n\nA ``null`` value indicates that the token never expires.", 
+                "format": "", 
+                "type": "string"
+              }, 
+              "ETag": {
+                "description": "For objects smaller than 5 GB, this value is the MD5 checksum of\nthe object content. The value is not quoted.\n\nFor manifest objects, this value is the MD5 checksum of the\nconcatenated string of MD5 checksums and ETags for each of the\nsegments in the manifest, and not the MD5 checksum of the content\nthat was downloaded. Also the value is enclosed in double-quote\ncharacters.\n\nYou are strongly recommended to compute the MD5 checksum of the\nresponse body as it is received and compare this value with the one\nin the ETag header. If they differ, the content was corrupted, so\nretry the operation.", 
+                "format": "", 
+                "type": "string"
+              }, 
+              "Last-Modified": {
+                "description": "The date and time when the object was created or its metadata was\nchanged.\n\nThe date and time stamp format is `ISO 8601\n<https://en.wikipedia.org/wiki/ISO_8601>`_:\n\n::\n\n   CCYY-MM-DDThh:mm:ss\u00b1hh:mm\n\nFor example, ``2015-08-27T09:49:58-05:00``.\n\nThe ``\u00b1hh:mm`` value, if included, is the time zone as an offset\nfrom UTC. In the previous example, the offset value is ``-05:00``.", 
+                "format": "", 
+                "type": "string"
+              }, 
+              "X-Delete-At": {
+                "description": "If set, the date and time in `UNIX Epoch time stamp format\n<https://en.wikipedia.org/wiki/Unix_time>`_ when the system deletes\nthe object.\n\nFor example, ``1440619048`` is equivalent to ``Mon, Wed, 26 Aug\n2015 19:57:28 GMT``.\n\nIf not set, this operation does not return this header.", 
+                "format": "", 
+                "type": "integer"
+              }, 
+              "X-Object-Manifest": {
+                "description": "If set, to this is a dynamic large object manifest object. The\nvalue is the container and object name prefix of the segment\nobjects in the form ``container/prefix``.", 
+                "format": "", 
+                "type": "string"
+              }, 
+              "X-Object-Meta-name": {
+                "description": "The custom object metadata item, where ``{name}`` is the name of\nthe metadata item.\n\nOne ``X-Object-Meta- {name}`` response header appears for each\nmetadata ``{name}`` item.", 
+                "format": "", 
+                "type": "string"
+              }, 
+              "X-Static-Large-Object": {
+                "description": "Set to ``true`` if this object is a static large object manifest\nobject.", 
+                "format": "", 
+                "type": "boolean"
+              }, 
+              "X-Timestamp": {
+                "description": "The date and time in `UNIX Epoch time stamp format\n<https://en.wikipedia.org/wiki/Unix_time>`_ when the account,\ncontainer, or object was initially created as a current version.\n\nFor example, ``1440619048`` is equivalent to ``Mon, Wed, 26 Aug\n2015 19:57:28 GMT``.", 
+                "format": "", 
+                "type": "integer"
+              }, 
+              "X-Trans-Id": {
+                "description": "A unique transaction ID for this request. Your service provider\nmight need this value if you report a problem.", 
+                "format": "", 
+                "type": "string"
+              }
+            }, 
+            "schema": {}
+          }
+        }, 
+        "summary": "Shows object metadata.", 
+        "tags": [
+          "storage-object-services"
+        ], 
+        "x-title": "Show object metadata"
+      }, 
+      "post": {
+        "consumes": [], 
+        "description": "To create or update custom metadata, use the ``X-Object-\nMeta-{name}`` header, where ``{name}`` is the name of the metadata\nitem.\n\nIn addition to the custom metadata, you can update the ``Content-\nType``, ``Content-Encoding``, ``Content-Disposition``, and ``X\n-Delete-At`` system metadata items. However you cannot update other\nsystem metadata, such as ``Content-Length`` or ``Last-Modified``.\n\nYou can use COPY as an alternate to the POST operation by copying\nto the same object. With the POST operation you must specify all\nmetadata items, whereas with the COPY operation, you need to\nspecify only changed or additional items.\n\nAll metadata is preserved during the object copy. If you specify\nmetadata on the request to copy the object, either PUT or COPY ,\nthe metadata overwrites any conflicting keys on the target (new)\nobject.\n\nA POST request deletes any existing custom metadata that you added\nwith a previous PUT or POST request. Consequently, you must specify\nall custom metadata in the request. However, system metadata is\nunchanged by the POST request unless you explicitly supply it in a\nrequest header.\n\nYou can also set the ``X-Delete-At`` or ``X-Delete-After`` header\nto define when to expire the object.\n\nWhen used as described in this section, the POST operation creates\nor replaces metadata. This form of the operation has no request\nbody.\n\nYou can also use the `form POST feature\n<http://docs.openstack.org/liberty/config-reference/content/object-\nstorage-form-post.html>`_ to upload objects.\n\nExample requests and responses:\n\n- Create object metadata:\n\n  ::\n\n     curl -i $publicURL/marktwain/goodbye -X POST -H \"X-Auth-Token: $token\" -H \"X-Object-Meta-Book: GoodbyeColumbus\"\n\n\n\n\n  ::\n\n     HTTP/1.1 202 Accepted\n     Content-Length: 76\n     Content-Type: text/html; charset=UTF-8\n     X-Trans-Id: txb5fb5c91ba1f4f37bb648-0052d84b3f\n     Date: Thu, 16 Jan 2014 21:12:31 GMT\n     <html>\n     <h1>Accepted\n     </h1>\n     <p>The request is accepted for processing.\n     </p>\n     </html>\n\n\n- Update object metadata:\n\n  ::\n\n     curl -i $publicURL/marktwain/goodbye -X POST -H \"X-Auth-Token: $token\" H \"X-Object-Meta-Book: GoodbyeOldFriend\"\n\n\n\n\n  ::\n\n     HTTP/1.1 202 Accepted\n     Content-Length: 76\n     Content-Type: text/html; charset=UTF-8\n     X-Trans-Id: tx5ec7ab81cdb34ced887c8-0052d84ca4\n     Date: Thu, 16 Jan 2014 21:18:28 GMT\n     <html>\n     <h1>Accepted\n     </h1>\n     <p>The request is accepted for processing.\n     </p>\n     </html>", 
+        "operationId": "updateObjectMeta", 
+        "parameters": [
+          {
+            "description": "The unique name for the container.\n\nThe container name must be from 1 to 256 characters long and can\nstart with any character and contain any pattern. Character set\nmust be UTF-8. The container name cannot contain a slash (``/``)\ncharacter because this character delimits the container and object\nname. For example, ``/account/container/object``.", 
+            "format": "", 
+            "in": "path", 
+            "name": "container", 
+            "required": true, 
+            "type": "string"
+          }, 
+          {
+            "description": "The unique name for the account. An account is also known as the\nproject or tenant.", 
+            "format": "", 
+            "in": "path", 
+            "name": "account", 
+            "required": true, 
+            "type": "string"
+          }, 
+          {
+            "description": "The unique name for the object.", 
+            "format": "", 
+            "in": "path", 
+            "name": "object", 
+            "required": true, 
+            "type": "string"
+          }, 
+          {
+            "description": "Authentication token. If you omit this header, your request fails\nunless the account owner has granted you access through an access\ncontrol list (ACL).", 
+            "format": "", 
+            "in": "header", 
+            "name": "X-Auth-Token", 
+            "required": false, 
+            "type": "string"
+          }, 
+          {
+            "description": "The object metadata, where ``{name}`` is the name of the metadata\nitem.\n\nYou must specify an ``X-Object-Meta- {name}`` header for each\nmetadata ``{name}`` item that you want to add or update.", 
+            "format": "", 
+            "in": "header", 
+            "name": "X-Object-Meta-name", 
+            "required": false, 
+            "type": "string"
+          }, 
+          {
+            "description": "The date and time in `UNIX Epoch time stamp format\n<https://en.wikipedia.org/wiki/Unix_time>`_ when the system removes\nthe object.\n\nFor example, ``1440619048`` is equivalent to ``Mon, Wed, 26 Aug\n2015 19:57:28 GMT``.", 
+            "format": "", 
+            "in": "header", 
+            "name": "X-Delete-At", 
+            "required": false, 
+            "type": "integer"
+          }, 
+          {
+            "description": "If set, specifies the override behavior for the browser. For\nexample, this header might specify that the browser use a download\nprogram to save this file rather than show the file, which is the\ndefault.", 
+            "format": "", 
+            "in": "header", 
+            "name": "Content-Disposition", 
+            "required": false, 
+            "type": "string"
+          }, 
+          {
+            "description": "If set, the value of the ``Content-Encoding`` metadata.", 
+            "format": "", 
+            "in": "header", 
+            "name": "Content-Encoding", 
+            "required": false, 
+            "type": "string"
+          }, 
+          {
+            "description": "The number of seconds after which the system removes the object.\nInternally, the Object Storage system stores this value in the ``X\n-Delete-At`` metadata item.", 
+            "format": "", 
+            "in": "header", 
+            "name": "X-Delete-After", 
+            "required": false, 
+            "type": "integer"
+          }, 
+          {
+            "description": "Changes the MIME type for the object.", 
+            "format": "", 
+            "in": "header", 
+            "name": "Content-Type", 
+            "required": false, 
+            "type": "string"
+          }, 
+          {
+            "description": "If set to ``true``, Object Storage guesses the content type based\non the file extension and ignores the value sent in the ``Content-\nType`` header, if present.", 
+            "format": "", 
+            "in": "header", 
+            "name": "X-Detect-Content-Type", 
+            "required": false, 
+            "type": "boolean"
+          }, 
+          {
+            "description": "Extra transaction information. Use the ``X-Trans-Id-Extra`` request\nheader to include extra information to help you debug any errors\nthat might occur with large object upload and other Object Storage\ntransactions.\n\nObject Storage appends the first 32 characters of the ``X-Trans-Id-\nExtra`` request header value to the transaction ID value in the\ngenerated ``X-Trans-Id`` response header. You must UTF-8-encode and\nthen URL-encode the extra transaction information before you\ninclude it in the ``X-Trans-Id-Extra`` request header.\n\nFor example, you can include extra transaction information when you\nupload `large objects <http://docs.openstack.org/user-\nguide/cli_swift_large_object_creation.html>`_ such as images. When\nyou upload each segment and the manifest, include the same value in\nthe ``X-Trans-Id-Extra`` request header. If an error occurs, you\ncan find all requests that are related to the large object upload\nin the Object Storage logs.\n\nYou can also use ``X-Trans-Id-Extra`` strings to help operators\ndebug requests that fail to receive responses. The operator can\nsearch for the extra information in the logs.", 
+            "format": "", 
+            "in": "header", 
+            "name": "X-Trans-Id-Extra", 
+            "required": false, 
+            "type": "string"
+          }
+        ], 
+        "produces": [], 
+        "responses": {
+          "202": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {
+              "Content-Length": {
+                "description": "If the operation succeeds, this value is zero (0). If the operation\nfails, this value is the length of the error text in the response\nbody.", 
+                "format": "", 
+                "type": "string"
+              }, 
+              "Content-Type": {
+                "description": "The MIME type of the object.", 
+                "format": "", 
+                "type": "string"
+              }, 
+              "Date": {
+                "description": "The transaction date and time.\n\nThe date and time stamp format is `ISO 8601\n<https://en.wikipedia.org/wiki/ISO_8601>`_:\n\n::\n\n   CCYY-MM-DDThh:mm:ss\u00b1hh:mm\n\nFor example, ``2015-08-27T09:49:58-05:00``.\n\nThe ``\u00b1hh:mm`` value, if included, is the time zone as an offset\nfrom UTC. In the previous example, the offset value is ``-05:00``.\n\nA ``null`` value indicates that the token never expires.", 
+                "format": "", 
+                "type": "string"
+              }, 
+              "X-Timestamp": {
+                "description": "The date and time in `UNIX Epoch time stamp format\n<https://en.wikipedia.org/wiki/Unix_time>`_ when the account,\ncontainer, or object was initially created as a current version.\n\nFor example, ``1440619048`` is equivalent to ``Mon, Wed, 26 Aug\n2015 19:57:28 GMT``.", 
+                "format": "", 
+                "type": "integer"
+              }, 
+              "X-Trans-Id": {
+                "description": "A unique transaction ID for this request. Your service provider\nmight need this value if you report a problem.", 
+                "format": "", 
+                "type": "string"
+              }
+            }, 
+            "schema": {}
+          }
+        }, 
+        "summary": "Creates or updates object metadata.", 
+        "tags": [
+          "storage-object-services"
+        ], 
+        "x-title": "Create or update object metadata"
+      }, 
+      "put": {
+        "consumes": [], 
+        "description": "The PUT operation always creates an object. If you use this\noperation on an existing object, you replace the existing object\nand metadata rather than modifying the object. Consequently, this\noperation returns the ``Created (201)`` response code.\n\nIf you use this operation to copy a manifest object, the new object\nis a normal object and not a copy of the manifest. Instead it is a\nconcatenation of all the segment objects. This means that you\ncannot copy objects larger than 5 GB.\n\nExample requests and responses:\n\n- Create object:\n\n  ::\n\n     curl -i $publicURL/janeausten/helloworld.txt -X PUT -H \"Content-Length: 1\" -H \"Content-Type: text/html; charset=UTF-8\" -H \"X-Auth-Token: $token\"\n\n\n\n\n  ::\n\n     HTTP/1.1 201 Created\n     Last-Modified: Fri, 17 Jan 2014 17:28:35 GMT\n     Content-Length: 116\n     Etag: d41d8cd98f00b204e9800998ecf8427e\n     Content-Type: text/html; charset=UTF-8\n     X-Trans-Id: tx4d5e4f06d357462bb732f-0052d96843\n     Date: Fri, 17 Jan 2014 17:28:35 GMT\n\n\n- Replace object:\n\n  ::\n\n     curl -i $publicURL/janeausten/helloworld -X PUT -H \"Content-Length: 0\" -H \"X-Auth-Token: $token\"\n\n\n\n\n  ::\n\n     HTTP/1.1 201 Created\n     Last-Modified: Fri, 17 Jan 2014 17:28:35 GMT\n     Content-Length: 116\n     Etag: d41d8cd98f00b204e9800998ecf8427e\n     Content-Type: text/html; charset=UTF-8\n     X-Trans-Id: tx4d5e4f06d357462bb732f-0052d96843\n     Date: Fri, 17 Jan 2014 17:28:35 GMT\n\n\nThe ``Created (201)`` response code indicates a successful write.\n\nIf the request times out, the operation returns the ``Request\nTimeout (408)`` response code.\n\nThe ``Length Required (411)`` response code indicates a missing\n``Transfer-Encoding`` or ``Content-Length`` request header.\n\nIf the MD5 checksum of the data that is written to the object store\ndoes not match the optional ``ETag`` value, the operation returns\nthe ``Unprocessable Entity (422)`` response code.", 
+        "operationId": "createOrReplaceObject", 
+        "parameters": [
+          {
+            "description": "The unique name for the container.\n\nThe container name must be from 1 to 256 characters long and can\nstart with any character and contain any pattern. Character set\nmust be UTF-8. The container name cannot contain a slash (``/``)\ncharacter because this character delimits the container and object\nname. For example, ``/account/container/object``.", 
+            "format": "", 
+            "in": "path", 
+            "name": "container", 
+            "required": true, 
+            "type": "string"
+          }, 
+          {
+            "description": "The unique name for the account. An account is also known as the\nproject or tenant.", 
+            "format": "", 
+            "in": "path", 
+            "name": "account", 
+            "required": true, 
+            "type": "string"
+          }, 
+          {
+            "description": "The unique name for the object.", 
+            "format": "", 
+            "in": "path", 
+            "name": "object", 
+            "required": true, 
+            "type": "string"
+          }, 
+          {
+            "description": "If ``?multipart-manifest=put``, the object is a static large object\nmanifest and the body contains the manifest.", 
+            "format": "", 
+            "in": "query", 
+            "name": "multipart-manifest", 
+            "required": false, 
+            "type": "string"
+          }, 
+          {
+            "description": "Used with temporary URLs to sign the request with an HMAC-SHA1\ncryptographic signature that defines the allowed HTTP method,\nexpiration date, full path to the object, and the secret key for\nthe temporary URL. For more information about temporary URLs, see\n`Temporary URL middleware <http://docs.openstack.org/developer/swif\nt/api/temporary_url_middleware.html>`_.", 
+            "format": "", 
+            "in": "query", 
+            "name": "temp_url_sig", 
+            "required": true, 
+            "type": "string"
+          }, 
+          {
+            "description": "The date and time in `UNIX Epoch time stamp format\n<https://en.wikipedia.org/wiki/Unix_time>`_ when the signature for\ntemporary URLs expires.\n\nFor example, ``1440619048`` is equivalent to ``Mon, Wed, 26 Aug\n2015 19:57:28 GMT``.\n\nFor more information about temporary URLs, see `Temporary URL\nmiddleware <http://docs.openstack.org/developer/swift/api/temporary\n_url_middleware.html>`_.", 
+            "format": "", 
+            "in": "query", 
+            "name": "temp_url_expires", 
+            "required": true, 
+            "type": "integer"
+          }, 
+          {
+            "description": "Overrides the default file name. Object Storage generates a default\nfile name for GET temporary URLs that is based on the object name.\nObject Storage returns this value in the ``Content-Disposition``\nresponse header. Browsers can interpret this file name value as a\nfile attachment to save. For more information about temporary URLs,\nsee `Temporary URL middleware <http://docs.openstack.org/developer/\nswift/api/temporary_url_middleware.html>`_.", 
+            "format": "", 
+            "in": "query", 
+            "name": "filename", 
+            "required": false, 
+            "type": "string"
+          }, 
+          {
+            "description": "Set to specify that this is a dynamic large object manifest object.\nThe value is the container and object name prefix of the segment\nobjects in the form ``container/prefix``. You must UTF-8-encode and\nthen URL-encode the names of the container and prefix before you\ninclude them in this header.", 
+            "format": "", 
+            "in": "header", 
+            "name": "X-Object-Manifest", 
+            "required": false, 
+            "type": "string"
+          }, 
+          {
+            "description": "Authentication token. If you omit this header, your request fails\nunless the account owner has granted you access through an access\ncontrol list (ACL).", 
+            "format": "", 
+            "in": "header", 
+            "name": "X-Auth-Token", 
+            "required": false, 
+            "type": "string"
+          }, 
+          {
+            "description": "Set to the length of the object content. Do not set if chunked\ntransfer encoding is being used.", 
+            "format": "", 
+            "in": "header", 
+            "name": "Content-Length", 
+            "required": false, 
+            "type": "integer"
+          }, 
+          {
+            "description": "Set to ``chunked`` to enable chunked transfer encoding. If used, do\nnot set the ``Content-Length`` header to a non-zero value.", 
+            "format": "", 
+            "in": "header", 
+            "name": "Transfer-Encoding", 
+            "required": false, 
+            "type": "string"
+          }, 
+          {
+            "description": "Changes the MIME type for the object.", 
+            "format": "", 
+            "in": "header", 
+            "name": "Content-Type", 
+            "required": false, 
+            "type": "string"
+          }, 
+          {
+            "description": "If set to ``true``, Object Storage guesses the content type based\non the file extension and ignores the value sent in the ``Content-\nType`` header, if present.", 
+            "format": "", 
+            "in": "header", 
+            "name": "X-Detect-Content-Type", 
+            "required": false, 
+            "type": "boolean"
+          }, 
+          {
+            "description": "If set, this is the name of an object used to create the new object\nby copying the ``X-Copy-From`` object. The value is in form\n``{container}/{object}``. You must UTF-8-encode and then URL-encode\nthe names of the container and object before you include them in\nthe header.\n\nUsing PUT with ``X-Copy-From`` has the same effect as using the\nCOPY operation to copy an object.\n\nUsing ``Range`` header with ``X-Copy-From`` will create a new\npartial copied object with bytes set by ``Range``.", 
+            "format": "", 
+            "in": "header", 
+            "name": "X-Copy-From", 
+            "required": false, 
+            "type": "string"
+          }, 
+          {
+            "description": "The MD5 checksum value of the request body. For example, the MD5\nchecksum value of the object content. You are strongly recommended\nto compute the MD5 checksum value of object content and include it\nin the request. This enables the Object Storage API to check the\nintegrity of the upload. The value is not quoted.", 
+            "format": "", 
+            "in": "header", 
+            "name": "ETag", 
+            "required": false, 
+            "type": "string"
+          }, 
+          {
+            "description": "If set, specifies the override behavior for the browser. For\nexample, this header might specify that the browser use a download\nprogram to save this file rather than show the file, which is the\ndefault.", 
+            "format": "", 
+            "in": "header", 
+            "name": "Content-Disposition", 
+            "required": false, 
+            "type": "string"
+          }, 
+          {
+            "description": "If set, the value of the ``Content-Encoding`` metadata.", 
+            "format": "", 
+            "in": "header", 
+            "name": "Content-Encoding", 
+            "required": false, 
+            "type": "string"
+          }, 
+          {
+            "description": "The date and time in `UNIX Epoch time stamp format\n<https://en.wikipedia.org/wiki/Unix_time>`_ when the system removes\nthe object.\n\nFor example, ``1440619048`` is equivalent to ``Mon, Wed, 26 Aug\n2015 19:57:28 GMT``.", 
+            "format": "", 
+            "in": "header", 
+            "name": "X-Delete-At", 
+            "required": false, 
+            "type": "integer"
+          }, 
+          {
+            "description": "The number of seconds after which the system removes the object.\nInternally, the Object Storage system stores this value in the ``X\n-Delete-At`` metadata item.", 
+            "format": "", 
+            "in": "header", 
+            "name": "X-Delete-After", 
+            "required": false, 
+            "type": "integer"
+          }, 
+          {
+            "description": "The object metadata, where ``{name}`` is the name of the metadata\nitem.\n\nYou must specify an ``X-Object-Meta- {name}`` header for each\nmetadata ``{name}`` item that you want to add or update.", 
+            "format": "", 
+            "in": "header", 
+            "name": "X-Object-Meta-name", 
+            "required": false, 
+            "type": "string"
+          }, 
+          {
+            "description": "In combination with ``Expect: 100-Continue``, specify an ``\"If-\nNone-Match: *\"`` header to query whether the server already has a\ncopy of the object before any data is sent.", 
+            "format": "", 
+            "in": "header", 
+            "name": "If-None-Match", 
+            "required": false, 
+            "type": "string"
+          }, 
+          {
+            "description": "Extra transaction information. Use the ``X-Trans-Id-Extra`` request\nheader to include extra information to help you debug any errors\nthat might occur with large object upload and other Object Storage\ntransactions.\n\nObject Storage appends the first 32 characters of the ``X-Trans-Id-\nExtra`` request header value to the transaction ID value in the\ngenerated ``X-Trans-Id`` response header. You must UTF-8-encode and\nthen URL-encode the extra transaction information before you\ninclude it in the ``X-Trans-Id-Extra`` request header.\n\nFor example, you can include extra transaction information when you\nupload `large objects <http://docs.openstack.org/user-\nguide/cli_swift_large_object_creation.html>`_ such as images. When\nyou upload each segment and the manifest, include the same value in\nthe ``X-Trans-Id-Extra`` request header. If an error occurs, you\ncan find all requests that are related to the large object upload\nin the Object Storage logs.\n\nYou can also use ``X-Trans-Id-Extra`` strings to help operators\ndebug requests that fail to receive responses. The operator can\nsearch for the extra information in the logs.", 
+            "format": "", 
+            "in": "header", 
+            "name": "X-Trans-Id-Extra", 
+            "required": false, 
+            "type": "string"
+          }
+        ], 
+        "produces": [], 
+        "responses": {
+          "201": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {
+              "Content-Length": {
+                "description": "If the operation succeeds, this value is zero (0). If the operation\nfails, this value is the length of the error text in the response\nbody.", 
+                "format": "", 
+                "type": "string"
+              }, 
+              "Content-Type": {
+                "description": "The MIME type of the object.", 
+                "format": "", 
+                "type": "string"
+              }, 
+              "Date": {
+                "description": "The transaction date and time.\n\nThe date and time stamp format is `ISO 8601\n<https://en.wikipedia.org/wiki/ISO_8601>`_:\n\n::\n\n   CCYY-MM-DDThh:mm:ss\u00b1hh:mm\n\nFor example, ``2015-08-27T09:49:58-05:00``.\n\nThe ``\u00b1hh:mm`` value, if included, is the time zone as an offset\nfrom UTC. In the previous example, the offset value is ``-05:00``.\n\nA ``null`` value indicates that the token never expires.", 
+                "format": "", 
+                "type": "string"
+              }, 
+              "ETag": {
+                "description": "For objects smaller than 5 GB, this value is the MD5 checksum of\nthe uploaded object content. The value is not quoted.\n\nIf you supplied an ``ETag`` request header and the operation was\nsuccessful, the values are the same.\n\nIf you did not supply an ``ETag`` request header, check the\n``ETag`` response header value against the object content you have\njust uploaded.\n\nFor static large objects, this value is the MD5 checksum of the\nconcatenated string of MD5 checksums and ETags for each of the\nsegments in the manifest, and not the MD5 checksum of the content\nthat was uploaded. Also the value is enclosed in double-quotes. For\ndynamic large objects, the value is the MD5 checksum of the empty\nstring.", 
+                "format": "", 
+                "type": "string"
+              }, 
+              "X-Timestamp": {
+                "description": "The date and time in `UNIX Epoch time stamp format\n<https://en.wikipedia.org/wiki/Unix_time>`_ when the account,\ncontainer, or object was initially created as a current version.\n\nFor example, ``1440619048`` is equivalent to ``Mon, Wed, 26 Aug\n2015 19:57:28 GMT``.", 
+                "format": "", 
+                "type": "integer"
+              }, 
+              "X-Trans-Id": {
+                "description": "A unique transaction ID for this request. Your service provider\nmight need this value if you report a problem.", 
+                "format": "", 
+                "type": "string"
+              }
+            }, 
+            "schema": {
+              "$ref": "#/definitions/createOrReplaceObject_201"
+            }
+          }, 
+          "408": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "411": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }, 
+          "422": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {}, 
+            "schema": {}
+          }
+        }, 
+        "summary": "Creates an object with data content and metadata, or replaces an existing object with data content and metadata.", 
+        "tags": [
+          "storage-object-services"
+        ], 
+        "x-title": "Create or replace object"
+      }, 
+      "x-copy": {
+        "consumes": [], 
+        "description": "You can copy an object to a new object with the same name. Copying\nto the same name is an alternative to using POST to add metadata to\nan object. With POST , you must specify all the metadata. With COPY\n, you can add additional metadata to the object.\n\nWith COPY , you can set the ``X-Fresh-Metadata`` header to ``true``\nto copy the object without any existing metadata.\n\nAlternatively, you can use PUT with the ``X-Copy-From`` request\nheader to accomplish the same operation as the COPY object\noperation.\n\nThe PUT operation always creates an object. If you use this\noperation on an existing object, you replace the existing object\nand metadata rather than modifying the object. Consequently, this\noperation returns the ``Created (201)`` response code.\n\nIf you use this operation to copy a manifest object, the new object\nis a normal object and not a copy of the manifest. Instead it is a\nconcatenation of all the segment objects. This means that you\ncannot copy objects larger than 5 GB in size. All metadata is\npreserved during the object copy. If you specify metadata on the\nrequest to copy the object, either PUT or COPY , the metadata\noverwrites any conflicting keys on the target (new) object.\n\nExample requests and responses:\n\n- Copy the ``goodbye`` object from the ``marktwain`` container to\n  the ``janeausten`` container:\n\n  ::\n\n     curl -i $publicURL/marktwain/goodbye -X COPY -H \"X-Auth-Token: $token\" -H \"Destination: janeausten/goodbye\"\n\n\n\n\n  ::\n\n     HTTP/1.1 201 Created\n     Content-Length: 0\n     X-Copied-From-Last-Modified: Thu, 16 Jan 2014 21:19:45 GMT\n     X-Copied-From: marktwain/goodbye\n     Last-Modified: Fri, 17 Jan 2014 18:22:57 GMT\n     Etag: 451e372e48e0f6b1114fa0724aa79fa1\n     Content-Type: text/html; charset=UTF-8\n     X-Object-Meta-Movie: AmericanPie\n     X-Trans-Id: txdcb481ad49d24e9a81107-0052d97501\n     Date: Fri, 17 Jan 2014 18:22:57 GMT\n\n\n- Alternatively, you can use PUT to copy the ``goodbye`` object from\n  the ``marktwain`` container to the ``janeausten`` container. This\n  request requires a ``Content-Length`` header, even if it is set\n  to zero (0).\n\n  ::\n\n     curl -i $publicURL/janeausten/goodbye -X PUT -H \"X-Auth-Token: $token\" -H \"X-Copy-From: /marktwain/goodbye\" -H \"Content-Length: 0\"\n\n\n\n\n  ::\n\n     HTTP/1.1 201 Created\n     Content-Length: 0\n     X-Copied-From-Last-Modified: Thu, 16 Jan 2014 21:19:45 GMT\n     X-Copied-From: marktwain/goodbye\n     Last-Modified: Fri, 17 Jan 2014 18:22:57 GMT\n     Etag: 451e372e48e0f6b1114fa0724aa79fa1\n     Content-Type: text/html; charset=UTF-8\n     X-Object-Meta-Movie: AmericanPie\n     X-Trans-Id: txdcb481ad49d24e9a81107-0052d97501\n     Date: Fri, 17 Jan 2014 18:22:57 GMT\n\n\nWhen several replicas exist, the system copies from the most recent\nreplica. That is, the COPY operation behaves as though the\n``X-Newest`` header is in the request.", 
+        "operationId": "copyObject", 
+        "parameters": [
+          {
+            "description": "The unique name for the container.\n\nThe container name must be from 1 to 256 characters long and can\nstart with any character and contain any pattern. Character set\nmust be UTF-8. The container name cannot contain a slash (``/``)\ncharacter because this character delimits the container and object\nname. For example, ``/account/container/object``.", 
+            "format": "", 
+            "in": "path", 
+            "name": "container", 
+            "required": true, 
+            "type": "string"
+          }, 
+          {
+            "description": "The unique name for the account. An account is also known as the\nproject or tenant.", 
+            "format": "", 
+            "in": "path", 
+            "name": "account", 
+            "required": true, 
+            "type": "string"
+          }, 
+          {
+            "description": "The unique name for the object.", 
+            "format": "", 
+            "in": "path", 
+            "name": "object", 
+            "required": true, 
+            "type": "string"
+          }, 
+          {
+            "description": "Authentication token. If you omit this header, your request fails\nunless the account owner has granted you access through an access\ncontrol list (ACL).", 
+            "format": "", 
+            "in": "header", 
+            "name": "X-Auth-Token", 
+            "required": false, 
+            "type": "string"
+          }, 
+          {
+            "description": "The container and object name of the destination object in the form\nof ``/container/object``. You must UTF-8-encode and then URL-encode\nthe names of the destination container and object before you\ninclude them in this header.", 
+            "format": "", 
+            "in": "header", 
+            "name": "Destination", 
+            "required": true, 
+            "type": "string"
+          }, 
+          {
+            "description": "Changes the MIME type for the object.", 
+            "format": "", 
+            "in": "header", 
+            "name": "Content-Type", 
+            "required": false, 
+            "type": "string"
+          }, 
+          {
+            "description": "If set, the value of the ``Content-Encoding`` metadata.", 
+            "format": "", 
+            "in": "header", 
+            "name": "Content-Encoding", 
+            "required": false, 
+            "type": "string"
+          }, 
+          {
+            "description": "If set, specifies the override behavior for the browser. For\nexample, this header might specify that the browser use a download\nprogram to save this file rather than show the file, which is the\ndefault.", 
+            "format": "", 
+            "in": "header", 
+            "name": "Content-Disposition", 
+            "required": false, 
+            "type": "string"
+          }, 
+          {
+            "description": "The object metadata, where ``{name}`` is the name of the metadata\nitem.\n\nYou must specify an ``X-Object-Meta- {name}`` header for each\nmetadata ``{name}`` item that you want to add or update.", 
+            "format": "", 
+            "in": "header", 
+            "name": "X-Object-Meta-name", 
+            "required": false, 
+            "type": "string"
+          }, 
+          {
+            "description": "Enables object creation that omits existing user metadata.\n\nIf set to ``true``, the COPY request creates an object without\nexisting user metadata.\n\nDefault value is ``false``.", 
+            "format": "", 
+            "in": "header", 
+            "name": "X-Fresh-Metadata", 
+            "required": false, 
+            "type": "boolean"
+          }, 
+          {
+            "description": "Extra transaction information. Use the ``X-Trans-Id-Extra`` request\nheader to include extra information to help you debug any errors\nthat might occur with large object upload and other Object Storage\ntransactions.\n\nObject Storage appends the first 32 characters of the ``X-Trans-Id-\nExtra`` request header value to the transaction ID value in the\ngenerated ``X-Trans-Id`` response header. You must UTF-8-encode and\nthen URL-encode the extra transaction information before you\ninclude it in the ``X-Trans-Id-Extra`` request header.\n\nFor example, you can include extra transaction information when you\nupload `large objects <http://docs.openstack.org/user-\nguide/cli_swift_large_object_creation.html>`_ such as images. When\nyou upload each segment and the manifest, include the same value in\nthe ``X-Trans-Id-Extra`` request header. If an error occurs, you\ncan find all requests that are related to the large object upload\nin the Object Storage logs.\n\nYou can also use ``X-Trans-Id-Extra`` strings to help operators\ndebug requests that fail to receive responses. The operator can\nsearch for the extra information in the logs.", 
+            "format": "", 
+            "in": "header", 
+            "name": "X-Trans-Id-Extra", 
+            "required": false, 
+            "type": "string"
+          }
+        ], 
+        "produces": [], 
+        "responses": {
+          "201": {
+            "description": "", 
+            "examples": {}, 
+            "headers": {
+              "Content-Length": {
+                "description": "If the operation succeeds, this value is zero (0). If the operation\nfails, this value is the length of the error text in the response\nbody.", 
+                "format": "", 
+                "type": "string"
+              }, 
+              "Content-Type": {
+                "description": "The MIME type of the object.", 
+                "format": "", 
+                "type": "string"
+              }, 
+              "Date": {
+                "description": "The transaction date and time.\n\nThe date and time stamp format is `ISO 8601\n<https://en.wikipedia.org/wiki/ISO_8601>`_:\n\n::\n\n   CCYY-MM-DDThh:mm:ss\u00b1hh:mm\n\nFor example, ``2015-08-27T09:49:58-05:00``.\n\nThe ``\u00b1hh:mm`` value, if included, is the time zone as an offset\nfrom UTC. In the previous example, the offset value is ``-05:00``.\n\nA ``null`` value indicates that the token never expires.", 
+                "format": "", 
+                "type": "string"
+              }, 
+              "ETag": {
+                "description": "The MD5 checksum of the copied object content. The value is not\nquoted.", 
+                "format": "", 
+                "type": "string"
+              }, 
+              "Last-Modified": {
+                "description": "The date and time when the object was created or its metadata was\nchanged.\n\nThe date and time stamp format is `ISO 8601\n<https://en.wikipedia.org/wiki/ISO_8601>`_:\n\n::\n\n   CCYY-MM-DDThh:mm:ss\u00b1hh:mm\n\nFor example, ``2015-08-27T09:49:58-05:00``.\n\nThe ``\u00b1hh:mm`` value, if included, is the time zone as an offset\nfrom UTC. In the previous example, the offset value is ``-05:00``.", 
+                "format": "", 
+                "type": "string"
+              }, 
+              "X-Copied-From": {
+                "description": "For a copied object, shows the container and object name from which\nthe new object was copied. The value is in the\n``{container}/{object}`` format.", 
+                "format": "", 
+                "type": "string"
+              }, 
+              "X-Copied-From-Last-Modified": {
+                "description": "For a copied object, the date and time in `UNIX Epoch time stamp\nformat <https://en.wikipedia.org/wiki/Unix_time>`_ when the\ncontainer and object name from which the new object was copied was\nlast modified.\n\nFor example, ``1440619048`` is equivalent to ``Mon, Wed, 26 Aug\n2015 19:57:28 GMT``.", 
+                "format": "", 
+                "type": "integer"
+              }, 
+              "X-Object-Meta-name": {
+                "description": "The custom object metadata item, where ``{name}`` is the name of\nthe metadata item.\n\nOne ``X-Object-Meta- {name}`` response header appears for each\nmetadata ``{name}`` item.", 
+                "format": "", 
+                "type": "string"
+              }, 
+              "X-Timestamp": {
+                "description": "The date and time in `UNIX Epoch time stamp format\n<https://en.wikipedia.org/wiki/Unix_time>`_ when the account,\ncontainer, or object was initially created as a current version.\n\nFor example, ``1440619048`` is equivalent to ``Mon, Wed, 26 Aug\n2015 19:57:28 GMT``.", 
+                "format": "", 
+                "type": "integer"
+              }, 
+              "X-Trans-Id": {
+                "description": "A unique transaction ID for this request. Your service provider\nmight need this value if you report a problem.", 
+                "format": "", 
+                "type": "string"
+              }
+            }, 
+            "schema": {}
+          }
+        }, 
+        "summary": "Copies an object to another object in the object store.", 
+        "tags": [
+          "storage-object-services"
+        ], 
+        "x-title": "Copy object"
+      }
+    }
+  }, 
+  "produces": [
+    "application/json"
+  ], 
+  "swagger": "2.0", 
+  "tags": [
+    {
+      "description": "Discoverability", 
+      "name": "storage_info", 
+      "x-summary": "If configured, lists the activated capabilities for this version of\nthe OpenStack Object Storage API."
+    }, 
+    {
+      "description": "Endpoints", 
+      "name": "storage_endpoints", 
+      "x-summary": "If configured, lists endpoints for an account."
+    }, 
+    {
+      "description": "Accounts", 
+      "name": "storage-account-services", 
+      "x-summary": "Lists containers for an account. Creates, updates, shows, and\ndeletes account metadata.\n\nAccount metadata operations work differently than container and\nobject metadata operations work. Depending on the contents of your\nPOST account metadata request, the Object Storage API updates the\nmetadata in one of these ways:\n\n**Account metadata operations**\n\n+----------------------------------------------------------+---------------------------------------------------------------+\n| POST request body contains                               | Description                                                   |\n+----------------------------------------------------------+---------------------------------------------------------------+\n| A metadata key without a value.                          | The API removes the metadata item from the account.           |\n|                                                          |                                                               |\n| The metadata key already exists for the account.         |                                                               |\n+----------------------------------------------------------+---------------------------------------------------------------+\n| A metadata key without a value.                          | The API ignores the metadata key.                             |\n|                                                          |                                                               |\n| The metadata key does not already exist for the account. |                                                               |\n+----------------------------------------------------------+---------------------------------------------------------------+\n| A metadata key value.                                    | The API updates the metadata key value for the account.       |\n|                                                          |                                                               |\n| The metadata key already exists for the account.         |                                                               |\n+----------------------------------------------------------+---------------------------------------------------------------+\n| A metadata key value.                                    | The API adds the metadata key and value pair, or item, to the |\n|                                                          | account.                                                      |\n| The metadata key does not already exist for the account. |                                                               |\n+----------------------------------------------------------+---------------------------------------------------------------+\n| One or more account metadata items are omitted.          | The API does not change the existing metadata items.          |\n|                                                          |                                                               |\n| The metadata items already exist for the account.        |                                                               |\n+----------------------------------------------------------+---------------------------------------------------------------+\n\n\n\nFor these requests, specifying the ``X-Remove-Account-Meta-*``\nrequest header for the key with any value is equivalent to\nspecifying the ``X-Account-Meta-*`` request header with an empty\nvalue.\n\nMetadata keys must be treated as case-insensitive at all times.\nThese keys can contain ASCII 7-bit characters that are not control\n(0-31) characters, DEL, or a separator character, according to\n`HTTP/1.1 <http://www.w3.org/Protocols/rfc2616/rfc2616.html>`_ .\nAlso, Object Storage does not support the underscore character,\nwhich it silently converts to a hyphen.\n\nThe metadata values in Object Storage do not follow HTTP/1.1 rules\nfor character encodings. You must use a UTF-8 encoding to get a\nbyte array for any string that contains characters that are not in\nthe 7-bit ASCII 0-127 range. Otherwise, Object Storage returns the\n404 response code for ISO-8859-1 characters in the 128-255 range,\nwhich is a direct violation of the HTTP/1.1 `basic rules\n<http://www.w3.org/Protocols/rfc2616/rfc2616-sec2.html#sec2.2>`_."
+    }, 
+    {
+      "description": "Containers", 
+      "name": "storage-container-services", 
+      "x-summary": "Lists objects in a container. Creates, shows details for, and\ndeletes containers. Creates, updates, shows, and deletes container\nmetadata."
+    }, 
+    {
+      "description": "Objects", 
+      "name": "storage-object-services", 
+      "x-summary": "Creates, replaces, shows details for, and deletes objects. Copies\nobjects from another object with a new or different name. Updates\nobject metadata."
+    }
+  ]
+}

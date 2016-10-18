@@ -1,0 +1,21 @@
+
+****************************************
+** Get Token **
+****************************************
+
+Settings:
+endpoint: https://auth-api.jp-east-1.paas.cloud.global.fujitsu.com/API/paas/auth/token
+contract_number: <K5 Contract number>
+user_name: <K5 User name>
+user_pw: <K5 Password>
+
+CURL command to be executed
+curl -si -X POST https://auth-api.jp-east-1.paas.cloud.global.fujitsu.com/API/paas/auth/token
+-H "Content-Type:application/json"
+-d '{ "auth":{ "identity":{ "password":{ "user":{"contract_number":"<K5 Contract number>", "name":" <K5 User name> ", "password":"<K5 Password>" } } } } }'
+
+***** Hit Enter key to get Access Token *****
+
+=== Token value from here ===
+<Token value>
+=== Token value to here ===

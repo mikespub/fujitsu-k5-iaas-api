@@ -1,0 +1,9 @@
+{
+    "login_id": <User name>,
+    "language_code": <Language code>,
+    "user_status": <User status>,
+    "mailaddress": <Email address>,
+    "user_description": <User description>,
+    "user_last_name": <Last name>,
+    "user_first_name": <First name>
+}

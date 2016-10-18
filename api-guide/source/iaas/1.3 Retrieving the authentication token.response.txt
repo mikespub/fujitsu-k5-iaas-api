@@ -1,0 +1,37 @@
+EP initial setup.
+
+****************************************
+** Retrieve then display token **
+****************************************
+
+-Setting content
+endpoint:https://identity.cloud.global.fujitsu.com
+domain_id:<domainId>
+user_name:<userName>
+user_id:<userId>
+user_pw:<userPassword>
+
+-CURL
+curl -k -X POST https://identity.cloud.global.fujitsu.com/v3/auth/tokens -H "Content-Type:application/json" -H "Accept:application/json" -d
+{
+    "auth": {
+        "identity": {
+            "methods": [
+                "password"
+            ],
+            "password": {
+                "user": {
+                    "domain": {
+                        "name": "<domainName>"
+                    },
+                    "name": "<userName>",
+                    "password": "<userPassword>"
+                }
+            }
+        }
+    }
+}
+
+=== Retrieved authentication token starts here ===
+<anyString>
+=== Retrieved authentication token ends here ===

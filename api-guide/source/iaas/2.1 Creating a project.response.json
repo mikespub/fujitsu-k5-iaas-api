@@ -1,0 +1,12 @@
+{
+    "project": {
+        "description": "<projDesc",
+        "links": {
+            "self": "http://identity.cloud.global.fujitsu.com/v3/projects/<createdProjId>"
+        },
+        "enabled": true,
+        "id": "<createdProjId>",
+        "domain_id": "<domainID>",
+        "name": "<createdProjectName>"
+    }
+}

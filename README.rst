@@ -76,3 +76,27 @@ c. Other API Documentation:
 
   1. Amazon Simple Queue Service (SQS) API Reference: http://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/Welcome.html
   
+
+Other K5 Related Repositories
+=============================
+
+* `allthingsclowd <https://github.com/allthingsclowd>`_
+
+  - `All Things Cloud Blog <https://allthingscloud.eu/>`_
+  - `Public K5 Scripts <https://github.com/allthingsclowd/K5_Public_Scripts>`_
+  - `Fujitsu K5 Example Heat Stack <https://github.com/allthingsclowd/K5-Public-Stacks>`_
+  
+* `fujitsuk5 <https://github.com/fujitsuk5>`_
+
+  - `K5 Command Console <https://github.com/fujitsuk5/K5-Command-Console>`_
+  - `Example Fujitsu K5 Cloud Foundry Apps <https://github.com/fujitsuk5/K5-Cloud-Foundry-Example-Apps>`_
+  - ...
+  
+* `Mobingi Labs <https://github.com/mobingilabs>`_
+
+  - `A PHP SDK Library for Fujitsu K5 Cloud <https://github.com/mobingilabs/fujitsu-k5-sdk>`_
+  
+* `FUJITSU-K5 <https://github.com/FUJITSU-K5>`_
+
+  - `python examples <https://github.com/FUJITSU-K5/python-examples>`_
+  

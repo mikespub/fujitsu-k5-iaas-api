@@ -1,0 +1,13 @@
+<Project name="projFolderName">
+<Domain>domainFolderName</Domain>
+<AvailabilityZones>
+<AvailabilityZone>availZoneWithProjFolder</AvailabilityZone>
+<AvailabilityZone>availZoneWithProjFolder</AvailabilityZone>
+...
+</AvailabilityZones>
+<Dedicated>
+<DedicatedAZ>availZoneWhereDedicInstancesCanBeDeployed</DedicatedAZ>
+<DedicatedAZ>availZoneWhereDedicInstancesCanBeDeployed</DedicatedAZ>
+...
+</Dedicated>
+</Project>

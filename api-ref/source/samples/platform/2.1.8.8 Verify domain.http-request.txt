@@ -1,0 +1,9 @@
+POST / HTTP/1.1
+Date: Fri, 06 Jun 2014 11:00:37 AM GMT
+Content-Length: ...
+Host: mail.jp-east-1.tps5.fujitsu.com
+Content-Type: application/x-www-form-urlencoded; charset=utf-8
+X-Auth-Token: MIIFvgY...
+
+Action=VerifyDomainIdentity
+&Domain=example.com

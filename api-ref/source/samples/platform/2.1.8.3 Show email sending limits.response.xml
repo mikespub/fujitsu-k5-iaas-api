@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GetSendQuotaResponse>
+<GetSendQuotaResult>
+<SentLast24Hours>127.0</SentLast24Hours>
+<Max24HourSend>43200000.0</Max24HourSend>
+<MaxSendRate>500.0</MaxSendRate>
+</GetSendQuotaResult>
+<ResponseMetadata>
+<RequestId>d96bd874-9bf2-11e1-8ee7-c98a0037a2b6</RequestId>
+</ResponseMetadata>
+</GetSendQuotaResponse>

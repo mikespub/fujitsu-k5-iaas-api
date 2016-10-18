@@ -1,0 +1,4 @@
+HTTP/1.1 202 Accepted
+X-Message: Accepted
+Location: http://<Endpoint>/v1/reports/96b6c7a9-1f75-4b37-88de-9a6626a13f1c
+Content-Length: 0

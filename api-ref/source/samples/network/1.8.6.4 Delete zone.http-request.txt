@@ -1,0 +1,6 @@
+DELETE /hostedzone/example.com HTTP/1.1
+Date: Fri, 06 Jun 2014 11:00:37 GMT
+Content-Length: ...
+Host: dns.gls.cloud.global.fujitsu.com
+Accept: application/xml
+X-Auth-Token: MIIFvgY...

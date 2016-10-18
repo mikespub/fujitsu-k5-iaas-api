@@ -1,0 +1,32 @@
+{
+    "rules": [
+        {
+            "matches": [
+                {
+                    "name": "url-wildcard",
+                    "value": "/*"
+                }
+            ],
+            "behaviors": [
+                {
+                    "params": {
+                        "cacheKeyValue": "-",
+                        "digitalProperty": "test-cccbfc24.cdnedge.
+                        cloud.global.fujitsu.com",
+                        "cacheKeyType": "origin",
+                        "hostHeaderValue": "-",
+                        "originDomain": "jp.fujitsu.com",
+                        "hostHeaderType": "origin"
+                    },
+                    "name": "origin",
+                    "value": "-"
+                },
+                {
+                    "type": "fixed",
+                    "name": "caching",
+                    "value": "1d"
+                }
+            ]
+        }
+    ]
+}

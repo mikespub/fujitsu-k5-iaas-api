@@ -1,0 +1,7 @@
+<task>
+<id>taskId</id>
+<status>waiting</status>
+<progress>0</progress>
+<starttime>startTime</starttime>
+<resource id="resourceId"/>
+</task>

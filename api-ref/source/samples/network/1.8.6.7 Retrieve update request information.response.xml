@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<GetChangeResponse xmlns="http://docs.cloudcommunity.global.fujitsu.com/dns/api/v1.0/">
+<ChangeInfo>
+<Id>dcd102450ad397f197cb9f09755964f7</Id>
+<Status>INSYNC</Status>
+<SubmittedAt>2014-06-06T11:00:38.178Z</SubmittedAt>
+</ChangeInfo>
+</GetChangeResponse>

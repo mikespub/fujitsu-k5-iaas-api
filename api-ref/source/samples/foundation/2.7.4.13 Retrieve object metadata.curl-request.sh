@@ -1,0 +1,1 @@
+curl -i $publicURL/marktwain/goodbye -X HEAD -H "X-Auth-Token:$token"

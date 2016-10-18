@@ -1,0 +1,55 @@
+{
+    "headers": [
+        {
+            "index": 0,
+            "name": "Time"
+        },
+        {
+            "index": 1,
+            "name": "200Count"
+        },
+        {
+            "index": 2,
+            "name": "4XXCount"
+        },
+        {
+            "index": 3,
+            "name": "5XXCount"
+        },
+        {
+            "index": 4,
+            "name": "RequestCount"
+        }
+    ],
+    "rows": [
+        [
+            "2015/12/04 00:00",
+            "139",
+            "0",
+            "3",
+            "142"
+        ],
+        [
+            "2015/12/15 00:00",
+            "212",
+            "0",
+            "16",
+            "228"
+        ]
+    ],
+    "metadata": {
+        "delivery_option": "all",
+        "end_date": "20151215",
+        "time_created": "2016/01/26 06:47",
+        "metrics": [
+            "200Count",
+            "4XXCount",
+            "5XXCount",
+            "RequestCount"
+        ],
+        "granularity": "daily",
+        "service_id": null,
+        "per_region": "false",
+        "start_date": "20151201",
+    }
+}

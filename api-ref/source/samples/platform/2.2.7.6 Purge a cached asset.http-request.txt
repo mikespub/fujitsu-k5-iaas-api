@@ -1,0 +1,1 @@
+DELETE /v1/services/d8fdaa40-fa39/assets?url=solutions/img/img-06.jpg

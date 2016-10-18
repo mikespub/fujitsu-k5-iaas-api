@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VerifyDomainIdentityResponse>
+<VerifyDomainIdentityResult>
+<VerificationToken>95f2f6b80985...</VerificationToken>
+</VerifyDomainIdentityResult>
+<ResponseMetadata>
+<RequestId>0610909f-2598-4354-838b-67223520e3ea</RequestId>
+</ResponseMetadata>
+</VerifyDomainIdentityResponse>

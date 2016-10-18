@@ -1,0 +1,12 @@
+<Networks>
+<Network name="networkResourceName1" id="networkResourceId1">
+<AddressSet name="addrSetName1" subnet="subnetAddr" mask="netMask"
+start="startIpAddr" end="endIpAddr">
+<DefaultGateway address="ipAddr" />
+</AddressSet>
+<AvailabilityZone>availZoneName</AvailabilityZone>
+</Network>
+<Network name="networkResourceName2" id="networkResourceId2">
+Omitted
+</Network>
+</Networks>

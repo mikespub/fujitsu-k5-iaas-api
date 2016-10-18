@@ -1,0 +1,1 @@
+curl -i $publicURL/marktwain?format=xml -X GET -H "X-Auth-Token:$token"

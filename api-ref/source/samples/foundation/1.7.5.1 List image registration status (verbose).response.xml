@@ -1,0 +1,14 @@
+<LServerTemplates>
+<LServerTemplate name="virtualServerTemplName1">
+<CPU>
+<CPUPerf>cpuPerformance</CPUPerf>
+<NumOfCPUnumOfCpus/NumOfCPU>
+</CPU>
+<Memory>
+<MemorySize>memSize</MemorySize>
+</Memory>
+</LServerTemplate>
+<LServerTemplate name="virtualServerTempl2">
+... (information about 2nd template)
+</LServerTemplate>
+</LServerTemplates>

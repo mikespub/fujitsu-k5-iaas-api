@@ -1,0 +1,3 @@
+POST /v1/services?protocol=http&status=activate
+Content-type: application/json
+Content-Length: 375

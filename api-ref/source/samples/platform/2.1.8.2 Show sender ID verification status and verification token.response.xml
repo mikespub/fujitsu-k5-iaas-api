@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GetIdentityVerificationAttributesResponse>
+<GetIdentityVerificationAttributesResult>
+<VerificationAttributes>
+<entry>
+<key>example.com</key>
+<value>
+<VerificationStatus>Pending</VerificationStatus>
+<VerificationToken>QTKknzFg2J4ygwa+XvHAxUl1hyHoY0gVfZdfjIedHZ0=</VerificationToken>
+</value>
+</entry>
+<entry>
+<key>user@ example.com</key>
+<value>
+<VerificationStatus>Pending</VerificationStatus>
+</value>
+</entry>
+</VerificationAttributes>
+</GetIdentityVerificationAttributesResult>
+<ResponseMetadata>
+<RequestId>d96bd874-9bf2-11e1-8ee7-c98a0037a2b6</RequestId>
+</ResponseMetadata>
+</GetIdentityVerificationAttributesResponse>

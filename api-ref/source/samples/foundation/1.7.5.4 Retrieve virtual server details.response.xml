@@ -1,0 +1,39 @@
+<Resources>
+<LServer name="virtualServerName" id="virtualServerId">
+<TemplateLink name="virtualServerTemplName" />
+<Disks>
+<Disk name="diskName">
+<DiskLink name="diskNameAllocatedToVirtualServer" id="DiskID" />
+<DiskIndex>diskNum</DiskIndex>
+<DiskSize>diskSize</DiskSize>
+<DevicePath>devicePath</DevicePath>
+</Disk>
+</Disks>
+<NICs>
+<NIC>
+<NICIndex>nicNum</NICIndex>
+<MacAddress>macAddr</MacAddress>
+<NetworkLinks>
+<NetworkLink name="networkName" id="NetworkID">
+<IpAddress auto="ipAutoConfigure" address="ipAddr"/>
+</NetworkLink>
+</NetworkLinks>
+</NIC>
+</NICs>
+<Status>
+<ResourceStatus>resourceStatus</ResourceStatus>
+<PowerStatus>powerStatus</PowerStatus>
+<BaseImageId>baseImageId</BaseImageId>
+</Status>
+<Snapshots>
+<Snapshot version="snapshotGeneration" date="snapshotDatetime"
+id="snapshotResourceId"/>
+<Snapshot version="snapshotGeneration" date="snapshotDatetime"
+id="snapshotResourceId"/>
+<Snapshot version="snapshotGeneration" date="snapshotDatetime"
+id="snapshotResourceId"/>
+</Snapshots>
+<AvailabilityZone>availZone</AvailabilityZone>
+<Dedicated>deployedToDedicatedInstance</Dedicated>
+</LServer>
+</Resources>

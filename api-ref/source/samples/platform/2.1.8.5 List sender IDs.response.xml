@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListIdentitiesResponse>
+<ListIdentitiesResult>
+<Identities>
+<member>user1@example.com</member>
+<member>user2@example.com</member>
+</Identities>
+</ListIdentitiesResult>
+<ResponseMetadata>
+<RequestId>d96bd874-9bf2-11e1-8ee7-c98a0037a2b6</RequestId>
+</ResponseMetadata>
+</ListIdentitiesResponse>

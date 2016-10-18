@@ -1,0 +1,4 @@
+HTTP/1.1 202 Accepted
+X-Message: Accepted
+Location: http://<Endpoint>/v1/services/service_id-25
+Content-Length: 0

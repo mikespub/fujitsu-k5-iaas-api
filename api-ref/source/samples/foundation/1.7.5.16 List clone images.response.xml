@@ -1,0 +1,12 @@
+<ServerImages>
+<ServerImage name="imageName1">
+<Scope>imageDisclosureScope</Scope>
+<Project>idOfProjWhereImageWasCreated</Project>
+<AvailabilityZone>availZone</AvailabilityZone>
+</ServerImage>
+<ServerImage name="imageName2">
+<Scope>imageDisclosureScope</Scope>
+<Project>idOfProjWhereImageWasCreated</Project>
+<AvailabilityZone>availZone</AvailabilityZone>
+</ServerImage>
+</ServerImages>

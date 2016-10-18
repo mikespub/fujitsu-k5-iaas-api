@@ -1,0 +1,32 @@
+<Resources>
+<LServer name="virtualServerName">
+<TemplateLink name="virtualServerTemplName"/>
+<ServerImageLink name="imageName"/>
+<ServerImageProject name="projId"/>
+<Disks>
+<Disk>
+<DiskIndex>diskNum</DiskIndex>
+<DiskSize>diskSize</DiskSize>
+</Disk>
+</Disks>
+<NICs>
+<NIC>
+<NICIndex>nicNum</NICIndex>
+<NetworkLinks>
+<NetworkLink id="networkId">
+<IpAddress auto="ipAutoSetup" address="ipAddr"/>
+</NetworkLink>
+</NetworkLinks>
+</NIC>
+</NICs>
+<OSSetting>
+<ComputerName>computerName, hostName</ComputerName>
+<AdminPassword>adminPassword</AdminPassword>
+<DNSServers>
+<DNSServer nic="nicIndex" ip="dnsIpAddress" />
+</DNSServers>
+</OSSetting>
+<AvailabilityZone>availZone</AvailabilityZone>
+<Dedicated>deployToDedicatedInstance</Dedicated>
+</LServer>
+</Resources>

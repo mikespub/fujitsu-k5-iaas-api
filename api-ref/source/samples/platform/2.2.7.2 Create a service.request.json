@@ -1,0 +1,31 @@
+{
+    "rules": [
+        {
+            "matches": [
+                {
+                "name": "url-wildcard",
+                "value": "/*"
+                }
+            ],
+            "behaviors": [
+                {
+                    "params": {
+                        "cacheKeyValue": "-",
+                        "digitalProperty": "-",
+                        "cacheKeyType": "origin",
+                        "hostHeaderValue": "-",
+                        "originDomain": "jp.fujitsu.com",
+                        "hostHeaderType": "origin"
+                    },
+                    "name": "origin",
+                    "value": "-"
+                },
+                {
+                    "type": "fixed",
+                    "name": "caching",
+                    "value": "1d"
+                }
+            ]
+        }
+    ]
+}

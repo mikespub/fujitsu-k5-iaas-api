@@ -1,0 +1,10 @@
+<LServers>
+<LServer name="virtualServerName1" id="virtualServerId1">
+<AvailabilityZone>availabilityZone</AvailabilityZone>
+<Dedicated>dedicatedInstance</Dedicated>
+</LServer>
+<LServer name="virtualServerName2" id="virtualServerId2">
+<AvailabilityZone>availabilityZone</AvailabilityZone>
+<Dedicated>deployedToDedicatedInstance</Dedicated>
+</LServer>
+</LServers>

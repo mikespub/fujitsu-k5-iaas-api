@@ -1,0 +1,1 @@
+POST /v1/ reports?granularity=daily&start_date=20151123&end_date=20160110&delivery_option=all&metrics=200Count

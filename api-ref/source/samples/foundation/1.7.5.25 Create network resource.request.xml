@@ -1,0 +1,4 @@
+<Network>
+<Subnet id="subnetIdCreatedUsingOpenstack" />
+<AvailabilityZone>availZone</AvailabilityZone>
+</Network>

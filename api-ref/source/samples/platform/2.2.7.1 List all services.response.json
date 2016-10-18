@@ -1,0 +1,20 @@
+{
+    "services": [
+        {
+            "status": "deployed",
+            "id": "36adedf4-2370-476c-b531-3913b9502fe7",
+            "links": {
+                "href": "ct.list.00002.net",
+                "rel": "http://<Endpoint>/v1/services/36adedf4-2370-476cb531-3913b9502fe7"
+            }
+        },
+        {
+            "status": "deployed",
+            "id": "a71170d3-b95e-4182-9918-687e327792bf",
+            "links": {
+                "href": "ct.list.00003.net",
+                "rel": "http://<Endpoint>/v1/services/a71170d3-b95e-4182-9918-687e327792bf"
+            }
+        }
+    ]
+}

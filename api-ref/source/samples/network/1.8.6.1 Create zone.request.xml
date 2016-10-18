@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?> <CreateHostedZoneRequest xmlns="http://docs.cloudcommunity.global.fujitsu.com/dns/api/v1.0/">
+<Name>example.com</Name>
+<HostedZoneConfig>
+<Comment>comment</Comment>
+</HostedZoneConfig>
+</CreateHostedZoneRequest>

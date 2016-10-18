@@ -1,0 +1,5 @@
+HTTP/1.1 200 OK
+Date: Fri, 06 Jun 2014 11:00:38 GMT
+Content-Length: ...
+Content-Type: application/xml
+x-fj-request-id: 0610909f-2598-4354-838b-67223520e3ea

@@ -1,0 +1,5 @@
+<Resources>
+<LServer name="virtualServerName">
+<TemplateLink name="virtualServerTemplName"/>
+</LServer>
+</Resources>

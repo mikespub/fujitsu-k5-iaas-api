@@ -1,0 +1,28 @@
+<ServerImages>
+<ServerImage name="imageName1">
+<Scope>imageDisclosureScope</Scope>
+<Project>idOfProjWhereImageWasCreated</Project>
+<AvailabilityZone>availZone</AvailabilityZone>
+<Comment>comment</Comment>
+<CreateTime>creationDatetime</CreateTime>
+<Disks>
+<Disk>
+<DiskIndex>diskNum</DiskIndex>
+<DiskSize>diskSize</DiskSize>
+</Disk>
+<Disk>
+<DiskIndex>diskNum</DiskIndex>
+...
+</Disks>
+</ServerImage>
+<ServerImage name="imageName2">
+<Scope>imageDisclosureScope</Scope>
+<Project>idOfProjWhereImageWasCreated</Project>
+<AvailabilityZone>availZone</AvailabilityZone>
+<Comment>comment</Comment>
+<CreateTime>creationDatetime</CreateTime>
+<Disks>
+...
+</Disks>
+</ServerImage>
+</ServerImages>

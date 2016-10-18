@@ -42,7 +42,7 @@ Overview
 API Samples
 ===========
 
-Sample JSON Requests & Responses from the Reference Manuals: see api-ref/source/samples
+Sample JSON Requests & Responses from the Reference Manuals: see `api-ref/source/samples <api-ref/source/samples>`_
 
 References
 ==========

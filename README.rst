@@ -1,8 +1,9 @@
-Fujitsu K5 IaaS API
-===================
+=====================================
+Fujitsu K5 IaaS API Reference & Tools
+=====================================
 
 Overview
---------
+========
 
 +----------------------+-----------------------------+----------------------+------------+-----------+
 |        Service                                     | OpenStack Native API | Add-on API | Total API |
@@ -39,7 +40,7 @@ Overview
 +----------------------+-----------------------------+----------------------+------------+-----------+
 
 References
-----------
+==========
 
 a. Fujitsu K5 IaaS API Reference Manuals: http://www.fujitsu.com/global/solutions/cloud/k5/guides/
 

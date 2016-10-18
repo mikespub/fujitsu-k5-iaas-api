@@ -1,0 +1,11 @@
+heat_template_version: 2013-05-23
+...
+resources:
+  ...
+  Test_db_subnetgroup:
+    type: FCX::Database::DBSubnetGroup
+    properties:
+      id: String
+      name: String
+      subnet_ids: [{"subnet_id":String}, {"subnet_id": String},...]
+      description: String

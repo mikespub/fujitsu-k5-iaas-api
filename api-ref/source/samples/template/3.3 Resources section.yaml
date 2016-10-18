@@ -1,0 +1,9 @@
+resources:
+  <resource ID>:
+    type: <resource type>
+    properties:
+      <property name>: <property value>
+    metadata:
+      <resource specific metadata>
+    depends_on: <resource ID or list of ID>
+    deletion_policy: <deletion policy>

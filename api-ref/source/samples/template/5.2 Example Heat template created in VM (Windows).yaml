@@ -1,0 +1,65 @@
+#
+# This is a hello world HOT template just defining a single compute
+# server (Windows).
+#
+heat_template_version: 2013-05-23
+
+description: >
+  Hello world HOT template that just defines a single server.
+  Changing hostname by ps1 script.
+
+parameters:
+  az:
+    type: string
+    description: availability zone
+    default: jp-east-1b
+  param_image_id:
+    type: string
+    default: 5ab16551-c229-4611-834b-a16e074c187e
+  param_flavor:
+    type: string
+    default: (Select from the following flavors: "S-1", "S-2", "S-4", "S-8", "S-16".)
+  network:
+    type: string
+    description: network uuid
+    default: (Any network ID)
+  vm_name:
+    type: string
+    default: (Any virtual machine name)
+  security_group_name:
+    type: comma_delimited_list
+    default: (Any security group name)
+  admin_password:
+    type: string
+    default: (Any password (*1)
+    #*1: Specify a password that satisfies the complexity requirements of Windows
+
+resources:
+  sys-vol:
+    type: OS::Cinder::Volume
+    properties:
+      name: "sys-vol"
+      size: 80
+      volume_type: "M1"
+      availability_zone: { get_param: az }
+      image : { get_param: param_image_id }
+
+  server:
+    type: OS::Nova::Server
+    properties:
+      image: { get_param: param_image_id }
+      flavor: { get_param: param_flavor }
+      security_groups: {get_param: security_group_name}
+      block_device_mapping: [{"volume_size": "80", "volume_id": {get_resource: sys-vol}, "delete_on_termination": True, "device_name": "/dev/vda"}]
+      networks: ["uuid": {get_param: network} ]
+      name: { get_param: vm_name }
+      metadata: { "admin_pass": { get_param: admin_password }}
+      user_data: |
+        #ps1
+        New-Item "c:\\test" -itemType Directory
+        Rename-Computer -Force -NewName win2012r2v02 -Restart
+
+outputs:
+  server_networks:
+    description: The networks of the deployed server
+    value: { get_attr: [server, networks] }

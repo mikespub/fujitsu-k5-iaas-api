@@ -1,0 +1,10 @@
+heat_template_version: 2013-05-23
+...
+resources:
+  ...
+  the_resource:
+    type: OS::Nova::ServerGroup
+    properties:
+      name: String
+      policies: [String, String, ...]
+      availability_zone: String

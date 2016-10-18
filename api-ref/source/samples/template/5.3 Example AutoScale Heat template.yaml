@@ -1,0 +1,112 @@
+#
+# The following is an example template for AutoScale.
+#
+heat_template_version: 2013-05-23
+
+description:
+  Autoscaling test HOT.
+
+parameters:
+
+  az:
+    type: string
+    default: jp-east-1b
+
+  param-image-id:
+    type: string
+    default: 839c1db6-738c-4e2b-9a1d-c14977564203
+
+  param-flavor:
+    type: string
+    default: (Select from the following flavors: "S-1", "S-2", "S-4", "S-8", "S-16".)
+
+  key-name:
+    type: string
+    description: SSH key to connect to the servers
+    default: (Any key pair name)
+
+  autoscale-security-group:
+    type: comma_delimited_list
+    default: (Any security group name)
+
+  subnet-id:
+    type: string
+    description: subnet id
+    default: (Any subnet ID)
+
+resources:
+
+  web-server-group:
+    type: FCX::AutoScaling::AutoScalingGroup
+    properties:
+      AvailabilityZones: [{get_param: az}]
+      LaunchConfigurationName: {get_resource: launch_config}
+      MinSize: '2'
+      MaxSize: '3'
+      VPCZoneIdentifier: [{get_param: subnet-id}]
+      LoadBalancerNames:
+      - {get_resource: fj-elb}
+
+  launch_config:
+    type: FCX::AutoScaling::LaunchConfiguration
+    properties:
+      ImageId: { get_param: param-image-id }
+      InstanceType: { get_param: param-flavor }
+      KeyName: {get_param: key-name}
+      SecurityGroups: {get_param: autoscale-security-group}
+      BlockDeviceMappingsV2: [{source_type: 'image', destination_type: 'volume', boot_index: '0', device_name: '/dev/vda', volume_size: '30', uuid: {get_param: param-image-id}, delete_on_termination: true}]
+
+  fj-elb:
+    type: FCX::ExpandableLoadBalancer::LoadBalancer
+    properties:
+      Subnets: [{get_param: subnet-id}]
+      Listeners:
+      - {LoadBalancerPort: '80', InstancePort: '80', Protocol: 'HTTP', InstanceProtocol: 'HTTP' }
+      HealthCheck: {Target: 'HTTP:80/healthcheck', HealthyThreshold: '3', UnhealthyThreshold: '5', Interval: '30', Timeout: '5'}
+      Version: 2014-09-30
+      Scheme: internal
+      LoadBalancerName: (Any Load Balancer name)
+
+  web_server_scaleup_policy:
+    type: FCX::AutoScaling::ScalingPolicy
+    properties:
+      AdjustmentType: ChangeInCapacity
+      AutoScalingGroupName: {get_resource: web-server-group}
+      Cooldown: '60'
+      ScalingAdjustment: '1'
+
+  web_server_scaledown_policy:
+    type: FCX::AutoScaling::ScalingPolicy
+    properties:
+      AdjustmentType: ChangeInCapacity
+      AutoScalingGroupName: {get_resource: web-server-group}
+      Cooldown: '60'
+      ScalingAdjustment: '-1'
+
+  cpu_alarm_high:
+    type: OS::Ceilometer::Alarm
+    properties:
+      description: Scale-up if the average CPU > 50% for 1 minute
+      meter_name: fcx.compute.cpu_util
+      statistic: avg
+      period: '60'
+      evaluation_periods: '1'
+      threshold: '50'
+      alarm_actions:
+      - {get_attr: [web_server_scaleup_policy, AlarmUrl]}
+      matching_metadata: {'metadata.user_metadata.groupname': {get_resource: 'web-server-group'}}
+      comparison_operator: gt
+
+  cpu_alarm_low:
+    type: OS::Ceilometer::Alarm
+    properties:
+      description: Scale-down if the average CPU < 15% for 1 minute
+      meter_name: fcx.compute.cpu_util
+      statistic: avg
+      period: '60'
+      evaluation_periods: '1'
+      threshold: '15'
+      alarm_actions:
+      - {get_attr: [web_server_scaledown_policy, AlarmUrl]}
+      matching_metadata: {'metadata.user_metadata.groupname': {get_resource: 'web-server-group'}}
+      comparison_operator: lt

@@ -1,0 +1,9 @@
+parameters:
+  <param name>:
+    type: <string | number | json | comma_delimited_list>
+    label: <human-readable name of the parameter>
+    description: <description of the parameter>
+    default: <default value for parameter>
+    hidden: <true | false>
+    constraints:
+      <parameter constraints>

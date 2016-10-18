@@ -1,0 +1,10 @@
+heat_template_version: 2013-05-23
+...
+resources:
+  ...
+  the_resource:
+    type: OS::Cinder::VolumeAttachment
+    properties:
+      instance_uuid: String
+      mountpoint: String
+      volume_id: String

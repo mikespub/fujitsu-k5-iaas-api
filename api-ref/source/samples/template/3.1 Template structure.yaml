@@ -1,0 +1,12 @@
+heat_template_version: 2013-05-23
+
+description: <description>
+
+parameters:
+  <parameters>
+
+resources:
+  <resources>
+
+outputs:
+  <outputs>

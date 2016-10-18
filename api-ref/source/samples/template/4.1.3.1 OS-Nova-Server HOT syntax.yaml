@@ -1,0 +1,26 @@
+heat_template_version: 2013-05-23
+...
+resources:
+  ...
+  the_resource:
+    type: OS::Nova::Server
+    properties:
+      availability_zone: String
+      block_device_mapping: [{"volume_size": Integer, "volume_id": String, "snapshot_id": String, "delete_on_termination": Boolean, "device_name": String}, {"volume_size": Integer, "volume_id": String, "snapshot_id": String, "delete_on_termination": Boolean, "device_name": String}, ...]
+      config_drive: Boolean
+      diskConfig: String
+      flavor: String
+      flavor_update_policy: String
+      image: String
+      image_update_policy: String
+      key_name: String
+      metadata: {...}
+      name: String
+      networks: [{"port": String, "fixed_ip": String, "uuid": String, "network": String}, {"port": String, "fixed_ip": String, "uuid": String, "network": String}, ...]
+      personality: {...}
+      reservation_id: String
+      scheduler_hints: {...}
+      security_groups: [Value, Value, ...]
+      software_config_transport: String
+      user_data: String
+      user_data_format: String

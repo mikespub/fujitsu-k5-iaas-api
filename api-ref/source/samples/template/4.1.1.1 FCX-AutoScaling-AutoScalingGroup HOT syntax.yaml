@@ -1,0 +1,17 @@
+heat_template_version: 2013-05-23
+...
+resources:
+  ...
+  the_resource:
+    type: FCX::AutoScaling::AutoScalingGroup
+    properties:
+      AvailabilityZones: [Value, Value, ...]
+      Cooldown: Number
+      HealthCheckGracePeriod: Integer
+      HealthCheckType: String
+      LaunchConfigurationName: String
+      LoadBalancerNames: [Value, Value, ...]
+      MaxSize: Integer
+      MinSize: Integer
+      Tags: [{"Value": String, "Key": String}, {"Value": String, "Key": String}, ...]
+      VPCZoneIdentifier: [String, String, ...]

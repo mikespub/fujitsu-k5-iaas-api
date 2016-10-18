@@ -1,0 +1,20 @@
+heat_template_version: 2013-05-23
+...
+resources:
+  ...
+  the_resource:
+    type: OS::Ceilometer::Alarm
+    properties:
+      alarm_actions: [Value, Value, ...]
+      comparison_operator: String
+      description: String
+      enabled: Boolean
+      evaluation_periods: Integer
+      insufficient_data_actions: [Value, Value, ...]
+      matching_metadata: {...}
+      meter_name: String
+      ok_actions: [Value, Value, ...]
+      period: Integer
+      repeat_actions: Boolean
+      statistic: String
+      threshold: Number

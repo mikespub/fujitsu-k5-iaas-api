@@ -1,0 +1,4 @@
+outputs:
+  <parameter name>:
+    description: <description>
+    value: <parameter value>

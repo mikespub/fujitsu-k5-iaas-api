@@ -1,0 +1,11 @@
+heat_template_version: 2013-05-23
+...
+resources:
+  ...
+  Test_db_parametergroup:
+    type: FCX::Database::DBParameterGroup
+    properties:
+      id: String
+      name: String
+      parameter_group_family: String
+      description: String

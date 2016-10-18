@@ -1,0 +1,94 @@
+#
+# The following is an example template for automatically recovering abnormal instances
+# included in AutoScale (Windows) that are detected using the health check of Load Balancer.
+#
+heat_template_version: 2013-05-23
+
+description:
+  Autoscaling Windows Health HTTP80
+
+parameters:
+
+  az:
+    type: string
+    default: jp-east-1a
+  param_image_id:
+    type: string
+    default: 5ab16551-c229-4611-834b-a16e074c187e
+  param_flavor:
+    type: string
+    default: (Select from the following flavors: "S-1", "S-2", "S-4", "S-8", "S-16".)
+  autoscale_security_group_name:
+    type: comma_delimited_list
+    default: (Any security group name)
+  autoscale_security_group_id:
+    type: comma_delimited_list
+    default: (Any security group ID)
+  autoscale_subnet_id:
+    type: comma_delimited_list
+    default: (Any subnet ID)
+  autoscale_elb_name:
+    type: string
+    default: m0918WinELB2
+
+resources:
+
+  autoscalewindows:
+    type: FCX::AutoScaling::AutoScalingGroup
+    properties:
+      AvailabilityZones: [{get_param: az}]
+      LaunchConfigurationName: {get_resource: launch_config}
+      MinSize: '1'
+      MaxSize: '2'
+      VPCZoneIdentifier: {get_param: autoscale_subnet_id}
+      HealthCheckGracePeriod: '110'
+      HealthCheckType: 'ELB'
+      Cooldown: 750
+      LoadBalancerNames: [{get_resource: fj_elb}]
+      Tags: [{"Key": "admin_pass", "Value": "(any password (*1))"}]
+      #*1: Specify a password that satisfies the complexity requirements of Windows.
+
+  launch_config:
+    type: FCX::AutoScaling::LaunchConfiguration
+    properties:
+      ImageId: { get_param: param_image_id }
+      InstanceType: { get_param: param_flavor }
+      SecurityGroups: {get_param: autoscale_security_group_name}
+      BlockDeviceMappingsV2: [{source_type: 'image', destination_type: 'volume', boot_index: '0', device_name: '/dev/vda', volume_size: '80', uuid: {get_param: param_image_id}, delete_on_termination: true}]
+      UserData: |
+        #ps1
+        New-Item "c:\\test" -itemType Directory
+
+  fj_elb:
+    type: FCX::ExpandableLoadBalancer::LoadBalancer
+    properties:
+      Subnets: {get_param: autoscale_subnet_id}
+      SecurityGroups: {get_param: autoscale_security_group_id}
+      Listeners:
+      - {LoadBalancerPort: '80', InstancePort: '80', Protocol: 'HTTP', InstanceProtocol: 'HTTP' }
+      HealthCheck: {Target: 'HTTP:80/iisstart.htm', HealthyThreshold: '3', UnhealthyThreshold: '5', Interval: '30', Timeout: '5'}
+      Version: 2014-09-30
+      Scheme: internal
+      LoadBalancerName: {get_param: autoscale_elb_name}
+
+  vm_recover_policy:
+    type: FCX::AutoScaling::ScalingPolicy
+    properties:
+      AdjustmentType: ChangeInCapacity
+      AutoScalingGroupName: {get_resource: autoscalewindows}
+      ScalingAdjustment: '1'
+
+  elb_status_abnormal:
+    type: OS::Ceilometer::Alarm
+    properties:
+      description: elb_unhealty_recovery
+      meter_name: fcx.loadbalancing.instance.unhealthy
+      statistic: min
+      period: '180'
+      evaluation_periods: '1'
+      repeat_actions: true
+      threshold: '1'
+      alarm_actions:
+      - {get_attr: [vm_recover_policy, AlarmUrl]}
+      matching_metadata: { 'resource_id': {get_param: autoscale_elb_name}}
+      comparison_operator: ge

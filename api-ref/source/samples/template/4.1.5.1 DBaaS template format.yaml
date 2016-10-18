@@ -1,0 +1,47 @@
+heat_template_version: 2013-05-23
+
+description: dbaas plugin test
+
+resources:
+  Test_db_instance:
+    type: FCX::Database::DBInstance
+    properties:
+      name: String
+      flavor: String
+      size: Integer,
+      disk_type: String
+      id: String
+      availability_zone: String
+      subnet_group_id: String
+      multi_az: Boolean
+      port: Integer
+      preferred_backup_window: String
+      preferred_maintenance_window: String
+      publicly_accessible: Boolean
+      security_group_ids: [ Value, Value...]
+      parameter_group_id: String
+      backup_retention_period: Integer
+      auto_minor_version_upgrade: Boolean
+      engine: String
+      engine_version: String
+      masteruser_password: String
+      character_set: String
+      collate: String
+      databases: [{"name": String},...]
+      users: [{"name": String, "password": String, databases: [Value, Value,...]},...]
+
+  Test_db_subnetgroup:
+    type: FCX::Database::DBSubnetGroup
+    properties:
+      id: String
+      name: String
+      subnet_ids: [{"subnet_id":String}, {"subnet_id": String},...]
+      description: String
+
+  Test_db_parametergroup:
+    type: FCX::Database::DBParameterGroup
+    properties:
+      id: String
+      name: String
+      parameter_group_family: String
+      description: String

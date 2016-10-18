@@ -1,0 +1,14 @@
+heat_template_version: 2013-05-23
+...
+resources:
+  ...
+  the_resource:
+    type: FCX::AutoScaling::LaunchConfiguration
+    properties:
+      BlockDeviceMappingsV2: [{"source_type": String, "destination_type": String, "boot_index": String, "device_name": String, "volume_size": String, "uuid": String, "delete_on_termination": Boolean}, ...]
+      ImageId: String
+      InstanceType: String
+      KeyName: String
+      NovaSchedulerHints: [{"Value": String, "Key": String}, {"Value": String, "Key": String}, ...]
+      SecurityGroups: [Value, Value, ...]
+      UserData: String

@@ -1,0 +1,11 @@
+heat_template_version: 2013-05-23
+...
+resources:
+  ...
+  the_resource:
+    type: FCX::AutoScaling::ScalingPolicy
+    properties:
+      AdjustmentType: String
+      AutoScalingGroupName: String
+      Cooldown: Number
+      ScalingAdjustment: Number

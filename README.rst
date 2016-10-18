@@ -39,6 +39,11 @@ Overview
 |         Total        |                             |  318                 | 205        |  523      |
 +----------------------+-----------------------------+----------------------+------------+-----------+
 
+API Samples
+===========
+
+Sample JSON Requests & Responses from the Reference Manuals: see api-ref/source/samples
+
 References
 ==========
 

@@ -8,65 +8,57 @@ Fujitsu K5 Portal API
   contents:: Table of Contents
   skip this for now
 
-Chapter 1 – API Outline
-=======================
+API Outline
+===========
 
 List of API
-+++++++++++
+-----------
 
 Glossary
-++++++++
+--------
 
-Chapter 2 – Authentication API
-==============================
+Authentication API
+==================
 
 Request Headers
-+++++++++++++++
+---------------
 
 API Execution Errors
-++++++++++++++++++++
+--------------------
 
 * `Response JSON <./samples/portal/2.2%20API%20Execution%20Errors.response.json>`_
 
 API Specification
-+++++++++++++++++
+-----------------
 
-Get access token
-----------------
+======= ================ ====== ==================== =======
+Chapter Title            Method Path                 Samples
+======= ================ ====== ==================== =======
+2.3.1   Get access token POST   /API/paas/auth/token * `Request JSON <./samples/portal/2.3.1%20Get%20access%20token.request.json>`_
+                                                     * `Response JSON <./samples/portal/2.3.1%20Get%20access%20token.response.json>`_
+======= ================ ====== ==================== =======
 
-* `Request JSON <./samples/portal/2.3.1%20Get%20access%20token.request.json>`_
-* `Response JSON <./samples/portal/2.3.1%20Get%20access%20token.response.json>`_
-
-Chapter 3 – User management API
-===============================
+User Management API
+===================
 
 Request Headers
-+++++++++++++++
+---------------
 
 API Execution Errors
-++++++++++++++++++++
+--------------------
 
 * `Response JSON <./samples/portal/3.2%20API%20Execution%20Errors.response.json>`_
 
 API Specification
-+++++++++++++++++
+-----------------
 
-Create new user
----------------
-
-* `Request JSON <./samples/portal/3.3.1%20Create%20new%20user.request.json>`_
-* `Response JSON <./samples/portal/3.3.1%20Create%20new%20user.response.json>`_
-
-Change user information
------------------------
-
-* `Request JSON <./samples/portal/3.3.2%20Change%20user%20information.request.json>`_
-* `Response JSON <./samples/portal/3.3.2%20Change%20user%20information.response.json>`_
-
-Change user password
---------------------
-
-* `Request JSON <./samples/portal/3.3.3%20Change%20user%20password.request.json>`_
-
-Delete user
------------
+======= ======================= ====== ============================ =======
+Chapter Title                   Method Path                         Samples
+======= ======================= ====== ============================ =======
+3.3.1   Create new user         POST   /API/v1/api/users            * `Request JSON <./samples/portal/3.3.1%20Create%20new%20user.request.json>`_
+                                                                    * `Response JSON <./samples/portal/3.3.1%20Create%20new%20user.response.json>`_
+3.3.2   Change user information PUT    /API/v1/api/users            * `Request JSON <./samples/portal/3.3.2%20Change%20user%20information.request.json>`_
+                                                                    * `Response JSON <./samples/portal/3.3.2%20Change%20user%20information.response.json>`_
+3.3.3   Change user password    PUT    /API/v1/api/userspassword    * `Request JSON <./samples/portal/3.3.3%20Change%20user%20password.request.json>`_
+3.3.4   Delete user             DELETE /API/v1/api/users/?login_id= 
+======= ======================= ====== ============================ =======

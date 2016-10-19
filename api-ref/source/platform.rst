@@ -59,22 +59,22 @@ Message & contents delivery
 Email delivery service
 ----------------------
 
-======== ======================================== ========== ==== =======
-Chapter  Title                                    Method     Path Samples
-======== ======================================== ========== ==== =======
-2.1.8.1  Delete sender ID                         POST       /
-2.1.8.2  Show sender ID verification status and v POST       /
-2.1.8.3  Show email sending limits                POST       /
-2.1.8.4  Show sent email statistics               POST       /
-2.1.8.5  List sender IDs                          POST       /
-2.1.8.6  Send email created from input data       POST       /
-2.1.8.7  Send raw text email                      POST       /
-2.1.8.8  Verify domain                            POST       /
-2.1.8.9  Verify email address                     POST       /
-2.1.8.10 Create user for accessing SMTP server    POST       /
-2.1.8.11 Delete user for accessing SMTP server    POST       /
-2.1.8.12 Show user information for accessing SMTP POST       /
-======== ======================================== ========== ==== =======
+======== ======================================== ========== ==== ================================= =======
+Chapter  Title                                    Method     Path Action                            Samples
+======== ======================================== ========== ==== ================================= =======
+2.1.8.1  Delete sender ID                         POST       /    DeleteIdentity
+2.1.8.2  Show sender ID verification status and v POST       /    GetIdentityVerificationAttributes
+2.1.8.3  Show email sending limits                POST       /    GetSendQuota
+2.1.8.4  Show sent email statistics               POST       /    GetSendStatistics
+2.1.8.5  List sender IDs                          POST       /    ListIdentities
+2.1.8.6  Send email created from input data       POST       /    SendEmail
+2.1.8.7  Send raw text email                      POST       /    SendRawEmail
+2.1.8.8  Verify domain                            POST       /    VerifyDomainIdentity
+2.1.8.9  Verify email address                     POST       /    VerifyEmailIdentity
+2.1.8.10 Create user for accessing SMTP server    POST       /    CreateSMTPUser
+2.1.8.11 Delete user for accessing SMTP server    POST       /    DeleteSMTPUser
+2.1.8.12 Show user information for accessing SMTP POST       /    GetSMTPUserInfo
+======== ======================================== ========== ==== ================================= =======
 
 Content delivery service
 ------------------------

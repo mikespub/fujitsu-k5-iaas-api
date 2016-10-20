@@ -2,8 +2,84 @@
 Fujitsu K5 IaaS API Reference & Tools
 =====================================
 
-Overview
-========
+API Overview
+============
+
+See `api-ref/source <api-ref/source>`_ for an overview of the different Fujitsu K5 IaaS APIs:
+
+* `Fujitsu K5 Portal API <api-ref/source/portal.rst>`_
+
+  - Authentication API
+  - User Management API
+
+* `Fujitsu K5 IaaS Foundation API <api-ref/source/foundation.rst>`_
+
+  - Compute APIs
+  - Storage APIs
+
+* `Fujitsu K5 IaaS Network API <api-ref/source/network.rst>`_
+
+  - Network APIs
+  
+* `Fujitsu K5 IaaS Platform API <api-ref/source/platform.rst>`_
+
+  - Database API
+  - Email API
+  - Content Delivery API
+  - Orchestration API
+
+
+API Samples
+===========
+
+See `api-ref/source/samples <api-ref/source/samples>`_ for sample JSON/XML requests & responses from the Reference Manuals: 
+
+* `Portal <api-ref/source/samples/portal>`_
+
+* `Foundation <api-ref/source/samples/foundation>`_
+
+* `Network <api-ref/source/samples/network>`_
+
+* `Platform <api-ref/source/samples/platform>`_
+
+* `Template <api-ref/source/samples/template>`_
+
+
+
+API References
+==============
+
+a. Fujitsu K5 IaaS API Reference Manuals: http://www.fujitsu.com/global/solutions/cloud/k5/guides/
+
+  1. IaaS API User Guide: http://www.fujitsu.com/global/Images/k5-iaas-api-user-guide.pdf
+  2. IaaS API Reference - Foundation Service: http://www.fujitsu.com/global/Images/k5-iaas-api-reference-foundation-service.pdf
+  3. IaaS API Reference - Network: http://www.fujitsu.com/global/Images/k5-iaas-api-reference_network.pdf
+  4. IaaS API Reference - Application Platform Service: http://www.fujitsu.com/global/Images/k5-iaas-api-reference_application-platform.pdf
+  5. IaaS Heat Template Specifications: http://www.fujitsu.com/global/Images/k5-iaas-heat-template.pdf
+
+    
+b. OpenStack API Documentation: http://developer.openstack.org/api-guide/quick-start/
+
+  1. Compute v2: http://developer.openstack.org/api-ref/compute/
+  2. Volume Extension v1.1: http://developer.openstack.org/api-ref/compute/#volume-extension-os-volumes-os-snapshots-deprecated
+  3. Block Storage v2: http://developer.openstack.org/api-ref/block-storage/v2/
+  4. Object Storage v1: http://developer.openstack.org/api-ref/object-storage/
+  5. Networking v2: http://developer.openstack.org/api-ref/networking/v2/
+  6. Orchestration v1: http://developer.openstack.org/api-ref/orchestration/v1/
+  7. Identity v3: http://developer.openstack.org/api-ref/identity/v3/
+  8. Image v2: http://developer.openstack.org/api-ref/image/v2/
+  9. Telemetry v2: http://docs.openstack.org/developer/ceilometer/webapi/v2.html
+  10. Key Manager v1: http://developer.openstack.org/api-guide/key-manager/
+  11. Database v1: http://developer.openstack.org/api-ref/database/ (not applicable)
+  12. Messaging v2: http://developer.openstack.org/api-ref/messaging/ (not applicable)
+
+
+c. Other API Documentation:
+
+  1. Amazon Simple Queue Service (SQS) API Reference: http://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/Welcome.html
+  
+API Summary
+===========
 
 +----------------------+-----------------------------+----------------------+------------+-----------+
 |        Service                                     | OpenStack Native API | Add-on API | Total API |
@@ -38,44 +114,6 @@ Overview
 +----------------------+-----------------------------+----------------------+------------+-----------+
 |         Total        |                             |  318                 | 205        |  523      |
 +----------------------+-----------------------------+----------------------+------------+-----------+
-
-API Samples
-===========
-
-Sample JSON Requests & Responses from the Reference Manuals: see `api-ref/source/samples <api-ref/source/samples>`_
-
-References
-==========
-
-a. Fujitsu K5 IaaS API Reference Manuals: http://www.fujitsu.com/global/solutions/cloud/k5/guides/
-
-  1. IaaS API User Guide: http://www.fujitsu.com/global/Images/k5-iaas-api-user-guide.pdf
-  2. IaaS API Reference - Foundation Service: http://www.fujitsu.com/global/Images/k5-iaas-api-reference-foundation-service.pdf
-  3. IaaS API Reference - Network: http://www.fujitsu.com/global/Images/k5-iaas-api-reference_network.pdf
-  4. IaaS API Reference - Application Platform Service: http://www.fujitsu.com/global/Images/k5-iaas-api-reference_application-platform.pdf
-  5. IaaS Heat Template Specifications: http://www.fujitsu.com/global/Images/k5-iaas-heat-template.pdf
-
-    
-b. OpenStack API Documentation: http://developer.openstack.org/api-guide/quick-start/
-
-  1. Compute v2: http://developer.openstack.org/api-ref/compute/
-  2. Volume Extension v1.1: http://developer.openstack.org/api-ref/compute/#volume-extension-os-volumes-os-snapshots-deprecated
-  3. Block Storage v2: http://developer.openstack.org/api-ref/block-storage/v2/
-  4. Object Storage v1: http://developer.openstack.org/api-ref/object-storage/
-  5. Networking v2: http://developer.openstack.org/api-ref/networking/v2/
-  6. Orchestration v1: http://developer.openstack.org/api-ref/orchestration/v1/
-  7. Identity v3: http://developer.openstack.org/api-ref/identity/v3/
-  8. Image v2: http://developer.openstack.org/api-ref/image/v2/
-  9. Telemetry v2: http://docs.openstack.org/developer/ceilometer/webapi/v2.html
-  10. Key Manager v1: http://developer.openstack.org/api-guide/key-manager/
-  11. Database v1: http://developer.openstack.org/api-ref/database/ (not applicable)
-  12. Messaging v2: http://developer.openstack.org/api-ref/messaging/ (not applicable)
-
-
-c. Other API Documentation:
-
-  1. Amazon Simple Queue Service (SQS) API Reference: http://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/Welcome.html
-  
 
 Other K5 Related Repositories
 =============================

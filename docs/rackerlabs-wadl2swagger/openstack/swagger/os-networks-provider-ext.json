@@ -92,7 +92,11 @@
                 "summary": "Delete network",
                 "description": "Deletes a specified network.\n",
                 "produces": [],
-                "responses": {}
+                "responses": {
+                    "204": {
+                        "description": "204 response"
+                    }
+                }
             }
         }
     }

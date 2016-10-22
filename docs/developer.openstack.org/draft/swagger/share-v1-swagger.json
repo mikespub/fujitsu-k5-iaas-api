@@ -8896,14 +8896,6 @@
             "type": "string"
           }, 
           {
-            "description": "One or more metadata key-value pairs, as a dictionary of strings.", 
-            "format": "", 
-            "in": "query", 
-            "name": "metadata", 
-            "required": false, 
-            "type": "object"
-          }, 
-          {
             "description": "The extra specifications as a set of one or more key-value pairs.\nIn each pair, the key is the name of the extra specification and\nthe value is the share type that was used to create the share.", 
             "format": "", 
             "in": "query", 
@@ -9190,14 +9182,6 @@
             "name": "share_server_id", 
             "required": false, 
             "type": "string"
-          }, 
-          {
-            "description": "One or more metadata key-value pairs, as a dictionary of strings.", 
-            "format": "", 
-            "in": "query", 
-            "name": "metadata", 
-            "required": false, 
-            "type": "object"
           }, 
           {
             "description": "The extra specifications as a set of one or more key-value pairs.\nIn each pair, the key is the name of the extra specification and\nthe value is the share type that was used to create the share.", 

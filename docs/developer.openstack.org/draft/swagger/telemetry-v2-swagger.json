@@ -2244,7 +2244,7 @@
             "in": "query", 
             "name": "groupby", 
             "required": false, 
-            "type": "object"
+            "type": "array"
           }, 
           {
             "description": "The period, in seconds, for which you want statistics.", 
@@ -2260,7 +2260,7 @@
             "in": "query", 
             "name": "aggregate", 
             "required": false, 
-            "type": "object"
+            "type": "array"
           }, 
           {
             "description": "Requests a page size of items. Returns a number of items up to a\nlimit value. Use the ``limit`` parameter to make an initial limited\nrequest and use the ID of the last-seen item from the response as\nthe ``marker`` parameter value in a subsequent limited request.", 

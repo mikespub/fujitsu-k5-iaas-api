@@ -559,6 +559,26 @@
       ], 
       "type": "object"
     }, 
+    "triggerWebhook": {
+      "example": {
+        "application/json": {
+          "params": {
+            "count": 2
+          }
+        }
+      }, 
+      "properties": {
+        "params": {
+          "description": "Pass extra parameters in the request body for the action execution when triggering the webhook.", 
+          "format": "", 
+          "type": "object"
+        }
+      }, 
+      "required": [
+        "params"
+      ], 
+      "type": "object"
+    }, 
     "updateNode": {
       "example": {
         "application/json": {
@@ -2659,14 +2679,6 @@
             "name": "type", 
             "required": false, 
             "type": "string"
-          }, 
-          {
-            "description": "Filters the response by a metadata key and value pair.", 
-            "format": "", 
-            "in": "query", 
-            "name": "metadata", 
-            "required": false, 
-            "type": "object"
           }
         ], 
         "produces": [
@@ -3385,12 +3397,13 @@
             "type": "string"
           }, 
           {
-            "description": "The query string that forms the inputs to use for the targeted\naction.", 
-            "format": "", 
-            "in": "query", 
-            "name": "params", 
+            "description": "Pass extra parameters in the request body for the action execution when triggering the webhook.", 
+            "in": "body", 
+            "name": "body", 
             "required": false, 
-            "type": "object"
+            "schema": {
+              "$ref": "#/definitions/triggerWebhook"
+            }
           }
         ], 
         "produces": [], 

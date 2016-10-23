@@ -1,0 +1,10 @@
+{
+    "CreateLoadBalancerResponse": {
+        "CreateLoadBalancerResult": {
+            "DNSName": "MyLB01-3b9c2b0f028f40e09d6306887646c28b.elb.tps5.fujitsu.com"
+        },
+        "ResponseMetadata": {
+            "RequestId": "1549581b-12b7-11e3-895e-1334aEXAMPLE"
+        }
+    }
+}

@@ -1,0 +1,3 @@
+https://loadbalancing.(regionName).cloud.global.fujitsu.com/?
+Instances.member.1.InstanceId=i-315b7e51
+&LoadBalancerName=MyLB01

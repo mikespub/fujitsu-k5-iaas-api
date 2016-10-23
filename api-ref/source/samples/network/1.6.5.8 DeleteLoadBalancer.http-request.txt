@@ -1,0 +1,4 @@
+https://loadbalancing.(regionName).cloud.global.fujitsu.com/?
+LoadBalancerName=MyLB01
+&Version=2014-11-01
+&Action=DeleteLoadBalancer

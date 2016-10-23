@@ -11,8 +11,7 @@
                 {
                     "params": {
                         "cacheKeyValue": "-",
-                        "digitalProperty": "test-cccbfc24.cdnedge.
-                        cloud.global.fujitsu.com",
+                        "digitalProperty": "test-cccbfc24.cdnedge.cloud.global.fujitsu.com",
                         "cacheKeyType": "origin",
                         "hostHeaderValue": "-",
                         "originDomain": "jp.fujitsu.com",

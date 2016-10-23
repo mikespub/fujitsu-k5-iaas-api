@@ -1,0 +1,5 @@
+https://loadbalancing.(regionName).cloud.global.fujitsu.com/?
+CookieExpirationPeriod=60
+&LoadBalancerName=MyLB01&PolicyName=MyLoadBalancerCookiePolicy
+&Version=2014-11-01
+&Action=CreateLBCookieStickinessPolicy

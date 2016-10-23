@@ -1,0 +1,9 @@
+https://loadbalancing.(regionName).cloud.global.fujitsu.com/?
+HealthCheck.HealthyThreshold=2
+&HealthCheck.UnhealthyThreshold=2
+&HealthCheck.Target=HTTP:80
+&HealthCheck.Interval=30
+&HealthCheck.Timeout=3
+&LoadBalancerName=MyLB01
+&Version=2014-11-01
+&Action=ConfigureHealthCheck

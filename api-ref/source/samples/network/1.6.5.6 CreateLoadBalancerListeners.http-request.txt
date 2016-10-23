@@ -1,0 +1,9 @@
+https://loadbalancing.(regionName).cloud.global.fujitsu.com/?
+Listeners.member.1.Protocol=https
+&Listeners.member.1.LoadBalancerPort=443
+&Listeners.member.1.InstancePort=80
+&Listeners.member.1.InstanceProtocol=http
+&Listeners.member.1.SSLCertificateId=1232d7bf-8f28-4cc7-a63d-44e218853c6d
+&LoadBalancerName=MyLB01
+&Version=2014-11-01
+&Action=CreateLoadBalancerListeners

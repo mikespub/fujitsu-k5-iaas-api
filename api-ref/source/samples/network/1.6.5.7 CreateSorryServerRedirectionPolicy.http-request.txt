@@ -1,0 +1,5 @@
+https://loadbalancing.(regionName).cloud.global.fujitsu.com/?
+Location=http://XXXXXXXX/
+&LoadBalancerName=MyLB01&PolicyName=MyPolicy
+&Version=2014-11-01
+&Action=CreateSorryServerRedirectionPolicy

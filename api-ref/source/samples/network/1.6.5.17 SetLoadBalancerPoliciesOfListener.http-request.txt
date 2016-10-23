@@ -1,0 +1,6 @@
+https://loadbalancing.(regionName).cloud.global.fujitsu.com/?
+PolicyNames.member.1=MyLoadBalancerCookiePolicy
+&LoadBalancerName=MyLB01
+&LoadBalancerPort=80
+&Version=2014-11-01
+&Action=SetLoadBalancerPoliciesOfListener

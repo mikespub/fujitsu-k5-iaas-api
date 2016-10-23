@@ -1,0 +1,6 @@
+https://loadbalancing.(regionName).cloud.global.fujitsu.com/?
+SecurityGroups.member.1=MySecurityGroup-XXXXX
+&SecurityGroups.member.2=MySecurityGroup-YYYYY
+&LoadBalancerName=MyLB01
+&Version=2014-11-01
+&Action=ApplySecurityGroupsToLoadBalancer

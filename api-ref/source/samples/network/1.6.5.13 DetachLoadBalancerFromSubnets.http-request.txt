@@ -1,0 +1,5 @@
+https://loadbalancing.(regionName).cloud.global.fujitsu.com/?
+Subnets.member.1=MySubnet-XXXXX
+&LoadBalancerName=MyLB01
+&Version=2014-11-01
+&Action=DetachLoadBalancerFromSubnets

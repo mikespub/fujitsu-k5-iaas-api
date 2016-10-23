@@ -50,6 +50,6 @@
         "granularity": "daily",
         "service_id": null,
         "per_region": "false",
-        "start_date": "20151201",
+        "start_date": "20151201"
     }
 }

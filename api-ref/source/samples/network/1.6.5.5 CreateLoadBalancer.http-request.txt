@@ -1,0 +1,10 @@
+https://loadbalancing.(regionName).cloud.global.fujitsu.com/?
+LoadBalancerName=MyLB01
+&Listeners.member.1.LoadBalancerPort=80
+&Listeners.member.1.InstancePort=80
+&Listeners.member.1.Protocol=http
+&Listeners.member.1.InstanceProtocol=http
+&Scheme=internal
+&Subnets.member.1=subnet-3561b05d
+&Version=2014-11-01
+&Action=CreateLoadBalancer

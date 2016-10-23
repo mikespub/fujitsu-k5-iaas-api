@@ -1,20 +1,19 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<ListHostedZonesResponse xmlns="http://
-docs.cloudcommunity.global.fujitsu.com/dns/api/v1.0/">
-<HostedZones>
-<HostedZone>
-<Id>example.com</Id>
-<Name>example.com</Name>
-<CallerReference>example.com</CallerReference>
-<Config>
-<Comment>comment</Comment>
-</Config>
-<ResourceRecordSetCount>0</ResourceRecordSetCount>
-</HostedZone>
-<HostedZone>
+<?xml version='1.0' encoding='UTF-8'?>
+<ListHostedZonesResponse xmlns="http://docs.cloudcommunity.global.fujitsu.com/dns/api/v1.0/">
+  <HostedZones>
+    <HostedZone>
+      <Id>example.com</Id>
+      <Name>example.com</Name>
+      <CallerReference>example.com</CallerReference>
+      <Config>
+        <Comment>comment</Comment>
+      </Config>
+      <ResourceRecordSetCount>0</ResourceRecordSetCount>
+    </HostedZone>
+    <HostedZone>
 ...
 </HostedZone>
-</HostedZones>
-<IsTruncated>false</IsTruncated>
-<MaxItems>100</MaxItems>
+  </HostedZones>
+  <IsTruncated>false</IsTruncated>
+  <MaxItems>100</MaxItems>
 </ListHostedZonesResponse>

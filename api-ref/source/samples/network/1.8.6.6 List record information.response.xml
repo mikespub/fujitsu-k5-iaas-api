@@ -1,21 +1,21 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<?xml version='1.0' encoding='UTF-8'?>
 <ListResourceRecordSetsResponse xmlns="http://docs.cloudcommunity.global.fujitsu.com/dns/api/v1.0/">
-<ResourceRecordSets>
-<ResourceRecordSet>
-<Name>example.com</Name>
-<Type>MX</Type>
-<SetIdentifier>uLrNgSC4yzg=</SetIdentifier>
-<TTL>60</TTL>
-<ResourceRecords>
-<ResourceRecord>
-<Value>10 mail.example.com</Value>
-</ResourceRecord>
-</ResourceRecords>
-</ResourceRecordSet>
-<ResourceRecordSet>
+  <ResourceRecordSets>
+    <ResourceRecordSet>
+      <Name>example.com</Name>
+      <Type>MX</Type>
+      <SetIdentifier>uLrNgSC4yzg=</SetIdentifier>
+      <TTL>60</TTL>
+      <ResourceRecords>
+        <ResourceRecord>
+          <Value>10 mail.example.com</Value>
+        </ResourceRecord>
+      </ResourceRecords>
+    </ResourceRecordSet>
+    <ResourceRecordSet>
 ...
 </ResourceRecordSet>
-</ResourceRecordSets>
-<IsTruncated>false</IsTruncated>
-<MaxItems>100</MaxItems>
+  </ResourceRecordSets>
+  <IsTruncated>false</IsTruncated>
+  <MaxItems>100</MaxItems>
 </ListResourceRecordSetsResponse>

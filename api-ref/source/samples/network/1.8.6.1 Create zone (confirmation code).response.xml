@@ -1,6 +1,9 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<?xml version='1.0' encoding='UTF-8'?>
 <ErrorResponse xmlns="http://docs.cloudcommunity.global.fujitsu.com/dns/api/v1.0/">
-<Error><Type>Sender</Type><Code>Unauthorized</Code>
-<Message>name_server:f0094d76e096551441d24af257488a6a.cdnsverify.nifty.ad.jp,txt:nifty-dnsverify=f0094d76e096551441d24af257488a6a</Message>
-</Error><RequestId>req-ac1ac325-2880-4cf5-8e5f-42dc9097b5d4</RequestId>
+  <Error>
+    <Type>Sender</Type>
+    <Code>Unauthorized</Code>
+    <Message>name_server:f0094d76e096551441d24af257488a6a.cdnsverify.nifty.ad.jp,txt:nifty-dnsverify=f0094d76e096551441d24af257488a6a</Message>
+  </Error>
+  <RequestId>req-ac1ac325-2880-4cf5-8e5f-42dc9097b5d4</RequestId>
 </ErrorResponse>

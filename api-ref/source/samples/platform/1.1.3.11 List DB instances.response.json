@@ -1,0 +1,42 @@
+{
+	"instances": [{
+		"flavor": {
+			"id": "1",
+			"links": [{
+				"href": "http://database.{regionname}.tps5.fujitsu.com/v1.0/1234/flavors/1",
+				"rel": "self"
+			}]
+		},
+		"id": "098653ba-218b-47ce-936a-e0b749101f81",
+		"links": [{
+			"href": "https://database.{region-name}.tps5.fujitsu.com/v1.0/1234/instances/0986rack_instance",
+			"rel": "self"
+		}],
+		"name": "test-instance1",
+		"status": "ACTIVE",
+		"volume": {
+			"size": 20,
+			"type": "M1"
+		}
+	}, 
+	{
+		"flavor": {
+			"id": "1",
+			"links": [{
+				"href": "https:// database.{regionname}.tps5.fujitsu.com/v1.0/1234/flavors/1",
+				"rel": "self"
+			}]
+		},
+		"id": "44b277eb-39be-4921-be31-3d61b43651d7",
+		"links": [{
+			"href": "https://database.{regionname}.tps5.fujitsu.com/v1.0/1234/instances/44b277eb-39be-4921-be31-3d61b43651d7",
+			"rel": "self"
+		}],
+		"name": "json-rack-instance",
+		"status": "ACTIVE",
+		"volume": {
+			"size": 20,
+			"type": "M1"
+		}
+	}]
+}

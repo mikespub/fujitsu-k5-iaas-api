@@ -1,9 +1,9 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version='1.0' encoding='UTF-8'?>
 <SendRawEmailResponse>
-<SendRawEmailResult>
-<MessageId>0000012d23161b-6d55-4355-981f-1f9e835008c0-000000</MessageId>
-</SendRawEmailResult>
-<ResponseMetadata>
-<RequestId>0ae83209-8dd0-4392-8b15-74c693c98aad</RequestId>
-</ResponseMetadata>
+  <SendRawEmailResult>
+    <MessageId>0000012d23161b-6d55-4355-981f-1f9e835008c0-000000</MessageId>
+  </SendRawEmailResult>
+  <ResponseMetadata>
+    <RequestId>0ae83209-8dd0-4392-8b15-74c693c98aad</RequestId>
+  </ResponseMetadata>
 </SendRawEmailResponse>

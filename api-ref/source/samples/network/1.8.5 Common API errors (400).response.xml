@@ -1,9 +1,9 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<?xml version='1.0' encoding='UTF-8'?>
 <ErrorResponse xmlns="http://docs.cloudcommunity.global.fujitsu.com/dns/api/v1.0/">
-<Error>
-<Type>Sender</Type>
-<Code>InvalidInput</Code>
-<Message>The specified Action is not valid</Message>
-</Error>
-<RequestId>2844de70-360d-488d-bd63-0cd88fd94be1</RequestId>
+  <Error>
+    <Type>Sender</Type>
+    <Code>InvalidInput</Code>
+    <Message>The specified Action is not valid</Message>
+  </Error>
+  <RequestId>2844de70-360d-488d-bd63-0cd88fd94be1</RequestId>
 </ErrorResponse>

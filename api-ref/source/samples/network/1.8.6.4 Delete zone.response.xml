@@ -1,8 +1,8 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<?xml version='1.0' encoding='UTF-8'?>
 <DeleteHostedZoneResponse xmlns="http://docs.cloudcommunity.global.fujitsu.com/dns/api/v1.0/">
-<ChangeInfo>
-<Id>d36956475553d655cf70a293adeb155c</Id>
-<Status>INSYNC</Status>
-<SubmittedAt>2014-06-06T11:00:38.178Z</SubmittedAt>
-</ChangeInfo>
+  <ChangeInfo>
+    <Id>d36956475553d655cf70a293adeb155c</Id>
+    <Status>INSYNC</Status>
+    <SubmittedAt>2014-06-06T11:00:38.178Z</SubmittedAt>
+  </ChangeInfo>
 </DeleteHostedZoneResponse>

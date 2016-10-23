@@ -30,7 +30,7 @@ No. Title                                        Method Path                    
 9   Restart DB instance                          POST   /v1.0/{tenantId}/instances/{instanceId}/action       `Request JSON <./samples/platform/1.1.3.9%20Restart%20DB%20instance.request.json>`_ 
 10  Create read replica DB instance              POST   /v1.0/{tenantId}/instances/{instanceId}              `Request JSON <./samples/platform/1.1.3.10%20Create%20read%20replica%20DB%20instance.request.json>`_ 
 .   .                                            .      .                                                    `Response JSON <./samples/platform/1.1.3.10%20Create%20read%20replica%20DB%20instance.response.json>`_ 
-11  List DB instances                            GET    /v1.0/{tenantId}/instances                                   
+11  List DB instances                            GET    /v1.0/{tenantId}/instances                           `Response JSON <./samples/platform/1.1.3.11%20List%20DB%20instances.response.json>`_ 
 12  Show DB instance details                     GET    /v1.0/{tenantId}/instances/{instanceId}              `Response JSON <./samples/platform/1.1.3.12%20Show%20DB%20instance%20details.response.json>`_ 
 13  Create DB snapshot                           POST   /v1.0/{tenantId}/snapshots                           `Request JSON <./samples/platform/1.1.3.13%20Create%20DB%20snapshot.request.json>`_ 
 .   .                                            .      .                                                    `Response JSON <./samples/platform/1.1.3.13%20Create%20DB%20snapshot.response.json>`_ 
@@ -178,6 +178,6 @@ No. Title                 Method Path                                           
 11  List stack events     GET    /v1/{tenant_id}/stacks/{stack_name}/{stack_id}/events                                   
 12  List resource events  GET    /v1/{tenant_id}/stacks/{stack_name}/{stack_id}/resources/{resource_name}/events         
 13  Get stack template    GET    /v1/{tenant_id}/stacks/{stack_name}/{stack_id}/template                                 
-14  Validate template     POST   /v1/{tenant_id}/validate                                                                
+14  Validate template     POST   /v1/{tenant_id}/validate                                                        `Request JSON <./samples/platform/3.1.2.14%20Validate%20template.request.json>`_ 
 === ===================== ====== =============================================================================== ======= 
 

@@ -3,9 +3,10 @@
     "info": {
         "version": "v1", 
         "title": "Draft swagger file for Fujitsu K5 Portal Auth API", 
-        "x-service": "auth-api"
+        "x-service": "auth-api", 
+        "x-scope": "portal"
     }, 
-    "host": "auth-api", 
+    "host": "auth-api.jp-east-1.paas.cloud.global.fujitsu.com", 
     "schemes": [
         "https"
     ], 

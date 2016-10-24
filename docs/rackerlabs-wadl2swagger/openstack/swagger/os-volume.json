@@ -36,6 +36,22 @@
                         }
                     }
                 }
+            },
+            "post": {
+                "operationId": "createVolume",
+                "summary": "Create volume",
+                "description": "Creates a volume.\n",
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "201": {
+                        "description": "201 response",
+                        "examples": {
+                            "application/json": "{\n    \"volume\": {\n        \"status\": \"active\",\n        \"display_name\": \"vol-001\",\n        \"attachments\": [],\n        \"availability_zone\": \"us-east1\",\n        \"created_at\": \"2012-02-14T20:53:07Z\",\n        \"volume_type\": \"289da7f8-6440-407c-9fb4-7db01ec49164\",\n        \"display_description\": \"Another volume.\",\n        \"snapshot_id\": null,\n        \"metadata\": {\n            \"contents\": \"junk\"\n        },\n        \"id\": \"521752a6-acf6-4b2d-bc7a-119f9148cd8c\",\n        \"size\": 30\n    }\n}"
+                        }
+                    }
+                }
             }
         },
         "/v1.1/{tenant_id}/os-volumes/detail": {
@@ -82,22 +98,6 @@
                     "description": "The unique identifier for a volume.\n"
                 }
             ],
-            "post": {
-                "operationId": "createVolume",
-                "summary": "Create volume",
-                "description": "Creates a volume.\n",
-                "produces": [
-                    "application/json"
-                ],
-                "responses": {
-                    "201": {
-                        "description": "201 response",
-                        "examples": {
-                            "application/json": "{\n    \"volume\": {\n        \"status\": \"active\",\n        \"display_name\": \"vol-001\",\n        \"attachments\": [],\n        \"availability_zone\": \"us-east1\",\n        \"created_at\": \"2012-02-14T20:53:07Z\",\n        \"volume_type\": \"289da7f8-6440-407c-9fb4-7db01ec49164\",\n        \"display_description\": \"Another volume.\",\n        \"snapshot_id\": null,\n        \"metadata\": {\n            \"contents\": \"junk\"\n        },\n        \"id\": \"521752a6-acf6-4b2d-bc7a-119f9148cd8c\",\n        \"size\": 30\n    }\n}"
-                        }
-                    }
-                }
-            },
             "get": {
                 "operationId": "getVolume",
                 "summary": "Show volume information",

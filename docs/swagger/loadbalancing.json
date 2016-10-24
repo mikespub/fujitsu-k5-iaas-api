@@ -3,14 +3,15 @@
     "info": {
         "version": "v1", 
         "title": "Draft swagger file for Fujitsu K5 IaaS Loadbalancing API", 
-        "x-service": "loadbalancing"
+        "x-service": "loadbalancing", 
+        "x-scope": "region"
     }, 
-    "host": "loadbalancing", 
+    "host": "loadbalancing.uk-1.cloud.global.fujitsu.com", 
     "schemes": [
         "https"
     ], 
     "securityDefinitions": {
-        "auth_token": {
+        "auth_region": {
             "type": "apiKey", 
             "name": "X-Auth-Token", 
             "in": "header"
@@ -18,7 +19,7 @@
     }, 
     "security": [
         {
-            "auth_token": []
+            "auth_region": []
         }
     ], 
     "definitions": {}, 

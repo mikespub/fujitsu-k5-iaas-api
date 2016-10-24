@@ -1,0 +1,1817 @@
+{
+    "swagger": "2.0", 
+    "info": {
+        "version": "v1", 
+        "title": "Draft swagger file for Fujitsu K5 IaaS Database API", 
+        "x-service": "database", 
+        "x-scope": "region"
+    }, 
+    "host": "database.uk-1.cloud.global.fujitsu.com", 
+    "schemes": [
+        "https"
+    ], 
+    "securityDefinitions": {
+        "auth_region": {
+            "type": "apiKey", 
+            "name": "X-Auth-Token", 
+            "in": "header"
+        }
+    }, 
+    "security": [
+        {
+            "auth_region": []
+        }
+    ], 
+    "definitions": {
+        "post{Instanceid}": {
+            "type": "object", 
+            "example": {
+                "application/json": {
+                    "action": {
+                        "readreplica": ""
+                    }, 
+                    "instance": {
+                        "volume": {
+                            "type": "M1", 
+                            "size": 20
+                        }, 
+                        "availabilityZone": "jp-east-1a", 
+                        "name": "json_rack_instance", 
+                        "publiclyAccessible": true, 
+                        "parameterGroupId": "paramid1", 
+                        "flavorRef": "1", 
+                        "securityGroupIds": [
+                            {
+                                "securityGroupId": "secid1"
+                            }, 
+                            {
+                                "securityGroupId": "secid2"
+                            }
+                        ], 
+                        "preferredBackupWindow": "17:00-18:00", 
+                        "subnetGroupId": "subnetGroup1", 
+                        "port": 1234, 
+                        "preferredMaintenanceWindow": "Sun:19:00-Sun:20:00"
+                    }
+                }
+            }
+        }, 
+        "put{Subscriptionid}": {
+            "type": "object", 
+            "example": {
+                "application/json": {
+                    "action": {
+                        "add": ""
+                    }, 
+                    "eventnotification": {
+                        "sourceId": "dbinst5"
+                    }
+                }
+            }
+        }, 
+        "postAction": {
+            "type": "object", 
+            "example": {
+                "application/json": {
+                    "failover": false, 
+                    "reboot": ""
+                }
+            }
+        }, 
+        "put{Parametergroupid}": {
+            "type": "object", 
+            "example": {
+                "application/json": {
+                    "parametergroup": {
+                        "resetAllparameters": false, 
+                        "parameters": [
+                            {
+                                "applyMethod": "pending-reboot", 
+                                "name ": "shared_buffers", 
+                                "value ": "65536"
+                            }, 
+                            {
+                                "applyMethod": "immediate", 
+                                "name ": "work_mem", 
+                                "value ": "8192"
+                            }
+                        ]
+                    }
+                }
+            }
+        }, 
+        "postSnapshots": {
+            "type": "object", 
+            "example": {
+                "application/json": {
+                    "snapshot": {
+                        "instanceId": "dbinst1", 
+                        "name": "json-rack-instance-bkup"
+                    }
+                }
+            }
+        }, 
+        "postSubnetgroups": {
+            "type": "object", 
+            "example": {
+                "application/json": {
+                    "subnetgroup": {
+                        "subnetIds": [
+                            {
+                                "subnetId": "subnetid1"
+                            }, 
+                            {
+                                "subnetId": "subnetid2"
+                            }
+                        ], 
+                        "name": "subnetGroup1", 
+                        "description": "this is test"
+                    }
+                }
+            }
+        }, 
+        "postInstances": {
+            "type": "object", 
+            "example": {
+                "application/json": {
+                    "action": {
+                        "restoresnapshot": null
+                    }, 
+                    "instance": {
+                        "multiAZ": true, 
+                        "availabilityZone": "jp-east-1a", 
+                        "name": "json-rack-instance", 
+                        "publiclyAccessible": true, 
+                        "parameterGroupId": "paramid1", 
+                        "flavorRef": "1", 
+                        "port": 1234, 
+                        "securityGroupIds": [
+                            {
+                                "securityGroupId": "secid1"
+                            }, 
+                            {
+                                "securityGroupId": "secid2"
+                            }
+                        ], 
+                        "volume": {
+                            "size": 100
+                        }, 
+                        "autoMaintenance": true, 
+                        "subnetGroupId": "subnetGroup1", 
+                        "preferredBackupWindow": "17:00-18:00", 
+                        "preferredRecoveryTime": {
+                            "applyImmediately": true
+                        }, 
+                        "preferredMaintenanceWindow": "Sun:19:00-Sun:20:00"
+                    }, 
+                    "snapshot": {
+                        "id": "snap1"
+                    }
+                }
+            }
+        }, 
+        "put{Subnetgroupid}": {
+            "type": "object", 
+            "example": {
+                "application/json": {
+                    "subnetgroup": {
+                        "subnetIds ": [
+                            {
+                                "subnetId": "subnetid1"
+                            }, 
+                            {
+                                "subnetId": "subnetid2"
+                            }
+                        ], 
+                        "description": "this is test", 
+                        "name ": "subnetGroup1"
+                    }
+                }
+            }
+        }, 
+        "put{Instanceid}": {
+            "type": "object", 
+            "example": {
+                "application/json": {
+                    "instance": {
+                        "securityGroupIds.": [
+                            {
+                                "securityGroupId": "secid1"
+                            }, 
+                            {
+                                "securityGroupId": "secid2"
+                            }
+                        ], 
+                        "masterUserPassword": "***", 
+                        "autoMinorVersionUpgrade": true, 
+                        "character_set": "utf8", 
+                        "port": 1234, 
+                        "collate": "C", 
+                        "engineVersion": "12.1", 
+                        "engine": "symfoware", 
+                        "multiAZ": true, 
+                        "availabilityZone": "jp-east-1a", 
+                        "users": [
+                            {
+                                "password": "demopassword", 
+                                "name": "demouser", 
+                                "databases": [
+                                    {
+                                        "name": "sampledb"
+                                    }
+                                ]
+                            }
+                        ], 
+                        "parameterGroupId": "paramid1", 
+                        "flavorRef": "1", 
+                        "preferredBackupWindow": "17:00-18:00", 
+                        "autoMaintenance": true, 
+                        "backupRetentionPeriod": 10, 
+                        "preferredMaintenanceWindow": "Sun:19:00-Sun:20:00", 
+                        "volume": {
+                            "size": 2
+                        }, 
+                        "subnetGroupId.": "subnetGroup1", 
+                        "multi": true, 
+                        "name": "json-rack-instance", 
+                        "publiclyAccessible": true, 
+                        "preferredRecoveryTime": {
+                            "time": "01:00"
+                        }, 
+                        "databases": [
+                            {
+                                "name": "sampledb"
+                            }, 
+                            {
+                                "name": "nextround"
+                            }
+                        ]
+                    }
+                }
+            }
+        }, 
+        "postEventnotifications": {
+            "type": "object"
+        }, 
+        "postParametergroups": {
+            "type": "object", 
+            "example": {
+                "application/json": {
+                    "parametergroup": {
+                        "parameterGroupFamily": "symfoware_v12.1", 
+                        "name": "dbparam1", 
+                        "description": "this is test"
+                    }
+                }
+            }
+        }, 
+        "put{Snapshotid}": {
+            "type": "object", 
+            "example": {
+                "application/json": {
+                    "snapshot": {
+                        "name": "json-rack-instance-bkup2"
+                    }
+                }
+            }
+        }
+    }, 
+    "paths": {
+        "/v1.0/{tenantId}/instances": {
+            "post": {
+                "produces": [
+                    "application/json"
+                ], 
+                "consumes": [
+                    "application/json"
+                ], 
+                "responses": {
+                    "200": {
+                        "description": "200 response", 
+                        "examples": {
+                            "application/json": {
+                                "instance": {
+                                    "status": "BUILD", 
+                                    "links": [
+                                        {
+                                            "href": "http://database.{region-name}.tps5.fujitsu.com/v1.0/1234/instances/44b277eb-39be-4921-be31-3d61b43651d7", 
+                                            "rel": "self"
+                                        }
+                                    ], 
+                                    "autoMinorVersionUpgrade": true, 
+                                    "flavor": {
+                                        "id": "1", 
+                                        "links": [
+                                            {
+                                                "href": "http://database.{region-name}.tps5.fujitsu.com/v1.0/1234/ flavors/1", 
+                                                "rel": "self"
+                                            }
+                                        ]
+                                    }, 
+                                    "id": "44b277eb-39be-4921-be31-3d61b43651d7", 
+                                    "subnetGroupId": "subnetGroup1", 
+                                    "port": 26500, 
+                                    "collate": "C", 
+                                    "engineVersion": "12.1", 
+                                    "privateAddress": "fujitsu.s5.dbaas.a23w4e5r6tg7yuhjik", 
+                                    "engine": "symfoware", 
+                                    "multiAZ": true, 
+                                    "availabilityZone": "jp-east-1a", 
+                                    "parameterGroupId": "paramid1", 
+                                    "privateIp": "10.125.52.214", 
+                                    "volume": {
+                                        "type": "M1", 
+                                        "size": 20
+                                    }, 
+                                    "charcterSet": "UTF-8", 
+                                    "autoMaintenance": true, 
+                                    "backupRetentionPeriod": 10, 
+                                    "preferredMaintenanceWindow": "Sun:19:00-Sun:20:00", 
+                                    "preferredBackupWindow": "17:00-18:00", 
+                                    "name": "json-rack-instance", 
+                                    "publiclyAccessible": true, 
+                                    "created": "2013-03-18T19:09:17", 
+                                    "securityGroupIds": [
+                                        {
+                                            "securityGroupId": "secid1"
+                                        }, 
+                                        {
+                                            "securityGroupId": "secid2"
+                                        }
+                                    ], 
+                                    "preferredRecoveryTime": {
+                                        "applyImmediately": true, 
+                                        "time": null
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }, 
+                "parameters": [
+                    {
+                        "required": true, 
+                        "type": "string", 
+                        "name": "tenantId", 
+                        "in": "path"
+                    }, 
+                    {
+                        "schema": {
+                            "$ref": "#/definitions/postInstances"
+                        }, 
+                        "required": false, 
+                        "name": "body", 
+                        "in": "body"
+                    }
+                ], 
+                "summary": "Restore DB instance from DB snapshot"
+            }, 
+            "get": {
+                "produces": [
+                    "application/json"
+                ], 
+                "responses": {
+                    "200": {
+                        "description": "200 response", 
+                        "examples": {
+                            "application/json": {
+                                "instances": [
+                                    {
+                                        "status": "ACTIVE", 
+                                        "name": "test-instance1", 
+                                        "links": [
+                                            {
+                                                "href": "https://database.{region-name}.tps5.fujitsu.com/v1.0/1234/instances/0986rack_instance", 
+                                                "rel": "self"
+                                            }
+                                        ], 
+                                        "volume": {
+                                            "type": "M1", 
+                                            "size": 20
+                                        }, 
+                                        "flavor": {
+                                            "id": "1", 
+                                            "links": [
+                                                {
+                                                    "href": "http://database.{regionname}.tps5.fujitsu.com/v1.0/1234/flavors/1", 
+                                                    "rel": "self"
+                                                }
+                                            ]
+                                        }, 
+                                        "id": "098653ba-218b-47ce-936a-e0b749101f81"
+                                    }, 
+                                    {
+                                        "status": "ACTIVE", 
+                                        "name": "json-rack-instance", 
+                                        "links": [
+                                            {
+                                                "href": "https://database.{regionname}.tps5.fujitsu.com/v1.0/1234/instances/44b277eb-39be-4921-be31-3d61b43651d7", 
+                                                "rel": "self"
+                                            }
+                                        ], 
+                                        "volume": {
+                                            "type": "M1", 
+                                            "size": 20
+                                        }, 
+                                        "flavor": {
+                                            "id": "1", 
+                                            "links": [
+                                                {
+                                                    "href": "https:// database.{regionname}.tps5.fujitsu.com/v1.0/1234/flavors/1", 
+                                                    "rel": "self"
+                                                }
+                                            ]
+                                        }, 
+                                        "id": "44b277eb-39be-4921-be31-3d61b43651d7"
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                }, 
+                "parameters": [
+                    {
+                        "required": true, 
+                        "type": "string", 
+                        "name": "tenantId", 
+                        "in": "path"
+                    }
+                ], 
+                "summary": "List DB instances"
+            }
+        }, 
+        "/v1.0/{tenantId}/instances/{instanceId}": {
+            "put": {
+                "produces": [
+                    "application/json"
+                ], 
+                "consumes": [
+                    "application/json"
+                ], 
+                "responses": {
+                    "200": {
+                        "description": "200 response", 
+                        "examples": {
+                            "application/json": {
+                                "instance": {
+                                    "status": "BUILD", 
+                                    "links": [
+                                        {
+                                            "href": "http://database.{region-name}.tps5.fujitsu.com/v1.0/1234/ instances/44b277eb-39be-4921-be31-3d61b43651d7", 
+                                            "rel": "self"
+                                        }
+                                    ], 
+                                    "autoMinorVersionUpgrade": true, 
+                                    "flavor": {
+                                        "id": "1", 
+                                        "links": [
+                                            {
+                                                "href": "http://database.{region-name}.tps5.fujitsu.com/v1.0/1234/ flavors/1", 
+                                                "rel": "self"
+                                            }
+                                        ]
+                                    }, 
+                                    "id": "44b277eb-39be-4921-be31-3d61b43651d7", 
+                                    "subnetGroupId": "subnetGroup1", 
+                                    "port": 26500, 
+                                    "collate": "C", 
+                                    "engineVersion": "12.1", 
+                                    "privateAddress": "fujitsu.s5.dbaas.a23w4e5r6tg7yuhjik", 
+                                    "pendingModifiedValues": [
+                                        {
+                                            "masterUserPassword": "***"
+                                        }
+                                    ], 
+                                    "engine": "symfoware", 
+                                    "multiAZ": true, 
+                                    "availabilityZone": "jp-east-1a", 
+                                    "parameterGroupId": "paramid1", 
+                                    "privateIp": "10.125.52.214", 
+                                    "preferredBackupWindow": "17:00-18:00", 
+                                    "charcterSet": "UTF8", 
+                                    "autoMaintenance": true, 
+                                    "backupRetentionPeriod": 10, 
+                                    "preferredMaintenanceWindow": "Sun:19:00-Sun:20:00", 
+                                    "volume": {
+                                        "type": "M1", 
+                                        "size": 20
+                                    }, 
+                                    "multi": true, 
+                                    "name": "json_rack_instance", 
+                                    "publiclyAccessible": true, 
+                                    "created": "2013-03-18T19:09:17", 
+                                    "securityGroupIds": [
+                                        {
+                                            "securityGroupId": "secid1"
+                                        }, 
+                                        {
+                                            "securityGroupId": "secid2"
+                                        }
+                                    ], 
+                                    "preferredRecoveryTime": {
+                                        "applyImmediately": null, 
+                                        "time": "01:00"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }, 
+                "parameters": [
+                    {
+                        "required": true, 
+                        "type": "string", 
+                        "name": "tenantId", 
+                        "in": "path"
+                    }, 
+                    {
+                        "required": true, 
+                        "type": "string", 
+                        "name": "instanceId", 
+                        "in": "path"
+                    }, 
+                    {
+                        "schema": {
+                            "$ref": "#/definitions/put{Instanceid}"
+                        }, 
+                        "required": false, 
+                        "name": "body", 
+                        "in": "body"
+                    }
+                ], 
+                "summary": "Modify DB instance"
+            }, 
+            "post": {
+                "produces": [
+                    "application/json"
+                ], 
+                "consumes": [
+                    "application/json"
+                ], 
+                "responses": {
+                    "200": {
+                        "description": "200 response", 
+                        "examples": {
+                            "application/json": {
+                                "instance": {
+                                    "status": "BUILD", 
+                                    "links": [
+                                        {
+                                            "href": "http://database.{region-name}.tps5.fujitsu.com/v1.0/1234/ instances/44b277eb-39be-4921-be31-3d61b43651d7", 
+                                            "rel": "self"
+                                        }
+                                    ], 
+                                    "readReplicaSrcDBInstanceIdentifier ": "qawsertb-39be-492-be31-3d6fewab43d7", 
+                                    "autoMinorVersionUpgrade": true, 
+                                    "flavor": {
+                                        "id": "1", 
+                                        "links": [
+                                            {
+                                                "href": "http://database.{region-name}.tps5.fujitsu.com/v1.0/1234/ flavors/1", 
+                                                "rel": "self"
+                                            }
+                                        ]
+                                    }, 
+                                    "id": "44b277eb-39be-4921-be31-3d61b43651d7", 
+                                    "subnetGroupId": "subnetGroup1", 
+                                    "port": 26500, 
+                                    "collate": "C", 
+                                    "engineVersion": "12.1", 
+                                    "privateAddress": "fujitsu.s5.dbaas.a23w4e5r6tg7yuhjik", 
+                                    "engine": "symfoware", 
+                                    "multiAZ": true, 
+                                    "availabilityZone": "jp-east-1a", 
+                                    "parameterGroupId": "paramid1", 
+                                    "privateIp": "10.125.52.214", 
+                                    "preferredBackupWindow": "17:00-18:00", 
+                                    "charcterSet": "UTF-8", 
+                                    "backupRetentionPeriod": 10, 
+                                    "preferredMaintenanceWindow": "Sun:19:00-Sun:20:00", 
+                                    "volume": {
+                                        "type": "M1", 
+                                        "size": 20
+                                    }, 
+                                    "name": "json-rack-instance", 
+                                    "publiclyAccessible": true, 
+                                    "created": "2013-03-18T19:09:17", 
+                                    "securityGroupIds": [
+                                        {
+                                            "securityGroupId": "secid1"
+                                        }, 
+                                        {
+                                            "securityGroupId": "secid2"
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                }, 
+                "parameters": [
+                    {
+                        "required": true, 
+                        "type": "string", 
+                        "name": "tenantId", 
+                        "in": "path"
+                    }, 
+                    {
+                        "required": true, 
+                        "type": "string", 
+                        "name": "instanceId", 
+                        "in": "path"
+                    }, 
+                    {
+                        "schema": {
+                            "$ref": "#/definitions/post{Instanceid}"
+                        }, 
+                        "required": false, 
+                        "name": "body", 
+                        "in": "body"
+                    }
+                ], 
+                "summary": "Create read replica DB instance"
+            }, 
+            "get": {
+                "produces": [
+                    "application/json"
+                ], 
+                "responses": {
+                    "200": {
+                        "description": "200 response", 
+                        "examples": {
+                            "application/json": {
+                                "instance": {
+                                    "status": "BUILD", 
+                                    "securityGroupIds.": [
+                                        {
+                                            "securityGroupId": "secid1"
+                                        }, 
+                                        {
+                                            "securityGroupId": "secid2"
+                                        }
+                                    ], 
+                                    "links": [
+                                        {
+                                            "href": "http://database.{region-name}.tps5.fujitsu.com/v1.0/1234/instances/44b277eb-39be-4921-be31-3d61b43651d7", 
+                                            "rel": "self"
+                                        }
+                                    ], 
+                                    "ip": "10.125.52.214", 
+                                    "autoMinorVersionUpgrade": true, 
+                                    "flavor": {
+                                        "id": "1", 
+                                        "links": [
+                                            {
+                                                "href": "http://database.{region-name}.tps5.fujitsu.com/v1.0/1234/ flavors/1", 
+                                                "rel": "self"
+                                            }
+                                        ]
+                                    }, 
+                                    "id": "44b277eb-39be-4921-be31-3d61b43651d7", 
+                                    "port": 26500, 
+                                    "collate": "C", 
+                                    "engineVersion": "12.1", 
+                                    "engine": "symfoware", 
+                                    "multiAZ": true, 
+                                    "availabilityZone": "az-1", 
+                                    "parameterGroupId": "paramid1", 
+                                    "preferredBackupWindow": "17:00-18:00", 
+                                    "charcterSet": "UTF-8", 
+                                    "address": "fujitsu.s5.dbaas.a23w4e5r6tg7yuhjik", 
+                                    "backupRetentionPeriod": 10, 
+                                    "preferredMaintenanceWindow": "Sun:19:00-Sun:20:00", 
+                                    "volume": {
+                                        "type": "M1", 
+                                        "size": 20
+                                    }, 
+                                    "name": "json-rack-instance", 
+                                    "publiclyAccessible": true, 
+                                    "created": "2013-03-18T19:09:17", 
+                                    "subnetGroupId ": "subnetGroup1", 
+                                    "preferredRecoveryTime": {
+                                        "applyImmediately": true, 
+                                        "time": null
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }, 
+                "parameters": [
+                    {
+                        "required": true, 
+                        "type": "string", 
+                        "name": "tenantId", 
+                        "in": "path"
+                    }, 
+                    {
+                        "required": true, 
+                        "type": "string", 
+                        "name": "instanceId", 
+                        "in": "path"
+                    }
+                ], 
+                "summary": "Show DB instance details"
+            }, 
+            "delete": {
+                "responses": {
+                    "200": {
+                        "description": "200 response", 
+                        "examples": {}
+                    }
+                }, 
+                "parameters": [
+                    {
+                        "required": true, 
+                        "type": "string", 
+                        "name": "tenantId", 
+                        "in": "path"
+                    }, 
+                    {
+                        "required": true, 
+                        "type": "string", 
+                        "name": "instanceId", 
+                        "in": "path"
+                    }
+                ], 
+                "summary": "Delete DB instance"
+            }
+        }, 
+        "/v1.0/{tenantId}/instances/{instanceId}/action": {
+            "post": {
+                "consumes": [
+                    "application/json"
+                ], 
+                "responses": {
+                    "200": {
+                        "description": "200 response", 
+                        "examples": {}
+                    }
+                }, 
+                "parameters": [
+                    {
+                        "required": true, 
+                        "type": "string", 
+                        "name": "tenantId", 
+                        "in": "path"
+                    }, 
+                    {
+                        "required": true, 
+                        "type": "string", 
+                        "name": "instanceId", 
+                        "in": "path"
+                    }, 
+                    {
+                        "schema": {
+                            "$ref": "#/definitions/postAction"
+                        }, 
+                        "required": false, 
+                        "name": "body", 
+                        "in": "body"
+                    }
+                ], 
+                "summary": "Restart DB instance"
+            }
+        }, 
+        "/v1.0/{tenantId}/snapshots": {
+            "post": {
+                "produces": [
+                    "application/json"
+                ], 
+                "consumes": [
+                    "application/json"
+                ], 
+                "responses": {
+                    "200": {
+                        "description": "200 response", 
+                        "examples": {
+                            "application/json": {
+                                "snapshot": {
+                                    "status": "Available", 
+                                    "description": "sample snapshot", 
+                                    "created": "2013-03-18T19:09:17", 
+                                    "instanceId": "instance-r67fg9uj0kfp", 
+                                    "Id": "snapshot-dfrtgy3h2uj5ik", 
+                                    "name": "snapshot1"
+                                }
+                            }
+                        }
+                    }
+                }, 
+                "parameters": [
+                    {
+                        "required": true, 
+                        "type": "string", 
+                        "name": "tenantId", 
+                        "in": "path"
+                    }, 
+                    {
+                        "schema": {
+                            "$ref": "#/definitions/postSnapshots"
+                        }, 
+                        "required": false, 
+                        "name": "body", 
+                        "in": "body"
+                    }
+                ], 
+                "summary": "Create DB snapshot"
+            }, 
+            "get": {
+                "produces": [
+                    "application/json"
+                ], 
+                "responses": {
+                    "200": {
+                        "description": "200 response", 
+                        "examples": {
+                            "application/json": {
+                                "snapshots": [
+                                    {
+                                        "instanceId": "instance_r67fg9uj0kfp", 
+                                        "snapshotType": "automated", 
+                                        "name": "snapshot1", 
+                                        "id": "snapshot_dfrtgy3h2uj5ik"
+                                    }, 
+                                    {
+                                        "instanceId": "instance_r67rftyufrp", 
+                                        "snapshotType": "automated", 
+                                        "name": "snapshot2", 
+                                        "id": "snapshot_dftgyfewaj5ik"
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                }, 
+                "parameters": [
+                    {
+                        "required": true, 
+                        "type": "string", 
+                        "name": "tenantId", 
+                        "in": "path"
+                    }
+                ], 
+                "summary": "List DB snapshots"
+            }
+        }, 
+        "/v1.0/{tenantId}/snapshots/{snapshotId}": {
+            "put": {
+                "consumes": [
+                    "application/json"
+                ], 
+                "responses": {
+                    "200": {
+                        "description": "200 response", 
+                        "examples": {}
+                    }
+                }, 
+                "parameters": [
+                    {
+                        "required": true, 
+                        "type": "string", 
+                        "name": "tenantId", 
+                        "in": "path"
+                    }, 
+                    {
+                        "required": true, 
+                        "type": "string", 
+                        "name": "snapshotId", 
+                        "in": "path"
+                    }, 
+                    {
+                        "schema": {
+                            "$ref": "#/definitions/put{Snapshotid}"
+                        }, 
+                        "required": false, 
+                        "name": "body", 
+                        "in": "body"
+                    }
+                ], 
+                "summary": "Copy DB snapshot"
+            }, 
+            "get": {
+                "responses": {
+                    "200": {
+                        "description": "200 response", 
+                        "examples": {}
+                    }
+                }, 
+                "parameters": [
+                    {
+                        "required": true, 
+                        "type": "string", 
+                        "name": "tenantId", 
+                        "in": "path"
+                    }, 
+                    {
+                        "required": true, 
+                        "type": "string", 
+                        "name": "snapshotId", 
+                        "in": "path"
+                    }
+                ], 
+                "summary": "Show DB snapshot details"
+            }, 
+            "delete": {
+                "responses": {
+                    "200": {
+                        "description": "200 response", 
+                        "examples": {}
+                    }
+                }, 
+                "parameters": [
+                    {
+                        "required": true, 
+                        "type": "string", 
+                        "name": "tenantId", 
+                        "in": "path"
+                    }, 
+                    {
+                        "required": true, 
+                        "type": "string", 
+                        "name": "snapshotId", 
+                        "in": "path"
+                    }
+                ], 
+                "summary": "Delete DB snapshot"
+            }
+        }, 
+        "/v1.0/{tenantId}/logfiles/{instanceId}": {
+            "get": {
+                "produces": [
+                    "application/json"
+                ], 
+                "responses": {
+                    "200": {
+                        "description": "200 response", 
+                        "examples": {
+                            "application/json": {
+                                "describeDBLogFilesResult": {
+                                    "descriveDBLogFileDetails": [
+                                        {
+                                            "lastWritten": "1414330786", 
+                                            "logFileName": "logfile1", 
+                                            "size": 10000000
+                                        }, 
+                                        {
+                                            "lastWritten": "1449109892", 
+                                            "logFileName": "logfile2", 
+                                            "size": 330000000
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                }, 
+                "parameters": [
+                    {
+                        "required": true, 
+                        "type": "string", 
+                        "name": "tenantId", 
+                        "in": "path"
+                    }, 
+                    {
+                        "required": true, 
+                        "type": "string", 
+                        "name": "instanceId", 
+                        "in": "path"
+                    }
+                ], 
+                "summary": "List DB log files"
+            }
+        }, 
+        "/v1.0/{tenantId}/logfiles/{instanceId}/{logFileName}": {
+            "get": {
+                "produces": [
+                    "application/json"
+                ], 
+                "responses": {
+                    "200": {
+                        "description": "200 response", 
+                        "examples": {
+                            "application/json": {
+                                "downloadDBLogFilePortion": {
+                                    "marker": "20", 
+                                    "additionalDataPending": true, 
+                                    "logFileData": "xxxxxx"
+                                }
+                            }
+                        }
+                    }
+                }, 
+                "parameters": [
+                    {
+                        "required": true, 
+                        "type": "string", 
+                        "name": "tenantId", 
+                        "in": "path"
+                    }, 
+                    {
+                        "required": true, 
+                        "type": "string", 
+                        "name": "instanceId", 
+                        "in": "path"
+                    }, 
+                    {
+                        "required": true, 
+                        "type": "string", 
+                        "name": "logFileName", 
+                        "in": "path"
+                    }
+                ], 
+                "summary": "Show DB log file details"
+            }
+        }, 
+        "/v1.0/{tenantId}/subnetgroups": {
+            "post": {
+                "produces": [
+                    "application/json"
+                ], 
+                "consumes": [
+                    "application/json"
+                ], 
+                "responses": {
+                    "200": {
+                        "description": "200 response", 
+                        "examples": {
+                            "application/json": {
+                                "subnetgroup": {
+                                    "status": " Available", 
+                                    " subnetIds ": [
+                                        {
+                                            "subnetId": "subnetid1"
+                                        }, 
+                                        {
+                                            "subnetId": "subnetid2"
+                                        }
+                                    ], 
+                                    "id": "subnet_edrtfyuhijko01", 
+                                    "description": "this is test", 
+                                    "name": "subnetGroup1"
+                                }
+                            }
+                        }
+                    }
+                }, 
+                "parameters": [
+                    {
+                        "required": true, 
+                        "type": "string", 
+                        "name": "tenantId", 
+                        "in": "path"
+                    }, 
+                    {
+                        "schema": {
+                            "$ref": "#/definitions/postSubnetgroups"
+                        }, 
+                        "required": false, 
+                        "name": "body", 
+                        "in": "body"
+                    }
+                ], 
+                "summary": "Create DB subnet group"
+            }, 
+            "get": {
+                "produces": [
+                    "application/json"
+                ], 
+                "responses": {
+                    "200": {
+                        "description": "200 response", 
+                        "examples": {
+                            "application/json": {
+                                " subnetGroups ": [
+                                    {
+                                        "status": "Available", 
+                                        "id": "subnetGroupid1", 
+                                        "name": "subnetGroupid1"
+                                    }, 
+                                    {
+                                        "status": "Available", 
+                                        "id": "subnetGroupid2", 
+                                        "name": "subnetGroupid2"
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                }, 
+                "parameters": [
+                    {
+                        "required": true, 
+                        "type": "string", 
+                        "name": "tenantId", 
+                        "in": "path"
+                    }
+                ], 
+                "summary": "List DB subnet groups"
+            }
+        }, 
+        "/v1.0/{tenantId}/subnetgroups/{subnetGroupId}": {
+            "put": {
+                "produces": [
+                    "application/json"
+                ], 
+                "consumes": [
+                    "application/json"
+                ], 
+                "responses": {
+                    "200": {
+                        "description": "200 response", 
+                        "examples": {
+                            "application/json": {
+                                "subnetgroup": {
+                                    "status": " Available", 
+                                    "subnetIds ": [
+                                        {
+                                            "subnetId": "subnetid1"
+                                        }, 
+                                        {
+                                            "subnetId": "subnetid2"
+                                        }
+                                    ], 
+                                    "id": "subnet_edrtfyuhijko01", 
+                                    "name ": "subnetGroup1", 
+                                    "description": "this is test"
+                                }
+                            }
+                        }
+                    }
+                }, 
+                "parameters": [
+                    {
+                        "required": true, 
+                        "type": "string", 
+                        "name": "tenantId", 
+                        "in": "path"
+                    }, 
+                    {
+                        "required": true, 
+                        "type": "string", 
+                        "name": "subnetGroupId", 
+                        "in": "path"
+                    }, 
+                    {
+                        "schema": {
+                            "$ref": "#/definitions/put{Subnetgroupid}"
+                        }, 
+                        "required": false, 
+                        "name": "body", 
+                        "in": "body"
+                    }
+                ], 
+                "summary": "Modify DB subnet group"
+            }, 
+            "get": {
+                "produces": [
+                    "application/json"
+                ], 
+                "responses": {
+                    "200": {
+                        "description": "200 response", 
+                        "examples": {
+                            "application/json": {
+                                "subnetgroup": {
+                                    "status": " Available", 
+                                    "subnetIds ": [
+                                        {
+                                            "subnetId": "subnetid1"
+                                        }, 
+                                        {
+                                            "subnetId": "subnetid2"
+                                        }
+                                    ], 
+                                    "id": "subnet_edrtfyuhijko01", 
+                                    "name ": "subnetGroup1", 
+                                    "description": "this is test"
+                                }
+                            }
+                        }
+                    }
+                }, 
+                "parameters": [
+                    {
+                        "required": true, 
+                        "type": "string", 
+                        "name": "tenantId", 
+                        "in": "path"
+                    }, 
+                    {
+                        "required": true, 
+                        "type": "string", 
+                        "name": "subnetGroupId", 
+                        "in": "path"
+                    }
+                ], 
+                "summary": "Show DB subnet group details"
+            }, 
+            "delete": {
+                "responses": {
+                    "200": {
+                        "description": "200 response", 
+                        "examples": {}
+                    }
+                }, 
+                "parameters": [
+                    {
+                        "required": true, 
+                        "type": "string", 
+                        "name": "tenantId", 
+                        "in": "path"
+                    }, 
+                    {
+                        "required": true, 
+                        "type": "string", 
+                        "name": "subnetGroupId", 
+                        "in": "path"
+                    }
+                ], 
+                "summary": "Delete DB subnet group"
+            }
+        }, 
+        "/v1.0/{tenantId}/parametergroups": {
+            "post": {
+                "produces": [
+                    "application/json"
+                ], 
+                "consumes": [
+                    "application/json"
+                ], 
+                "responses": {
+                    "200": {
+                        "description": "200 response", 
+                        "examples": {
+                            "application/json": {
+                                "dbParameterGroup": {
+                                    "id": "paramgroup_w34e5r6t7yu89", 
+                                    "appliedInstances": [], 
+                                    " parameterGroupFamily": "", 
+                                    "description": "test", 
+                                    "name": "paramgroup1"
+                                }
+                            }
+                        }
+                    }
+                }, 
+                "parameters": [
+                    {
+                        "required": true, 
+                        "type": "string", 
+                        "name": "tenantId", 
+                        "in": "path"
+                    }, 
+                    {
+                        "schema": {
+                            "$ref": "#/definitions/postParametergroups"
+                        }, 
+                        "required": false, 
+                        "name": "body", 
+                        "in": "body"
+                    }
+                ], 
+                "summary": "Create DB parameter group"
+            }, 
+            "get": {
+                "produces": [
+                    "application/json"
+                ], 
+                "responses": {
+                    "200": {
+                        "description": "200 response", 
+                        "examples": {
+                            "application/json": {
+                                "parameterGroups": [
+                                    {
+                                        "id": "paramgroup_w34e5r6t7yu89", 
+                                        "appliedInstances": [
+                                            "dbinst_f587389gre", 
+                                            "dbinst_8489y3qre"
+                                        ], 
+                                        " parameterGroupFamily": "symfoware_12.1", 
+                                        "description": "test", 
+                                        "name": "paramgroup1"
+                                    }, 
+                                    {
+                                        "id": "paramgroup_w34e5r6t7ew89", 
+                                        "appliedInstances": [
+                                            "dbinst_fet904utjhf", 
+                                            "dbinst_p9ufejowre"
+                                        ], 
+                                        " parameterGroupFamily": "symfoware_12.1", 
+                                        "description": "test", 
+                                        "name": "paramgroup2"
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                }, 
+                "parameters": [
+                    {
+                        "required": true, 
+                        "type": "string", 
+                        "name": "tenantId", 
+                        "in": "path"
+                    }
+                ], 
+                "summary": "List DB parameter groups"
+            }
+        }, 
+        "/v1.0/{tenantId}/parametergroups/{parameterGroupId}": {
+            "put": {
+                "consumes": [
+                    "application/json"
+                ], 
+                "responses": {
+                    "200": {
+                        "description": "200 response", 
+                        "examples": {}
+                    }
+                }, 
+                "parameters": [
+                    {
+                        "required": true, 
+                        "type": "string", 
+                        "name": "tenantId", 
+                        "in": "path"
+                    }, 
+                    {
+                        "required": true, 
+                        "type": "string", 
+                        "name": "parameterGroupId", 
+                        "in": "path"
+                    }, 
+                    {
+                        "schema": {
+                            "$ref": "#/definitions/put{Parametergroupid}"
+                        }, 
+                        "required": false, 
+                        "name": "body", 
+                        "in": "body"
+                    }
+                ], 
+                "summary": "Modify DB parameter group"
+            }, 
+            "get": {
+                "produces": [
+                    "application/json"
+                ], 
+                "responses": {
+                    "200": {
+                        "description": "200 response", 
+                        "examples": {
+                            "application/json": {
+                                "parameterGroup": {
+                                    "parameters": [
+                                        {
+                                            "anllowedValues": "16-1073741823", 
+                                            "applyMethod": "pending-reboot", 
+                                            "name": "shared_buffers", 
+                                            "denscription": "(8kB) Sets the number of shared memory buffers used by the server.", 
+                                            "dataType": "integer", 
+                                            "value": "65536", 
+                                            "source": "engine", 
+                                            "isModifiable": "true", 
+                                            "minimumEngineVersion": "12.1", 
+                                            "applyType": "static"
+                                        }, 
+                                        {
+                                            "applyMethod": "pending-reboot", 
+                                            "name": " shared_preload_libraries", 
+                                            "dataType": "string", 
+                                            "value": "", 
+                                            "allowedValues": "", 
+                                            "source": "system", 
+                                            "isModifiable": "false", 
+                                            "minimumEngineVersion": "12.1", 
+                                            "applyType": "static", 
+                                            "description": "Lists shared libraries to preload into server."
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                }, 
+                "parameters": [
+                    {
+                        "required": true, 
+                        "type": "string", 
+                        "name": "tenantId", 
+                        "in": "path"
+                    }, 
+                    {
+                        "required": true, 
+                        "type": "string", 
+                        "name": "parameterGroupId", 
+                        "in": "path"
+                    }
+                ], 
+                "summary": "Show DB parameter group details"
+            }, 
+            "delete": {
+                "responses": {
+                    "200": {
+                        "description": "200 response", 
+                        "examples": {}
+                    }
+                }, 
+                "parameters": [
+                    {
+                        "required": true, 
+                        "type": "string", 
+                        "name": "tenantId", 
+                        "in": "path"
+                    }, 
+                    {
+                        "required": true, 
+                        "type": "string", 
+                        "name": "parameterGroupId", 
+                        "in": "path"
+                    }
+                ], 
+                "summary": "Delete DB parameter group"
+            }
+        }, 
+        "/v1.0/{tenantId}/eventnotifications": {
+            "post": {
+                "produces": [
+                    "application/json"
+                ], 
+                "responses": {
+                    "200": {
+                        "description": "200 response", 
+                        "examples": {
+                            "application/json": {
+                                "eventSubscription": {
+                                    "description": " this is test ", 
+                                    "created": "2013-03-18T19:09:17", 
+                                    " enabled ": true, 
+                                    "name": " mysubscription1", 
+                                    "eventCategories ": [
+                                        {
+                                            "eventCategory": "backup"
+                                        }, 
+                                        {
+                                            "eventCategory": "creation"
+                                        }
+                                    ], 
+                                    "sourceIds": [
+                                        {
+                                            "sourceId": "dbinst1"
+                                        }, 
+                                        {
+                                            "sourceId": "dbinst2"
+                                        }
+                                    ], 
+                                    "subsciptionId": "suscription1", 
+                                    "sourceType": "db-instance"
+                                }
+                            }
+                        }
+                    }
+                }, 
+                "parameters": [
+                    {
+                        "required": true, 
+                        "type": "string", 
+                        "name": "tenantId", 
+                        "in": "path"
+                    }, 
+                    {
+                        "schema": {
+                            "$ref": "#/definitions/postEventnotifications"
+                        }, 
+                        "required": false, 
+                        "name": "body", 
+                        "in": "body"
+                    }
+                ], 
+                "summary": "Create event notification subscription"
+            }, 
+            "get": {
+                "responses": {
+                    "200": {
+                        "description": "200 response", 
+                        "examples": {}
+                    }
+                }, 
+                "parameters": [
+                    {
+                        "required": true, 
+                        "type": "string", 
+                        "name": "tenantId", 
+                        "in": "path"
+                    }
+                ], 
+                "summary": "List event notification subscriptions"
+            }
+        }, 
+        "/v1.0/{tenantId}/eventnotifications/{subscriptionID}": {
+            "put": {
+                "consumes": [
+                    "application/json"
+                ], 
+                "responses": {
+                    "200": {
+                        "description": "200 response", 
+                        "examples": {}
+                    }
+                }, 
+                "parameters": [
+                    {
+                        "required": true, 
+                        "type": "string", 
+                        "name": "tenantId", 
+                        "in": "path"
+                    }, 
+                    {
+                        "required": true, 
+                        "type": "string", 
+                        "name": "subscriptionID", 
+                        "in": "path"
+                    }, 
+                    {
+                        "schema": {
+                            "$ref": "#/definitions/put{Subscriptionid}"
+                        }, 
+                        "required": false, 
+                        "name": "body", 
+                        "in": "body"
+                    }
+                ], 
+                "summary": "Add or delete monitored event"
+            }, 
+            "get": {
+                "responses": {
+                    "200": {
+                        "description": "200 response", 
+                        "examples": {}
+                    }
+                }, 
+                "parameters": [
+                    {
+                        "required": true, 
+                        "type": "string", 
+                        "name": "tenantId", 
+                        "in": "path"
+                    }, 
+                    {
+                        "required": true, 
+                        "type": "string", 
+                        "name": "subscriptionID", 
+                        "in": "path"
+                    }
+                ], 
+                "summary": "Show event notification subscription details"
+            }, 
+            "delete": {
+                "responses": {
+                    "200": {
+                        "description": "200 response", 
+                        "examples": {}
+                    }
+                }, 
+                "parameters": [
+                    {
+                        "required": true, 
+                        "type": "string", 
+                        "name": "tenantId", 
+                        "in": "path"
+                    }, 
+                    {
+                        "required": true, 
+                        "type": "string", 
+                        "name": "subscriptionID", 
+                        "in": "path"
+                    }
+                ], 
+                "summary": "Delete event notification subscription"
+            }
+        }, 
+        "/v1.0/{tenantId}/eventcategories/{sourceType}/": {
+            "get": {
+                "produces": [
+                    "application/json"
+                ], 
+                "responses": {
+                    "200": {
+                        "description": "200 response", 
+                        "examples": {
+                            "application/json": {
+                                "eventCategoriesMaps": [
+                                    {
+                                        "eventCategories": [
+                                            "availability", 
+                                            "failover", 
+                                            "recovery", 
+                                            "low storage", 
+                                            "creation", 
+                                            "notification", 
+                                            "backup", 
+                                            "configuration change", 
+                                            "restoration", 
+                                            "maintenance", 
+                                            "deletion", 
+                                            "failure"
+                                        ], 
+                                        "sourceType": "db-instance"
+                                    }, 
+                                    {
+                                        "eventCategories": [
+                                            "deletion", 
+                                            "restoration", 
+                                            "notification", 
+                                            "failure", 
+                                            "creation"
+                                        ], 
+                                        "sourceType": "db-snapshot"
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                }, 
+                "parameters": [
+                    {
+                        "required": true, 
+                        "type": "string", 
+                        "name": "tenantId", 
+                        "in": "path"
+                    }, 
+                    {
+                        "required": true, 
+                        "type": "string", 
+                        "name": "sourceType", 
+                        "in": "path"
+                    }
+                ], 
+                "summary": "List event notification categories"
+            }
+        }, 
+        "/v1.0/{tenantId}/events": {
+            "get": {
+                "produces": [
+                    "application/json"
+                ], 
+                "responses": {
+                    "200": {
+                        "description": "200 response", 
+                        "examples": {
+                            "application/json": {
+                                "marker": "event1192", 
+                                "events": [
+                                    {
+                                        " date": "2013-03-18T19:09:17", 
+                                        "message": "Finished DB Instance backup", 
+                                        "eventCategories": [
+                                            "backup"
+                                        ], 
+                                        "sourceIdentifier": "dbinst_678yuhyhih", 
+                                        "sourceType": "db-instance"
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                }, 
+                "parameters": [
+                    {
+                        "required": true, 
+                        "type": "string", 
+                        "name": "tenantId", 
+                        "in": "path"
+                    }
+                ], 
+                "summary": "List event notifications"
+            }
+        }, 
+        "/v1.0/{tenantId}/engineversion": {
+            "get": {
+                "produces": [
+                    "application/json"
+                ], 
+                "responses": {
+                    "200": {
+                        "description": "200 response", 
+                        "examples": {
+                            "application/json": {
+                                "dBEngineVersions": [
+                                    {
+                                        "engine": "symfoware", 
+                                        "dBEngineVersionDescription": "symfoware v12.1", 
+                                        "dBParameterGroupFamily": "symfoware v12.1", 
+                                        "dBEngineDescription": "Fujitsu software symfoware", 
+                                        "engineVersion": "12.1.1"
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                }, 
+                "parameters": [
+                    {
+                        "required": true, 
+                        "type": "string", 
+                        "name": "tenantId", 
+                        "in": "path"
+                    }
+                ], 
+                "summary": "Show DB engine details"
+            }
+        }, 
+        "/v1.0/{tenantId}/flavors": {
+            "get": {
+                "produces": [
+                    "application/json"
+                ], 
+                "responses": {
+                    "200": {
+                        "description": "200 response", 
+                        "examples": {
+                            "application/json": {
+                                "flavors": [
+                                    {
+                                        "id": "11", 
+                                        "links": [
+                                            {
+                                                "href": " http://database.{region-name}.tps5.fujitsu.com/v1.0/1234/ flavors/11", 
+                                                "rel": "SELF"
+                                            }
+                                        ], 
+                                        "name": "economy"
+                                    }, 
+                                    {
+                                        "id": "12", 
+                                        "links": [
+                                            {
+                                                "href": " http://database.{region-name}.tps5.fujitsu.com/v1.0/1234/ flavors/12", 
+                                                "rel": "SELF"
+                                            }
+                                        ], 
+                                        "name": "standard"
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                }, 
+                "parameters": [
+                    {
+                        "required": true, 
+                        "type": "string", 
+                        "name": "tenantId", 
+                        "in": "path"
+                    }
+                ], 
+                "summary": "List flavors"
+            }
+        }, 
+        "/v1.0/{tenantId}/flavors/{flavorId}": {
+            "get": {
+                "produces": [
+                    "application/json"
+                ], 
+                "responses": {
+                    "200": {
+                        "description": "200 response", 
+                        "examples": {
+                            "application/json": {
+                                "flavor": {
+                                    "name": "economy", 
+                                    "links": [
+                                        {
+                                            "href": " http://database.{region-name}.tps5.fujitsu.com/v1.0/1234/ flavors/11", 
+                                            "rel": "SELF"
+                                        }
+                                    ], 
+                                    "ram": "1700", 
+                                    "vcpus": "1", 
+                                    "swap": null, 
+                                    "disk": "0", 
+                                    "id": "11"
+                                }
+                            }
+                        }
+                    }
+                }, 
+                "parameters": [
+                    {
+                        "required": true, 
+                        "type": "string", 
+                        "name": "tenantId", 
+                        "in": "path"
+                    }, 
+                    {
+                        "required": true, 
+                        "type": "string", 
+                        "name": "flavorId", 
+                        "in": "path"
+                    }
+                ], 
+                "summary": "Show flavor details"
+            }
+        }
+    }
+}

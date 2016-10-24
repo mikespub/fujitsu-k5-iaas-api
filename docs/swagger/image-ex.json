@@ -1,0 +1,85 @@
+{
+    "swagger": "2.0", 
+    "info": {
+        "version": "v1", 
+        "title": "Draft swagger file for Fujitsu K5 IaaS Image API Extension", 
+        "x-service": "image", 
+        "x-scope": "region"
+    }, 
+    "host": "image.uk-1.cloud.global.fujitsu.com", 
+    "schemes": [
+        "https"
+    ], 
+    "securityDefinitions": {
+        "auth_region": {
+            "type": "apiKey", 
+            "name": "X-Auth-Token", 
+            "in": "header"
+        }
+    }, 
+    "security": [
+        {
+            "auth_region": []
+        }
+    ], 
+    "definitions": {
+        "put{Image_Id}": {
+            "type": "object"
+        }
+    }, 
+    "paths": {
+        "/v1/images/{image_id}": {
+            "put": {
+                "produces": [
+                    "application/json"
+                ], 
+                "responses": {
+                    "200": {
+                        "description": "200 response", 
+                        "examples": {
+                            "application/json": {
+                                "image": {
+                                    "status": "active", 
+                                    "deleted_at": null, 
+                                    "name": "cirros-0.3.0-x86_64", 
+                                    "deleted": false, 
+                                    "container_format": "bare", 
+                                    "created_at": "2016-04-26T04:44:35", 
+                                    "disk_format": "raw", 
+                                    "updated_at": "2016-04-26T04:57:19", 
+                                    "properties": {}, 
+                                    "owner": "496c27733a4141eb824e4cb9932b8372", 
+                                    "protected": false, 
+                                    "id": "da3b75d9-3f4a-40e7-8a2c-bfab23927dea", 
+                                    "checksum": null, 
+                                    "min_disk": 0, 
+                                    "is_public": false, 
+                                    "virtual_size": null, 
+                                    "min_ram": 0, 
+                                    "size": 13167616
+                                }
+                            }
+                        }
+                    }
+                }, 
+                "parameters": [
+                    {
+                        "required": true, 
+                        "type": "string", 
+                        "name": "image_id", 
+                        "in": "path"
+                    }, 
+                    {
+                        "schema": {
+                            "$ref": "#/definitions/put{Image_Id}"
+                        }, 
+                        "required": false, 
+                        "name": "body", 
+                        "in": "body"
+                    }
+                ], 
+                "summary": "Update image (v1)"
+            }
+        }
+    }
+}

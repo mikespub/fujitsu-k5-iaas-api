@@ -3,14 +3,15 @@
     "info": {
         "version": "v1", 
         "title": "Draft swagger file for Fujitsu K5 IaaS Cdn API", 
-        "x-service": "cdn"
+        "x-service": "cdn", 
+        "x-scope": "global"
     }, 
-    "host": "cdn", 
+    "host": "cdn.gls.cloud.global.fujitsu.com", 
     "schemes": [
         "https"
     ], 
     "securityDefinitions": {
-        "auth_token": {
+        "auth_global": {
             "type": "apiKey", 
             "name": "X-Auth-Token", 
             "in": "header"
@@ -18,7 +19,7 @@
     }, 
     "security": [
         {
-            "auth_token": []
+            "auth_global": []
         }
     ], 
     "definitions": {

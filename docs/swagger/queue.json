@@ -3,7 +3,8 @@
     "info": {
         "version": "v1", 
         "title": "Draft swagger file for Fujitsu K5 IaaS Queue API Extensions", 
-        "x-service": "queue"
+        "x-service": "queue",
+        "x-scope": "region"
     },
     "externalDocs": {
         "description": "Amazon SQS API Reference",
@@ -12,12 +13,12 @@
     "produces": [
         "application/xml"
     ],
-    "host": "queue",
+    "host": "queue.uk-1.cloud.global.fujitsu.com",
     "schemes": [
         "https"
     ],
     "securityDefinitions": {
-        "auth_token": {
+        "auth_region": {
             "type": "apiKey", 
             "name": "X-Auth-Token", 
             "in": "header"
@@ -25,7 +26,7 @@
     }, 
     "security": [
         {
-            "auth_token": []
+            "auth_region": []
         }
     ],
     "paths": {

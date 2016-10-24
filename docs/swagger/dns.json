@@ -3,14 +3,15 @@
     "info": {
         "version": "v1", 
         "title": "Draft swagger file for Fujitsu K5 IaaS Dns API", 
-        "x-service": "dns"
+        "x-service": "dns", 
+        "x-scope": "global"
     }, 
-    "host": "dns", 
+    "host": "dns.gls.cloud.global.fujitsu.com", 
     "schemes": [
         "https"
     ], 
     "securityDefinitions": {
-        "auth_token": {
+        "auth_global": {
             "type": "apiKey", 
             "name": "X-Auth-Token", 
             "in": "header"
@@ -18,7 +19,7 @@
     }, 
     "security": [
         {
-            "auth_token": []
+            "auth_global": []
         }
     ], 
     "definitions": {

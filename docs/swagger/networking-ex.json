@@ -1,0 +1,927 @@
+{
+    "swagger": "2.0", 
+    "info": {
+        "version": "v1", 
+        "title": "Draft swagger file for Fujitsu K5 IaaS Networking API Extension", 
+        "x-service": "networking", 
+        "x-scope": "region"
+    }, 
+    "host": "networking.uk-1.cloud.global.fujitsu.com", 
+    "schemes": [
+        "https"
+    ], 
+    "securityDefinitions": {
+        "auth_region": {
+            "type": "apiKey", 
+            "name": "X-Auth-Token", 
+            "in": "header"
+        }
+    }, 
+    "security": [
+        {
+            "auth_region": []
+        }
+    ], 
+    "definitions": {
+        "putAdd_Cross_Project_Router_Interface": {
+            "type": "object", 
+            "example": {
+                "application/json": {
+                    "port_id": "a2f1f29d-571b-4533-907f-5803ab96ead1"
+                }
+            }
+        }, 
+        "put{Network_Connector_Endpoint_Id}": {
+            "type": "object", 
+            "example": {
+                "application/json": {
+                    "network_connector_endpoint": {
+                        "name": "endponit2_for_az1"
+                    }
+                }
+            }
+        }, 
+        "put{Network_Connector_Id}": {
+            "type": "object", 
+            "example": {
+                "application/json": {
+                    "network_connector": {
+                        "name": "connector2"
+                    }
+                }
+            }
+        }, 
+        "putConnect": {
+            "type": "object", 
+            "example": {
+                "application/json": {
+                    "interface": {
+                        "port_id": "5fd5b822-c400-46dc-bc68-ea8c0dd20876"
+                    }
+                }
+            }
+        }, 
+        "put{Sslvpnconnection-Id}": {
+            "type": "object", 
+            "example": {
+                "application/json": {
+                    "ssl_vpn_connection": {
+                        "name": "conn1A", 
+                        "admin_state_up": false
+                    }
+                }
+            }
+        }, 
+        "putDisconnect": {
+            "type": "object", 
+            "example": {
+                "application/json": {
+                    "interface": {
+                        "port_id": "5fd5b822-c400-46dc-bc68-ea8c0dd20876"
+                    }
+                }
+            }
+        }, 
+        "postSsl-Vpn-Connections": {
+            "type": "object", 
+            "example": {
+                "application/json": {
+                    "ssl_vpn_connection": {
+                        "client_address_pool_cidr": "10.8.0.0/24", 
+                        "protocol": "tcp", 
+                        "name": "conn1", 
+                        "admin_state_up": true, 
+                        "availability_zone": "AZ1", 
+                        "credential_id": "434a9843-ecc0-4653-8f3a-e604d9d7aadc", 
+                        "vpnservice_id": "cc91b7af-8304-4aff-ad07-86bdbaae2e93"
+                    }
+                }
+            }
+        }, 
+        "putReset_Connections": {
+            "type": "object", 
+            "example": {
+                "application/json": {
+                    "target": null
+                }
+            }
+        }, 
+        "postNetwork_Connectors": {
+            "type": "object", 
+            "example": {
+                "application/json": {
+                    "network_connector": {
+                        "tenant_id": "29320d5e-dd29-425c-b386-3cbb2754ad03", 
+                        "network_connector_pool_id": "78380271-954a-4c1a-a76d-43033c7fc9bf", 
+                        "name": "connector1"
+                    }
+                }
+            }
+        }, 
+        "postNetwork_Connector_Endpoints": {
+            "type": "object", 
+            "example": {
+                "application/json": {
+                    "network_connector_endpoint": {
+                        "tenant_id": "29320d5e-dd29-425c-b386-3cbb2754ad03", 
+                        "endpoint_type": "availability_zone", 
+                        "name": "endponit_for_az1", 
+                        "network_connector_id": "07993b1c-79e1-4cf6-a663-dc42b9ce37d4", 
+                        "location": "east-jp-az1"
+                    }
+                }
+            }
+        }, 
+        "putRemove_Cross_Project_Router_Interface": {
+            "type": "object", 
+            "example": {
+                "application/json": {
+                    "port_id": "1accb5ac-b258-483e-af3a-f41f6df8190c"
+                }
+            }
+        }
+    }, 
+    "paths": {
+        "/v2.0/network_connector_pools/{network_connector_pool_id}": {
+            "get": {
+                "produces": [
+                    "application/json"
+                ], 
+                "responses": {
+                    "200": {
+                        "description": "200 response", 
+                        "examples": {
+                            "application/json": {
+                                "network_connector_pool": {
+                                    "id": "78380271-954a-4c1a-a76d-43033c7fc9bf", 
+                                    "name": "mpls-vpn-pool1"
+                                }
+                            }
+                        }
+                    }
+                }, 
+                "parameters": [
+                    {
+                        "required": true, 
+                        "type": "string", 
+                        "name": "network_connector_pool_id", 
+                        "in": "path"
+                    }
+                ], 
+                "summary": "Show Network Connector Pool"
+            }
+        }, 
+        "/v2.0/network_connector_pools": {
+            "get": {
+                "produces": [
+                    "application/json"
+                ], 
+                "responses": {
+                    "200": {
+                        "description": "200 response", 
+                        "examples": {
+                            "application/json": {
+                                "network_connector_pools": [
+                                    {
+                                        "id": "78380271-954a-4c1a-a76d-43033c7fc9bf", 
+                                        "name": "mpls-vpn-pool1"
+                                    }, 
+                                    {
+                                        "id": "ddd0271-954a-4c1a-a76d-43033c7fc9bf", 
+                                        "name": "mpls-vpn-pool2"
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                }, 
+                "parameters": [], 
+                "summary": "List Network Connector Pools"
+            }
+        }, 
+        "/v2.0/network_connectors": {
+            "post": {
+                "produces": [
+                    "application/json"
+                ], 
+                "consumes": [
+                    "application/json"
+                ], 
+                "responses": {
+                    "200": {
+                        "description": "200 response", 
+                        "examples": {
+                            "application/json": {
+                                "network_connector": {
+                                    "tenant_id": "29320d5e-dd29-425c-b386-3cbb2754ad03", 
+                                    "network_connector_pool_id": "78380271-954a-4c1a-a76d-43033c7fc9bf", 
+                                    "id": "07993b1c-79e1-4cf6-a663-dc42b9ce37d4", 
+                                    "network_connector_endpoints": [], 
+                                    "name": "connector1"
+                                }
+                            }
+                        }
+                    }
+                }, 
+                "parameters": [
+                    {
+                        "schema": {
+                            "$ref": "#/definitions/postNetwork_Connectors"
+                        }, 
+                        "required": false, 
+                        "name": "body", 
+                        "in": "body"
+                    }
+                ], 
+                "summary": "Create Network Connector"
+            }, 
+            "get": {
+                "produces": [
+                    "application/json"
+                ], 
+                "responses": {
+                    "200": {
+                        "description": "200 response", 
+                        "examples": {
+                            "application/json": {
+                                "network_connectors": [
+                                    {
+                                        "tenant_id": "29320d5e-dd29-425c-b386-3cbb2754ad03", 
+                                        "network_connector_pool_id": "78380271-954a-4c1a-a76d-43033c7fc9bf", 
+                                        "id": "07993b1c-79e1-4cf6-a663-dc42b9ce37d4", 
+                                        "network_connector_endpoints": [
+                                            "0e521ed5-62d0-44c9-9c04-2e880b5add21"
+                                        ], 
+                                        "name": "connector1"
+                                    }, 
+                                    {
+                                        "tenant_id": "d827860a-f3dc-4c65-9e22-78142582a12c", 
+                                        "network_connector_pool_id": "78380271-954a-4c1a-a76d-43033c7fc9bf", 
+                                        "id": "ddecde23-fbf7-460d-b895-6f190b1890ec", 
+                                        "network_connector_endpoints": [
+                                            "d001c289-e7ba-4db9-90d8-ee70785852b4"
+                                        ], 
+                                        "name": "connector1"
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                }, 
+                "parameters": [], 
+                "summary": "List Network Connectors"
+            }
+        }, 
+        "/v2.0/network_connectors/{network_connector_id}": {
+            "put": {
+                "produces": [
+                    "application/json"
+                ], 
+                "consumes": [
+                    "application/json"
+                ], 
+                "responses": {
+                    "200": {
+                        "description": "200 response", 
+                        "examples": {
+                            "application/json": {
+                                "network_connector": {
+                                    "tenant_id": "29320d5e-dd29-425c-b386-3cbb2754ad03", 
+                                    "network_connector_pool_id": "78380271-954a-4c1a-a76d-43033c7fc9bf", 
+                                    "id": "07993b1c-79e1-4cf6-a663-dc42b9ce37d4", 
+                                    "network_connector_endpoints": [
+                                        "0e521ed5-62d0-44c9-9c04-2e880b5add21"
+                                    ], 
+                                    "name": "connector2"
+                                }
+                            }
+                        }
+                    }
+                }, 
+                "parameters": [
+                    {
+                        "required": true, 
+                        "type": "string", 
+                        "name": "network_connector_id", 
+                        "in": "path"
+                    }, 
+                    {
+                        "schema": {
+                            "$ref": "#/definitions/put{Network_Connector_Id}"
+                        }, 
+                        "required": false, 
+                        "name": "body", 
+                        "in": "body"
+                    }
+                ], 
+                "summary": "Update Network Connector"
+            }, 
+            "delete": {
+                "responses": {
+                    "200": {
+                        "description": "200 response", 
+                        "examples": {}
+                    }
+                }, 
+                "parameters": [
+                    {
+                        "required": true, 
+                        "type": "string", 
+                        "name": "network_connector_id", 
+                        "in": "path"
+                    }
+                ], 
+                "summary": "Deletes Network Connector"
+            }, 
+            "get": {
+                "produces": [
+                    "application/json"
+                ], 
+                "responses": {
+                    "200": {
+                        "description": "200 response", 
+                        "examples": {
+                            "application/json": {
+                                "network_connector": {
+                                    "tenant_id": "29320d5e-dd29-425c-b386-3cbb2754ad03", 
+                                    "network_connector_pool_id": "78380271-954a-4c1a-a76d-43033c7fc9bf", 
+                                    "id": "07993b1c-79e1-4cf6-a663-dc42b9ce37d4", 
+                                    "network_connector_endpoints": [
+                                        "0e521ed5-62d0-44c9-9c04-2e880b5add21"
+                                    ], 
+                                    "name": "connector1"
+                                }
+                            }
+                        }
+                    }
+                }, 
+                "parameters": [
+                    {
+                        "required": true, 
+                        "type": "string", 
+                        "name": "network_connector_id", 
+                        "in": "path"
+                    }
+                ], 
+                "summary": "Show Network Connector"
+            }
+        }, 
+        "/v2.0/network_connector_endpoints": {
+            "post": {
+                "produces": [
+                    "application/json"
+                ], 
+                "consumes": [
+                    "application/json"
+                ], 
+                "responses": {
+                    "200": {
+                        "description": "200 response", 
+                        "examples": {
+                            "application/json": {
+                                "network_connector_endpoint": {
+                                    "name": "endponit_for_az1", 
+                                    "network_connector_id": "07993b1c-79e1-4cf6-a663-dc42b9ce37d4", 
+                                    "tenant_id": "29320d5e-dd29-425c-b386-3cbb2754ad03", 
+                                    "endpoint_type": "availability_zone", 
+                                    "location": "east-jp-az1", 
+                                    "id": "6ed3561f-087f-43f9-9a51-bf71f666b80f"
+                                }
+                            }
+                        }
+                    }
+                }, 
+                "parameters": [
+                    {
+                        "schema": {
+                            "$ref": "#/definitions/postNetwork_Connector_Endpoints"
+                        }, 
+                        "required": false, 
+                        "name": "body", 
+                        "in": "body"
+                    }
+                ], 
+                "summary": "Create Network Connector Endpoint"
+            }, 
+            "get": {
+                "produces": [
+                    "application/json"
+                ], 
+                "responses": {
+                    "200": {
+                        "description": "200 response", 
+                        "examples": {
+                            "application/json": {
+                                "network_connector_endpoints": [
+                                    {
+                                        "name": "endponit_for_az1", 
+                                        "network_connector_id": "07993b1c-79e1-4cf6-a663-dc42b9ce37d4", 
+                                        "tenant_id": "29320d5e-dd29-425c-b386-3cbb2754ad03", 
+                                        "endpoint_type": "availability_zone", 
+                                        "location": "east-jp-az1", 
+                                        "id": "6ed3561f-087f-43f9-9a51-bf71f666b80f"
+                                    }, 
+                                    {
+                                        "name": "endponit_for_az2", 
+                                        "network_connector_id": "75e3507f-8fb6-4b0f-9f0c-00ce011e4a51", 
+                                        "tenant_id": "29320d5e-dd29-425c-b386-3cbb2754ad03", 
+                                        "endpoint_type": "availability_zone", 
+                                        "location": "east-jp-az2", 
+                                        "id": "1e71eee6-a7e5-4b05-93c6-e6e8bf02f2e5"
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                }, 
+                "parameters": [], 
+                "summary": "List Network Connector Endpoints"
+            }
+        }, 
+        "/v2.0/network_connector_endpoints/{network_connector_endpoint_id}": {
+            "put": {
+                "produces": [
+                    "application/json"
+                ], 
+                "consumes": [
+                    "application/json"
+                ], 
+                "responses": {
+                    "200": {
+                        "description": "200 response", 
+                        "examples": {
+                            "application/json": {
+                                "network_connector_endpoint": {
+                                    "name": "endponit2_for_az1", 
+                                    "network_connector_id": "07993b1c-79e1-4cf6-a663-dc42b9ce37d4", 
+                                    "tenant_id": "29320d5e-dd29-425c-b386-3cbb2754ad03", 
+                                    "endpoint_type": "availability_zone", 
+                                    "location": "east-jp-az1", 
+                                    "id": "6ed3561f-087f-43f9-9a51-bf71f666b80f"
+                                }
+                            }
+                        }
+                    }
+                }, 
+                "parameters": [
+                    {
+                        "required": true, 
+                        "type": "string", 
+                        "name": "network_connector_endpoint_id", 
+                        "in": "path"
+                    }, 
+                    {
+                        "schema": {
+                            "$ref": "#/definitions/put{Network_Connector_Endpoint_Id}"
+                        }, 
+                        "required": false, 
+                        "name": "body", 
+                        "in": "body"
+                    }
+                ], 
+                "summary": "Update Network Connector Endpoint"
+            }, 
+            "delete": {
+                "responses": {
+                    "200": {
+                        "description": "200 response", 
+                        "examples": {}
+                    }
+                }, 
+                "parameters": [
+                    {
+                        "required": true, 
+                        "type": "string", 
+                        "name": "network_connector_endpoint_id", 
+                        "in": "path"
+                    }
+                ], 
+                "summary": "Deletes Network Connector Endpoint"
+            }, 
+            "get": {
+                "produces": [
+                    "application/json"
+                ], 
+                "responses": {
+                    "200": {
+                        "description": "200 response", 
+                        "examples": {
+                            "application/json": {
+                                "network_connector_endpoint": {
+                                    "name": "endponit_for_az1", 
+                                    "network_connector_id": "07993b1c-79e1-4cf6-a663-dc42b9ce37d4", 
+                                    "tenant_id": "29320d5e-dd29-425c-b386-3cbb2754ad03", 
+                                    "endpoint_type": "availability_zone", 
+                                    "location": "east-jp-az1", 
+                                    "id": "6ed3561f-087f-43f9-9a51-bf71f666b80f"
+                                }
+                            }
+                        }
+                    }
+                }, 
+                "parameters": [
+                    {
+                        "required": true, 
+                        "type": "string", 
+                        "name": "network_connector_endpoint_id", 
+                        "in": "path"
+                    }
+                ], 
+                "summary": "Show Network Connector Endpoint"
+            }
+        }, 
+        "/v2.0/network_connector_endpoints/{network_connector_endpoint_id}/connect": {
+            "put": {
+                "consumes": [
+                    "application/json"
+                ], 
+                "responses": {
+                    "200": {
+                        "description": "200 response", 
+                        "examples": {}
+                    }
+                }, 
+                "parameters": [
+                    {
+                        "required": true, 
+                        "type": "string", 
+                        "name": "network_connector_endpoint_id", 
+                        "in": "path"
+                    }, 
+                    {
+                        "schema": {
+                            "$ref": "#/definitions/putConnect"
+                        }, 
+                        "required": false, 
+                        "name": "body", 
+                        "in": "body"
+                    }
+                ], 
+                "summary": "Connect Network Connector Endpoint"
+            }
+        }, 
+        "/v2.0/network_connector_endpoints/{network_connector_endpoint_id}/disconnect": {
+            "put": {
+                "consumes": [
+                    "application/json"
+                ], 
+                "responses": {
+                    "200": {
+                        "description": "200 response", 
+                        "examples": {}
+                    }
+                }, 
+                "parameters": [
+                    {
+                        "required": true, 
+                        "type": "string", 
+                        "name": "network_connector_endpoint_id", 
+                        "in": "path"
+                    }, 
+                    {
+                        "schema": {
+                            "$ref": "#/definitions/putDisconnect"
+                        }, 
+                        "required": false, 
+                        "name": "body", 
+                        "in": "body"
+                    }
+                ], 
+                "summary": "Disconnect Network Connector Endpoint"
+            }
+        }, 
+        "/v2.0/network_connector_endpoints/{network_connector_endpoint_id}/interfaces": {
+            "get": {
+                "produces": [
+                    "application/json"
+                ], 
+                "responses": {
+                    "200": {
+                        "description": "200 response", 
+                        "examples": {
+                            "application/json": {
+                                "network_connector_endpoint": {
+                                    "interfaces": [
+                                        {
+                                            "port_id": "5fd5b822-c400-46dc-bc68-ea8c0dd20876"
+                                        }, 
+                                        {
+                                            "port_id": "8df2a059-2851-4938-b989-51ce156d6b29"
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                }, 
+                "parameters": [
+                    {
+                        "required": true, 
+                        "type": "string", 
+                        "name": "network_connector_endpoint_id", 
+                        "in": "path"
+                    }
+                ], 
+                "summary": "List Connected Interfaces of Network Connector"
+            }
+        }, 
+        "/v2.0/fw/firewalls/{firewall_id}/reset_connections": {
+            "put": {
+                "produces": [
+                    "application/json"
+                ], 
+                "consumes": [
+                    "application/json"
+                ], 
+                "responses": {
+                    "200": {
+                        "description": "200 response", 
+                        "examples": {
+                            "application/json": {
+                                "target": null
+                            }
+                        }
+                    }
+                }, 
+                "parameters": [
+                    {
+                        "required": true, 
+                        "type": "string", 
+                        "name": "firewall_id", 
+                        "in": "path"
+                    }, 
+                    {
+                        "schema": {
+                            "$ref": "#/definitions/putReset_Connections"
+                        }, 
+                        "required": false, 
+                        "name": "body", 
+                        "in": "body"
+                    }
+                ], 
+                "summary": "Update firewall (Connection reset)"
+            }
+        }, 
+        "/v2.0/vpn/ssl-vpn-connections": {
+            "post": {
+                "produces": [
+                    "application/json"
+                ], 
+                "consumes": [
+                    "application/json"
+                ], 
+                "responses": {
+                    "200": {
+                        "description": "200 response", 
+                        "examples": {
+                            "application/json": {
+                                "ssl_vpn_connection": {
+                                    "status": "DOWN", 
+                                    "client_address_pool_cidr": "10.8.0.0/24", 
+                                    "name": "conn1", 
+                                    "availability_zone": "AZ1", 
+                                    "tenant_id": "1219ecaa01e0254dac4f08c9123aefcd", 
+                                    "admin_state_up": true, 
+                                    "credential_id": "434a9843-ecc0-4653-8f3a-e604d9d7aadc", 
+                                    "vpnservice_id": "cc91b7af-8304-4aff-ad07-86bdbaae2e93", 
+                                    "id": "76ee7216-5eef-470c-a7d2-ce4a7461b046"
+                                }
+                            }
+                        }
+                    }
+                }, 
+                "parameters": [
+                    {
+                        "schema": {
+                            "$ref": "#/definitions/postSsl-Vpn-Connections"
+                        }, 
+                        "required": false, 
+                        "name": "body", 
+                        "in": "body"
+                    }
+                ], 
+                "summary": "Create SSL VPN Connection "
+            }, 
+            "get": {
+                "produces": [
+                    "application/json"
+                ], 
+                "responses": {
+                    "200": {
+                        "description": "200 response", 
+                        "examples": {
+                            "application/json": {
+                                "ssl_vpn_connections": [
+                                    {
+                                        "status": "DOWN", 
+                                        "client_address_pool_cidr": "10.8.0.0/24", 
+                                        "name": "conn1", 
+                                        "availability_zone": "AZ1", 
+                                        "tenant_id": "1219ecaa01e0254dac4f08c9123aefcd", 
+                                        "admin_state_up": true, 
+                                        "credential_id": "434a9843-ecc0-4653-8f3a-e604d9d7aadc", 
+                                        "vpnservice_id": "cc91b7af-8304-4aff-ad07-86bdbaae2e93", 
+                                        "id": "2322fdea-783d-923b-cc4e-abc023ed874f"
+                                    }, 
+                                    {
+                                        "status": "ACTIVE", 
+                                        "client_address_pool_cidr": "10.8.1.0/24", 
+                                        "name": "conn2", 
+                                        "availability_zone": "AZ2", 
+                                        "tenant_id": "1219ecaa01e0254dac4f08c9123aefcd ", 
+                                        "admin_state_up": true, 
+                                        "credential_id": "434a9843-ecc0-4653-8f3a-e604d9d7aadc ", 
+                                        "vpnservice_id": "2b0cff45-af8f-4605-8f0b-ad06517474d5", 
+                                        "id": "86445a53-c95c-4203-8382-6c88b768c4a0"
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                }, 
+                "parameters": [], 
+                "summary": "List SSL VPN Connections"
+            }
+        }, 
+        "/v2.0/vpn/ssl-vpn-connections/{sslvpnconnection-id}": {
+            "put": {
+                "produces": [
+                    "application/json"
+                ], 
+                "consumes": [
+                    "application/json"
+                ], 
+                "responses": {
+                    "200": {
+                        "description": "200 response", 
+                        "examples": {
+                            "application/json": {
+                                "ssl_vpn_connection": {
+                                    "status": "DOWN", 
+                                    "client_address_pool_cidr": "10.8.0.0/24", 
+                                    "name": "conn1A", 
+                                    "availability_zone": "AZ1", 
+                                    "tenant_id": "1219ecaa01e0254dac4f08c9123aefcd", 
+                                    "admin_state_up": false, 
+                                    "credential_id": "434a9843-ecc0-4653-8f3a-e604d9d7aadc", 
+                                    "vpnservice_id": "cc91b7af-8304-4aff-ad07-86bdbaae2e93", 
+                                    "id": "2322fdea-783d-923b-cc4e-abc023ed874f"
+                                }
+                            }
+                        }
+                    }
+                }, 
+                "parameters": [
+                    {
+                        "required": true, 
+                        "type": "string", 
+                        "name": "sslvpnconnection-id", 
+                        "in": "path"
+                    }, 
+                    {
+                        "schema": {
+                            "$ref": "#/definitions/put{Sslvpnconnection-Id}"
+                        }, 
+                        "required": false, 
+                        "name": "body", 
+                        "in": "body"
+                    }
+                ], 
+                "summary": "Update SSL VPN Connection"
+            }, 
+            "delete": {
+                "responses": {
+                    "200": {
+                        "description": "200 response", 
+                        "examples": {}
+                    }
+                }, 
+                "parameters": [
+                    {
+                        "required": true, 
+                        "type": "string", 
+                        "name": "sslvpnconnection-id", 
+                        "in": "path"
+                    }
+                ], 
+                "summary": "Delete SSL VPN Connection"
+            }, 
+            "get": {
+                "produces": [
+                    "application/json"
+                ], 
+                "responses": {
+                    "200": {
+                        "description": "200 response", 
+                        "examples": {
+                            "application/json": {
+                                "ssl_vpn_connection": {
+                                    "status": "DOWN", 
+                                    "client_address_pool_cidr": "10.8.0.0/24", 
+                                    "name": "conn1", 
+                                    "availability_zone": "AZ1", 
+                                    "tenant_id": "1219ecaa01e0254dac4f-08c9123aefcd", 
+                                    "admin_state_up": true, 
+                                    "credential_id": "434a9843-ecc0-4653-8f3a-e604d9d7aadc", 
+                                    "vpnservice_id": "cc91b7af-8304-4aff-ad07-86bdbaae2e93", 
+                                    "id": "2322fdea-783d-923b-cc4e-abc023ed874f"
+                                }
+                            }
+                        }
+                    }
+                }, 
+                "parameters": [
+                    {
+                        "required": true, 
+                        "type": "string", 
+                        "name": "sslvpnconnection-id", 
+                        "in": "path"
+                    }
+                ], 
+                "summary": "Shows details for a specified SSL VPN Connection"
+            }
+        }, 
+        "/v2.0/routers/{router_id}/add_cross_project_router_interface": {
+            "put": {
+                "produces": [
+                    "application/json"
+                ], 
+                "consumes": [
+                    "application/json"
+                ], 
+                "responses": {
+                    "200": {
+                        "description": "200 response", 
+                        "examples": {
+                            "application/json": {
+                                "subnet_id": "a2f1f29d-571b-4533-907f-5803ab96ead1", 
+                                "tenant_id": " e10f4ade5a7649c49e1a6817196516ad", 
+                                "port_id": " 1accb5ac-b258-483e-af3a-f41f6df8190c", 
+                                "id": "8604a0de-7f6b-409a-a47c-a1cc7bc77b2e", 
+                                "availability_zone": "AZ1"
+                            }
+                        }
+                    }
+                }, 
+                "parameters": [
+                    {
+                        "required": true, 
+                        "type": "string", 
+                        "name": "router_id", 
+                        "in": "path"
+                    }, 
+                    {
+                        "schema": {
+                            "$ref": "#/definitions/putAdd_Cross_Project_Router_Interface"
+                        }, 
+                        "required": false, 
+                        "name": "body", 
+                        "in": "body"
+                    }
+                ], 
+                "summary": "Add interface to router (Create connection interface)"
+            }
+        }, 
+        "/v2.0/routers/{router_id}/remove_cross_project_router_interface": {
+            "put": {
+                "produces": [
+                    "application/json"
+                ], 
+                "consumes": [
+                    "application/json"
+                ], 
+                "responses": {
+                    "200": {
+                        "description": "200 response", 
+                        "examples": {
+                            "application/json": {
+                                "subnet_id": "a2f1f29d-571b-4533-907f-5803ab96ead1", 
+                                "tenant_id": " e10f4ade5a7649c49e1a6817196516ad", 
+                                "port_id": "1accb5ac-b258-483e-af3a-f41f6df8190c", 
+                                "id": "8604a0de-7f6b-409a-a47c-a1cc7bc77b2e", 
+                                "availability_zone": "AZ1"
+                            }
+                        }
+                    }
+                }, 
+                "parameters": [
+                    {
+                        "required": true, 
+                        "type": "string", 
+                        "name": "router_id", 
+                        "in": "path"
+                    }, 
+                    {
+                        "schema": {
+                            "$ref": "#/definitions/putRemove_Cross_Project_Router_Interface"
+                        }, 
+                        "required": false, 
+                        "name": "body", 
+                        "in": "body"
+                    }
+                ], 
+                "summary": "Remove interface from router (Delete connection interface)"
+            }
+        }
+    }
+}

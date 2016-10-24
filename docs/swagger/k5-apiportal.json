@@ -3,14 +3,15 @@
     "info": {
         "version": "v1", 
         "title": "Draft swagger file for Fujitsu K5 Portal User API", 
-        "x-service": "k5-apiportal"
+        "x-service": "k5-apiportal", 
+        "x-scope": "portal"
     }, 
-    "host": "k5-apiportal", 
+    "host": "k5-apiportal.paas.cloud.global.fujitsu.com", 
     "schemes": [
         "https"
     ], 
     "securityDefinitions": {
-        "auth_token": {
+        "auth_portal": {
             "type": "apiKey", 
             "name": "X-Auth-Token", 
             "in": "header"
@@ -18,7 +19,7 @@
     }, 
     "security": [
         {
-            "auth_token": []
+            "auth_portal": []
         }
     ], 
     "definitions": {

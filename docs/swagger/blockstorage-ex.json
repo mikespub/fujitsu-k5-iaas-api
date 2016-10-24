@@ -1,0 +1,73 @@
+{
+    "swagger": "2.0", 
+    "info": {
+        "version": "v1", 
+        "title": "Draft swagger file for Fujitsu K5 IaaS Blockstorage API Extension", 
+        "x-service": "blockstorage", 
+        "x-scope": "region"
+    }, 
+    "host": "blockstorage.uk-1.cloud.global.fujitsu.com", 
+    "schemes": [
+        "https"
+    ], 
+    "securityDefinitions": {
+        "auth_region": {
+            "type": "apiKey", 
+            "name": "X-Auth-Token", 
+            "in": "header"
+        }
+    }, 
+    "security": [
+        {
+            "auth_region": []
+        }
+    ], 
+    "definitions": {
+        "postAction": {
+            "type": "object", 
+            "example": {
+                "application/json": {
+                    "fcx-restore": {}
+                }
+            }
+        }
+    }, 
+    "paths": {
+        "/v2/{tenant_id}/snapshots/{snapshot_id}/action": {
+            "post": {
+                "consumes": [
+                    "application/json"
+                ], 
+                "responses": {
+                    "200": {
+                        "description": "200 response", 
+                        "examples": {}
+                    }
+                }, 
+                "parameters": [
+                    {
+                        "required": true, 
+                        "type": "string", 
+                        "name": "tenant_id", 
+                        "in": "path"
+                    }, 
+                    {
+                        "required": true, 
+                        "type": "string", 
+                        "name": "snapshot_id", 
+                        "in": "path"
+                    }, 
+                    {
+                        "schema": {
+                            "$ref": "#/definitions/postAction"
+                        }, 
+                        "required": false, 
+                        "name": "body", 
+                        "in": "body"
+                    }
+                ], 
+                "summary": "Restore volume from the snapshot "
+            }
+        }
+    }
+}

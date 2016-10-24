@@ -1,0 +1,292 @@
+{
+    "swagger": "2.0", 
+    "info": {
+        "version": "v1", 
+        "title": "Draft swagger file for Fujitsu K5 IaaS Cdn API", 
+        "x-service": "cdn"
+    }, 
+    "host": "cdn", 
+    "schemes": [
+        "https"
+    ], 
+    "securityDefinitions": {
+        "auth_token": {
+            "type": "apiKey", 
+            "name": "X-Auth-Token", 
+            "in": "header"
+        }
+    }, 
+    "security": [
+        {
+            "auth_token": []
+        }
+    ], 
+    "definitions": {
+        "postServices": {
+            "type": "object", 
+            "example": {
+                "application/json": {
+                    "rules": [
+                        {
+                            "matches": [
+                                {
+                                    "name": "url-wildcard", 
+                                    "value": "/*"
+                                }
+                            ], 
+                            "behaviors": [
+                                {
+                                    "params": {
+                                        "cacheKeyValue": "-", 
+                                        "digitalProperty": "-", 
+                                        "cacheKeyType": "origin", 
+                                        "hostHeaderValue": "-", 
+                                        "originDomain": "jp.fujitsu.com", 
+                                        "hostHeaderType": "origin"
+                                    }, 
+                                    "name": "origin", 
+                                    "value": "-"
+                                }, 
+                                {
+                                    "type": "fixed", 
+                                    "name": "caching", 
+                                    "value": "1d"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            }
+        }
+    }, 
+    "paths": {
+        "/v1/services": {
+            "post": {
+                "consumes": [
+                    "application/json"
+                ], 
+                "responses": {
+                    "200": {
+                        "description": "200 response", 
+                        "examples": {
+                            "text/plain": "HTTP/1.1 202 Accepted\\nLocation: http://<Endpoint>/v1/services/2b7368fd-f243-496da1d5-16da2e5a3e0d\\nX-Message: Accepted\\nContent-Length: 0"
+                        }
+                    }
+                }, 
+                "parameters": [
+                    {
+                        "schema": {
+                            "$ref": "#/definitions/postServices"
+                        }, 
+                        "required": false, 
+                        "name": "body", 
+                        "in": "body"
+                    }
+                ], 
+                "summary": "Create a service"
+            }, 
+            "get": {
+                "produces": [
+                    "application/json"
+                ], 
+                "responses": {
+                    "200": {
+                        "description": "200 response", 
+                        "examples": {
+                            "application/json": {
+                                "rules": [
+                                    {
+                                        "matches": [
+                                            {
+                                                "name": "url-wildcard", 
+                                                "value": "/*"
+                                            }
+                                        ], 
+                                        "behaviors": [
+                                            {
+                                                "params": {
+                                                    "cacheKeyValue": "-", 
+                                                    "digitalProperty": "test-cccbfc24.cdnedge.cloud.global.fujitsu.com", 
+                                                    "cacheKeyType": "origin", 
+                                                    "hostHeaderValue": "-", 
+                                                    "originDomain": "jp.fujitsu.com", 
+                                                    "hostHeaderType": "origin"
+                                                }, 
+                                                "name": "origin", 
+                                                "value": "-"
+                                            }, 
+                                            {
+                                                "type": "fixed", 
+                                                "name": "caching", 
+                                                "value": "1d"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }, 
+                            "text/plain": "HTTP/1.1 200 OK\\nX-Message: Success\\nX-Status: deployed\\nX-Access-Url: test-cccbfc24.cdn-edge.cloud.global.fujitsu.com\\nX-Protocol: http\\nX-Access-Log-Status: undeployed\\nX-Access-Log-Container:\\nX-Access-Log-Object-Prefix:\\nX-Access-Log-Detailed-Status:\\nContent-type: application/json\\nContent-Length: 429"
+                        }
+                    }
+                }, 
+                "parameters": [], 
+                "summary": "Retrieve a service"
+            }
+        }, 
+        "/v1/services/{service_id}/param": {
+            "patch": {
+                "responses": {
+                    "200": {
+                        "description": "200 response", 
+                        "examples": {
+                            "text/plain": "HTTP/1.1 202 Accepted\\nX-Message: Accepted\\nLocation: http://<Endpoint>/v1/services/service_id-25\\nContent-Length: 0"
+                        }
+                    }
+                }, 
+                "parameters": [
+                    {
+                        "required": true, 
+                        "type": "string", 
+                        "name": "service_id", 
+                        "in": "path"
+                    }
+                ], 
+                "summary": "Edit a service"
+            }
+        }, 
+        "/v1/services/{service_id}": {
+            "delete": {
+                "responses": {
+                    "200": {
+                        "description": "200 response", 
+                        "examples": {
+                            "text/plain": "HTTP/1.1 202 Accepted\\nX-Message: Accepted\\nContent-Length: 0"
+                        }
+                    }
+                }, 
+                "parameters": [
+                    {
+                        "required": true, 
+                        "type": "string", 
+                        "name": "service_id", 
+                        "in": "path"
+                    }
+                ], 
+                "summary": "Delete a service"
+            }
+        }, 
+        "/v1/services/{service_id}/assets": {
+            "delete": {
+                "responses": {
+                    "200": {
+                        "description": "200 response", 
+                        "examples": {
+                            "text/plain": "HTTP/1.1 202 Accepted\\nX-Message: Accepted\\nContent-Length: 0"
+                        }
+                    }
+                }, 
+                "parameters": [
+                    {
+                        "required": true, 
+                        "type": "string", 
+                        "name": "service_id", 
+                        "in": "path"
+                    }
+                ], 
+                "summary": "Purge a cached asset"
+            }
+        }, 
+        "/v1/reports": {
+            "post": {
+                "responses": {
+                    "200": {
+                        "description": "200 response", 
+                        "examples": {
+                            "text/plain": "HTTP/1.1 202 Accepted\\nX-Message: Accepted\\nLocation: http://<Endpoint>/v1/reports/96b6c7a9-1f75-4b37-88de-9a6626a13f1c\\nContent-Length: 0"
+                        }
+                    }
+                }, 
+                "parameters": [], 
+                "summary": "Create a report"
+            }
+        }, 
+        "/v1/reports/{report_id}": {
+            "get": {
+                "produces": [
+                    "application/json"
+                ], 
+                "responses": {
+                    "200": {
+                        "description": "200 response", 
+                        "examples": {
+                            "application/json": {
+                                "headers": [
+                                    {
+                                        "index": 0, 
+                                        "name": "Time"
+                                    }, 
+                                    {
+                                        "index": 1, 
+                                        "name": "200Count"
+                                    }, 
+                                    {
+                                        "index": 2, 
+                                        "name": "4XXCount"
+                                    }, 
+                                    {
+                                        "index": 3, 
+                                        "name": "5XXCount"
+                                    }, 
+                                    {
+                                        "index": 4, 
+                                        "name": "RequestCount"
+                                    }
+                                ], 
+                                "rows": [
+                                    [
+                                        "2015/12/04 00:00", 
+                                        "139", 
+                                        "0", 
+                                        "3", 
+                                        "142"
+                                    ], 
+                                    [
+                                        "2015/12/15 00:00", 
+                                        "212", 
+                                        "0", 
+                                        "16", 
+                                        "228"
+                                    ]
+                                ], 
+                                "metadata": {
+                                    "delivery_option": "all", 
+                                    "end_date": "20151215", 
+                                    "time_created": "2016/01/26 06:47", 
+                                    "metrics": [
+                                        "200Count", 
+                                        "4XXCount", 
+                                        "5XXCount", 
+                                        "RequestCount"
+                                    ], 
+                                    "granularity": "daily", 
+                                    "service_id": null, 
+                                    "start_date": "20151201", 
+                                    "per_region": "false"
+                                }
+                            }, 
+                            "text/plain": "HTTP/1.1 200 OK\\nX-Message: Success\\nX-Status: deployed\\nContent-Type: application/json\\nContent-Length: 765"
+                        }
+                    }
+                }, 
+                "parameters": [
+                    {
+                        "required": true, 
+                        "type": "string", 
+                        "name": "report_id", 
+                        "in": "path"
+                    }
+                ], 
+                "summary": "Retrieve a report"
+            }
+        }
+    }
+}

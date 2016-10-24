@@ -1,0 +1,119 @@
+{
+    "swagger": "2.0", 
+    "info": {
+        "version": "v1", 
+        "title": "Draft swagger file for Fujitsu K5 IaaS Autoscale API", 
+        "x-service": "autoscale"
+    }, 
+    "host": "autoscale", 
+    "schemes": [
+        "https"
+    ], 
+    "securityDefinitions": {
+        "auth_token": {
+            "type": "apiKey", 
+            "name": "X-Auth-Token", 
+            "in": "header"
+        }
+    }, 
+    "security": [
+        {
+            "auth_token": []
+        }
+    ], 
+    "definitions": {
+        "postAutoscale_Schedulers": {
+            "type": "object", 
+            "example": {
+                "application/json": {
+                    "url": " http://orchestration.jp-east-1.cloud.global.fujitsu.com/ v1/2801e5de00d142a388b17b65256f7ad4/stacks/s1_step2/0ffc2720- a7ba-4e0f-8ca6-82142f14f6eb/resources/web_server_scaleup_policy/signal", 
+                    "project_id": "2801e5de00d142a388b17b65256f7ad4", 
+                    "time": "*/5 * * * *", 
+                    "method": "POST", 
+                    "name": "sample2"
+                }
+            }
+        }
+    }, 
+    "paths": {
+        "/autoscale_schedulers": {
+            "post": {
+                "produces": [
+                    "application/json"
+                ], 
+                "consumes": [
+                    "application/json"
+                ], 
+                "responses": {
+                    "200": {
+                        "description": "200 response", 
+                        "examples": {
+                            "application/json": {
+                                "url": " http://orchestration.jp-east-1.cloud.global.fujitsu.com/ v1/2801e5de00d142a388b17b65256f7ad4/stacks/s1_step2/0ffc2720- a7ba-4e0f-8ca6-82142f14f6eb/resources/web_server_scaleup_policy/signal", 
+                                "method": "POST", 
+                                "project_id": "2801e5de00d142a388b17b65256f7ad4", 
+                                "name": "sample2", 
+                                "time": "*/5 * * * *"
+                            }
+                        }
+                    }
+                }, 
+                "parameters": [
+                    {
+                        "schema": {
+                            "$ref": "#/definitions/postAutoscale_Schedulers"
+                        }, 
+                        "required": false, 
+                        "name": "body", 
+                        "in": "body"
+                    }
+                ], 
+                "summary": "Register a schedule "
+            }, 
+            "get": {
+                "produces": [
+                    "application/json"
+                ], 
+                "responses": {
+                    "200": {
+                        "description": "200 response", 
+                        "examples": {
+                            "application/json": {
+                                "schedulers": [
+                                    {
+                                        "url": "http://192.168.3.104:8004/v1/2801e5de00d142a388b17b65256f7ad4/ stacks/s1_step2/0ffc2720-a7ba-4e0f-8ca6-82142f14f6eb/resources/ web_server_scaleup_policy/signal", 
+                                        "project_id": "2801e5de00d142a388b17b65256f7ad4", 
+                                        "time": "*/5 * * * *", 
+                                        "method": "POST", 
+                                        "name": "sample2"
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                }, 
+                "parameters": [], 
+                "summary": "List schedules "
+            }
+        }, 
+        "/autoscale_schedulers/{name}": {
+            "delete": {
+                "responses": {
+                    "200": {
+                        "description": "200 response", 
+                        "examples": {}
+                    }
+                }, 
+                "parameters": [
+                    {
+                        "required": true, 
+                        "type": "string", 
+                        "name": "name", 
+                        "in": "path"
+                    }
+                ], 
+                "summary": "Delete a schedule "
+            }
+        }
+    }
+}

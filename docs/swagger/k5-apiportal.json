@@ -1,0 +1,178 @@
+{
+    "swagger": "2.0", 
+    "info": {
+        "version": "v1", 
+        "title": "Draft swagger file for Fujitsu K5 Portal User API", 
+        "x-service": "k5-apiportal"
+    }, 
+    "host": "k5-apiportal", 
+    "schemes": [
+        "https"
+    ], 
+    "securityDefinitions": {
+        "auth_token": {
+            "type": "apiKey", 
+            "name": "X-Auth-Token", 
+            "in": "header"
+        }
+    }, 
+    "security": [
+        {
+            "auth_token": []
+        }
+    ], 
+    "definitions": {
+        "putUserspassword": {
+            "type": "object", 
+            "example": {
+                "application/json": {
+                    "before_password": "Abcdefgh12345678", 
+                    "login_id": "fujitsu123", 
+                    "after_password": "Newpassword12345678"
+                }
+            }
+        }, 
+        "putUsers": {
+            "type": "object", 
+            "example": {
+                "application/json": {
+                    "login_id": "fujitsu123", 
+                    "user_status": "1", 
+                    "user_description": "User description.", 
+                    "user_first_name": "John", 
+                    "user_last_name": "Smith", 
+                    "language_code": "ja", 
+                    "password": "Abcdefgh12345678", 
+                    "mailaddress": "abc@xyz.com"
+                }
+            }
+        }, 
+        "postUsers": {
+            "type": "object", 
+            "example": {
+                "application/json": {
+                    "login_id": "fujitsu123", 
+                    "user_status": "1", 
+                    "user_description": "User description", 
+                    "user_first_name": "John", 
+                    "role_code": "00", 
+                    "user_last_name": "Smith", 
+                    "language_code": "ja", 
+                    "password": "Abcdefgh12345678", 
+                    "mailaddress": "abc@xyz.com"
+                }
+            }
+        }
+    }, 
+    "paths": {
+        "/API/v1/api/users": {
+            "put": {
+                "produces": [
+                    "application/json"
+                ], 
+                "consumes": [
+                    "application/json"
+                ], 
+                "responses": {
+                    "200": {
+                        "description": "200 response", 
+                        "examples": {
+                            "application/json": {
+                                "login_id": "fujitsu123", 
+                                "user_status": "1", 
+                                "user_description": "User description.", 
+                                "user_first_name": "John", 
+                                "user_last_name": "Smith", 
+                                "language_code": "ja", 
+                                "mailaddress": "abc@xyz.com"
+                            }
+                        }
+                    }
+                }, 
+                "parameters": [
+                    {
+                        "schema": {
+                            "$ref": "#/definitions/putUsers"
+                        }, 
+                        "required": false, 
+                        "name": "body", 
+                        "in": "body"
+                    }
+                ], 
+                "summary": "Change user information"
+            }, 
+            "post": {
+                "produces": [
+                    "application/json"
+                ], 
+                "consumes": [
+                    "application/json"
+                ], 
+                "responses": {
+                    "200": {
+                        "description": "200 response", 
+                        "examples": {
+                            "application/json": {
+                                "login_id": "fujitsu123", 
+                                "authentication_method ": "0", 
+                                "user_status": "1", 
+                                "user_description": "User description.", 
+                                "user_first_name": "John", 
+                                "user_last_name": "Smith", 
+                                "language_code": "ja", 
+                                "mailaddress": "abc@xyz.com"
+                            }
+                        }
+                    }
+                }, 
+                "parameters": [
+                    {
+                        "schema": {
+                            "$ref": "#/definitions/postUsers"
+                        }, 
+                        "required": false, 
+                        "name": "body", 
+                        "in": "body"
+                    }
+                ], 
+                "summary": "Create new user"
+            }
+        }, 
+        "/API/v1/api/userspassword": {
+            "put": {
+                "consumes": [
+                    "application/json"
+                ], 
+                "responses": {
+                    "200": {
+                        "description": "200 response", 
+                        "examples": {}
+                    }
+                }, 
+                "parameters": [
+                    {
+                        "schema": {
+                            "$ref": "#/definitions/putUserspassword"
+                        }, 
+                        "required": false, 
+                        "name": "body", 
+                        "in": "body"
+                    }
+                ], 
+                "summary": "Change user password"
+            }
+        }, 
+        "/API/v1/api/users/?login_id=": {
+            "delete": {
+                "responses": {
+                    "200": {
+                        "description": "200 response", 
+                        "examples": {}
+                    }
+                }, 
+                "parameters": [], 
+                "summary": "Delete user"
+            }
+        }
+    }
+}

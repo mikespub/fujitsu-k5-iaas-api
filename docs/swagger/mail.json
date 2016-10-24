@@ -1,0 +1,452 @@
+{
+    "swagger": "2.0", 
+    "info": {
+        "version": "v1", 
+        "title": "Draft swagger file for Fujitsu K5 IaaS Mail API", 
+        "x-service": "mail"
+    }, 
+    "host": "mail", 
+    "schemes": [
+        "https"
+    ], 
+    "securityDefinitions": {
+        "auth_token": {
+            "type": "apiKey", 
+            "name": "X-Auth-Token", 
+            "in": "header"
+        }
+    }, 
+    "security": [
+        {
+            "auth_token": []
+        }
+    ], 
+    "definitions": {}, 
+    "paths": {
+        "/#DeleteIdentity": {
+            "post": {
+                "produces": [
+                    "application/xml"
+                ], 
+                "consumes": [
+                    "application/x-www-form-urlencoded"
+                ], 
+                "responses": {
+                    "200": {
+                        "description": "200 response", 
+                        "examples": {
+                            "text/plain": "HTTP/1.1 200 OK\\nDate: Fri, 06 Jun 2014 11:00:38 GMT Content-Length: ...\\nContent-Type: application/xml\\nx-fj-request-id: 035e3d62-c956-4fd2-b0ee-482337e909cf\\n", 
+                            "application/xml": "<?xml version='1.0' encoding='UTF-8'?>\n<DeleteIdentityResponse>\n  <DeleteIdentityResult/>\n  <ResponseMetadata>\n    <RequestId>035e3d62-c956-4fd2-b0ee-482337e909cf</RequestId>\n  </ResponseMetadata>\n</DeleteIdentityResponse>\n"
+                        }
+                    }
+                }, 
+                "parameters": [
+                    {
+                        "default": "DeleteIdentity", 
+                        "required": true, 
+                        "type": "string", 
+                        "name": "Action", 
+                        "in": "formData"
+                    }, 
+                    {
+                        "default": "example.com", 
+                        "required": false, 
+                        "type": "string", 
+                        "name": "Identity", 
+                        "in": "formData"
+                    }
+                ], 
+                "summary": "Delete sender ID"
+            }
+        }, 
+        "/#GetIdentityVerificationAttributes": {
+            "post": {
+                "produces": [
+                    "application/xml"
+                ], 
+                "consumes": [
+                    "application/x-www-form-urlencoded"
+                ], 
+                "responses": {
+                    "200": {
+                        "description": "200 response", 
+                        "examples": {
+                            "text/plain": "HTTP/1.1 200 OK\\nDate: Fri, 06 Jun 2014 11:00:38 GMT Content-Length: ...\\nContent-Type: application/xml\\nx-fj-request-id: d96bd874-9bf2-11e1-8ee7-c98a0037a2b6\\n", 
+                            "application/xml": "<?xml version='1.0' encoding='UTF-8'?>\n<GetIdentityVerificationAttributesResponse>\n  <GetIdentityVerificationAttributesResult>\n    <VerificationAttributes>\n      <entry>\n        <key>example.com</key>\n        <value>\n          <VerificationStatus>Pending</VerificationStatus>\n          <VerificationToken>QTKknzFg2J4ygwa+XvHAxUl1hyHoY0gVfZdfjIedHZ0=</VerificationToken>\n        </value>\n      </entry>\n      <entry>\n        <key>user@ example.com</key>\n        <value>\n          <VerificationStatus>Pending</VerificationStatus>\n        </value>\n      </entry>\n    </VerificationAttributes>\n  </GetIdentityVerificationAttributesResult>\n  <ResponseMetadata>\n    <RequestId>d96bd874-9bf2-11e1-8ee7-c98a0037a2b6</RequestId>\n  </ResponseMetadata>\n</GetIdentityVerificationAttributesResponse>\n"
+                        }
+                    }
+                }, 
+                "parameters": [
+                    {
+                        "default": "GetIdentityVerificationAttributes", 
+                        "required": true, 
+                        "type": "string", 
+                        "name": "Action", 
+                        "in": "formData"
+                    }, 
+                    {
+                        "default": "example.com", 
+                        "required": false, 
+                        "type": "string", 
+                        "name": "Identities.member.1", 
+                        "in": "formData"
+                    }, 
+                    {
+                        "default": "user%40example.com", 
+                        "required": false, 
+                        "type": "string", 
+                        "name": "Identities.member.2", 
+                        "in": "formData"
+                    }
+                ], 
+                "summary": "Show sender ID verification status and verification token"
+            }
+        }, 
+        "/#GetSendQuota": {
+            "post": {
+                "produces": [
+                    "application/xml"
+                ], 
+                "consumes": [
+                    "application/x-www-form-urlencoded"
+                ], 
+                "responses": {
+                    "200": {
+                        "description": "200 response", 
+                        "examples": {
+                            "text/plain": "HTTP/1.1 200 OK\\nDate: Fri, 06 Jun 2014 11:00:38 GMT Content-Length: ...\\nContent-Type: application/xml\\nx-fj-request-id: d96bd874-9bf2-11e1-8ee7-c98a0037a2b6\\n", 
+                            "application/xml": "<?xml version='1.0' encoding='UTF-8'?>\n<GetSendQuotaResponse>\n  <GetSendQuotaResult>\n    <SentLast24Hours>127.0</SentLast24Hours>\n    <Max24HourSend>43200000.0</Max24HourSend>\n    <MaxSendRate>500.0</MaxSendRate>\n  </GetSendQuotaResult>\n  <ResponseMetadata>\n    <RequestId>d96bd874-9bf2-11e1-8ee7-c98a0037a2b6</RequestId>\n  </ResponseMetadata>\n</GetSendQuotaResponse>\n"
+                        }
+                    }
+                }, 
+                "parameters": [
+                    {
+                        "default": "GetSendQuota", 
+                        "required": true, 
+                        "type": "string", 
+                        "name": "Action", 
+                        "in": "formData"
+                    }
+                ], 
+                "summary": "Show email sending limits"
+            }
+        }, 
+        "/#GetSendStatistics": {
+            "post": {
+                "produces": [
+                    "application/xml"
+                ], 
+                "consumes": [
+                    "application/x-www-form-urlencoded"
+                ], 
+                "responses": {
+                    "200": {
+                        "description": "200 response", 
+                        "examples": {
+                            "text/plain": "HTTP/1.1 200 OK\\nDate: Fri, 06 Jun 2014 11:00:38 GMT Content-Length: ...\\nContent-Type: application/xml\\nx-fj-request-id: d96bd874-9bf2-11e1-8ee7-c98a0037a2b6\\n", 
+                            "application/xml": "<?xml version='1.0' encoding='UTF-8'?>\n<GetSendStatisticsResponse>\n  <GetSendStatisticsResult>\n    <SendDataPoints>\n      <member>\n        <DeliveryAttempts>8</DeliveryAttempts>\n        <Timestamp>2011-08-03T19:23:00Z</Timestamp>\n        <Rejects>0</Rejects>\n        <Bounces>0</Bounces>\n        <Complaints>0</Complaints>\n      </member>\n      <member>\n        <DeliveryAttempts>7</DeliveryAttempts>\n        <Timestamp>2011-08-03T06:53:00Z</Timestamp>\n        <Rejects>0</Rejects>\n        <Bounces>0</Bounces>\n        <Complaints>0</Complaints>\n      </member>\n      <member>\n\t  ...\n      </member>\n    </SendDataPoints>\n  </GetSendStatisticsResult>\n  <ResponseMetadata>\n    <RequestId>d96bd874-9bf2-11e1-8ee7-c98a0037a2b6</RequestId>\n  </ResponseMetadata>\n</GetSendStatisticsResponse>\n"
+                        }
+                    }
+                }, 
+                "parameters": [
+                    {
+                        "default": "GetSendStatistics", 
+                        "required": true, 
+                        "type": "string", 
+                        "name": "Action", 
+                        "in": "formData"
+                    }
+                ], 
+                "summary": "Show sent email statistics"
+            }
+        }, 
+        "/#ListIdentities": {
+            "post": {
+                "produces": [
+                    "application/xml"
+                ], 
+                "consumes": [
+                    "application/x-www-form-urlencoded"
+                ], 
+                "responses": {
+                    "200": {
+                        "description": "200 response", 
+                        "examples": {
+                            "text/plain": "HTTP/1.1 200 OK\\nDate: Fri, 06 Jun 2014 11:00:38 GMT Content-Length: ...\\nContent-Type: application/xml\\nx-fj-request-id: d96bd874-9bf2-11e1-8ee7-c98a0037a2b6\\n", 
+                            "application/xml": "<?xml version='1.0' encoding='UTF-8'?>\n<ListIdentitiesResponse>\n  <ListIdentitiesResult>\n    <Identities>\n      <member>user1@example.com</member>\n      <member>user2@example.com</member>\n    </Identities>\n  </ListIdentitiesResult>\n  <ResponseMetadata>\n    <RequestId>d96bd874-9bf2-11e1-8ee7-c98a0037a2b6</RequestId>\n  </ResponseMetadata>\n</ListIdentitiesResponse>\n"
+                        }
+                    }
+                }, 
+                "parameters": [
+                    {
+                        "default": "ListIdentities", 
+                        "required": true, 
+                        "type": "string", 
+                        "name": "Action", 
+                        "in": "formData"
+                    }, 
+                    {
+                        "default": "EmailAddress", 
+                        "required": false, 
+                        "type": "string", 
+                        "name": "IdentityType", 
+                        "in": "formData"
+                    }
+                ], 
+                "summary": "List sender IDs"
+            }
+        }, 
+        "/#SendEmail": {
+            "post": {
+                "produces": [
+                    "application/xml"
+                ], 
+                "consumes": [
+                    "application/x-www-form-urlencoded"
+                ], 
+                "responses": {
+                    "200": {
+                        "description": "200 response", 
+                        "examples": {
+                            "text/plain": "HTTP/1.1 200 OK\\nDate: Fri, 06 Jun 2014 11:00:38 GMT Content-Length: ...\\nContent-Type: application/xml\\nx-fj-request-id: baf96453-4867-4359-9cfc-5fee3afe7e98\\n", 
+                            "application/xml": "<?xml version='1.0' encoding='UTF-8'?>\n<SendEmailResponse>\n  <SendEmailResult>\n    <MessageId>000001fd985ba1-c92b-49ba-97ee-afcefdb6bab5-000000</MessageId>\n  </SendEmailResult>\n  <ResponseMetadata>\n    <RequestId>baf96453-4867-4359-9cfc-5fee3afe7e98</RequestId>\n  </ResponseMetadata>\n</SendEmailResponse>\n"
+                        }
+                    }
+                }, 
+                "parameters": [
+                    {
+                        "default": "SendEmail", 
+                        "required": true, 
+                        "type": "string", 
+                        "name": "Action", 
+                        "in": "formData"
+                    }, 
+                    {
+                        "default": "allan%40example.com", 
+                        "required": false, 
+                        "type": "string", 
+                        "name": "Destination.ToAddresses.member.1", 
+                        "in": "formData"
+                    }, 
+                    {
+                        "default": "body", 
+                        "required": false, 
+                        "type": "string", 
+                        "name": "Message.Body.Text.Data", 
+                        "in": "formData"
+                    }, 
+                    {
+                        "default": "subject", 
+                        "required": false, 
+                        "type": "string", 
+                        "name": "Message.Subject.Data", 
+                        "in": "formData"
+                    }, 
+                    {
+                        "default": "user%40example.com", 
+                        "required": false, 
+                        "type": "string", 
+                        "name": "Source", 
+                        "in": "formData"
+                    }
+                ], 
+                "summary": "Send email created from input data"
+            }
+        }, 
+        "/#SendRawEmail": {
+            "post": {
+                "produces": [
+                    "application/xml"
+                ], 
+                "consumes": [
+                    "application/x-www-form-urlencoded"
+                ], 
+                "responses": {
+                    "200": {
+                        "description": "200 response", 
+                        "examples": {
+                            "text/plain": "HTTP/1.1 200 OK\\nDate: Fri, 06 Jun 2014 11:00:38 GMT Content-Length: ...\\nContent-Type: application/xml\\nx-fj-request-id: 0ae83209-8dd0-4392-8b15-74c693c98aad\\n", 
+                            "application/xml": "<?xml version='1.0' encoding='UTF-8'?>\n<SendRawEmailResponse>\n  <SendRawEmailResult>\n    <MessageId>0000012d23161b-6d55-4355-981f-1f9e835008c0-000000</MessageId>\n  </SendRawEmailResult>\n  <ResponseMetadata>\n    <RequestId>0ae83209-8dd0-4392-8b15-74c693c98aad</RequestId>\n  </ResponseMetadata>\n</SendRawEmailResponse>\n"
+                        }
+                    }
+                }, 
+                "parameters": [
+                    {
+                        "default": "SendRawEmail", 
+                        "required": true, 
+                        "type": "string", 
+                        "name": "Action", 
+                        "in": "formData"
+                    }, 
+                    {
+                        "default": "U3Viam...", 
+                        "required": false, 
+                        "type": "string", 
+                        "name": "RawMessage.Data", 
+                        "in": "formData"
+                    }
+                ], 
+                "summary": "Send raw text email"
+            }
+        }, 
+        "/#VerifyDomainIdentity": {
+            "post": {
+                "produces": [
+                    "application/xml"
+                ], 
+                "consumes": [
+                    "application/x-www-form-urlencoded"
+                ], 
+                "responses": {
+                    "200": {
+                        "description": "200 response", 
+                        "examples": {
+                            "text/plain": "HTTP/1.1 200 OK\\nDate: Fri, 06 Jun 2014 11:00:38 GMT\\nContent-Length: ...\\nContent-Type: application/xml\\nx-fj-request-id: 0610909f-2598-4354-838b-67223520e3ea\\n", 
+                            "application/xml": "<?xml version='1.0' encoding='UTF-8'?>\n<VerifyDomainIdentityResponse>\n  <VerifyDomainIdentityResult>\n    <VerificationToken>95f2f6b80985...</VerificationToken>\n  </VerifyDomainIdentityResult>\n  <ResponseMetadata>\n    <RequestId>0610909f-2598-4354-838b-67223520e3ea</RequestId>\n  </ResponseMetadata>\n</VerifyDomainIdentityResponse>\n"
+                        }
+                    }
+                }, 
+                "parameters": [
+                    {
+                        "default": "VerifyDomainIdentity", 
+                        "required": true, 
+                        "type": "string", 
+                        "name": "Action", 
+                        "in": "formData"
+                    }, 
+                    {
+                        "default": "example.com", 
+                        "required": false, 
+                        "type": "string", 
+                        "name": "Domain", 
+                        "in": "formData"
+                    }
+                ], 
+                "summary": "Verify domain"
+            }
+        }, 
+        "/#VerifyEmailIdentity": {
+            "post": {
+                "produces": [
+                    "application/xml"
+                ], 
+                "consumes": [
+                    "application/x-www-form-urlencoded"
+                ], 
+                "responses": {
+                    "200": {
+                        "description": "200 response", 
+                        "examples": {
+                            "text/plain": "HTTP/1.1 200 OK\\nDate: Fri, 06 Jun 2014 11:00:38 GMT Content-Length: ...\\nContent-Type: application/xml\\nx-fj-request-id: 65ce6f91-4e8d-44a1-b33e-5ba3de2f528b\\n", 
+                            "application/xml": "<?xml version='1.0' encoding='UTF-8'?>\n<VerifyEmailIdentityResponse>\n  <VerifyEmailIdentityResult/>\n  <ResponseMetadata>\n    <RequestId>65ce6f91-4e8d-44a1-b33e-5ba3de2f528b </RequestId>\n  </ResponseMetadata>\n</VerifyEmailIdentityResponse>\n"
+                        }
+                    }
+                }, 
+                "parameters": [
+                    {
+                        "default": "VerifyEmailIdentity", 
+                        "required": true, 
+                        "type": "string", 
+                        "name": "Action", 
+                        "in": "formData"
+                    }, 
+                    {
+                        "default": "user%40example.com", 
+                        "required": false, 
+                        "type": "string", 
+                        "name": "EmailAddress", 
+                        "in": "formData"
+                    }
+                ], 
+                "summary": "Verify email address"
+            }
+        }, 
+        "/#CreateSMTPUser": {
+            "post": {
+                "produces": [
+                    "application/xml"
+                ], 
+                "consumes": [
+                    "application/x-www-form-urlencoded"
+                ], 
+                "responses": {
+                    "200": {
+                        "description": "200 response", 
+                        "examples": {
+                            "text/plain": "HTTP/1.1 200 OK\\nDate: Fri, 06 Jun 2014 11:00:38 GMT Content-Length: ...\\nContent-Type: application/xml\\nx-fj-request-id: 65ce6f91-4e8d-44a1-b33e-5ba3de2f528b\\n", 
+                            "application/xml": "<?xml version='1.0' encoding='UTF-8'?>\n<CreateSMTPUserResponse>\n  <CreateSMTPUserResult>\n    <SMTPUser>NKUIGMTPOU9PUZGKL1RW</SMTPUser>\n    <SMTPPassword>BiUIRJHe...</SMTPPassword>\n  </CreateSMTPUserResult>\n  <ResponseMetadata>\n    <RequestId>65ce6f91-4e8d-44a1-b33e-5ba3de2f528b </RequestId>\n  </ResponseMetadata>\n</CreateSMTPUserResponse>\n"
+                        }
+                    }
+                }, 
+                "parameters": [
+                    {
+                        "default": "CreateSMTPUser", 
+                        "required": true, 
+                        "type": "string", 
+                        "name": "Action", 
+                        "in": "formData"
+                    }
+                ], 
+                "summary": "Create user for accessing SMTP server"
+            }
+        }, 
+        "/#DeleteSMTPUser": {
+            "post": {
+                "produces": [
+                    "application/xml"
+                ], 
+                "consumes": [
+                    "application/x-www-form-urlencoded"
+                ], 
+                "responses": {
+                    "200": {
+                        "description": "200 response", 
+                        "examples": {
+                            "text/plain": "HTTP/1.1 200 OK\\nDate: Fri, 06 Jun 2014 11:00:38 GMT Content-Length: ...\\nContent-Type: application/xml\\nx-fj-request-id: 65ce6f91-4e8d-44a1-b33e-5ba3de2f528b\\n", 
+                            "application/xml": "<?xml version='1.0' encoding='UTF-8'?>\n<DeleteSMTPUserResponse>\n  <DeleteSMTPUserResult/>\n  <ResponseMetadata>\n    <RequestId>65ce6f91-4e8d-44a1-b33e-5ba3de2f528b </RequestId>\n  </ResponseMetadata>\n</DeleteSMTPUserResponse>\n"
+                        }
+                    }
+                }, 
+                "parameters": [
+                    {
+                        "default": "DeleteSMTPUser", 
+                        "required": true, 
+                        "type": "string", 
+                        "name": "Action", 
+                        "in": "formData"
+                    }
+                ], 
+                "summary": "Delete user for accessing SMTP server"
+            }
+        }, 
+        "/#GetSMTPUserInfo": {
+            "post": {
+                "produces": [
+                    "application/xml"
+                ], 
+                "consumes": [
+                    "application/x-www-form-urlencoded"
+                ], 
+                "responses": {
+                    "200": {
+                        "description": "200 response", 
+                        "examples": {
+                            "text/plain": "HTTP/1.1 200 OK\\nDate: Fri, 06 Jun 2014 11:00:38 GMT Content-Length: ...\\nContent-Type: application/xml\\nx-fj-request-id: 65ce6f91-4e8d-44a1-b33e-5ba3de2f528b\\n", 
+                            "application/xml": "<?xml version='1.0' encoding='UTF-8'?>\n<GetSMTPUserInfoResponse>\n  <GetSMTPUserInfoResult>\n    <SMTPUser>NKUIGMTPOU9PUZGKL1RW</SMTPUser>\n    <SMTPPassword> BiUIRJHe...</SMTPPassword>\n  </GetSMTPUserInfoResult>\n  <ResponseMetadata>\n    <RequestId>65ce6f91-4e8d-44a1-b33e-5ba3de2f528b </RequestId>\n  </ResponseMetadata>\n</GetSMTPUserInfoResponse>\n"
+                        }
+                    }
+                }, 
+                "parameters": [
+                    {
+                        "default": "GetSMTPUserInfo", 
+                        "required": true, 
+                        "type": "string", 
+                        "name": "Action", 
+                        "in": "formData"
+                    }
+                ], 
+                "summary": "Show user information for accessing SMTP server"
+            }
+        }
+    }
+}

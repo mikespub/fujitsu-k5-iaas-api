@@ -1,0 +1,124 @@
+{
+    "swagger": "2.0", 
+    "info": {
+        "version": "v1", 
+        "title": "Draft swagger file for Fujitsu K5 IaaS Vmimport API", 
+        "x-service": "vmimport"
+    }, 
+    "host": "vmimport", 
+    "schemes": [
+        "https"
+    ], 
+    "securityDefinitions": {
+        "auth_token": {
+            "type": "apiKey", 
+            "name": "X-Auth-Token", 
+            "in": "header"
+        }
+    }, 
+    "security": [
+        {
+            "auth_token": []
+        }
+    ], 
+    "definitions": {
+        "postImageimport": {
+            "type": "object"
+        }
+    }, 
+    "paths": {
+        "/v1/imageimport": {
+            "post": {
+                "produces": [
+                    "application/json"
+                ], 
+                "responses": {
+                    "200": {
+                        "description": "200 response", 
+                        "examples": {
+                            "application/json": {
+                                "import_id": "6bf65660-70ee-4a75-b61a-36ac040c289c"
+                            }
+                        }
+                    }
+                }, 
+                "parameters": [
+                    {
+                        "schema": {
+                            "$ref": "#/definitions/postImageimport"
+                        }, 
+                        "required": false, 
+                        "name": "body", 
+                        "in": "body"
+                    }
+                ], 
+                "summary": "Register image"
+            }, 
+            "get": {
+                "produces": [
+                    "application/json"
+                ], 
+                "responses": {
+                    "200": {
+                        "description": "200 response", 
+                        "examples": {
+                            "application/json": {
+                                "imports": [
+                                    {
+                                        "import_id": "6bf65660-70ee-4a75-b61a-36ac040c289c", 
+                                        "status": "/v1/imageimport/6bf65660-70ee-4a75-b61a-36ac040c289c/status", 
+                                        "import_status": "succeeded"
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                }, 
+                "parameters": [], 
+                "summary": "List image registration status"
+            }
+        }, 
+        "/v1/imageimport/{import_id}/status": {
+            "get": {
+                "produces": [
+                    "application/json"
+                ], 
+                "responses": {
+                    "200": {
+                        "description": "200 response", 
+                        "examples": {
+                            "application/json": {
+                                "conversion": true, 
+                                "import_status": "succeeded", 
+                                "container_format": "bare", 
+                                "min_ram": 0, 
+                                "ovf_location": "/v1/AUTH_790f1c092038413a8dd6771a033b17f5/test_container/test_image.ovf", 
+                                "disk_format": "raw", 
+                                "domain_name": "testdomain", 
+                                "properties": {}, 
+                                "location": "/v1/AUTH_790f1c092038413a8dd6771a033b17f5/test_container/test_image.vmdk", 
+                                "is_public": false, 
+                                "min_disk": 0, 
+                                "progress": 100, 
+                                "os_type": "RHEL", 
+                                "password": "cGFzc3dvcmQ=", 
+                                "user_name": "testuser", 
+                                "id": "14294f46-d9fe-45bb-ba5f-0b93a69c4416", 
+                                "name": "sample_image"
+                            }
+                        }
+                    }
+                }, 
+                "parameters": [
+                    {
+                        "required": true, 
+                        "type": "string", 
+                        "name": "import_id", 
+                        "in": "path"
+                    }
+                ], 
+                "summary": "Retrieve image registration status"
+            }
+        }
+    }
+}

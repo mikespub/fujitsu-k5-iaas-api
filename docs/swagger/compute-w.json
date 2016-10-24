@@ -1,0 +1,605 @@
+{
+    "swagger": "2.0", 
+    "info": {
+        "version": "v1", 
+        "title": "Draft swagger file for Fujitsu K5 IaaS Compute-W API", 
+        "x-service": "compute-w"
+    }, 
+    "host": "compute-w", 
+    "schemes": [
+        "https"
+    ], 
+    "securityDefinitions": {
+        "auth_token": {
+            "type": "apiKey", 
+            "name": "X-Auth-Token", 
+            "in": "header"
+        }
+    }, 
+    "security": [
+        {
+            "auth_token": []
+        }
+    ], 
+    "definitions": {
+        "postL_Servers": {
+            "type": "object", 
+            "example": {
+                "application/xml": "<Resources>\n<LServer name=\"virtualServerName\">\n<TemplateLink name=\"virtualServerTemplName\"/>\n<ServerImageLink name=\"imageName\"/>\n<ServerImageProject name=\"projId\"/>\n<Disks>\n<Disk>\n<DiskIndex>diskNum</DiskIndex>\n<DiskSize>diskSize</DiskSize>\n</Disk>\n</Disks>\n<NICs>\n<NIC>\n<NICIndex>nicNum</NICIndex>\n<NetworkLinks>\n<NetworkLink id=\"networkId\">\n<IpAddress auto=\"ipAutoSetup\" address=\"ipAddr\"/>\n</NetworkLink>\n</NetworkLinks>\n</NIC>\n</NICs>\n<OSSetting>\n<ComputerName>computerName, hostName</ComputerName>\n<AdminPassword>adminPassword</AdminPassword>\n<DNSServers>\n<DNSServer nic=\"nicIndex\" ip=\"dnsIpAddress\" />\n</DNSServers>\n</OSSetting>\n<AvailabilityZone>availZone</AvailabilityZone>\n<Dedicated>deployToDedicatedInstance</Dedicated>\n</LServer>\n</Resources>"
+            }
+        }, 
+        "postServer_Images": {
+            "type": "object"
+        }, 
+        "postNetworks": {
+            "type": "object", 
+            "example": {
+                "application/xml": "<Network>\n<Subnet id=\"subnetIdCreatedUsingOpenstack\" />\n<AvailabilityZone>availZone</AvailabilityZone>\n</Network>"
+            }
+        }, 
+        "putAttach": {
+            "type": "object"
+        }, 
+        "putDetach": {
+            "type": "object"
+        }, 
+        "putRestore": {
+            "type": "object"
+        }, 
+        "putRestart": {
+            "type": "object"
+        }, 
+        "postProjects": {
+            "type": "object"
+        }, 
+        "put{Resourceid}": {
+            "type": "object", 
+            "example": {
+                "application/xml": "<Resources>\n<LServer name=\"virtualServerName\">\n<TemplateLink name=\"virtualServerTemplName\"/>\n</LServer>\n</Resources>\n"
+            }
+        }, 
+        "putStart": {
+            "type": "object"
+        }, 
+        "putStop": {
+            "type": "object"
+        }, 
+        "putMove": {
+            "type": "object"
+        }
+    }, 
+    "paths": {
+        "/templates/l_servers": {
+            "get": {
+                "produces": [
+                    "application/xml"
+                ], 
+                "responses": {
+                    "200": {
+                        "description": "200 response", 
+                        "examples": {
+                            "application/xml": "<LServerTemplates>\n<LServerTemplate name=\"virtualServerTempl1\"/>\n<LServerTemplate name=\"virtualServerTempl2\"/>\n</LServerTemplates>"
+                        }
+                    }
+                }, 
+                "parameters": [], 
+                "summary": "List image registration status"
+            }
+        }, 
+        "/l_servers": {
+            "post": {
+                "consumes": [
+                    "application/xml"
+                ], 
+                "responses": {
+                    "200": {
+                        "description": "200 response", 
+                        "examples": {}
+                    }
+                }, 
+                "parameters": [
+                    {
+                        "schema": {
+                            "$ref": "#/definitions/postL_Servers"
+                        }, 
+                        "required": false, 
+                        "name": "body", 
+                        "in": "body"
+                    }
+                ], 
+                "summary": "Create virtual server"
+            }, 
+            "get": {
+                "produces": [
+                    "application/xml"
+                ], 
+                "responses": {
+                    "200": {
+                        "description": "200 response", 
+                        "examples": {
+                            "application/xml": "<LServers>\n<LServer name=\"virtualServerName1\" id=\"virtualServerId1\">\n<AvailabilityZone>availabilityZone</AvailabilityZone>\n<Dedicated>dedicatedInstance</Dedicated>\n</LServer>\n<LServer name=\"virtualServerName2\" id=\"virtualServerId2\">\n<AvailabilityZone>availabilityZone</AvailabilityZone>\n<Dedicated>deployedToDedicatedInstance</Dedicated>\n</LServer>\n</LServers>"
+                        }
+                    }
+                }, 
+                "parameters": [], 
+                "summary": "List virtual servers"
+            }
+        }, 
+        "/l_servers/{resourceId}": {
+            "put": {
+                "consumes": [
+                    "application/xml"
+                ], 
+                "responses": {
+                    "200": {
+                        "description": "200 response", 
+                        "examples": {}
+                    }
+                }, 
+                "parameters": [
+                    {
+                        "required": true, 
+                        "type": "string", 
+                        "name": "resourceId", 
+                        "in": "path"
+                    }, 
+                    {
+                        "schema": {
+                            "$ref": "#/definitions/put{Resourceid}"
+                        }, 
+                        "required": false, 
+                        "name": "body", 
+                        "in": "body"
+                    }
+                ], 
+                "summary": "Change virtual server"
+            }, 
+            "delete": {
+                "responses": {
+                    "200": {
+                        "description": "200 response", 
+                        "examples": {}
+                    }
+                }, 
+                "parameters": [
+                    {
+                        "required": true, 
+                        "type": "string", 
+                        "name": "resourceId", 
+                        "in": "path"
+                    }
+                ], 
+                "summary": "Delete virtual server"
+            }, 
+            "get": {
+                "produces": [
+                    "application/xml"
+                ], 
+                "responses": {
+                    "200": {
+                        "description": "200 response", 
+                        "examples": {
+                            "application/xml": "<Resources>\n<LServer name=\"virtualServerName\" id=\"virtualServerId\">\n<TemplateLink name=\"virtualServerTemplName\" />\n<Disks>\n<Disk name=\"diskName\">\n<DiskLink name=\"diskNameAllocatedToVirtualServer\" id=\"DiskID\" />\n<DiskIndex>diskNum</DiskIndex>\n<DiskSize>diskSize</DiskSize>\n<DevicePath>devicePath</DevicePath>\n</Disk>\n</Disks>\n<NICs>\n<NIC>\n<NICIndex>nicNum</NICIndex>\n<MacAddress>macAddr</MacAddress>\n<NetworkLinks>\n<NetworkLink name=\"networkName\" id=\"NetworkID\">\n<IpAddress auto=\"ipAutoConfigure\" address=\"ipAddr\"/>\n</NetworkLink>\n</NetworkLinks>\n</NIC>\n</NICs>\n<Status>\n<ResourceStatus>resourceStatus</ResourceStatus>\n<PowerStatus>powerStatus</PowerStatus>\n<BaseImageId>baseImageId</BaseImageId>\n</Status>\n<Snapshots>\n<Snapshot version=\"snapshotGeneration\" date=\"snapshotDatetime\"\nid=\"snapshotResourceId\"/>\n<Snapshot version=\"snapshotGeneration\" date=\"snapshotDatetime\"\nid=\"snapshotResourceId\"/>\n<Snapshot version=\"snapshotGeneration\" date=\"snapshotDatetime\"\nid=\"snapshotResourceId\"/>\n</Snapshots>\n<AvailabilityZone>availZone</AvailabilityZone>\n<Dedicated>deployedToDedicatedInstance</Dedicated>\n</LServer>\n</Resources>"
+                        }
+                    }
+                }, 
+                "parameters": [
+                    {
+                        "required": true, 
+                        "type": "string", 
+                        "name": "resourceId", 
+                        "in": "path"
+                    }
+                ], 
+                "summary": "Retrieve virtual server details"
+            }
+        }, 
+        "/l_servers/{resourceId}/start": {
+            "put": {
+                "responses": {
+                    "200": {
+                        "description": "200 response", 
+                        "examples": {}
+                    }
+                }, 
+                "parameters": [
+                    {
+                        "required": true, 
+                        "type": "string", 
+                        "name": "resourceId", 
+                        "in": "path"
+                    }, 
+                    {
+                        "schema": {
+                            "$ref": "#/definitions/putStart"
+                        }, 
+                        "required": false, 
+                        "name": "body", 
+                        "in": "body"
+                    }
+                ], 
+                "summary": "Start virtual server"
+            }
+        }, 
+        "/l_servers/{resourceId}/stop": {
+            "put": {
+                "responses": {
+                    "200": {
+                        "description": "200 response", 
+                        "examples": {}
+                    }
+                }, 
+                "parameters": [
+                    {
+                        "required": true, 
+                        "type": "string", 
+                        "name": "resourceId", 
+                        "in": "path"
+                    }, 
+                    {
+                        "schema": {
+                            "$ref": "#/definitions/putStop"
+                        }, 
+                        "required": false, 
+                        "name": "body", 
+                        "in": "body"
+                    }
+                ], 
+                "summary": "Stop virtual server"
+            }
+        }, 
+        "/l_servers/{resourceId}/restart": {
+            "put": {
+                "responses": {
+                    "200": {
+                        "description": "200 response", 
+                        "examples": {}
+                    }
+                }, 
+                "parameters": [
+                    {
+                        "required": true, 
+                        "type": "string", 
+                        "name": "resourceId", 
+                        "in": "path"
+                    }, 
+                    {
+                        "schema": {
+                            "$ref": "#/definitions/putRestart"
+                        }, 
+                        "required": false, 
+                        "name": "body", 
+                        "in": "body"
+                    }
+                ], 
+                "summary": "Restart virtual server"
+            }
+        }, 
+        "/l_servers/{resourceId}/attach": {
+            "put": {
+                "responses": {
+                    "200": {
+                        "description": "200 response", 
+                        "examples": {}
+                    }
+                }, 
+                "parameters": [
+                    {
+                        "required": true, 
+                        "type": "string", 
+                        "name": "resourceId", 
+                        "in": "path"
+                    }, 
+                    {
+                        "schema": {
+                            "$ref": "#/definitions/putAttach"
+                        }, 
+                        "required": false, 
+                        "name": "body", 
+                        "in": "body"
+                    }
+                ], 
+                "summary": "Attach NIC to virtual server"
+            }
+        }, 
+        "/l_servers/{resourceId}/detach": {
+            "put": {
+                "responses": {
+                    "200": {
+                        "description": "200 response", 
+                        "examples": {}
+                    }
+                }, 
+                "parameters": [
+                    {
+                        "required": true, 
+                        "type": "string", 
+                        "name": "resourceId", 
+                        "in": "path"
+                    }, 
+                    {
+                        "schema": {
+                            "$ref": "#/definitions/putDetach"
+                        }, 
+                        "required": false, 
+                        "name": "body", 
+                        "in": "body"
+                    }
+                ], 
+                "summary": "Detach NIC from virtual server"
+            }
+        }, 
+        "/server_images": {
+            "post": {
+                "responses": {
+                    "200": {
+                        "description": "200 response", 
+                        "examples": {}
+                    }
+                }, 
+                "parameters": [
+                    {
+                        "schema": {
+                            "$ref": "#/definitions/postServer_Images"
+                        }, 
+                        "required": false, 
+                        "name": "body", 
+                        "in": "body"
+                    }
+                ], 
+                "summary": "Create snapshot"
+            }, 
+            "get": {
+                "produces": [
+                    "application/xml"
+                ], 
+                "responses": {
+                    "200": {
+                        "description": "200 response", 
+                        "examples": {
+                            "application/xml": "<ServerImages>\n<ServerImage name=\"imageName1\">\n<Scope>imageDisclosureScope</Scope>\n<Project>idOfProjWhereImageWasCreated</Project>\n<AvailabilityZone>availZone</AvailabilityZone>\n</ServerImage>\n<ServerImage name=\"imageName2\">\n<Scope>imageDisclosureScope</Scope>\n<Project>idOfProjWhereImageWasCreated</Project>\n<AvailabilityZone>availZone</AvailabilityZone>\n</ServerImage>\n</ServerImages>"
+                        }
+                    }
+                }, 
+                "parameters": [], 
+                "summary": "List clone images"
+            }
+        }, 
+        "/server_images/{cloneImageName}": {
+            "delete": {
+                "responses": {
+                    "200": {
+                        "description": "200 response", 
+                        "examples": {}
+                    }
+                }, 
+                "parameters": [
+                    {
+                        "required": true, 
+                        "type": "string", 
+                        "name": "cloneImageName", 
+                        "in": "path"
+                    }
+                ], 
+                "summary": "Delete clone image"
+            }
+        }, 
+        "/server_images/{cloneImageName}/move": {
+            "put": {
+                "responses": {
+                    "200": {
+                        "description": "200 response", 
+                        "examples": {}
+                    }
+                }, 
+                "parameters": [
+                    {
+                        "required": true, 
+                        "type": "string", 
+                        "name": "cloneImageName", 
+                        "in": "path"
+                    }, 
+                    {
+                        "schema": {
+                            "$ref": "#/definitions/putMove"
+                        }, 
+                        "required": false, 
+                        "name": "body", 
+                        "in": "body"
+                    }
+                ], 
+                "summary": "Change disclosure scope of clone image"
+            }
+        }, 
+        "/server_images/{resourceId}/restore": {
+            "put": {
+                "responses": {
+                    "200": {
+                        "description": "200 response", 
+                        "examples": {}
+                    }
+                }, 
+                "parameters": [
+                    {
+                        "required": true, 
+                        "type": "string", 
+                        "name": "resourceId", 
+                        "in": "path"
+                    }, 
+                    {
+                        "schema": {
+                            "$ref": "#/definitions/putRestore"
+                        }, 
+                        "required": false, 
+                        "name": "body", 
+                        "in": "body"
+                    }
+                ], 
+                "summary": "Restore snapshot"
+            }
+        }, 
+        "/server_images/{resourceId}": {
+            "delete": {
+                "responses": {
+                    "200": {
+                        "description": "200 response", 
+                        "examples": {}
+                    }
+                }, 
+                "parameters": [
+                    {
+                        "required": true, 
+                        "type": "string", 
+                        "name": "resourceId", 
+                        "in": "path"
+                    }
+                ], 
+                "summary": "Delete snapshot"
+            }
+        }, 
+        "/tasks/{taskId}": {
+            "get": {
+                "produces": [
+                    "application/xml"
+                ], 
+                "responses": {
+                    "200": {
+                        "description": "200 response", 
+                        "examples": {
+                            "application/xml": "<task>\n<id>taskId</id>\n<status>status</status>\n<progress>progressStatus</progress>\n<starttime>startTime</starttime>\n<endtime>endTime</endtime>\n<error>\n<code>msgId</code>\n<message>msgBody</message>\n<arg>arg1</arg>\n<arg>arg2</arg>\n...\n<cause>\n<product>relatedProdName</product>\n<resource_name>linkedProdResourceName</resource_name>\n<request>inforRequestedForRelatedProd</request>\n<message>returnInfoOfRelatedProd</message>\n</cause>\n</error>\n</task>"
+                        }
+                    }
+                }, 
+                "parameters": [
+                    {
+                        "required": true, 
+                        "type": "string", 
+                        "name": "taskId", 
+                        "in": "path"
+                    }
+                ], 
+                "summary": "Retrieve task details"
+            }
+        }, 
+        "/projects": {
+            "post": {
+                "responses": {
+                    "200": {
+                        "description": "200 response", 
+                        "examples": {}
+                    }
+                }, 
+                "parameters": [
+                    {
+                        "schema": {
+                            "$ref": "#/definitions/postProjects"
+                        }, 
+                        "required": false, 
+                        "name": "body", 
+                        "in": "body"
+                    }
+                ], 
+                "summary": "Enable project"
+            }
+        }, 
+        "/projects/{projId}": {
+            "get": {
+                "produces": [
+                    "application/xml"
+                ], 
+                "responses": {
+                    "200": {
+                        "description": "200 response", 
+                        "examples": {
+                            "application/xml": "<Project name=\"projFolderName\">\n<Domain>domainFolderName</Domain>\n<AvailabilityZones>\n<AvailabilityZone>availZoneWithProjFolder</AvailabilityZone>\n<AvailabilityZone>availZoneWithProjFolder</AvailabilityZone>\n...\n</AvailabilityZones>\n<Dedicated>\n<DedicatedAZ>availZoneWhereDedicInstancesCanBeDeployed</DedicatedAZ>\n<DedicatedAZ>availZoneWhereDedicInstancesCanBeDeployed</DedicatedAZ>\n...\n</Dedicated>\n</Project>"
+                        }
+                    }
+                }, 
+                "parameters": [
+                    {
+                        "required": true, 
+                        "type": "string", 
+                        "name": "projId", 
+                        "in": "path"
+                    }
+                ], 
+                "summary": "Retrieve project details"
+            }, 
+            "delete": {
+                "responses": {
+                    "200": {
+                        "description": "200 response", 
+                        "examples": {}
+                    }
+                }, 
+                "parameters": [
+                    {
+                        "required": true, 
+                        "type": "string", 
+                        "name": "projId", 
+                        "in": "path"
+                    }
+                ], 
+                "summary": "Disable project"
+            }
+        }, 
+        "/networks": {
+            "post": {
+                "consumes": [
+                    "application/xml"
+                ], 
+                "responses": {
+                    "200": {
+                        "description": "200 response", 
+                        "examples": {}
+                    }
+                }, 
+                "parameters": [
+                    {
+                        "schema": {
+                            "$ref": "#/definitions/postNetworks"
+                        }, 
+                        "required": false, 
+                        "name": "body", 
+                        "in": "body"
+                    }
+                ], 
+                "summary": "Create network resource"
+            }, 
+            "get": {
+                "produces": [
+                    "application/xml"
+                ], 
+                "responses": {
+                    "200": {
+                        "description": "200 response", 
+                        "examples": {
+                            "application/xml": "<Networks>\n<Network name=\"networkResourceName1\" id=\"networkResourceId1\">\n<AddressSet name=\"addrSetName1\" subnet=\"subnetAddr\" mask=\"netMask\"\nstart=\"startIpAddr\" end=\"endIpAddr\">\n<DefaultGateway address=\"ipAddr\" />\n</AddressSet>\n<AvailabilityZone>availZoneName</AvailabilityZone>\n</Network>\n<Network name=\"networkResourceName2\" id=\"networkResourceId2\">\nOmitted\n</Network>\n</Networks>"
+                        }
+                    }
+                }, 
+                "parameters": [], 
+                "summary": "List network resources"
+            }
+        }, 
+        "/networks/{resourceId}": {
+            "delete": {
+                "responses": {
+                    "200": {
+                        "description": "200 response", 
+                        "examples": {}
+                    }
+                }, 
+                "parameters": [
+                    {
+                        "required": true, 
+                        "type": "string", 
+                        "name": "resourceId", 
+                        "in": "path"
+                    }
+                ], 
+                "summary": "Delete network resource"
+            }
+        }
+    }
+}

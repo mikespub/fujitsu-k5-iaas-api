@@ -1,0 +1,218 @@
+{
+    "swagger": "2.0", 
+    "info": {
+        "version": "v1", 
+        "title": "Draft swagger file for Fujitsu K5 IaaS Dns API", 
+        "x-service": "dns"
+    }, 
+    "host": "dns", 
+    "schemes": [
+        "https"
+    ], 
+    "securityDefinitions": {
+        "auth_token": {
+            "type": "apiKey", 
+            "name": "X-Auth-Token", 
+            "in": "header"
+        }
+    }, 
+    "security": [
+        {
+            "auth_token": []
+        }
+    ], 
+    "definitions": {
+        "postHostedzone": {
+            "type": "object", 
+            "example": {
+                "application/xml": "<?xml version='1.0' encoding='UTF-8'?>\n<CreateHostedZoneRequest xmlns=\"http://docs.cloudcommunity.global.fujitsu.com/dns/api/v1.0/\">\n  <Name>example.com</Name>\n  <HostedZoneConfig>\n    <Comment>comment</Comment>\n  </HostedZoneConfig>\n</CreateHostedZoneRequest>\n"
+            }
+        }, 
+        "postRrset": {
+            "type": "object", 
+            "example": {
+                "application/xml": "<?xml version='1.0' encoding='UTF-8'?>\n<ChangeResourceRecordSetsRequest xmlns=\"http://docs.cloudcommunity.global.fujitsu.com/dns/api/v1.0/\">\n  <ChangeBatch>\n    <Changes>\n      <Change>\n        <Action>CREATE</Action>\n        <ResourceRecordSet>\n          <Name>server.example.com</Name>\n          <Type>A</Type>\n          <TTL>60</TTL>\n          <ResourceRecords>\n            <ResourceRecord>\n              <Value>222.158.xxx.yyy</Value>\n            </ResourceRecord>\n          </ResourceRecords>\n        </ResourceRecordSet>\n      </Change>\n    </Changes>\n  </ChangeBatch>\n</ChangeResourceRecordSetsRequest>\n"
+            }
+        }
+    }, 
+    "paths": {
+        "/v1.0/hostedzone": {
+            "post": {
+                "consumes": [
+                    "application/xml"
+                ], 
+                "produces": [
+                    "application/xml"
+                ], 
+                "responses": {
+                    "200": {
+                        "description": "200 response", 
+                        "examples": {
+                            "text/plain": "HTTP/1.1 201 Created\\nDate: Fri, 06 Jun 2014 11:00:38 GMT Content-Length: ...\\nContent-Type: application/xml\\nx-fj-request-id: d96bd874-9bf2-11e1-8ee7-c98a0037a2b6\\n", 
+                            "application/xml": "<?xml version='1.0' encoding='UTF-8'?>\n<CreateHostedZoneResponse xmlns=\"http://docs.cloudcommunity.global.fujitsu.com/dns/api/v1.0/\">\n  <HostedZone>\n    <Id>example.com</Id>\n    <Name>example.com</Name>\n    <CallerReference>example.com</CallerReference>\n    <Config>\n      <Comment>comment</Comment>\n    </Config>\n    <ResourceRecordSetCount>0</ResourceRecordSetCount>\n  </HostedZone>\n  <ChangeInfo>\n    <Id>cb7faf29ae2bb2bd489d0d27b36e28fc</Id>\n    <Status>INSYNC</Status>\n    <SubmittedAt>2014-06-06T11:00:38.370Z</SubmittedAt>\n  </ChangeInfo>\n  <DelegationSet>\n    <NameServers>\n      <NameServer>cdns0.nifty.ad.jp</NameServer>\n      <NameServer>cdns1.nifty.ad.jp</NameServer>\n    </NameServers>\n  </DelegationSet>\n</CreateHostedZoneResponse>\n"
+                        }
+                    }
+                }, 
+                "parameters": [
+                    {
+                        "schema": {
+                            "$ref": "#/definitions/postHostedzone"
+                        }, 
+                        "required": false, 
+                        "name": "body", 
+                        "in": "body"
+                    }
+                ], 
+                "summary": "Create zone"
+            }, 
+            "get": {
+                "produces": [
+                    "application/xml"
+                ], 
+                "responses": {
+                    "200": {
+                        "description": "200 response", 
+                        "examples": {
+                            "text/plain": "HTTP/1.1 200 OK\\nDate: Fri, 06 Jun 2014 11:00:38 GMT Content-Length: ...\\nContent-Type: application/xml\\nx-fj-request-id: d96bd874-9bf2-11e1-8ee7-c98a0037a2b6\\n", 
+                            "application/xml": "<?xml version='1.0' encoding='UTF-8'?>\n<ListHostedZonesResponse xmlns=\"http://docs.cloudcommunity.global.fujitsu.com/dns/api/v1.0/\">\n  <HostedZones>\n    <HostedZone>\n      <Id>example.com</Id>\n      <Name>example.com</Name>\n      <CallerReference>example.com</CallerReference>\n      <Config>\n        <Comment>comment</Comment>\n      </Config>\n      <ResourceRecordSetCount>0</ResourceRecordSetCount>\n    </HostedZone>\n    <HostedZone>\n...\n</HostedZone>\n  </HostedZones>\n  <IsTruncated>false</IsTruncated>\n  <MaxItems>100</MaxItems>\n</ListHostedZonesResponse>\n"
+                        }
+                    }
+                }, 
+                "parameters": [], 
+                "summary": "List zone information"
+            }
+        }, 
+        "/v1.0/hostedzone/{zoneId}": {
+            "delete": {
+                "produces": [
+                    "application/xml"
+                ], 
+                "responses": {
+                    "200": {
+                        "description": "200 response", 
+                        "examples": {
+                            "text/plain": "HTTP/1.1 200 OK\\nDate: Fri, 06 Jun 2014 11:00:38 GMT Content-Length: ...\\nContent-Type: application/xml\\nx-fj-request-id: d96bd874-9bf2-11e1-8ee7-c98a0037a2b6\\n", 
+                            "application/xml": "<?xml version='1.0' encoding='UTF-8'?>\n<DeleteHostedZoneResponse xmlns=\"http://docs.cloudcommunity.global.fujitsu.com/dns/api/v1.0/\">\n  <ChangeInfo>\n    <Id>d36956475553d655cf70a293adeb155c</Id>\n    <Status>INSYNC</Status>\n    <SubmittedAt>2014-06-06T11:00:38.178Z</SubmittedAt>\n  </ChangeInfo>\n</DeleteHostedZoneResponse>\n"
+                        }
+                    }
+                }, 
+                "parameters": [
+                    {
+                        "required": true, 
+                        "type": "string", 
+                        "name": "zoneId", 
+                        "in": "path"
+                    }
+                ], 
+                "summary": "Delete zone"
+            }, 
+            "get": {
+                "produces": [
+                    "application/xml"
+                ], 
+                "responses": {
+                    "200": {
+                        "description": "200 response", 
+                        "examples": {
+                            "text/plain": "HTTP/1.1 200 OK\\nDate: Fri, 06 Jun 2014 11:00:38 GMT Content-Length: ...\\nContent-Type: application/xml\\nx-fj-request-id: d96bd874-9bf2-11e1-8ee7-c98a0037a2b6\\n", 
+                            "application/xml": "<?xml version='1.0' encoding='UTF-8'?>\n<GetHostedZoneResponse xmlns=\"http://docs.cloudcommunity.global.fujitsu.com/dns/api/v1.0/\">\n  <HostedZone>\n    <Id>example.com</Id>\n    <Name>example.com</Name>\n    <CallerReference>example.com</CallerReference>\n    <Config>\n      <Comment>comment</Comment>\n    </Config>\n    <ResourceRecordSetCount>0</ResourceRecordSetCount>\n  </HostedZone>\n  <DelegationSet>\n    <NameServers>\n      <NameServer>cdns0.nifty.ad.jp</NameServer>\n      <NameServer>cdns1.nifty.ad.jp</NameServer>\n    </NameServers>\n  </DelegationSet>\n</GetHostedZoneResponse>\n"
+                        }
+                    }
+                }, 
+                "parameters": [
+                    {
+                        "required": true, 
+                        "type": "string", 
+                        "name": "zoneId", 
+                        "in": "path"
+                    }
+                ], 
+                "summary": "Retrieve zone information"
+            }
+        }, 
+        "/v1.0/hostedzone/{zoneId}/rrset": {
+            "post": {
+                "produces": [
+                    "application/xml"
+                ], 
+                "consumes": [
+                    "application/xml"
+                ], 
+                "responses": {
+                    "200": {
+                        "description": "200 response", 
+                        "examples": {
+                            "text/plain": "HTTP/1.1 200 OK\\nDate: Fri, 06 Jun 2014 11:00:38 GMT Content-Length: ...\\nContent-Type: application/xml\\nx-fj-request-id: d96bd874-9bf2-11e1-8ee7-c98a0037a2b6\\n", 
+                            "application/xml": "<?xml version='1.0' encoding='UTF-8'?>\n<ChangeResourceRecordSetsResponse xmlns=\"http://docs.cloudcommunity.global.fujitsu.com/dns/api/v1.0/\">\n  <ChangeInfo>\n    <Id>7a782d43939d7ff538ff1ee19dbdd5a0</Id>\n    <Status>INSYNC</Status>\n    <SubmittedAt>2014-06-06T11:00:38.178Z</SubmittedAt>\n  </ChangeInfo>\n</ChangeResourceRecordSetsResponse>\n"
+                        }
+                    }
+                }, 
+                "parameters": [
+                    {
+                        "required": true, 
+                        "type": "string", 
+                        "name": "zoneId", 
+                        "in": "path"
+                    }, 
+                    {
+                        "schema": {
+                            "$ref": "#/definitions/postRrset"
+                        }, 
+                        "required": false, 
+                        "name": "body", 
+                        "in": "body"
+                    }
+                ], 
+                "summary": "Create/delete record"
+            }, 
+            "get": {
+                "produces": [
+                    "application/xml"
+                ], 
+                "responses": {
+                    "200": {
+                        "description": "200 response", 
+                        "examples": {
+                            "text/plain": "HTTP/1.1 200 OK\\nDate: Fri, 06 Jun 2014 11:00:38 GMT Content-Length: ...\\nContent-Type: application/xml\\nx-fj-request-id: d96bd874-9bf2-11e1-8ee7-c98a0037a2b6\\n", 
+                            "application/xml": "<?xml version='1.0' encoding='UTF-8'?>\n<ListResourceRecordSetsResponse xmlns=\"http://docs.cloudcommunity.global.fujitsu.com/dns/api/v1.0/\">\n  <ResourceRecordSets>\n    <ResourceRecordSet>\n      <Name>example.com</Name>\n      <Type>MX</Type>\n      <SetIdentifier>uLrNgSC4yzg=</SetIdentifier>\n      <TTL>60</TTL>\n      <ResourceRecords>\n        <ResourceRecord>\n          <Value>10 mail.example.com</Value>\n        </ResourceRecord>\n      </ResourceRecords>\n    </ResourceRecordSet>\n    <ResourceRecordSet>\n...\n</ResourceRecordSet>\n  </ResourceRecordSets>\n  <IsTruncated>false</IsTruncated>\n  <MaxItems>100</MaxItems>\n</ListResourceRecordSetsResponse>\n"
+                        }
+                    }
+                }, 
+                "parameters": [
+                    {
+                        "required": true, 
+                        "type": "string", 
+                        "name": "zoneId", 
+                        "in": "path"
+                    }
+                ], 
+                "summary": "List record information"
+            }
+        }, 
+        "/v1.0/change/{updateRequestId}": {
+            "get": {
+                "produces": [
+                    "application/xml"
+                ], 
+                "responses": {
+                    "200": {
+                        "description": "200 response", 
+                        "examples": {
+                            "text/plain": "HTTP/1.1 200 OK\\nDate: Fri, 06 Jun 2014 11:00:38 GMT Content-Length: ...\\nContent-Type: application/xml\\nx-fj-request-id: d96bd874-9bf2-11e1-8ee7-c98a0037a2b6\\n", 
+                            "application/xml": "<?xml version='1.0' encoding='UTF-8'?>\n<GetChangeResponse xmlns=\"http://docs.cloudcommunity.global.fujitsu.com/dns/api/v1.0/\">\n  <ChangeInfo>\n    <Id>dcd102450ad397f197cb9f09755964f7</Id>\n    <Status>INSYNC</Status>\n    <SubmittedAt>2014-06-06T11:00:38.178Z</SubmittedAt>\n  </ChangeInfo>\n</GetChangeResponse>\n"
+                        }
+                    }
+                }, 
+                "parameters": [
+                    {
+                        "required": true, 
+                        "type": "string", 
+                        "name": "updateRequestId", 
+                        "in": "path"
+                    }
+                ], 
+                "summary": "Retrieve update request information"
+            }
+        }
+    }
+}

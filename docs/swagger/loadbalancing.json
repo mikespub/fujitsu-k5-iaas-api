@@ -1,0 +1,1134 @@
+{
+    "swagger": "2.0", 
+    "info": {
+        "version": "v1", 
+        "title": "Draft swagger file for Fujitsu K5 IaaS Loadbalancing API", 
+        "x-service": "loadbalancing"
+    }, 
+    "host": "loadbalancing", 
+    "schemes": [
+        "https"
+    ], 
+    "securityDefinitions": {
+        "auth_token": {
+            "type": "apiKey", 
+            "name": "X-Auth-Token", 
+            "in": "header"
+        }
+    }, 
+    "security": [
+        {
+            "auth_token": []
+        }
+    ], 
+    "definitions": {}, 
+    "paths": {
+        "/#ApplySecurityGroupsToLoadBalancer": {
+            "get": {
+                "produces": [
+                    "application/json"
+                ], 
+                "responses": {
+                    "200": {
+                        "description": "200 response", 
+                        "examples": {
+                            "application/json": {
+                                "ApplySecurityGroupsToLoadBalancerResponse": {
+                                    "ApplySecurityGroupsToLoadBalancerResult": {
+                                        "SecurityGroups": {
+                                            "member": [
+                                                "MySecurityGroup-XXXXX", 
+                                                "MySecurityGroup-YYYYY"
+                                            ]
+                                        }
+                                    }, 
+                                    "ResponseMetadata": {
+                                        "RequestId": "06b5decc-102a-11e3-9ad6-bf3e4EXAMPLE"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }, 
+                "parameters": [
+                    {
+                        "default": "MySecurityGroup-XXXXX", 
+                        "required": false, 
+                        "type": "string", 
+                        "name": "SecurityGroups.member.1", 
+                        "in": "query"
+                    }, 
+                    {
+                        "default": "MySecurityGroup-YYYYY", 
+                        "required": false, 
+                        "type": "string", 
+                        "name": "SecurityGroups.member.2", 
+                        "in": "query"
+                    }, 
+                    {
+                        "default": "MyLB01", 
+                        "required": false, 
+                        "type": "string", 
+                        "name": "LoadBalancerName", 
+                        "in": "query"
+                    }, 
+                    {
+                        "default": "2014-11-01", 
+                        "required": false, 
+                        "type": "string", 
+                        "name": "Version", 
+                        "in": "query"
+                    }, 
+                    {
+                        "default": "ApplySecurityGroupsToLoadBalancer", 
+                        "required": true, 
+                        "type": "string", 
+                        "name": "Action", 
+                        "in": "query"
+                    }
+                ], 
+                "summary": "ApplySecurityGroupsToLoadBalancer"
+            }
+        }, 
+        "/#AttachLoadBalancerToSubnets": {
+            "get": {
+                "produces": [
+                    "application/json"
+                ], 
+                "responses": {
+                    "200": {
+                        "description": "200 response", 
+                        "examples": {
+                            "application/json": {
+                                "AttachLoadBalancerToSubnetsResponse": {
+                                    "AttachLoadBalancerToSubnetsResult": {
+                                        "Subnets": {
+                                            "member": [
+                                                "subnet-119f0078", 
+                                                "subnet-3561b05e"
+                                            ]
+                                        }
+                                    }, 
+                                    "ResponseMetadata": {
+                                        "RequestId": "07b1ecbc-1100-11e3-acaf-dd7edEXAMPLE"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }, 
+                "parameters": [
+                    {
+                        "default": "subnet-3561b05e", 
+                        "required": false, 
+                        "type": "string", 
+                        "name": "Subnets.member.1", 
+                        "in": "query"
+                    }, 
+                    {
+                        "default": "MyLB01", 
+                        "required": false, 
+                        "type": "string", 
+                        "name": "LoadBalancerName", 
+                        "in": "query"
+                    }, 
+                    {
+                        "default": "2014-11-01", 
+                        "required": false, 
+                        "type": "string", 
+                        "name": "Version", 
+                        "in": "query"
+                    }, 
+                    {
+                        "default": "AttachLoadBalancerToSubnets", 
+                        "required": true, 
+                        "type": "string", 
+                        "name": "Action", 
+                        "in": "query"
+                    }
+                ], 
+                "summary": "AttachLoadBalancerToSubnets"
+            }
+        }, 
+        "/#ConfigureHealthCheck": {
+            "get": {
+                "produces": [
+                    "application/json"
+                ], 
+                "responses": {
+                    "200": {
+                        "description": "200 response", 
+                        "examples": {
+                            "application/json": {
+                                "ConfigureHealthCheckResponse": {
+                                    "ConfigureHealthCheckResult": {
+                                        "HealthCheck": {
+                                            "HealthyThreshold": "2", 
+                                            "Interval": "30", 
+                                            "Target": "HTTP:80", 
+                                            "Timeout": "3", 
+                                            "UnhealthyThreshold": "2"
+                                        }
+                                    }, 
+                                    "ResponseMetadata": {
+                                        "RequestId": "83c88b9d-12b7-11e3-8b82-87b12EXAMPLE"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }, 
+                "parameters": [
+                    {
+                        "default": "2", 
+                        "required": false, 
+                        "type": "string", 
+                        "name": "HealthCheck.HealthyThreshold", 
+                        "in": "query"
+                    }, 
+                    {
+                        "default": "2", 
+                        "required": false, 
+                        "type": "string", 
+                        "name": "HealthCheck.UnhealthyThreshold", 
+                        "in": "query"
+                    }, 
+                    {
+                        "default": "HTTP:80", 
+                        "required": false, 
+                        "type": "string", 
+                        "name": "HealthCheck.Target", 
+                        "in": "query"
+                    }, 
+                    {
+                        "default": "30", 
+                        "required": false, 
+                        "type": "string", 
+                        "name": "HealthCheck.Interval", 
+                        "in": "query"
+                    }, 
+                    {
+                        "default": "3", 
+                        "required": false, 
+                        "type": "string", 
+                        "name": "HealthCheck.Timeout", 
+                        "in": "query"
+                    }, 
+                    {
+                        "default": "MyLB01", 
+                        "required": false, 
+                        "type": "string", 
+                        "name": "LoadBalancerName", 
+                        "in": "query"
+                    }, 
+                    {
+                        "default": "2014-11-01", 
+                        "required": false, 
+                        "type": "string", 
+                        "name": "Version", 
+                        "in": "query"
+                    }, 
+                    {
+                        "default": "ConfigureHealthCheck", 
+                        "required": true, 
+                        "type": "string", 
+                        "name": "Action", 
+                        "in": "query"
+                    }
+                ], 
+                "summary": "ConfigureHealthCheck"
+            }
+        }, 
+        "/#CreateLBCookieStickinessPolicy": {
+            "get": {
+                "produces": [
+                    "application/json"
+                ], 
+                "responses": {
+                    "200": {
+                        "description": "200 response", 
+                        "examples": {
+                            "application/json": {
+                                "CreateLBCookieStickinessPolicyResponse": {
+                                    "CreateLBCookieStickinessPolicyResult": {}, 
+                                    "ResponseMetadata": {
+                                        "RequestId": "99a693e9-12b8-11e3-9ad6-bf3e4EXAMPLE"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }, 
+                "parameters": [
+                    {
+                        "default": "60", 
+                        "required": false, 
+                        "type": "string", 
+                        "name": "CookieExpirationPeriod", 
+                        "in": "query"
+                    }, 
+                    {
+                        "default": "MyLB01", 
+                        "required": false, 
+                        "type": "string", 
+                        "name": "LoadBalancerName", 
+                        "in": "query"
+                    }, 
+                    {
+                        "default": "MyLoadBalancerCookiePolicy", 
+                        "required": false, 
+                        "type": "string", 
+                        "name": "PolicyName", 
+                        "in": "query"
+                    }, 
+                    {
+                        "default": "2014-11-01", 
+                        "required": false, 
+                        "type": "string", 
+                        "name": "Version", 
+                        "in": "query"
+                    }, 
+                    {
+                        "default": "CreateLBCookieStickinessPolicy", 
+                        "required": true, 
+                        "type": "string", 
+                        "name": "Action", 
+                        "in": "query"
+                    }
+                ], 
+                "summary": "CreateLBCookieStickinessPolicy"
+            }
+        }, 
+        "/#CreateLoadBalancer": {
+            "get": {
+                "produces": [
+                    "application/json"
+                ], 
+                "responses": {
+                    "200": {
+                        "description": "200 response", 
+                        "examples": {
+                            "application/json": {
+                                "CreateLoadBalancerResponse": {
+                                    "CreateLoadBalancerResult": {
+                                        "DNSName": "MyLB01-1234567890.aa.bbbb.cccc.dddd"
+                                    }, 
+                                    "ResponseMetadata": {
+                                        "RequestId": "1549581b-12b7-11e3-895e-1334aEXAMPLE"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }, 
+                "parameters": [
+                    {
+                        "default": "MyLB01", 
+                        "required": false, 
+                        "type": "string", 
+                        "name": "LoadBalancerName", 
+                        "in": "query"
+                    }, 
+                    {
+                        "default": "80", 
+                        "required": false, 
+                        "type": "string", 
+                        "name": "Listeners.member.1.LoadBalancerPort", 
+                        "in": "query"
+                    }, 
+                    {
+                        "default": "80", 
+                        "required": false, 
+                        "type": "string", 
+                        "name": "Listeners.member.1.InstancePort", 
+                        "in": "query"
+                    }, 
+                    {
+                        "default": "http", 
+                        "required": false, 
+                        "type": "string", 
+                        "name": "Listeners.member.1.Protocol", 
+                        "in": "query"
+                    }, 
+                    {
+                        "default": "http", 
+                        "required": false, 
+                        "type": "string", 
+                        "name": "Listeners.member.1.InstanceProtocol", 
+                        "in": "query"
+                    }, 
+                    {
+                        "default": "internal", 
+                        "required": false, 
+                        "type": "string", 
+                        "name": "Scheme", 
+                        "in": "query"
+                    }, 
+                    {
+                        "default": "subnet-3561b05d", 
+                        "required": false, 
+                        "type": "string", 
+                        "name": "Subnets.member.1", 
+                        "in": "query"
+                    }, 
+                    {
+                        "default": "2014-11-01", 
+                        "required": false, 
+                        "type": "string", 
+                        "name": "Version", 
+                        "in": "query"
+                    }, 
+                    {
+                        "default": "CreateLoadBalancer", 
+                        "required": true, 
+                        "type": "string", 
+                        "name": "Action", 
+                        "in": "query"
+                    }
+                ], 
+                "summary": "CreateLoadBalancer"
+            }
+        }, 
+        "/#CreateLoadBalancerListeners": {
+            "get": {
+                "produces": [
+                    "application/json"
+                ], 
+                "responses": {
+                    "200": {
+                        "description": "200 response", 
+                        "examples": {
+                            "application/json": {
+                                "CreateLoadBalancerListenersResponse": {
+                                    "CreateLoadBalancerListenersResult": {}, 
+                                    "ResponseMetadata": {
+                                        "RequestId": "1549581b-12b7-11e3-895e-1334aEXAMPLE"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }, 
+                "parameters": [
+                    {
+                        "default": "https", 
+                        "required": false, 
+                        "type": "string", 
+                        "name": "Listeners.member.1.Protocol", 
+                        "in": "query"
+                    }, 
+                    {
+                        "default": "443", 
+                        "required": false, 
+                        "type": "string", 
+                        "name": "Listeners.member.1.LoadBalancerPort", 
+                        "in": "query"
+                    }, 
+                    {
+                        "default": "80", 
+                        "required": false, 
+                        "type": "string", 
+                        "name": "Listeners.member.1.InstancePort", 
+                        "in": "query"
+                    }, 
+                    {
+                        "default": "http", 
+                        "required": false, 
+                        "type": "string", 
+                        "name": "Listeners.member.1.InstanceProtocol", 
+                        "in": "query"
+                    }, 
+                    {
+                        "default": "1232d7bf-8f28-4cc7-a63d-44e218853c6d", 
+                        "required": false, 
+                        "type": "string", 
+                        "name": "Listeners.member.1.SSLCertificateId", 
+                        "in": "query"
+                    }, 
+                    {
+                        "default": "MyLB01", 
+                        "required": false, 
+                        "type": "string", 
+                        "name": "LoadBalancerName", 
+                        "in": "query"
+                    }, 
+                    {
+                        "default": "2014-11-01", 
+                        "required": false, 
+                        "type": "string", 
+                        "name": "Version", 
+                        "in": "query"
+                    }, 
+                    {
+                        "default": "CreateLoadBalancerListeners", 
+                        "required": true, 
+                        "type": "string", 
+                        "name": "Action", 
+                        "in": "query"
+                    }
+                ], 
+                "summary": "CreateLoadBalancerListeners"
+            }
+        }, 
+        "/#CreateSorryServerRedirectionPolicy": {
+            "get": {
+                "produces": [
+                    "application/json"
+                ], 
+                "responses": {
+                    "200": {
+                        "description": "200 response", 
+                        "examples": {
+                            "application/json": {
+                                "CreateSorryServerRedirectionPolicyResponse": {
+                                    "CreateSorryServerRedirectionPolicyResult": {}, 
+                                    "ResponseMetadata": {
+                                        "RequestId": "99a693e9-12b8-11e3-9ad6-bf3e4EXAMPLE"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }, 
+                "parameters": [
+                    {
+                        "default": "http://XXXXXXXX/", 
+                        "required": false, 
+                        "type": "string", 
+                        "name": "Location", 
+                        "in": "query"
+                    }, 
+                    {
+                        "default": "MyLB01", 
+                        "required": false, 
+                        "type": "string", 
+                        "name": "LoadBalancerName", 
+                        "in": "query"
+                    }, 
+                    {
+                        "default": "MyPolicy", 
+                        "required": false, 
+                        "type": "string", 
+                        "name": "PolicyName", 
+                        "in": "query"
+                    }, 
+                    {
+                        "default": "2014-11-01", 
+                        "required": false, 
+                        "type": "string", 
+                        "name": "Version", 
+                        "in": "query"
+                    }, 
+                    {
+                        "default": "CreateSorryServerRedirectionPolicy", 
+                        "required": true, 
+                        "type": "string", 
+                        "name": "Action", 
+                        "in": "query"
+                    }
+                ], 
+                "summary": "CreateSorryServerRedirectionPolicy"
+            }
+        }, 
+        "/#DeleteLoadBalancer": {
+            "get": {
+                "produces": [
+                    "application/json"
+                ], 
+                "responses": {
+                    "200": {
+                        "description": "200 response", 
+                        "examples": {
+                            "application/json": {
+                                "DeleteLoadBalancerResponse": {
+                                    "DeleteLoadBalancerResult": {}, 
+                                    "ResponseMetadata": {
+                                        "RequestId": "f6dd8353-eb6b-6b4fd32e4f05"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }, 
+                "parameters": [
+                    {
+                        "default": "MyLB01", 
+                        "required": false, 
+                        "type": "string", 
+                        "name": "LoadBalancerName", 
+                        "in": "query"
+                    }, 
+                    {
+                        "default": "2014-11-01", 
+                        "required": false, 
+                        "type": "string", 
+                        "name": "Version", 
+                        "in": "query"
+                    }, 
+                    {
+                        "default": "DeleteLoadBalancer", 
+                        "required": true, 
+                        "type": "string", 
+                        "name": "Action", 
+                        "in": "query"
+                    }
+                ], 
+                "summary": "DeleteLoadBalancer"
+            }
+        }, 
+        "/#DeleteLoadBalancerListeners": {
+            "get": {
+                "produces": [
+                    "application/json"
+                ], 
+                "responses": {
+                    "200": {
+                        "description": "200 response", 
+                        "examples": {
+                            "application/json": {
+                                "DeleteLoadBalancerListenersResponse": {
+                                    "DeleteLoadBalancerListenersResult": {}, 
+                                    "ResponseMetadata": {
+                                        "RequestId": "f6dd8353-eb6b-6b4fd32e4f05"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }, 
+                "parameters": [
+                    {
+                        "default": "MyLB01", 
+                        "required": false, 
+                        "type": "string", 
+                        "name": "LoadBalancerName", 
+                        "in": "query"
+                    }, 
+                    {
+                        "default": "2014-11-01", 
+                        "required": false, 
+                        "type": "string", 
+                        "name": "Version", 
+                        "in": "query"
+                    }, 
+                    {
+                        "default": "DeleteLoadBalancerListeners", 
+                        "required": true, 
+                        "type": "string", 
+                        "name": "Action", 
+                        "in": "query"
+                    }, 
+                    {
+                        "default": "22", 
+                        "required": false, 
+                        "type": "string", 
+                        "name": "LoadBalancerPorts.member.1", 
+                        "in": "query"
+                    }
+                ], 
+                "summary": "DeleteLoadBalancerListeners"
+            }
+        }, 
+        "/#DeregisterInstancesFromLoadBalancer": {
+            "get": {
+                "produces": [
+                    "application/json"
+                ], 
+                "responses": {
+                    "200": {
+                        "description": "200 response", 
+                        "examples": {
+                            "application/json": {
+                                "DeregisterInstancesFromLoadBalancerResponse": {
+                                    "DeregisterInstancesFromLoadBalancerResult": {
+                                        "Instances": {
+                                            "member": [
+                                                {
+                                                    "InstanceId": "i-6ec63d59", 
+                                                    "PortId": "p-6ec63d59"
+                                                }, 
+                                                {
+                                                    "InstanceId": "i-34cde612"
+                                                }
+                                            ]
+                                        }
+                                    }, 
+                                    "ResponseMetadata": {
+                                        "RequestId": "83c88b9d-12b7-11e3-8b82-87b12EXAMPLE"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }, 
+                "parameters": [
+                    {
+                        "default": "i-e3677ad7", 
+                        "required": false, 
+                        "type": "string", 
+                        "name": "Instances.member.1.InstanceId", 
+                        "in": "query"
+                    }, 
+                    {
+                        "default": "MyLB01", 
+                        "required": false, 
+                        "type": "string", 
+                        "name": "LoadBalancerName", 
+                        "in": "query"
+                    }, 
+                    {
+                        "default": "2014-11-01", 
+                        "required": false, 
+                        "type": "string", 
+                        "name": "Version", 
+                        "in": "query"
+                    }, 
+                    {
+                        "default": "DeregisterInstancesFromLoadBalancer", 
+                        "required": true, 
+                        "type": "string", 
+                        "name": "Action", 
+                        "in": "query"
+                    }
+                ], 
+                "summary": "DeregisterInstancesFromLoadBalancer"
+            }
+        }, 
+        "/#DescribeLoadBalancerAttributes": {
+            "get": {
+                "produces": [
+                    "application/json"
+                ], 
+                "responses": {
+                    "200": {
+                        "description": "200 response", 
+                        "examples": {
+                            "application/json": {
+                                "DescribeLoadBalancerAttributesResponse": {
+                                    "DescribeLoadBalancerAttributesResult": {
+                                        "LoadBalancerAttributes": {
+                                            "ConnectionSettings": {
+                                                "IdleTimeout": "60"
+                                            }
+                                        }
+                                    }, 
+                                    "ResponseMetadata": {
+                                        "RequestId": "83c88b9d-12b7-11e3-8b82-87b13XAMPLE"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }, 
+                "parameters": [
+                    {
+                        "default": "i-e3677ad7", 
+                        "required": false, 
+                        "type": "string", 
+                        "name": "Instances.member.1.InstanceId", 
+                        "in": "query"
+                    }, 
+                    {
+                        "default": "MyLB01", 
+                        "required": false, 
+                        "type": "string", 
+                        "name": "LoadBalancerName", 
+                        "in": "query"
+                    }, 
+                    {
+                        "default": "2014-11-01", 
+                        "required": false, 
+                        "type": "string", 
+                        "name": "Version", 
+                        "in": "query"
+                    }
+                ], 
+                "summary": "DescribeLoadBalancerAttributes"
+            }
+        }, 
+        "/#DescribeLoadBalancers": {
+            "get": {
+                "produces": [
+                    "application/json"
+                ], 
+                "responses": {
+                    "200": {
+                        "description": "200 response", 
+                        "examples": {
+                            "application/json": {
+                                "DescribeLoadBalancersResponse": {
+                                    "DescribeLoadBalancersResult": {
+                                        "LoadBalancerDescriptions": {
+                                            "member": [
+                                                {
+                                                    "Subnets": {
+                                                        "member": "MySubnet"
+                                                    }, 
+                                                    "ListenerDescriptions": {
+                                                        "member": {
+                                                            "Listener": {
+                                                                "InstancePort": "80", 
+                                                                "Protocol": "HTTPS", 
+                                                                "LoadBalancerPort": "443", 
+                                                                "SSLCertificateId": "1232d7bf-8f28-4cc7-a63d-44e218853c6d", 
+                                                                "InstanceProtocol": "HTTP"
+                                                            }, 
+                                                            "PolicyNames": {
+                                                                "member": "MyPolicy"
+                                                            }
+                                                        }
+                                                    }, 
+                                                    "Grade": "Standard", 
+                                                    "HealthCheck": {
+                                                        "HealthyThreshold": "2", 
+                                                        "Interval": "90", 
+                                                        "Target": "HTTP:80", 
+                                                        "Timeout": "60", 
+                                                        "UnhealthyThreshold": "10"
+                                                    }, 
+                                                    "Instances": {
+                                                        "member": {
+                                                            "InstanceId": "i-e4cbe38d", 
+                                                            "PortId": "p-e4cbe38d"
+                                                        }
+                                                    }, 
+                                                    "State": "InService", 
+                                                    "DNSName": "MyLB01-3b9c2b0f028f40e09d6306887646c28b.loadbalancing-jp- east-1.cloud.global.fujitsu.com", 
+                                                    "SecurityGroups": {
+                                                        "member": "MySecurityGroup"
+                                                    }, 
+                                                    "Policies": {
+                                                        "LBCookieStickinessPolicies": {
+                                                            "member": {
+                                                                "PolicyName": "MyLoadBalancerCookieStickinessPolicy", 
+                                                                "CookieExpirationPeriod": "60"
+                                                            }
+                                                        }
+                                                    }, 
+                                                    "LoadBalancerName": "MyLB01", 
+                                                    "CreatedTime": "2014-06-01T21:15:31.280Z", 
+                                                    "Scheme": "Internal"
+                                                }
+                                            ]
+                                        }
+                                    }, 
+                                    "ResponseMetadata": {
+                                        "RequestId": "83c88b9d-12b7-11e3-8b82-87b12EXAMPLE"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }, 
+                "parameters": [
+                    {
+                        "default": "MyLB01", 
+                        "required": false, 
+                        "type": "string", 
+                        "name": "LoadBalancerNames.member.1", 
+                        "in": "query"
+                    }, 
+                    {
+                        "default": "2014-11-01", 
+                        "required": false, 
+                        "type": "string", 
+                        "name": "Version", 
+                        "in": "query"
+                    }, 
+                    {
+                        "default": "DescribeLoadBalancers", 
+                        "required": true, 
+                        "type": "string", 
+                        "name": "Action", 
+                        "in": "query"
+                    }
+                ], 
+                "summary": "DescribeLoadBalancers"
+            }
+        }, 
+        "/#DetachLoadBalancerFromSubnets": {
+            "get": {
+                "produces": [
+                    "application/json"
+                ], 
+                "responses": {
+                    "200": {
+                        "description": "200 response", 
+                        "examples": {
+                            "application/json": {
+                                "DetachLoadBalancerFromSubnetsResponse": {
+                                    "DetachLoadBalancerFromSubnetsResult": {
+                                        "Subnets": {
+                                            "member": [
+                                                "subnet-159f007c", 
+                                                "subnet-3561b05e"
+                                            ]
+                                        }
+                                    }, 
+                                    "ResponseMetadata": {
+                                        "RequestId": "07b1ecbc-1100-11e3-acaf-dd7edEXAMPLE"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }, 
+                "parameters": [
+                    {
+                        "default": "MySubnet-XXXXX", 
+                        "required": false, 
+                        "type": "string", 
+                        "name": "Subnets.member.1", 
+                        "in": "query"
+                    }, 
+                    {
+                        "default": "MyLB01", 
+                        "required": false, 
+                        "type": "string", 
+                        "name": "LoadBalancerName", 
+                        "in": "query"
+                    }, 
+                    {
+                        "default": "2014-11-01", 
+                        "required": false, 
+                        "type": "string", 
+                        "name": "Version", 
+                        "in": "query"
+                    }, 
+                    {
+                        "default": "DetachLoadBalancerFromSubnets", 
+                        "required": true, 
+                        "type": "string", 
+                        "name": "Action", 
+                        "in": "query"
+                    }
+                ], 
+                "summary": "DetachLoadBalancerFromSubnets"
+            }
+        }, 
+        "/#ModifyLoadBalancerAttributes": {
+            "get": {
+                "produces": [
+                    "application/json"
+                ], 
+                "responses": {
+                    "200": {
+                        "description": "200 response", 
+                        "examples": {
+                            "application/json": {
+                                "ModifyLoadBalancerAttributesResponse": {
+                                    "ModifyLoadBalancerAttributesResult": {
+                                        "LoadBalancerName": "MyLB01", 
+                                        "LoadBalancerAttributes": {
+                                            "ConnectionSettings": {
+                                                "IdleTimeout": "30"
+                                            }
+                                        }
+                                    }, 
+                                    "ResponseMetadata": {
+                                        "RequestId": "83c88b9d-12b7-11e3-8b82-87b13XAMPLE"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }, 
+                "parameters": [
+                    {
+                        "default": "30", 
+                        "required": false, 
+                        "type": "string", 
+                        "name": "LoadBalancerAttributes.ConnectionSettings.IdleTimeout", 
+                        "in": "query"
+                    }, 
+                    {
+                        "default": "MyLB01", 
+                        "required": false, 
+                        "type": "string", 
+                        "name": "LoadBalancerName", 
+                        "in": "query"
+                    }, 
+                    {
+                        "default": "2014-11-01", 
+                        "required": false, 
+                        "type": "string", 
+                        "name": "Version", 
+                        "in": "query"
+                    }
+                ], 
+                "summary": "ModifyLoadBalancerAttributes"
+            }
+        }, 
+        "/#RegisterInstancesWithLoadBalancer": {
+            "get": {
+                "produces": [
+                    "application/json"
+                ], 
+                "responses": {
+                    "200": {
+                        "description": "200 response", 
+                        "examples": {
+                            "application/json": {
+                                "RegisterInstancesWithLoadBalancerResponse": {
+                                    "RegisterInstancesWithLoadBalancerResult": {
+                                        "Instances": {
+                                            "member": [
+                                                {
+                                                    "InstanceId": "i-712cde1e"
+                                                }, 
+                                                {
+                                                    "InstanceId": "i-315b7e51", 
+                                                    "PortId": "p-315b7e51"
+                                                }
+                                            ]
+                                        }
+                                    }, 
+                                    "ResponseMetadata": {
+                                        "RequestId": "83c88b9d-12b7-11e3-8b82-87b12EXAMPLE"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }, 
+                "parameters": [
+                    {
+                        "default": "i-315b7e51", 
+                        "required": false, 
+                        "type": "string", 
+                        "name": "Instances.member.1.InstanceId", 
+                        "in": "query"
+                    }, 
+                    {
+                        "default": "MyLB01", 
+                        "required": false, 
+                        "type": "string", 
+                        "name": "LoadBalancerName", 
+                        "in": "query"
+                    }
+                ], 
+                "summary": "RegisterInstancesWithLoadBalancer"
+            }
+        }, 
+        "/#SetLoadBalancerListenerSSLCertificate": {
+            "get": {
+                "produces": [
+                    "application/json"
+                ], 
+                "responses": {
+                    "200": {
+                        "description": "200 response", 
+                        "examples": {
+                            "application/json": {
+                                "SetLoadBalancerListenerSSLCertificateResponse": {
+                                    "SetLoadBalancerListenerSSLCertificateResult": {}, 
+                                    "ResponseMetadata": {
+                                        "RequestId": "83c88b9d-12b7-11e3-8b82-87b12EXAMPLE"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }, 
+                "parameters": [
+                    {
+                        "default": "MyLB01", 
+                        "required": false, 
+                        "type": "string", 
+                        "name": "LoadBalancerName", 
+                        "in": "query"
+                    }, 
+                    {
+                        "default": "5c349f63-a874-47ed-b09e-9da913cbbbde", 
+                        "required": false, 
+                        "type": "string", 
+                        "name": "SSLCertificateId", 
+                        "in": "query"
+                    }, 
+                    {
+                        "default": "443", 
+                        "required": false, 
+                        "type": "string", 
+                        "name": "LoadBalancerPort", 
+                        "in": "query"
+                    }, 
+                    {
+                        "default": "2014-11-01", 
+                        "required": false, 
+                        "type": "string", 
+                        "name": "Version", 
+                        "in": "query"
+                    }, 
+                    {
+                        "default": "SetLoadBalancerListenerSSLCertificate", 
+                        "required": true, 
+                        "type": "string", 
+                        "name": "Action", 
+                        "in": "query"
+                    }
+                ], 
+                "summary": "SetLoadBalancerListenerSSLCertificate"
+            }
+        }, 
+        "/#SetLoadBalancerPoliciesOfListener": {
+            "get": {
+                "produces": [
+                    "application/json"
+                ], 
+                "responses": {
+                    "200": {
+                        "description": "200 response", 
+                        "examples": {
+                            "application/json": {
+                                "SetLoadBalancerPoliciesOfListenerResponse": {
+                                    "ResponseMetadata": {
+                                        "RequestId": "07b1ecbc-1100-11e3-acaf-dd7edEXAMPLE"
+                                    }, 
+                                    "SetLoadBalancerPoliciesOfListenerResult": {}
+                                }
+                            }
+                        }
+                    }
+                }, 
+                "parameters": [
+                    {
+                        "default": "MyLoadBalancerCookiePolicy", 
+                        "required": false, 
+                        "type": "string", 
+                        "name": "PolicyNames.member.1", 
+                        "in": "query"
+                    }, 
+                    {
+                        "default": "MyLB01", 
+                        "required": false, 
+                        "type": "string", 
+                        "name": "LoadBalancerName", 
+                        "in": "query"
+                    }, 
+                    {
+                        "default": "80", 
+                        "required": false, 
+                        "type": "string", 
+                        "name": "LoadBalancerPort", 
+                        "in": "query"
+                    }, 
+                    {
+                        "default": "2014-11-01", 
+                        "required": false, 
+                        "type": "string", 
+                        "name": "Version", 
+                        "in": "query"
+                    }, 
+                    {
+                        "default": "SetLoadBalancerPoliciesOfListener", 
+                        "required": true, 
+                        "type": "string", 
+                        "name": "Action", 
+                        "in": "query"
+                    }
+                ], 
+                "summary": "SetLoadBalancerPoliciesOfListener"
+            }
+        }
+    }
+}

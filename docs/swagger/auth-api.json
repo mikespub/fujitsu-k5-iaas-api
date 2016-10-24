@@ -1,0 +1,72 @@
+{
+    "swagger": "2.0", 
+    "info": {
+        "version": "v1", 
+        "title": "Draft swagger file for Fujitsu K5 Portal Auth API", 
+        "x-service": "auth-api"
+    }, 
+    "host": "auth-api", 
+    "schemes": [
+        "https"
+    ], 
+    "definitions": {
+        "postToken": {
+            "type": "object", 
+            "example": {
+                "application/json": {
+                    "auth": {
+                        "identity": {
+                            "password": {
+                                "user": {
+                                    "password": "user-password", 
+                                    "contract_number": "xxxxxxxx", 
+                                    "name": "user-name"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }, 
+    "paths": {
+        "/API/paas/auth/token": {
+            "post": {
+                "produces": [
+                    "application/json"
+                ], 
+                "consumes": [
+                    "application/json"
+                ], 
+                "responses": {
+                    "200": {
+                        "description": "200 response", 
+                        "examples": {
+                            "application/json": {
+                                "token": {
+                                    "scope": "paas", 
+                                    "user": {
+                                        "contract_number": "xxxxxxxx", 
+                                        "name": "user-name"
+                                    }, 
+                                    "expires_at": "2016-05-16T03:20:42"
+                                }
+                            }
+                        }
+                    }
+                }, 
+                "parameters": [
+                    {
+                        "schema": {
+                            "$ref": "#/definitions/postToken"
+                        }, 
+                        "required": false, 
+                        "name": "body", 
+                        "in": "body"
+                    }
+                ], 
+                "summary": "Get access token"
+            }
+        }
+    }
+}

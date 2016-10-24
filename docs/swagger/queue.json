@@ -1,0 +1,121 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "version": "v1", 
+        "title": "Draft swagger file for Fujitsu K5 IaaS Queue API Extensions", 
+        "x-service": "queue"
+    },
+    "externalDocs": {
+        "description": "Amazon SQS API Reference",
+        "url": "http://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_Operations.html"
+    },
+    "produces": [
+        "application/xml"
+    ],
+    "host": "queue",
+    "schemes": [
+        "https"
+    ],
+    "securityDefinitions": {
+        "auth_token": {
+            "type": "apiKey", 
+            "name": "X-Auth-Token", 
+            "in": "header"
+        }
+    }, 
+    "security": [
+        {
+            "auth_token": []
+        }
+    ],
+    "paths": {
+        "/?Action=ListQueues": {
+            "get": {
+                "operationId": "listQueues",
+                "summary": "List queues",
+                "description": "Returns a list of your queues. The maximum number of queues that can be returned is 1000. If you specify a value for the optional QueueNamePrefix parameter, only queues with a name beginning with the specified value are returned.\n",
+                "parameters": [
+                    {
+                        "name": "QueueNamePrefix",
+                        "required": false,
+                        "in": "query",
+                        "type": "string",
+                        "description": "A string to use for filtering the list results. Only those queues whose name begins with the specified string are returned.\n"
+                    }
+                ],
+                "produces": [
+                    "application/xml"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "200 response",
+                        "examples": {
+                            "application/xml": "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"no\"?><ListQueuesResponse><ListQueuesResult>\n    <QueueUrl>https://queue.uk-1.cloud.global.fujitsu.com/3b15a0b8e8e1451b9212f255b416fad7/helloQueue</QueueUrl>\n</ListQueuesResult><ResponseMetadata>\n    <RequestId>916bc5e1-f16c-41c8-b67a-a7729e6f3e5b</RequestId>\n</ResponseMetadata></ListQueuesResponse>"
+                        }
+                    }
+                }
+            }
+        },
+        "/?Action=CreateQueue": {
+            "get": {
+                "operationId": "createQueue",
+                "summary": "Create queue",
+                "description": "Creates a new queue, or returns the URL of an existing one. When you request CreateQueue, you provide a name for the queue. To successfully create a new queue, you must provide a name that is unique within the scope of your own queues.\n",
+                "parameters": [
+                    {
+                        "name": "QueueName",
+                        "required": true,
+                        "in": "query",
+                        "type": "string",
+                        "description": "The name for the queue to be created.\n"
+                    }
+                ],
+                "produces": [
+                    "application/xml"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "200 response",
+                        "examples": {
+                            "application/xml": "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"no\"?><CreateQueueResponse><CreateQueueResult>\n    <QueueUrl>https://queue.uk-1.cloud.global.fujitsu.com/3b15a0b8e8e1451b9212f255b416fad7/helloQueue</QueueUrl>\n</CreateQueueResult><ResponseMetadata>\n    <RequestId>6dcfe4b2-7de7-40f7-b31c-d67619984394</RequestId>\n</ResponseMetadata></CreateQueueResponse>"
+                        }
+                    }
+                }
+            }
+        },
+        "/{tenant_id}/{QueueName}/?Action=DeleteQueue": {
+            "get": {
+                "operationId": "deleteQueue",
+                "summary": "Delete queue",
+                "description": "Deletes the queue specified by the queue URL, regardless of whether the queue is empty. If the specified queue does not exist, Amazon SQS returns a successful response.\n",
+                "parameters": [
+                    {
+                        "name": "tenant_id",
+                        "required": true,
+                        "in": "path",
+                        "type": "string",
+                        "description": "The UUID of the tenant in a multi-tenancy cloud.\n"
+                    },
+                    {
+                        "name": "QueueName",
+                        "required": true,
+                        "in": "path",
+                        "type": "string",
+                        "description": "The name for the queue to be deleted.\n"
+                    }
+                ],
+                "produces": [
+                    "application/xml"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "200 response",
+                        "examples": {
+                            "application/xml": "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"no\"?><DeleteQueueResponse><ResponseMetadata>\n    <RequestId>dbc8c1e8-dfc3-46d3-bb56-94bf80f921a0</RequestId>\n</ResponseMetadata></DeleteQueueResponse>"
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

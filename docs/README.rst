@@ -2,6 +2,109 @@
 Fujitsu K5 IaaS API Docs
 ========================
 
+Fujitsu K5 API Services
+=======================
+
+List of K5 Portal Services
+--------------------------
+
++-----------------+----------------------------------------------------------+
+| Name of Service | Endpoint                                                 |
+|                 |                                                          |
++-----------------+----------------------------------------------------------+
+| Authentication  | https://auth-api.jp-east-1.paas.cloud.global.fujitsu.com |
+|                 |                                                          |
++-----------------+----------------------------------------------------------+
+| User Management | https://k5-apiportal.paas.cloud.global.fujitsu.com       |
+|                 |                                                          |
++-----------------+----------------------------------------------------------+
+
+List of K5 Global IaaS Services
+-------------------------------
+
++----------------------------------+-----------------------------------------------+
+| Name of Service                  | Endpoint                                      |
+|                                  |                                               |
++----------------------------------+-----------------------------------------------+
+| Subscription Management          | https://contract.gls.cloud.global.fujitsu.com |
+|                                  |                                               |
++----------------------------------+-----------------------------------------------+
+| Global User Management           | https://identity.gls.cloud.global.fujitsu.com |
+|                                  |                                               |
++----------------------------------+-----------------------------------------------+
+| Billing Management               | https://billing.gls.cloud.global.fujitsu.com  |
+|                                  |                                               |
++----------------------------------+-----------------------------------------------+
+| DNS Service                      | https://dns.gls.cloud.global.fujitsu.com      |
+|                                  |                                               |
++----------------------------------+-----------------------------------------------+
+| Product Management               | https://catalog.gls.cloud.global.fujitsu.com  |
+|                                  |                                               |
++----------------------------------+-----------------------------------------------+
+| Content Delivery Network Service | https://cdn.gls.cloud.global.fujitsu.com      |
+|                                  |                                               |
++----------------------------------+-----------------------------------------------+
+
+List of K5 Regional IaaS Services
+---------------------------------
+
++----------------------------+----------------------------------------------------+
+| Name of Service            | Endpoint (*** indicates the region identifier)     |
+|                            |                                                    |
++----------------------------+----------------------------------------------------+
+| Regional User Management   | https://identity.***.cloud.global.fujitsu.com      |
+|                            |                                                    |
++----------------------------+----------------------------------------------------+
+| Key Management             | https://keymanagement.***.cloud.global.fujitsu.com |
+|                            |                                                    |
++----------------------------+----------------------------------------------------+
+| Software Management        | https://software.***.cloud.global.fujitsu.com      |
+|                            |                                                    |
++----------------------------+----------------------------------------------------+
+| Compute (Standard Service) | https://compute.***.cloud.global.fujitsu.com       |
+|                            |                                                    |
++----------------------------+----------------------------------------------------+
+| Image Management           | https://image.***.cloud.global.fujitsu.com         |
+|                            |                                                    |
++----------------------------+----------------------------------------------------+
+| Virtual Server Import      | https://vmimport.***.cloud.global.fujitsu.com      |
+|                            |                                                    |
++----------------------------+----------------------------------------------------+
+| Compute (Service for SAP)  | https://compute-w.***.cloud.global.fujitsu.com     |
+|                            |                                                    |
++----------------------------+----------------------------------------------------+
+| Auto-Scaling               | https://autoscale.***.cloud.global.fujitsu.com     |
+|                            |                                                    |
++----------------------------+----------------------------------------------------+
+| Block Storage              | https://blockstorage.***.cloud.global.fujitsu.com  |
+|                            |                                                    |
++----------------------------+----------------------------------------------------+
+| Object Storage             | https://objectstorage.***.cloud.global.fujitsu.com |
+|                            |                                                    |
++----------------------------+----------------------------------------------------+
+| Virtual Network            | https://networking.***.cloud.global.fujitsu.com    |
+|                            |                                                    |
++----------------------------+----------------------------------------------------+
+| Virtual Network Extension  | https://networking-ex.***.cloud.global.fujitsu.com |
+|                            |                                                    |
++----------------------------+----------------------------------------------------+
+| Load Balancer              | https://loadbalancing.***.cloud.global.fujitsu.com |
+|                            |                                                    |
++----------------------------+----------------------------------------------------+
+| Database                   | https://database.***.cloud.global.fujitsu.com      |
+|                            |                                                    |
++----------------------------+----------------------------------------------------+
+| Email Delivery             | https://mail.***.cloud.global.fujitsu.com          |
+|                            |                                                    |
++----------------------------+----------------------------------------------------+
+| Orchestration              | https://orchestration.***.cloud.global.fujitsu.com |
+|                            |                                                    |
++----------------------------+----------------------------------------------------+
+| Monitoring                 | https://telemetry.***.cloud.global.fujitsu.com     |
+|                            |                                                    |
++----------------------------+----------------------------------------------------+
+
+
 Using the draft swagger files
 =============================
 
@@ -24,7 +127,7 @@ The Fujitsu K5 services are organised in **global services** and **regional serv
 
 Source: `FUJITSU Cloud Service K5 IaaS Features Handbook <http://www.fujitsu.com/global/Images/k5-iaas-features-handbook.pdf>`_
 
-In addition, the central K5 **portal** also has a separate authentication service. Please make sure to use the right authentication token when trying out one of the APIs...
+In addition, the central **K5 portal** also has a separate authentication service. Please make sure to use the right authentication token when trying out one of the APIs...
 
 
 Placeholder for generated HTML pages

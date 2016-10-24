@@ -2,6 +2,31 @@
 Fujitsu K5 IaaS API Docs
 ========================
 
+Using the draft swagger files
+=============================
+
+You can explore the different Fujitsu K5 IaaS APIs by using the swagger files with one of the Swagger tools like:
+
+* `Swagger Editor <http://editor.swagger.io/>`_
+
+* `Swagger UI <http://petstore.swagger.io/>`_
+
+You can also generate draft client SDKs in your preferred programming language using Swagger Codegen or directly from the Swagger Editor, or use the swagger files as input for an API gateway or other integration tool.
+
+Note: since the parameters and responses in the swagger files are not always complete, this will not give you a fully functional tool, but it should give you a start.
+
+Getting the right authentication token
+======================================
+
+The Fujitsu K5 services are organised in **global services** and **regional services**.
+
+.. image:: k5-global-vs-regional-token.png
+
+Source: `FUJITSU Cloud Service K5 IaaS Features Handbook <http://www.fujitsu.com/global/Images/k5-iaas-features-handbook.pdf>`_
+
+In addition, the central K5 **portal** also has a separate authentication service. Please make sure to use the right authentication token when trying out one of the APIs...
+
+
 Placeholder for generated HTML pages
 
 * Draft swagger files for Fujitsu K5 IaaS API Extensions (get an auth_token from identity.* first)

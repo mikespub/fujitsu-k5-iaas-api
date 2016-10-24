@@ -2,6 +2,11 @@
 Fujitsu K5 IaaS API Reference & Tools
 =====================================
 
+API Swagger Files
+=================
+
+See `docs/swagger <docs/swagger>`_ for some draft swagger files to examine Fujitsu K5 IaaS API extensions
+
 API Overview
 ============
 

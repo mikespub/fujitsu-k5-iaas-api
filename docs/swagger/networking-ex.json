@@ -29,6 +29,11 @@
                 "application/json": {
                     "port_id": "a2f1f29d-571b-4533-907f-5803ab96ead1"
                 }
+            }, 
+            "properties": {
+                "port_id": {
+                    "type": "string"
+                }
             }
         }, 
         "put{Network_Connector_Endpoint_Id}": {
@@ -37,6 +42,16 @@
                 "application/json": {
                     "network_connector_endpoint": {
                         "name": "endponit2_for_az1"
+                    }
+                }
+            }, 
+            "properties": {
+                "network_connector_endpoint": {
+                    "type": "object", 
+                    "properties": {
+                        "name": {
+                            "type": "string"
+                        }
                     }
                 }
             }
@@ -49,6 +64,16 @@
                         "name": "connector2"
                     }
                 }
+            }, 
+            "properties": {
+                "network_connector": {
+                    "type": "object", 
+                    "properties": {
+                        "name": {
+                            "type": "string"
+                        }
+                    }
+                }
             }
         }, 
         "putConnect": {
@@ -57,6 +82,16 @@
                 "application/json": {
                     "interface": {
                         "port_id": "5fd5b822-c400-46dc-bc68-ea8c0dd20876"
+                    }
+                }
+            }, 
+            "properties": {
+                "interface": {
+                    "type": "object", 
+                    "properties": {
+                        "port_id": {
+                            "type": "string"
+                        }
                     }
                 }
             }
@@ -70,6 +105,19 @@
                         "admin_state_up": false
                     }
                 }
+            }, 
+            "properties": {
+                "ssl_vpn_connection": {
+                    "type": "object", 
+                    "properties": {
+                        "name": {
+                            "type": "string"
+                        }, 
+                        "admin_state_up": {
+                            "type": "boolean"
+                        }
+                    }
+                }
             }
         }, 
         "putDisconnect": {
@@ -78,6 +126,16 @@
                 "application/json": {
                     "interface": {
                         "port_id": "5fd5b822-c400-46dc-bc68-ea8c0dd20876"
+                    }
+                }
+            }, 
+            "properties": {
+                "interface": {
+                    "type": "object", 
+                    "properties": {
+                        "port_id": {
+                            "type": "string"
+                        }
                     }
                 }
             }
@@ -96,6 +154,34 @@
                         "vpnservice_id": "cc91b7af-8304-4aff-ad07-86bdbaae2e93"
                     }
                 }
+            }, 
+            "properties": {
+                "ssl_vpn_connection": {
+                    "type": "object", 
+                    "properties": {
+                        "client_address_pool_cidr": {
+                            "type": "string"
+                        }, 
+                        "protocol": {
+                            "type": "string"
+                        }, 
+                        "name": {
+                            "type": "string"
+                        }, 
+                        "availability_zone": {
+                            "type": "string"
+                        }, 
+                        "admin_state_up": {
+                            "type": "boolean"
+                        }, 
+                        "credential_id": {
+                            "type": "string"
+                        }, 
+                        "vpnservice_id": {
+                            "type": "string"
+                        }
+                    }
+                }
             }
         }, 
         "putReset_Connections": {
@@ -103,6 +189,11 @@
             "example": {
                 "application/json": {
                     "target": null
+                }
+            }, 
+            "properties": {
+                "target": {
+                    "type": "null"
                 }
             }
         }, 
@@ -114,6 +205,22 @@
                         "tenant_id": "29320d5e-dd29-425c-b386-3cbb2754ad03", 
                         "network_connector_pool_id": "78380271-954a-4c1a-a76d-43033c7fc9bf", 
                         "name": "connector1"
+                    }
+                }
+            }, 
+            "properties": {
+                "network_connector": {
+                    "type": "object", 
+                    "properties": {
+                        "tenant_id": {
+                            "type": "string"
+                        }, 
+                        "network_connector_pool_id": {
+                            "type": "string"
+                        }, 
+                        "name": {
+                            "type": "string"
+                        }
                     }
                 }
             }
@@ -130,6 +237,28 @@
                         "location": "east-jp-az1"
                     }
                 }
+            }, 
+            "properties": {
+                "network_connector_endpoint": {
+                    "type": "object", 
+                    "properties": {
+                        "tenant_id": {
+                            "type": "string"
+                        }, 
+                        "endpoint_type": {
+                            "type": "string"
+                        }, 
+                        "name": {
+                            "type": "string"
+                        }, 
+                        "network_connector_id": {
+                            "type": "string"
+                        }, 
+                        "location": {
+                            "type": "string"
+                        }
+                    }
+                }
             }
         }, 
         "putRemove_Cross_Project_Router_Interface": {
@@ -137,6 +266,11 @@
             "example": {
                 "application/json": {
                     "port_id": "1accb5ac-b258-483e-af3a-f41f6df8190c"
+                }
+            }, 
+            "properties": {
+                "port_id": {
+                    "type": "string"
                 }
             }
         }
@@ -208,8 +342,8 @@
                     "application/json"
                 ], 
                 "responses": {
-                    "200": {
-                        "description": "200 response", 
+                    "201": {
+                        "description": "201 response", 
                         "examples": {
                             "application/json": {
                                 "network_connector": {
@@ -318,8 +452,8 @@
             }, 
             "delete": {
                 "responses": {
-                    "200": {
-                        "description": "200 response", 
+                    "204": {
+                        "description": "204 response", 
                         "examples": {}
                     }
                 }, 
@@ -375,8 +509,8 @@
                     "application/json"
                 ], 
                 "responses": {
-                    "200": {
-                        "description": "200 response", 
+                    "201": {
+                        "description": "201 response", 
                         "examples": {
                             "application/json": {
                                 "network_connector_endpoint": {
@@ -483,8 +617,8 @@
             }, 
             "delete": {
                 "responses": {
-                    "200": {
-                        "description": "200 response", 
+                    "204": {
+                        "description": "204 response", 
                         "examples": {}
                     }
                 }, 
@@ -671,8 +805,8 @@
                     "application/json"
                 ], 
                 "responses": {
-                    "200": {
-                        "description": "200 response", 
+                    "201": {
+                        "description": "201 response", 
                         "examples": {
                             "application/json": {
                                 "ssl_vpn_connection": {
@@ -791,8 +925,8 @@
             }, 
             "delete": {
                 "responses": {
-                    "200": {
-                        "description": "200 response", 
+                    "204": {
+                        "description": "204 response", 
                         "examples": {}
                     }
                 }, 

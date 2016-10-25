@@ -46,8 +46,8 @@
                     "application/xml"
                 ], 
                 "responses": {
-                    "200": {
-                        "description": "200 response", 
+                    "201": {
+                        "description": "201 response", 
                         "examples": {
                             "text/plain": "HTTP/1.1 201 Created\\nDate: Fri, 06 Jun 2014 11:00:38 GMT Content-Length: ...\\nContent-Type: application/xml\\nx-fj-request-id: d96bd874-9bf2-11e1-8ee7-c98a0037a2b6\\n", 
                             "application/xml": "<?xml version='1.0' encoding='UTF-8'?>\n<CreateHostedZoneResponse xmlns=\"http://docs.cloudcommunity.global.fujitsu.com/dns/api/v1.0/\">\n  <HostedZone>\n    <Id>example.com</Id>\n    <Name>example.com</Name>\n    <CallerReference>example.com</CallerReference>\n    <Config>\n      <Comment>comment</Comment>\n    </Config>\n    <ResourceRecordSetCount>0</ResourceRecordSetCount>\n  </HostedZone>\n  <ChangeInfo>\n    <Id>cb7faf29ae2bb2bd489d0d27b36e28fc</Id>\n    <Status>INSYNC</Status>\n    <SubmittedAt>2014-06-06T11:00:38.370Z</SubmittedAt>\n  </ChangeInfo>\n  <DelegationSet>\n    <NameServers>\n      <NameServer>cdns0.nifty.ad.jp</NameServer>\n      <NameServer>cdns1.nifty.ad.jp</NameServer>\n    </NameServers>\n  </DelegationSet>\n</CreateHostedZoneResponse>\n"

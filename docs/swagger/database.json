@@ -54,6 +54,70 @@
                         "preferredMaintenanceWindow": "Sun:19:00-Sun:20:00"
                     }
                 }
+            }, 
+            "properties": {
+                "action": {
+                    "type": "object", 
+                    "properties": {
+                        "readreplica": {
+                            "type": "string"
+                        }
+                    }
+                }, 
+                "instance": {
+                    "type": "object", 
+                    "properties": {
+                        "preferredBackupWindow": {
+                            "type": "string"
+                        }, 
+                        "availabilityZone": {
+                            "type": "string"
+                        }, 
+                        "name": {
+                            "type": "string"
+                        }, 
+                        "publiclyAccessible": {
+                            "type": "boolean"
+                        }, 
+                        "parameterGroupId": {
+                            "type": "string"
+                        }, 
+                        "flavorRef": {
+                            "type": "string"
+                        }, 
+                        "securityGroupIds": {
+                            "items": {
+                                "type": "object", 
+                                "properties": {
+                                    "securityGroupId": {
+                                        "type": "string"
+                                    }
+                                }
+                            }, 
+                            "type": "array"
+                        }, 
+                        "volume": {
+                            "type": "object", 
+                            "properties": {
+                                "type": {
+                                    "type": "string"
+                                }, 
+                                "size": {
+                                    "type": "integer"
+                                }
+                            }
+                        }, 
+                        "subnetGroupId": {
+                            "type": "string"
+                        }, 
+                        "port": {
+                            "type": "integer"
+                        }, 
+                        "preferredMaintenanceWindow": {
+                            "type": "string"
+                        }
+                    }
+                }
             }
         }, 
         "put{Subscriptionid}": {
@@ -67,6 +131,24 @@
                         "sourceId": "dbinst5"
                     }
                 }
+            }, 
+            "properties": {
+                "action": {
+                    "type": "object", 
+                    "properties": {
+                        "add": {
+                            "type": "string"
+                        }
+                    }
+                }, 
+                "eventnotification": {
+                    "type": "object", 
+                    "properties": {
+                        "sourceId": {
+                            "type": "string"
+                        }
+                    }
+                }
             }
         }, 
         "postAction": {
@@ -75,6 +157,14 @@
                 "application/json": {
                     "failover": false, 
                     "reboot": ""
+                }
+            }, 
+            "properties": {
+                "failover": {
+                    "type": "boolean"
+                }, 
+                "reboot": {
+                    "type": "string"
                 }
             }
         }, 
@@ -98,6 +188,33 @@
                         ]
                     }
                 }
+            }, 
+            "properties": {
+                "parametergroup": {
+                    "type": "object", 
+                    "properties": {
+                        "resetAllparameters": {
+                            "type": "boolean"
+                        }, 
+                        "parameters": {
+                            "items": {
+                                "type": "object", 
+                                "properties": {
+                                    "applyMethod": {
+                                        "type": "string"
+                                    }, 
+                                    "name ": {
+                                        "type": "string"
+                                    }, 
+                                    "value ": {
+                                        "type": "string"
+                                    }
+                                }
+                            }, 
+                            "type": "array"
+                        }
+                    }
+                }
             }
         }, 
         "postSnapshots": {
@@ -107,6 +224,19 @@
                     "snapshot": {
                         "instanceId": "dbinst1", 
                         "name": "json-rack-instance-bkup"
+                    }
+                }
+            }, 
+            "properties": {
+                "snapshot": {
+                    "type": "object", 
+                    "properties": {
+                        "instanceId": {
+                            "type": "string"
+                        }, 
+                        "name": {
+                            "type": "string"
+                        }
                     }
                 }
             }
@@ -126,6 +256,30 @@
                         ], 
                         "name": "subnetGroup1", 
                         "description": "this is test"
+                    }
+                }
+            }, 
+            "properties": {
+                "subnetgroup": {
+                    "type": "object", 
+                    "properties": {
+                        "subnetIds": {
+                            "items": {
+                                "type": "object", 
+                                "properties": {
+                                    "subnetId": {
+                                        "type": "string"
+                                    }
+                                }
+                            }, 
+                            "type": "array"
+                        }, 
+                        "name": {
+                            "type": "string"
+                        }, 
+                        "description": {
+                            "type": "string"
+                        }
                     }
                 }
             }
@@ -168,6 +322,89 @@
                         "id": "snap1"
                     }
                 }
+            }, 
+            "properties": {
+                "action": {
+                    "type": "object", 
+                    "properties": {
+                        "restoresnapshot": {
+                            "type": "null"
+                        }
+                    }
+                }, 
+                "instance": {
+                    "type": "object", 
+                    "properties": {
+                        "multiAZ": {
+                            "type": "boolean"
+                        }, 
+                        "availabilityZone": {
+                            "type": "string"
+                        }, 
+                        "name": {
+                            "type": "string"
+                        }, 
+                        "publiclyAccessible": {
+                            "type": "boolean"
+                        }, 
+                        "preferredMaintenanceWindow": {
+                            "type": "string"
+                        }, 
+                        "parameterGroupId": {
+                            "type": "string"
+                        }, 
+                        "flavorRef": {
+                            "type": "string"
+                        }, 
+                        "securityGroupIds": {
+                            "items": {
+                                "type": "object", 
+                                "properties": {
+                                    "securityGroupId": {
+                                        "type": "string"
+                                    }
+                                }
+                            }, 
+                            "type": "array"
+                        }, 
+                        "volume": {
+                            "type": "object", 
+                            "properties": {
+                                "size": {
+                                    "type": "integer"
+                                }
+                            }
+                        }, 
+                        "autoMaintenance": {
+                            "type": "boolean"
+                        }, 
+                        "subnetGroupId": {
+                            "type": "string"
+                        }, 
+                        "preferredRecoveryTime": {
+                            "type": "object", 
+                            "properties": {
+                                "applyImmediately": {
+                                    "type": "boolean"
+                                }
+                            }
+                        }, 
+                        "port": {
+                            "type": "integer"
+                        }, 
+                        "preferredBackupWindow": {
+                            "type": "string"
+                        }
+                    }
+                }, 
+                "snapshot": {
+                    "type": "object", 
+                    "properties": {
+                        "id": {
+                            "type": "string"
+                        }
+                    }
+                }
             }
         }, 
         "put{Subnetgroupid}": {
@@ -185,6 +422,30 @@
                         ], 
                         "description": "this is test", 
                         "name ": "subnetGroup1"
+                    }
+                }
+            }, 
+            "properties": {
+                "subnetgroup": {
+                    "type": "object", 
+                    "properties": {
+                        "subnetIds ": {
+                            "items": {
+                                "type": "object", 
+                                "properties": {
+                                    "subnetId": {
+                                        "type": "string"
+                                    }
+                                }
+                            }, 
+                            "type": "array"
+                        }, 
+                        "description": {
+                            "type": "string"
+                        }, 
+                        "name ": {
+                            "type": "string"
+                        }
                     }
                 }
             }
@@ -248,6 +509,133 @@
                         ]
                     }
                 }
+            }, 
+            "properties": {
+                "instance": {
+                    "type": "object", 
+                    "properties": {
+                        "securityGroupIds.": {
+                            "items": {
+                                "type": "object", 
+                                "properties": {
+                                    "securityGroupId": {
+                                        "type": "string"
+                                    }
+                                }
+                            }, 
+                            "type": "array"
+                        }, 
+                        "masterUserPassword": {
+                            "type": "string"
+                        }, 
+                        "autoMinorVersionUpgrade": {
+                            "type": "boolean"
+                        }, 
+                        "character_set": {
+                            "type": "string"
+                        }, 
+                        "port": {
+                            "type": "integer"
+                        }, 
+                        "collate": {
+                            "type": "string"
+                        }, 
+                        "engineVersion": {
+                            "type": "string"
+                        }, 
+                        "engine": {
+                            "type": "string"
+                        }, 
+                        "multiAZ": {
+                            "type": "boolean"
+                        }, 
+                        "availabilityZone": {
+                            "type": "string"
+                        }, 
+                        "users": {
+                            "items": {
+                                "type": "object", 
+                                "properties": {
+                                    "password": {
+                                        "type": "string"
+                                    }, 
+                                    "name": {
+                                        "type": "string"
+                                    }, 
+                                    "databases": {
+                                        "items": {
+                                            "type": "object", 
+                                            "properties": {
+                                                "name": {
+                                                    "type": "string"
+                                                }
+                                            }
+                                        }, 
+                                        "type": "array"
+                                    }
+                                }
+                            }, 
+                            "type": "array"
+                        }, 
+                        "parameterGroupId": {
+                            "type": "string"
+                        }, 
+                        "flavorRef": {
+                            "type": "string"
+                        }, 
+                        "preferredBackupWindow": {
+                            "type": "string"
+                        }, 
+                        "autoMaintenance": {
+                            "type": "boolean"
+                        }, 
+                        "backupRetentionPeriod": {
+                            "type": "integer"
+                        }, 
+                        "preferredMaintenanceWindow": {
+                            "type": "string"
+                        }, 
+                        "volume": {
+                            "type": "object", 
+                            "properties": {
+                                "size": {
+                                    "type": "integer"
+                                }
+                            }
+                        }, 
+                        "subnetGroupId.": {
+                            "type": "string"
+                        }, 
+                        "multi": {
+                            "type": "boolean"
+                        }, 
+                        "name": {
+                            "type": "string"
+                        }, 
+                        "publiclyAccessible": {
+                            "type": "boolean"
+                        }, 
+                        "preferredRecoveryTime": {
+                            "type": "object", 
+                            "properties": {
+                                "time": {
+                                    "type": "string"
+                                }
+                            }
+                        }, 
+                        "databases": {
+                            "items": {
+                                "type": "object", 
+                                "properties": {
+                                    "name": {
+                                        "type": "string"
+                                    }
+                                }
+                            }, 
+                            "type": "array"
+                        }
+                    }
+                }
             }
         }, 
         "postEventnotifications": {
@@ -263,6 +651,22 @@
                         "description": "this is test"
                     }
                 }
+            }, 
+            "properties": {
+                "parametergroup": {
+                    "type": "object", 
+                    "properties": {
+                        "parameterGroupFamily": {
+                            "type": "string"
+                        }, 
+                        "name": {
+                            "type": "string"
+                        }, 
+                        "description": {
+                            "type": "string"
+                        }
+                    }
+                }
             }
         }, 
         "put{Snapshotid}": {
@@ -271,6 +675,16 @@
                 "application/json": {
                     "snapshot": {
                         "name": "json-rack-instance-bkup2"
+                    }
+                }
+            }, 
+            "properties": {
+                "snapshot": {
+                    "type": "object", 
+                    "properties": {
+                        "name": {
+                            "type": "string"
+                        }
                     }
                 }
             }
@@ -286,8 +700,8 @@
                     "application/json"
                 ], 
                 "responses": {
-                    "200": {
-                        "description": "200 response", 
+                    "202": {
+                        "description": "202 response", 
                         "examples": {
                             "application/json": {
                                 "instance": {
@@ -449,8 +863,8 @@
                     "application/json"
                 ], 
                 "responses": {
-                    "200": {
-                        "description": "200 response", 
+                    "202": {
+                        "description": "202 response", 
                         "examples": {
                             "application/json": {
                                 "instance": {
@@ -715,8 +1129,8 @@
             }, 
             "delete": {
                 "responses": {
-                    "200": {
-                        "description": "200 response", 
+                    "202": {
+                        "description": "202 response", 
                         "examples": {}
                     }
                 }, 
@@ -743,8 +1157,8 @@
                     "application/json"
                 ], 
                 "responses": {
-                    "200": {
-                        "description": "200 response", 
+                    "202": {
+                        "description": "202 response", 
                         "examples": {}
                     }
                 }, 
@@ -860,8 +1274,8 @@
                     "application/json"
                 ], 
                 "responses": {
-                    "200": {
-                        "description": "200 response", 
+                    "202": {
+                        "description": "202 response", 
                         "examples": {}
                     }
                 }, 
@@ -914,8 +1328,8 @@
             }, 
             "delete": {
                 "responses": {
-                    "200": {
-                        "description": "200 response", 
+                    "202": {
+                        "description": "202 response", 
                         "examples": {}
                     }
                 }, 
@@ -1117,8 +1531,8 @@
                     "application/json"
                 ], 
                 "responses": {
-                    "200": {
-                        "description": "200 response", 
+                    "202": {
+                        "description": "202 response", 
                         "examples": {
                             "application/json": {
                                 "subnetgroup": {
@@ -1208,8 +1622,8 @@
             }, 
             "delete": {
                 "responses": {
-                    "200": {
-                        "description": "200 response", 
+                    "202": {
+                        "description": "202 response", 
                         "examples": {}
                     }
                 }, 
@@ -1324,8 +1738,8 @@
                     "application/json"
                 ], 
                 "responses": {
-                    "200": {
-                        "description": "200 response", 
+                    "202": {
+                        "description": "202 response", 
                         "examples": {}
                     }
                 }, 
@@ -1412,8 +1826,8 @@
             }, 
             "delete": {
                 "responses": {
-                    "200": {
-                        "description": "200 response", 
+                    "202": {
+                        "description": "202 response", 
                         "examples": {}
                     }
                 }, 
@@ -1514,8 +1928,8 @@
                     "application/json"
                 ], 
                 "responses": {
-                    "200": {
-                        "description": "200 response", 
+                    "202": {
+                        "description": "202 response", 
                         "examples": {}
                     }
                 }, 
@@ -1568,8 +1982,8 @@
             }, 
             "delete": {
                 "responses": {
-                    "200": {
-                        "description": "200 response", 
+                    "202": {
+                        "description": "202 response", 
                         "examples": {}
                     }
                 }, 

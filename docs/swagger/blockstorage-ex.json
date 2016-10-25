@@ -29,6 +29,12 @@
                 "application/json": {
                     "fcx-restore": {}
                 }
+            }, 
+            "properties": {
+                "fcx-restore": {
+                    "type": "object", 
+                    "properties": {}
+                }
             }
         }
     }, 
@@ -39,8 +45,8 @@
                     "application/json"
                 ], 
                 "responses": {
-                    "200": {
-                        "description": "200 response", 
+                    "202": {
+                        "description": "202 response", 
                         "examples": {}
                     }
                 }, 

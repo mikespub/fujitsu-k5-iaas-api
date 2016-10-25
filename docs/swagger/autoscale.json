@@ -33,6 +33,23 @@
                     "method": "POST", 
                     "name": "sample2"
                 }
+            }, 
+            "properties": {
+                "url": {
+                    "type": "string"
+                }, 
+                "project_id": {
+                    "type": "string"
+                }, 
+                "method": {
+                    "type": "string"
+                }, 
+                "name": {
+                    "type": "string"
+                }, 
+                "time": {
+                    "type": "string"
+                }
             }
         }
     }, 
@@ -100,8 +117,8 @@
         "/autoscale_schedulers/{name}": {
             "delete": {
                 "responses": {
-                    "200": {
-                        "description": "200 response", 
+                    "204": {
+                        "description": "204 response", 
                         "examples": {}
                     }
                 }, 

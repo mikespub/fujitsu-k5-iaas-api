@@ -1,0 +1,203 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "version": "v1",
+        "title": "Draft swagger file for Fujitsu K5 IaaS Auth API",
+        "x-service": "identity",
+        "x-scope": "region"
+    },
+    "host": "identity.uk-1.cloud.global.fujitsu.com",
+    "schemes": [
+        "https"
+    ],
+    "produces": [
+        "application/json"
+    ],
+    "consumes": [
+        "application/json"
+    ],
+    "definitions": {
+        "authenticatePasswordScoped": {
+            "example": {
+                "application/json": {
+                    "auth": {
+                        "identity": {
+                            "methods": [
+                                "password"
+                            ],
+                            "password": {
+                                "user": {
+                                    "domain": {
+                                        "name": "domainName"
+                                    },
+                                    "name": "userName",
+                                    "password": "userPassword"
+                                }
+                            }
+                        },
+                        "scope": {
+                            "project": {
+                                "id": "projectId"
+                            }
+                        }
+                    }
+                }
+            },
+            "properties": {
+                "auth": {
+                    "type": "object",
+                    "properties": {
+                        "identity": {
+                            "type": "object",
+                            "properties": {
+                                "methods": {
+                                    "items": {
+                                        "type": "string",
+                                        "default": "password"
+                                    },
+                                    "type": "array"
+                                },
+                                "password": {
+                                    "type": "object",
+                                    "properties": {
+                                        "user": {
+                                            "type": "object",
+                                            "properties": {
+                                                "id": {
+                                                    "type": "string"
+                                                },
+                                                "name": {
+                                                    "type": "string"
+                                                },
+                                                "password": {
+                                                    "type": "string"
+                                                },
+                                                "domain": {
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "name": {
+                                                            "type": "string"
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "scope": {
+                            "type": "object",
+                            "properties": {
+                                "project": {
+                                    "type": "object",
+                                    "properties": {
+                                        "id": {
+                                            "type": "string"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "required": [
+                "auth"
+            ],
+            "type": "object"
+        }
+    },
+    "paths": {
+        "/v3/auth/tokens": {
+            "post": {
+                "consumes": [
+                    "application/json"
+                ],
+                "operationId": "authenticatePasswordScoped",
+                "parameters": [
+                    {
+                        "description": "",
+                        "in": "body",
+                        "name": "body",
+                        "required": false,
+                        "schema": {
+                            "$ref": "#/definitions/authenticatePasswordScoped"
+                        }
+                    }
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "201": {
+                        "description": "",
+                        "examples": {
+                            "application/json": {
+                                "token": {
+                                    "audit_ids": [
+                                        "3T2dc1CGQxyJsHdDu1xkcw"
+                                    ],
+                                    "catalog": [
+                                        {
+                                            "endpoints": [
+                                                {
+                                                    "id": "068d1b359ee84b438266cb736d81de97",
+                                                    "interface": "public",
+                                                    "region": "RegionOne",
+                                                    "region_id": "RegionOne",
+                                                    "url": "http://23.253.248.171:5000/v2.0"
+                                                }
+                                            ],
+                                            "id": "050726f278654128aba89757ae25950c",
+                                            "name": "keystone",
+                                            "type": "identity"
+                                        }
+                                    ],
+                                    "expires_at": "2015-11-07T02:58:43.578887Z",
+                                    "extras": {},
+                                    "issued_at": "2015-11-07T01:58:43.578929Z",
+                                    "methods": [
+                                        "password"
+                                    ],
+                                    "project": {
+                                        "domain": {
+                                            "id": "default",
+                                            "name": "Default"
+                                        },
+                                        "id": "a6944d763bf64ee6a275f1263fae0352",
+                                        "name": "admin"
+                                    },
+                                    "roles": [
+                                        {
+                                            "id": "51cc68287d524c759f47c811e6463340",
+                                            "name": "admin"
+                                        }
+                                    ],
+                                    "user": {
+                                        "domain": {
+                                            "id": "default",
+                                            "name": "Default"
+                                        },
+                                        "id": "ee4dfb6e5540447cb3741905149d9b6e",
+                                        "name": "admin"
+                                    }
+                                }
+                            }
+                        },
+                        "headers": {
+                            "X-Subject-Token": {
+                                "type": "string"
+                            }
+                        },
+                        "schema": {
+                            "type": "object"
+                        }
+                    }
+                },
+                "summary": "Authenticates an identity and generates a token. Uses the password authentication method and scopes authorization to a project or domain.",
+                "x-title": "Password authentication with scoped authorization"
+            }
+        }
+    }
+}

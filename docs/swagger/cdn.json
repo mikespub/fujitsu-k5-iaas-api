@@ -57,6 +57,67 @@
                         }
                     ]
                 }
+            }, 
+            "properties": {
+                "rules": {
+                    "items": {
+                        "type": "object", 
+                        "properties": {
+                            "matches": {
+                                "items": {
+                                    "type": "object", 
+                                    "properties": {
+                                        "name": {
+                                            "type": "string"
+                                        }, 
+                                        "value": {
+                                            "type": "string"
+                                        }
+                                    }
+                                }, 
+                                "type": "array"
+                            }, 
+                            "behaviors": {
+                                "items": {
+                                    "type": "object", 
+                                    "properties": {
+                                        "params": {
+                                            "type": "object", 
+                                            "properties": {
+                                                "cacheKeyValue": {
+                                                    "type": "string"
+                                                }, 
+                                                "digitalProperty": {
+                                                    "type": "string"
+                                                }, 
+                                                "cacheKeyType": {
+                                                    "type": "string"
+                                                }, 
+                                                "hostHeaderValue": {
+                                                    "type": "string"
+                                                }, 
+                                                "originDomain": {
+                                                    "type": "string"
+                                                }, 
+                                                "hostHeaderType": {
+                                                    "type": "string"
+                                                }
+                                            }
+                                        }, 
+                                        "name": {
+                                            "type": "string"
+                                        }, 
+                                        "value": {
+                                            "type": "string"
+                                        }
+                                    }
+                                }, 
+                                "type": "array"
+                            }
+                        }
+                    }, 
+                    "type": "array"
+                }
             }
         }
     }, 
@@ -67,8 +128,8 @@
                     "application/json"
                 ], 
                 "responses": {
-                    "200": {
-                        "description": "200 response", 
+                    "202": {
+                        "description": "202 response", 
                         "examples": {
                             "text/plain": "HTTP/1.1 202 Accepted\\nLocation: http://<Endpoint>/v1/services/2b7368fd-f243-496da1d5-16da2e5a3e0d\\nX-Message: Accepted\\nContent-Length: 0"
                         }
@@ -136,8 +197,8 @@
         "/v1/services/{service_id}/param": {
             "patch": {
                 "responses": {
-                    "200": {
-                        "description": "200 response", 
+                    "202": {
+                        "description": "202 response", 
                         "examples": {
                             "text/plain": "HTTP/1.1 202 Accepted\\nX-Message: Accepted\\nLocation: http://<Endpoint>/v1/services/service_id-25\\nContent-Length: 0"
                         }
@@ -157,8 +218,8 @@
         "/v1/services/{service_id}": {
             "delete": {
                 "responses": {
-                    "200": {
-                        "description": "200 response", 
+                    "202": {
+                        "description": "202 response", 
                         "examples": {
                             "text/plain": "HTTP/1.1 202 Accepted\\nX-Message: Accepted\\nContent-Length: 0"
                         }
@@ -178,8 +239,8 @@
         "/v1/services/{service_id}/assets": {
             "delete": {
                 "responses": {
-                    "200": {
-                        "description": "200 response", 
+                    "202": {
+                        "description": "202 response", 
                         "examples": {
                             "text/plain": "HTTP/1.1 202 Accepted\\nX-Message: Accepted\\nContent-Length: 0"
                         }
@@ -199,8 +260,8 @@
         "/v1/reports": {
             "post": {
                 "responses": {
-                    "200": {
-                        "description": "200 response", 
+                    "202": {
+                        "description": "202 response", 
                         "examples": {
                             "text/plain": "HTTP/1.1 202 Accepted\\nX-Message: Accepted\\nLocation: http://<Endpoint>/v1/reports/96b6c7a9-1f75-4b37-88de-9a6626a13f1c\\nContent-Length: 0"
                         }

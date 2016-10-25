@@ -34,8 +34,8 @@
                     "application/json"
                 ], 
                 "responses": {
-                    "200": {
-                        "description": "200 response", 
+                    "201": {
+                        "description": "201 response", 
                         "examples": {
                             "application/json": {
                                 "import_id": "6bf65660-70ee-4a75-b61a-36ac040c289c"

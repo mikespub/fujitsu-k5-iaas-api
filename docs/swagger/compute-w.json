@@ -93,8 +93,8 @@
                     "application/xml"
                 ], 
                 "responses": {
-                    "200": {
-                        "description": "200 response", 
+                    "202": {
+                        "description": "202 response", 
                         "examples": {}
                     }
                 }, 
@@ -132,8 +132,8 @@
                     "application/xml"
                 ], 
                 "responses": {
-                    "200": {
-                        "description": "200 response", 
+                    "202": {
+                        "description": "202 response", 
                         "examples": {}
                     }
                 }, 
@@ -157,8 +157,8 @@
             }, 
             "delete": {
                 "responses": {
-                    "200": {
-                        "description": "200 response", 
+                    "202": {
+                        "description": "202 response", 
                         "examples": {}
                     }
                 }, 
@@ -198,8 +198,8 @@
         "/l_servers/{resourceId}/start": {
             "put": {
                 "responses": {
-                    "200": {
-                        "description": "200 response", 
+                    "202": {
+                        "description": "202 response", 
                         "examples": {}
                     }
                 }, 
@@ -225,8 +225,8 @@
         "/l_servers/{resourceId}/stop": {
             "put": {
                 "responses": {
-                    "200": {
-                        "description": "200 response", 
+                    "202": {
+                        "description": "202 response", 
                         "examples": {}
                     }
                 }, 
@@ -252,8 +252,8 @@
         "/l_servers/{resourceId}/restart": {
             "put": {
                 "responses": {
-                    "200": {
-                        "description": "200 response", 
+                    "202": {
+                        "description": "202 response", 
                         "examples": {}
                     }
                 }, 
@@ -279,8 +279,8 @@
         "/l_servers/{resourceId}/attach": {
             "put": {
                 "responses": {
-                    "200": {
-                        "description": "200 response", 
+                    "202": {
+                        "description": "202 response", 
                         "examples": {}
                     }
                 }, 
@@ -306,8 +306,8 @@
         "/l_servers/{resourceId}/detach": {
             "put": {
                 "responses": {
-                    "200": {
-                        "description": "200 response", 
+                    "202": {
+                        "description": "202 response", 
                         "examples": {}
                     }
                 }, 
@@ -333,8 +333,8 @@
         "/server_images": {
             "post": {
                 "responses": {
-                    "200": {
-                        "description": "200 response", 
+                    "202": {
+                        "description": "202 response", 
                         "examples": {}
                     }
                 }, 
@@ -369,8 +369,8 @@
         "/server_images/{cloneImageName}": {
             "delete": {
                 "responses": {
-                    "200": {
-                        "description": "200 response", 
+                    "202": {
+                        "description": "202 response", 
                         "examples": {}
                     }
                 }, 
@@ -388,8 +388,8 @@
         "/server_images/{cloneImageName}/move": {
             "put": {
                 "responses": {
-                    "200": {
-                        "description": "200 response", 
+                    "202": {
+                        "description": "202 response", 
                         "examples": {}
                     }
                 }, 
@@ -415,8 +415,8 @@
         "/server_images/{resourceId}/restore": {
             "put": {
                 "responses": {
-                    "200": {
-                        "description": "200 response", 
+                    "202": {
+                        "description": "202 response", 
                         "examples": {}
                     }
                 }, 
@@ -442,8 +442,8 @@
         "/server_images/{resourceId}": {
             "delete": {
                 "responses": {
-                    "200": {
-                        "description": "200 response", 
+                    "202": {
+                        "description": "202 response", 
                         "examples": {}
                     }
                 }, 
@@ -485,8 +485,8 @@
         "/projects": {
             "post": {
                 "responses": {
-                    "200": {
-                        "description": "200 response", 
+                    "202": {
+                        "description": "202 response", 
                         "examples": {}
                     }
                 }, 
@@ -528,8 +528,8 @@
             }, 
             "delete": {
                 "responses": {
-                    "200": {
-                        "description": "200 response", 
+                    "202": {
+                        "description": "202 response", 
                         "examples": {}
                     }
                 }, 
@@ -550,8 +550,8 @@
                     "application/xml"
                 ], 
                 "responses": {
-                    "200": {
-                        "description": "200 response", 
+                    "202": {
+                        "description": "202 response", 
                         "examples": {}
                     }
                 }, 
@@ -586,8 +586,8 @@
         "/networks/{resourceId}": {
             "delete": {
                 "responses": {
-                    "200": {
-                        "description": "200 response", 
+                    "202": {
+                        "description": "202 response", 
                         "examples": {}
                     }
                 }, 

@@ -31,6 +31,17 @@
                     "login_id": "fujitsu123", 
                     "after_password": "Newpassword12345678"
                 }
+            }, 
+            "properties": {
+                "before_password": {
+                    "type": "string"
+                }, 
+                "login_id": {
+                    "type": "string"
+                }, 
+                "after_password": {
+                    "type": "string"
+                }
             }
         }, 
         "putUsers": {
@@ -45,6 +56,32 @@
                     "language_code": "ja", 
                     "password": "Abcdefgh12345678", 
                     "mailaddress": "abc@xyz.com"
+                }
+            }, 
+            "properties": {
+                "login_id": {
+                    "type": "string"
+                }, 
+                "user_status": {
+                    "type": "string"
+                }, 
+                "user_description": {
+                    "type": "string"
+                }, 
+                "user_first_name": {
+                    "type": "string"
+                }, 
+                "user_last_name": {
+                    "type": "string"
+                }, 
+                "language_code": {
+                    "type": "string"
+                }, 
+                "password": {
+                    "type": "string"
+                }, 
+                "mailaddress": {
+                    "type": "string"
                 }
             }
         }, 
@@ -61,6 +98,35 @@
                     "language_code": "ja", 
                     "password": "Abcdefgh12345678", 
                     "mailaddress": "abc@xyz.com"
+                }
+            }, 
+            "properties": {
+                "login_id": {
+                    "type": "string"
+                }, 
+                "user_status": {
+                    "type": "string"
+                }, 
+                "user_description": {
+                    "type": "string"
+                }, 
+                "user_first_name": {
+                    "type": "string"
+                }, 
+                "role_code": {
+                    "type": "string"
+                }, 
+                "user_last_name": {
+                    "type": "string"
+                }, 
+                "language_code": {
+                    "type": "string"
+                }, 
+                "password": {
+                    "type": "string"
+                }, 
+                "mailaddress": {
+                    "type": "string"
                 }
             }
         }

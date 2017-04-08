@@ -33,6 +33,12 @@ See `api-ref/source <api-ref/source>`_ for an overview of the different Fujitsu 
   - Content Delivery API
   - Orchestration API
 
+* `Fujitsu K5 IaaS Heat Template Specification <api-ref/source/template.rst>`_
+
+  - Heat Orchestration Template (HOT) format
+  - Resource type details
+  - Example templates
+
 
 API Samples
 ===========
@@ -48,7 +54,6 @@ See `api-ref/source/samples <api-ref/source/samples>`_ for sample JSON/XML reque
 * `Platform <api-ref/source/samples/platform>`_
 
 * `Template <api-ref/source/samples/template>`_
-
 
 
 API References

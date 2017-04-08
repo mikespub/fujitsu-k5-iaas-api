@@ -2,19 +2,17 @@
 Fujitsu K5 IaaS Heat Template Specification
 ===========================================
 
-.. sectnum::
-
 .. contents:: **Table of Contents**
    :depth: 2
 
-Introduction
-============
+1 Introduction
+==============
 
-Supported resource types
-========================
+2 Supported resource types
+==========================
 
-Heat Orchestration Template (HOT) format
-========================================
+3 Heat Orchestration Template (HOT) format
+==========================================
 
 === ================== ======= 
 No. Title              Samples 
@@ -25,8 +23,8 @@ No. Title              Samples
 4   Outputs section    `Template YAML <./samples/template/3.4%20Outputs%20section.yaml>`_ 
 === ================== ======= 
 
-Resource type details
-=====================
+4 Resource type details
+=======================
 
 === ============================================== ======= 
 No. Title                                          Samples 
@@ -65,8 +63,8 @@ No. Title                                    Samples
 4   FCX-Database-DBParameterGroup HOT syntax `Template YAML <./samples/template/4.1.5.4%20FCX-Database-DBParameterGroup%20HOT%20syntax.yaml>`_ 
 === ======================================== ======= 
 
-Example templates
-=================
+5 Example templates
+===================
 
 === ============================================= ======= 
 No. Title                                         Samples 

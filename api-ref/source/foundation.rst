@@ -2,16 +2,14 @@
 Fujitsu K5 IaaS Foundation API
 ==============================
 
-.. sectnum::
-
 .. contents:: **Table of Contents**
    :depth: 2
 
-Compute
-=======
+1 Compute
+=========
 
-Location service
-----------------
+1.1 Location service
+--------------------
 
 === ========================= ====== =================================== ======= 
 No. Title                     Method Path                                Samples 
@@ -20,8 +18,8 @@ No. Title                     Method Path                                Samples
 2   List details for servers  GET    /v2/{tenant_id}/servers/detail      `Response JSON <./samples/foundation/1.1.6.2%20List%20details%20for%20servers.response.json>`_ 
 === ========================= ====== =================================== ======= 
 
-Virtual servers
----------------
+1.2 Virtual servers
+-------------------
 
 === ============================================================= ====== ========================================================================= ======= 
 No. Title                                                         Method Path                                                                      Samples 
@@ -107,8 +105,8 @@ No. Title                                                         Method Path   
 .   .                                                             .      .                                                                         `Response JSON <./samples/foundation/1.2.6.58%20Update%20server%20metadata%20items.response.json>`_ 
 === ============================================================= ====== ========================================================================= ======= 
 
-Dedicated instances
--------------------
+1.3 Dedicated instances
+-----------------------
 
 === ======================== ====== =================================== ======= 
 No. Title                    Method Path                                Samples 
@@ -117,11 +115,11 @@ No. Title                    Method Path                                Samples
 3   List servers             GET    /v2/{tenant_id}/servers/detail      `Response JSON <./samples/foundation/1.3.2.3%20List%20servers.response.json>`_ 
 === ======================== ====== =================================== ======= 
 
-Provisioning script
--------------------
+1.4 Provisioning script
+-----------------------
 
-Auto scale
-----------
+1.5 Auto scale
+--------------
 
 === =================================== ====== =============================================================================== ======= 
 No. Title                               Method Path                                                                            Samples 
@@ -134,8 +132,8 @@ No. Title                               Method Path                             
 5   List schedules                      GET    /autoscale_schedulers                                                           `Response JSON <./samples/foundation/1.5.5.5%20List%20schedules.response.json>`_ 
 === =================================== ====== =============================================================================== ======= 
 
-Virtual server imports
-----------------------
+1.6 Virtual server imports
+--------------------------
 
 === ================================== ====== ================================== ======= 
 No. Title                              Method Path                               Samples 
@@ -145,8 +143,8 @@ No. Title                              Method Path                              
 3   List image registration status     GET    /v1/imageimport{?start,limit}      `Response JSON <./samples/foundation/1.6.3.3%20List%20image%20registration%20status.response.json>`_ 
 === ================================== ====== ================================== ======= 
 
-Virtual servers for SAP
------------------------
+1.7 Virtual servers for SAP
+---------------------------
 
 === =================== ======= 
 No. Title               Samples 
@@ -189,8 +187,8 @@ No. Title                                    Method  Path                       
 27  List network resources (verbose)          GET    /networks                          `Response XML <./samples/foundation/1.7.5.27%20List%20network%20resources%20(verbose).response.xml>`_ 
 === ======================================== ======= ================================== ======= 
 
-Other (common)
---------------
+1.8 Other (common)
+------------------
 
 === =================================== ====== ========================================== ======= 
 No. Title                               Method Path                                       Samples 
@@ -222,11 +220,11 @@ No. Title                               Method Path                             
 18  Update image (v1)                   PUT    /v1/images/{image_id}                      `Response JSON <./samples/foundation/1.8.6.18%20Update%20image%20(v1).response.json>`_ 
 === =================================== ====== ========================================== ======= 
 
-Storage
-=======
+2 Storage
+=========
 
-System storage
---------------
+2.1 System storage
+------------------
 
 === ============================= ====== ============================================ ======= 
 No. Title                         Method Path                                         Samples 
@@ -258,14 +256,14 @@ No. Title                         Method Path                                   
 20  Extend volume                 POST   /v2/{tenant_id}/volumes/{volume_id}/action   `Request JSON <./samples/foundation/2.1.6.20%20Extend%20volume.request.json>`_ 
 === ============================= ====== ============================================ ======= 
 
-Extended storage
-----------------
+2.2 Extended storage
+--------------------
 
-Backup
-------
+2.3 Backup
+----------
 
-Snapshot
---------
+2.4 Snapshot
+------------
 
 === ================================= ====== ============================================== ======= 
 No. Title                             Method Path                                           Samples 
@@ -281,14 +279,14 @@ No. Title                             Method Path                               
 7   Restore volume from the snapshot  POST   /v2/{tenant_id}/snapshots/{snapshot_id}/action `Request JSON <./samples/foundation/2.4.6.7%20Restore%20volume%20from%20the%20snapshot.request.json>`_ 
 === ================================= ====== ============================================== ======= 
 
-Images
-------
+2.5 Images
+----------
 
-Extended storage replication
-----------------------------
+2.6 Extended storage replication
+--------------------------------
 
-Object storage
---------------
+2.7 Object storage
+------------------
 
 === ================================== ====== ================================================================================ ======= 
 No. Title                              Method Path                                                                             Samples 

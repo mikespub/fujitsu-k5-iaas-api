@@ -2,16 +2,14 @@
 Fujitsu K5 IaaS Network API
 ===========================
 
-.. sectnum::
-
 .. contents:: **Table of Contents**
    :depth: 2
 
-Network
-=======
+1 Network
+=========
 
-Global IP delivery service
---------------------------
+1.1 Global IP delivery service
+------------------------------
 
 === ========================= ====== ================================= ======= 
 No. Title                     Method Path                              Samples 
@@ -31,8 +29,8 @@ No. Title                     Method Path                              Samples
 .   .                         .      .                                 `Response JSON <./samples/network/1.1.6.9%20Update%20subnet.response.json>`_ 
 === ========================= ====== ================================= ======= 
 
-Private network service
------------------------
+1.2 Private network service
+---------------------------
 
 === ============================================== ====== ============================================================================ ======= 
 No. Title                                          Method Path                                                                         Samples 
@@ -65,8 +63,8 @@ No. Title                                          Method Path                  
 20  List Connected Interfaces of Network Connector GET    /v2.0/network_connector_endpoints/{network_connector_endpoint_id}/interfaces `Response JSON <./samples/network/1.2.6.20%20List%20Connected%20Interfaces%20of%20Network%20Connector.response.json>`_ 
 === ============================================== ====== ============================================================================ ======= 
 
-Network adapter
----------------
+1.3 Network adapter
+-------------------
 
 === =========================== ====== ===================================================== ======= 
 No. Title                       Method Path                                                  Samples 
@@ -92,8 +90,8 @@ No. Title                       Method Path                                     
 14  Show security group rule    GET    /v2.0/security-group-rules/{rules-security-groups-id} `Response JSON <./samples/network/1.3.6.14%20Show%20security%20group%20rule.response.json>`_ 
 === =========================== ====== ===================================================== ======= 
 
-Network connector service
--------------------------
+1.4 Network connector service
+-----------------------------
 
 === =================================== ====== ================================================= ======= 
 No. Title                               Method Path                                              Samples 
@@ -141,8 +139,8 @@ No. Title                               Method Path                             
 28  Delete IKE policy                   DELETE /v2.0/vpn/ikepolicies/{ikepolicy-id}                      
 === =================================== ====== ================================================= ======= 
 
-Firewall
---------
+1.5 Firewall
+------------
 
 === ========================================== ====== =========================================================== ======= 
 No. Title                                      Method Path                                                        Samples 
@@ -176,8 +174,8 @@ No. Title                                      Method Path                      
 18  Delete firewall                            DELETE /v2.0/fw/firewalls/{firewall-id}                                    
 === ========================================== ====== =========================================================== ======= 
 
-Load balancer
--------------
+1.6 Load balancer
+-----------------
 
 === ===================================== ====== ==== ======= 
 No. Title                                 Method Path Samples 
@@ -201,8 +199,8 @@ No. Title                                 Method Path Samples
 17  SetLoadBalancerPoliciesOfListener     GET    /    `Response JSON <./samples/network/1.6.5.17%20SetLoadBalancerPoliciesOfListener.response.json>`_ 
 === ===================================== ====== ==== ======= 
 
-SSL-VPN connection
-------------------
+1.7 SSL-VPN connection
+----------------------
 
 === ================================================ ====== =================================================== ======= 
 No. Title                                            Method Path                                                Samples 
@@ -216,8 +214,8 @@ No. Title                                            Method Path                
 5   Delete SSL VPN Connection                        DELETE /v2.0/vpn/ssl-vpn-connections/{sslvpnconnection-id}         
 === ================================================ ====== =================================================== ======= 
 
-DNS service
------------
+1.8 DNS service
+---------------
 
 === ======================= ======= 
 No. Title                   Samples 
@@ -258,8 +256,8 @@ No. Title                               Method Path                            S
 .   .                                   .      .                               `Response XML <./samples/network/1.8.6.7%20Retrieve%20update%20request%20information.response.xml>`_ 
 === =================================== ====== =============================== ======= 
 
-Network connector expansion
----------------------------
+1.9 Network connector expansion
+-------------------------------
 
 === ========================================================== ====== =============================================================== ======= 
 No. Title                                                      Method Path                                                            Samples 

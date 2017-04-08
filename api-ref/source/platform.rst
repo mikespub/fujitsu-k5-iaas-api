@@ -2,16 +2,14 @@
 Fujitsu K5 IaaS Platform API
 ============================
 
-.. sectnum::
-
 .. contents:: **Table of Contents**
    :depth: 2
 
-Database
-========
+1 Database
+==========
 
-Database
---------
+1.1 Database
+------------
 
 === ============================================ ====== ==================================================== ======= 
 No. Title                                        Method Path                                                 Samples 
@@ -66,11 +64,11 @@ No. Title                                        Method Path                    
 40  Show flavor details                          GET    /v1.0/{tenantId}/flavors/{flavorId}                  `Response JSON <./samples/platform/1.1.3.40%20Show%20flavor%20details.response.json>`_ 
 === ============================================ ====== ==================================================== ======= 
 
-Message & contents delivery
-===========================
+2 Message & contents delivery
+=============================
 
-Email delivery service
-----------------------
+2.1 Email delivery service
+--------------------------
 
 === ============================================= ======= 
 No. Title                                         Samples 
@@ -123,8 +121,8 @@ No. Title                                                     Method Path Action
 .   .                                                         .      .    .                                 `Response XML <./samples/platform/2.1.8.12%20Show%20user%20information%20for%20accessing%20SMTP%20server.response.xml>`_ 
 === ========================================================= ====== ==== ================================= ======= 
 
-Content delivery service
-------------------------
+2.2 Content delivery service
+----------------------------
 
 === =============================== ====== ====================================== ======= 
 No. Title                           Method Path                                   Samples 
@@ -155,11 +153,11 @@ No. Title                           Method Path                                 
 8   Retrieve a report (204)         GET    /v1/reports/{report_id}                `HTTP Response <./samples/platform/2.2.7.8%20Retrieve%20a%20report%20(204).http-response.txt>`_ 
 === =============================== ====== ====================================== ======= 
 
-Template/development environment
-================================
+3 Template/development environment
+==================================
 
-Orchestration
--------------
+3.1 Orchestration
+-----------------
 
 === ===================== ====== =============================================================================== ======= 
 No. Title                 Method Path                                                                            Samples 

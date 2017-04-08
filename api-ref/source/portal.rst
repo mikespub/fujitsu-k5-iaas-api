@@ -2,16 +2,14 @@
 Fujitsu K5 Portal API
 =====================
 
-.. sectnum::
-
 .. contents:: **Table of Contents**
    :depth: 2
 
-API Outline
-===========
+1 API Outline
+=============
 
-Authentication API
-==================
+2 Authentication API
+====================
 
 === ==================== ======= 
 No. Title                Samples 
@@ -26,8 +24,8 @@ No. Title            Method Path                 Samples
 .   .                .      .                    `Response JSON <./samples/portal/2.3.1%20Get%20access%20token.response.json>`_ 
 === ================ ====== ==================== ======= 
 
-User management API
-===================
+3 User management API
+=====================
 
 === ==================== ======= 
 No. Title                Samples 

@@ -50,20 +50,22 @@ API Reference Contents                                            Samples
 .. _Content Delivery API: source/platform.rst#content-delivery-service
 .. _Orchestration API: source/platform.rst#orchestration
 .. _Management: source/management.rst
-.. _User Management: source/management.rst
-.. _Key Management: source/management.rst
-.. _Software Management: source/management.rst
-.. _Monitoring Service: source/management.rst
+.. _User Management: source/management.rst#user-management
+.. _Key Management: source/management.rst#key-management
+.. _Software Management: source/management.rst#software-management
+.. _Monitoring Service: source/management.rst#monitoring-service
 .. _Network: source/network.rst
 .. _Network APIs: source/network.rst#network
 .. _Contract: source/contract.rst
-.. _Billing Information Display: source/contract.rst
-.. _Product Management: source/contract.rst
-.. _Contract Management: source/contract.rst
+.. _Billing Information Display: source/contract.rst#billing-information-display
+.. _Product Management: source/contract.rst#product-management
+.. _Contract Management: source/contract.rst#contract-management
 .. _Template: source/template.rst
 .. _Heat Orchestration Template (HOT) format: source/template.rst#heat-orchestration-template-hot-format
 .. _Resource type details: source/template.rst#resource-type-details
 .. _Example templates: source/template.rst#example-templates
+
+K5 Guides and Manuals: http://www.fujitsu.com/global/solutions/cloud/k5/guides/
 
 
 API Samples

@@ -1,6 +1,6 @@
-===========================================
-Fujitsu K5 IaaS Heat Template Specification
-===========================================
+============================================
+Fujitsu K5 IaaS Heat Template Specifications
+============================================
 
 .. contents:: **Table of Contents**
    :depth: 2

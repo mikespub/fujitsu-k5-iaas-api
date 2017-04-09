@@ -1,6 +1,6 @@
-==============================
-Fujitsu K5 IaaS Foundation API
-==============================
+==================================================
+Fujitsu K5 IaaS API Reference - Foundation Service
+==================================================
 
 .. contents:: **Table of Contents**
    :depth: 2

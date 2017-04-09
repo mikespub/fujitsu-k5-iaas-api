@@ -1,6 +1,6 @@
-===========================
-Fujitsu K5 IaaS Network API
-===========================
+=======================================
+Fujitsu K5 IaaS API Reference - Network
+=======================================
 
 .. contents:: **Table of Contents**
    :depth: 2

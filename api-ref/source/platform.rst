@@ -1,6 +1,6 @@
-============================
-Fujitsu K5 IaaS Platform API
-============================
+============================================================
+Fujitsu K5 IaaS API Reference - Application Platform Service
+============================================================
 
 .. contents:: **Table of Contents**
    :depth: 2

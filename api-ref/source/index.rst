@@ -7,6 +7,8 @@ Fujitsu K5 IaaS API Reference
 
    portal
    foundation
-   network
    platform
+   management
+   network
+   contract
    template

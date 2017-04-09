@@ -1,6 +1,6 @@
-=====================
-Fujitsu K5 Portal API
-=====================
+======================================
+Fujitsu K5 Portal API Reference Manual
+======================================
 
 .. contents:: **Table of Contents**
    :depth: 2

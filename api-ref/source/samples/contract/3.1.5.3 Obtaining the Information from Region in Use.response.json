@@ -1,0 +1,14 @@
+{
+    "regions": [
+        {
+            "status": "active",
+            "default": "true",
+            "id": "jp-east-1"
+        },
+        {
+            "status": "ready",
+            "default": "false",
+            "id": "uk-1"
+        }
+    ]
+}

@@ -1,0 +1,5 @@
+Status Code: 201 Created 
+Content-Length: 118 
+Content-Type: application/json; charset=UTF-8 
+Location: http://<host>:9311/ a759452216fd41cf8ee5aba321cfbd49/secrets/ 
+a417d40d-cec7-4129-a5ad-afaac6fab603 

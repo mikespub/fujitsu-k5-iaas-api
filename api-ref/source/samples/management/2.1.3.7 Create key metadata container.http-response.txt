@@ -1,0 +1,5 @@
+Status Code: 201 Created 
+Content-Length: 123 
+Content-Type: application/json; charset=UTF-8
+Location: http://<host>:9311/ a759452216fd41cf8ee5aba321cfbd49/containers/ 
+a5330b02-ee46-4883-b8ea-4359925ebbf2 

@@ -1,0 +1,15 @@
+{
+    "secure": {
+        "company": {
+            "name": "a-company"
+        },
+        "name": {
+            "last": "FUJITSU",
+            "first": "TARO"
+        },
+        "emergency": {
+            "email_announce": "fujitsu.taro@fujitsu.com",
+            "tel": "000-000-0000"
+        }
+    }
+}

@@ -1,0 +1,17 @@
+POST /v1/contracts/fc8c41d7e36d49f7b66a3f9b1e25fc16? 
+action=startRegion 
+HTTP/1.1 
+Content-Type: application/json 
+X-Auth-Token: “JpZCI6ICJjM2VlNzA4YTZhZTI0ZGRmOTJjMDc4...” 
+{ 
+"contract": {
+"regions": [ 
+{ 
+"id": "jp-east-1" 
+}, 
+{ 
+"id": "uk-1" 
+} 
+] 
+} 
+} 

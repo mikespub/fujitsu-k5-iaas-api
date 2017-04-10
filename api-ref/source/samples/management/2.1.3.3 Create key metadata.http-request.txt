@@ -1,0 +1,11 @@
+POST /v1/a759452216fd41cf8ee5aba321cfbd49/secrets 
+X-Auth-Token: "JpZCI6ICJjM2VlNzA4YTZhZTI0ZGRmOTJjMDc4..." 
+Content-Type: "application/json" 
+Body: 
+{ 
+"name": "key1", 
+"expiration": "2015-02-28T19:14:44.180394", 
+"payload":"-----BEGIN XXXX-----MIIEow ... Rwg7Jp-----END XXXX-----", 
+"payload_content_type": "text/plain", 
+"payload_content_encoding": "base64" 
+} 

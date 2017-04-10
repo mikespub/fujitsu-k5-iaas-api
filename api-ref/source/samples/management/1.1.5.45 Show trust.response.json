@@ -1,0 +1,28 @@
+{
+    "trust": {
+        "impersonation": true,
+        "roles_links": {
+            "self": "http://identity.jp-east-1.cloud.global.fujitsu.com/v3/OS-TRUST/trusts/--trust-id--/roles",
+            "next": null,
+            "previous": null
+        },
+        "trustor_user_id": "--trustor-user-id--",
+        "links": {
+            "self": "http://identity.jp-east-1.cloud.global.fujitsu.com/v3/OS-TRUST/trusts/--trust-id--"
+        },
+        "roles": [
+            {
+                "id": "--role-id--",
+                "links": {
+                    "self": "http://identity.jpeast-1.cloud.global.fujitsu.com/v3/roles/--role-id--"
+                },
+                "name": "--role-name--"
+            }
+        ],
+        "remaining_uses": null,
+        "expires_at": "2015-02-27T18:30:59.999999Z",
+        "trustee_user_id": "--trustee-user-id--",
+        "project_id": "--project-id--",
+        "id": "--trust-id--"
+    }
+}

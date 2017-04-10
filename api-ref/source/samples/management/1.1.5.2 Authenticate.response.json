@@ -1,0 +1,64 @@
+{
+    "token": {
+        "methods": [
+            "password"
+        ],
+        "roles": [
+            {
+                "id": "--role-id--",
+                "name": "admin"
+            }
+        ],
+        "expires_at": "2013-02-27T18:30:59.999999Z",
+        "project": {
+            "domain": {
+                "id": "--domain-id--",
+                "name": "admin"
+            },
+            "id": "--project-id--",
+            "name": "admin"
+        },
+        "catalog": [
+            {
+                "endpoints": [
+                    {
+                        "name": "identityv3",
+                        "url": "https://identity.jp-east-1.cloud.global.fujitsu.com/v3",
+                        "region": "jp-east-1",
+                        "interface": "public",
+                        "id": "--endpoint-id--",
+                        "region_id": "jp-east-1"
+                    }
+                ],
+                "type": "identityv3",
+                "name": "identityv3",
+                "id": "--service-id--"
+            },
+            {
+                "endpoints": [
+                    {
+                        "name": "image",
+                        "url": "https://image.jp-east-1.cloud.global.fujitsu.com",
+                        "region": "jp-east-1",
+                        "interface": "public",
+                        "id": "--endpoint-id--",
+                        "region_id": "jp-east-1"
+                    }
+                ],
+                "type": "image",
+                "name": "image",
+                "id": "--service-id--"
+            }
+        ],
+        "extras": {},
+        "user": {
+            "domain": {
+                "id": "--domain-id--",
+                "name": "admin"
+            },
+            "id": "--user-id--",
+            "name": "username"
+        },
+        "issued_at": "2013-02-27T16:30:59.999999Z"
+    }
+}

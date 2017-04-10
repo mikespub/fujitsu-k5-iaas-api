@@ -1,0 +1,30 @@
+{
+    "links": {
+        "self": "http://identity.jp-east-1.cloud.global.fujitsu.com/v3/domains/--domain-id--/users/--user-id--/roles",
+        "next": null,
+        "previous": null
+    },
+    "roles": [
+        {
+            "id": "--admin-role-id--",
+            "links": {
+                "self": "http://identity.jp-east-1.cloud.global.fujitsu.com/v3/roles/--admin-role-id--"
+            },
+            "name": "admin"
+        },
+        {
+            "id": "--service-role-id--",
+            "links": {
+                "self": "http://identity.jp-east-1.cloud.global.fujitsu.com/v3/roles/--service-role-id--"
+            },
+            "name": "service"
+        },
+        {
+            "id": "--member-role-id--",
+            "links": {
+                "self": "http://identity:5000/v3/roles/--member-role-id--"
+            },
+            "name": "_member_"
+        }
+    ]
+}

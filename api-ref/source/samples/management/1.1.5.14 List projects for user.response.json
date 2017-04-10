@@ -1,0 +1,29 @@
+{
+    "links": {
+        "self": "http://identity.jp-east-1.cloud.global.fujitsu.com/v3/users/--user-id--/projects",
+        "next": null,
+        "previous": null
+    },
+    "projects": [
+        {
+            "name": "Test Group",
+            "links": {
+                "self": "http://identity.jp-east-1.cloud.global.fujitsu.com/v3/projects/--project-id--"
+            },
+            "enabled": true,
+            "domain_id": "--domain-id--",
+            "id": "--project-id--",
+            "description": "my create project"
+        },
+        {
+            "name": "Build Group",
+            "links": {
+                "self": "http://identity.jp-east-1.cloud.global.fujitsu.com/v3/projects/--project-id--"
+            },
+            "enabled": true,
+            "domain_id": "--domain-id--",
+            "id": "--project-id--",
+            "description": "my create project"
+        }
+    ]
+}

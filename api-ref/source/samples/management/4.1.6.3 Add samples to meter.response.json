@@ -1,0 +1,18 @@
+[
+    {
+        "counter_name": "my_meter",
+        "user_id": "9953aae1953a4caab3cc278e3018cf68",
+        "resource_id": "my_resource",
+        "timestamp": "2014-06-12T07:01:07.428799",
+        "resource_metadata": {
+            "my_metadata2": "test2",
+            "my_ metadata": "test"
+        },
+        "source": "39bd0d0341484a1a88f8ecdb1b21311c:my_source",
+        "counter_unit": "instance",
+        "counter_volume": 2.0,
+        "project_id": "39bd0d0341484a1a88f8ecdb1b21311c",
+        "message_id": "5a016f38-5b39-11e4-9966-fa163e0aad81",
+        "counter_type": "gauge"
+    }
+]

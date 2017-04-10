@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<SupportSoftwares>
+  <SupportSoftware>
+    <TenantID>tenant1</TenantID>
+    <RegionID>jp-east-1</RegionID>
+    <InstanceID>instance1</InstanceID>
+    <ImageID>image1</ImageID>
+    <SoftwareID>ws2012</SoftwareID>
+    <SupportID>nosupport</SupportID>
+    <UpdateDate>2015-09-11</UpdateDate>
+  </SupportSoftware>
+  <SupportSoftware>
+    <TenantID>tenant1</TenantID>
+    <RegionID>jp-east-1</RegionID>
+    <InstanceID>instance1</InstanceID>
+    <ImageID>image1</ImageID>
+    <SoftwareID>sq2012</SoftwareID>
+    <SupportID>spt_24h</SupportID>
+    <UpdateDate>2015-09-11</UpdateDate>
+  </SupportSoftware>
+</SupportSoftwares>

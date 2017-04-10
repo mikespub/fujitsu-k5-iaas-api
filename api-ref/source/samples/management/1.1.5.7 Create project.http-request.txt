@@ -1,0 +1,10 @@
+POST /v3/projects 
+X-Auth-Token: MIIIHgYJKoZIhvcNAQcCoIIIDzCCCAsCAQExC... 
+{ 
+"project": { 
+"description": "my create project", 
+"domain_id": "--domain-id--", 
+"enabled": true, 
+"name": "projectname" 
+} 
+} 

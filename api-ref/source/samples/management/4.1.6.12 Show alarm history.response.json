@@ -1,0 +1,22 @@
+[
+    {
+        "on_behalf_of": "39bd0d0341484a1a88f8ecdb1b21311c",
+        "user_id": "9953aae1953a4caab3cc278e3018cf68",
+        "event_id": "0c83ea48-d2c0-4cf9-8e54-fbebc463c313",
+        "timestamp": "2014-10-22T05:16:47.683476",
+        "detail": "{\"state\": \"alarm\"}",
+        "alarm_id": "55c6a768-e8ab-487b-b724-892b0ad4fc2a",
+        "project_id": "39bd0d0341484a1a88f8ecdb1b21311c",
+        "type": "state transition"
+    },
+    {
+        "on_behalf_of": "39bd0d0341484a1a88f8ecdb1b21311c",
+        "user_id": "9953aae1953a4caab3cc278e3018cf68",
+        "event_id": "5846db80-b465-40c1-a158-e4a178ceb0ed",
+        "timestamp": "2014-10-22T05:15:54.954117",
+        "detail": "{\"alarm_actions\": [], \"user_id\": \"9953aae1953a4caab3cc278e3018cf68\", \"name\": \"my_alarm\", \"state\": \"insufficient data\", \"timestamp\": \"2014-10-22T05:15:54.954117\", \"enabled\": true, \"state_timestamp\": \"2014-10-22T05:15:54.954117\", \"rule\": {\"meter_name\": \"my_meter\", \"evaluation_periods\": 1, \"period\": 120, \"statistic\": \"avg\", \"threshold\": 0.0, \"query\": [], \"comparison_operator\": \"gt\", \"exclude_outliers\": false}, \"alarm_id\": \"55c6a768-e8ab-487b-b724-892b0ad4fc2a\", \"time_constraints\": [], \"insufficient_data_actions\": [], \"repeat_actions\": false, \"ok_actions\": [], \"project_id\": \"39bd0d0341484a1a88f8ecdb1b21311c\", \"type\": \"threshold\", \"description\": \"testAlarm\"}",
+        "alarm_id": "55c6a768-e8ab-487b-b724-892b0ad4fc2a",
+        "project_id": "39bd0d0341484a1a88f8ecdb1b21311c",
+        "type": "creation"
+    }
+]

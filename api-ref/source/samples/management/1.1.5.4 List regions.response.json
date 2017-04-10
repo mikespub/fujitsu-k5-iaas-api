@@ -1,0 +1,25 @@
+{
+    "regions": [
+        {
+            "parent_region_id": null,
+            "description": "jp-east-1 region",
+            "links": {
+                "self": "https://identity.jpeast-1.cloud.global.fujitsu.com/v3/regions/jp-east-1"
+            },
+            "id": "jp-east-1"
+        },
+        {
+            "parent_region_id": "jp-east-1",
+            "description": "jp-east-1a AZ",
+            "links": {
+                "self": "https://identity.jpeast-1.cloud.global.fujitsu.com/v3/regions/jp-east-1a"
+            },
+            "id": "jp-east-1a"
+        }
+    ],
+    "links": {
+        "self": "https://identity.jp-east-1.cloud.global.fujitsu.com/v3/regions",
+        "next": null,
+        "previous": null
+    }
+}

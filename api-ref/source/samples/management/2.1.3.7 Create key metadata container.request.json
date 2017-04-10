@@ -1,0 +1,18 @@
+{
+    "type": "certificate",
+    "name": "container1",
+    "secret_refs": [
+        {
+            "secret_ref": "http://<host>:9311/v1/a759452216fd41cf8ee5aba321cfbd49/secrets/087cf096-3947-4a54-8968-7b021cfe8196",
+            "name": "private_key"
+        },
+        {
+            "secret_ref": "http://<host>:9311/v1/a759452216fd41cf8ee5aba321cfbd49/secrets/4bbcf05f-d15d-444c-ae9f-799746349a9f",
+            "name": "certificate"
+        },
+        {
+            "secret_ref": "http://<host>:9311/v1/a759452216fd41cf8ee5aba321cfbd49/secrets/8573540e-ad7c-467a-a196-43cf6b5c3468",
+            "name": "intermediates"
+        }
+    ]
+}

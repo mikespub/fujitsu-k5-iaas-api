@@ -1,0 +1,22 @@
+[
+    {
+        "user_id": "0382c98eaf574d1ab5751a3e938b744d",
+        "name": "my_meter",
+        "resource_id": "my_resource",
+        "source": "89b0b9f21b414cd39354a1b8056aef87:my_source",
+        "meter_id": "ZGVtb19yZXNvdXJjZTAwMyt0ZXN0bWV0ZXIwMDU=\n",
+        "project_id": "610678ac162147c4a5e838190a80994e",
+        "type": "gauge",
+        "unit": "test"
+    },
+    {
+        "user_id": "0382c98eaf574d1ab5751a3e938b744d",
+        "name": "my_meter",
+        "resource_id": "my_resource2",
+        "source": "89b0b9f21b414cd39354a1b8056aef87:my_source",
+        "meter_id": "ZGVtb19yZXNvdXJjZTAwMyt0ZXN0bWV0ZXIwMDY=\n",
+        "project_id": "610678ac162147c4a5e838190a80994e",
+        "type": "gauge",
+        "unit": "test"
+    }
+]

@@ -1,0 +1,13 @@
+{
+    "project": {
+        "description": "my updated project",
+        "links": {
+            "self": "http://identity:5000/v3/projects/--project-id--"
+        },
+        "extra": {},
+        "enabled": true,
+        "domain_id": "--domain-id--",
+        "id": "--project-id--",
+        "name": "myUpdatedProject"
+    }
+}

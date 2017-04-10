@@ -1,0 +1,29 @@
+[
+    {
+        "alarm_actions": [],
+        "ok_actions": [],
+        "description": "testAlarm",
+        "timestamp": "2014-10-22T05:15:54.954117",
+        "time_constraints": [],
+        "enabled": true,
+        "state_timestamp": "2014-10-22T05:20:46.795969",
+        "threshold_rule": {
+            "meter_name": "my_meter",
+            "evaluation_periods": 1,
+            "period": 120,
+            "statistic": "avg",
+            "threshold": 0.0,
+            "query": [],
+            "comparison_operator": "gt",
+            "exclude_outliers": false
+        },
+        "alarm_id": "55c6a768-e8ab-487b-b724-892b0ad4fc2a",
+        "state": "insufficient data",
+        "insufficient_data_actions": [],
+        "repeat_actions": false,
+        "user_id": "9953aae1953a4caab3cc278e3018cf68",
+        "project_id": "39bd0d0341484a1a88f8ecdb1b21311c",
+        "type": "threshold",
+        "name": "my_alarm"
+    }
+]

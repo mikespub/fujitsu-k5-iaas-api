@@ -1,0 +1,11 @@
+{
+    "group": {
+        "id": "--group-id--",
+        "name": "Secure Developers",
+        "description": "secret projects",
+        "links": {
+            "self": "http://identity.gls.cloud.global.fujitsu.com/v3/groups/--group-id--"
+        },
+        "domain_id": "--domain-id--"
+    }
+}

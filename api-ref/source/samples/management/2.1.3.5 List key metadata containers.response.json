@@ -1,0 +1,29 @@
+{
+    "previous": "http://<host>:9311/v1/a759452216fd41cf8ee5aba321cfbd49/containers?limit=1&offset=1",
+    "total": 4,
+    "containers": [
+        {
+            "status": "ACTIVE",
+            "updated": "2014-07-18T04:41:34.245613",
+            "name": "container1",
+            "created": "2014-07-18T04:41:34.245607",
+            "container_ref": "http://<host>:9311/v1/a759452216fd41cf8ee5aba321cfbd49/containers/ce0b7fcc-5963-47babf44-3936e7b38381",
+            "secret_refs": [
+                {
+                    "secret_id": "82b63ed0-3ec7-4f3c-93b6-dde9a3c81b99",
+                    "name": "private_key"
+                },
+                {
+                    "secret_id": "e2c1ef34-2dac-4e77-8f20-3cd6386f9d87",
+                    "name": "intermediates"
+                },
+                {
+                    "secret_id": "e74530eb-0835-471a-ae05-392132ebce65",
+                    "name": "certificate"
+                }
+            ],
+            "type": "certificate"
+        }
+    ],
+    "next": "http://<host>:9311/v1/a759452216fd41cf8ee5aba321cfbd49/containers?limit=1&offset=3"
+}

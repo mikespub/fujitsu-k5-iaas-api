@@ -1,0 +1,26 @@
+[
+    {
+        "source": "fcx",
+        "project_id": "7c4f776d782049108a6255aaff940629",
+        "user_id": "bc880de0722e4c78b2cb5afd9838ad11",
+        "links": [
+            {
+                "href": "https://telemetry.jpeast-1.cloud.global.fujitsu.com/v2/resources/bef3d406-a050-4854-821ec3024d286e03",
+                "rel": "self"
+            }
+        ],
+        "resource_id": "bef3d406-a050-4854-821e-c3024d286e03"
+    },
+    {
+        "source": "fcx",
+        "project_id": "7c4f776d782049108a6255aaff940629",
+        "user_id": "bc880de0722e4c78b2cb5afd9838ad11",
+        "links": [
+            {
+                "href": "https://telemetry.jp-east-1.cloud.global.fujitsu.com/v2/resources/d4415484-a4c1-4f05-a910-e55cba5e4984",
+                "rel": "self"
+            }
+        ],
+        "resource_id": "d4415484-a4c1-4f05-a910-e55cba5e4984"
+    }
+]

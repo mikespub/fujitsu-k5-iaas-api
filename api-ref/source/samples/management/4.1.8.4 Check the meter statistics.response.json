@@ -1,0 +1,32 @@
+[
+    {
+        "count": 1,
+        "duration_start": "2015-07-18T00:14:49",
+        "min": 0.0,
+        "max": 0.0,
+        "duration_end": "2015-07-18T00:14:49",
+        "period": 60,
+        "sum": 0.0,
+        "period_end": "2015-07-18T00:01:00",
+        "duration": 0.0,
+        "period_start": "2015-07-18T00:00:00",
+        "avg": 0.0,
+        "groupby": null,
+        "unit": "%"
+    },
+    {
+        "count": 1,
+        "duration_start": "2015-07-18T00:41:54",
+        "min": 0.4,
+        "max": 0.4,
+        "duration_end": "2015-07-18T00:41:54",
+        "period": 60,
+        "sum": 0.4,
+        "period_end": "2015-07-18T01:00:00",
+        "duration": 0.0,
+        "period_start": "2015-07-18T00:59:00",
+        "avg": 0.4,
+        "groupby": null,
+        "unit": "%"
+    }
+]

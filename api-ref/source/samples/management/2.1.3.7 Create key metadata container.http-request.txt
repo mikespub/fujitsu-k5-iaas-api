@@ -1,0 +1,22 @@
+POST /v1/a759452216fd41cf8ee5aba321cfbd49/containers 
+X-Auth-Token: "JpZCI6ICJjM2VlNzA4YTZhZTI0ZGRmOTJjMDc4..." 
+Content-Type: "application/json" 
+Body: 
+{ 
+"name": "container1", 
+"type": "certificate", 
+"secret_refs": [ 
+{ 
+"name": "private_key", 
+"secret_ref":"http://<host>:9311/v1/a759452216fd41cf8ee5aba321cfbd49/secrets/087cf096-3947-4a54-8968-7b021cfe8196" 
+}, 
+{ 
+"name": "certificate", 
+"secret_ref":"http://<host>:9311/v1/a759452216fd41cf8ee5aba321cfbd49/secrets/4bbcf05f-d15d-444c-ae9f-799746349a9f" 
+}, 
+{ 
+"name": "intermediates", 
+"secret_ref":"http://<host>:9311/v1/a759452216fd41cf8ee5aba321cfbd49/secrets/8573540e-ad7c-467a-a196-43cf6b5c3468" 
+} 
+] 
+} 

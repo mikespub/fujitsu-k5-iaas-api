@@ -1,0 +1,14 @@
+{
+    "regions": [
+        {
+            "status": "ready",
+            "region_id": "jp-east-1",
+            "domain_id": "--domain-id--"
+        }
+    ],
+    "links": {
+        "self": "http://identity.gls.cloud.global.fujitsu.com/v3/synchronous_regions",
+        "next": null,
+        "previous": null
+    }
+}

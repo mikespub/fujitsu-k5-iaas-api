@@ -1,0 +1,27 @@
+{
+    "alarm_actions": [],
+    "ok_actions": [],
+    "description": "Alarm when my_meter is gt a avg of 0.0 over 60 seconds",
+    "timestamp": "2014-10-24T08:51:14.940014",
+    "time_constraints": [],
+    "enabled": false,
+    "state_timestamp": "2014-10-24T08:43:30.682976",
+    "threshold_rule": {
+        "meter_name": "my_meter",
+        "evaluation_periods": 1,
+        "period": 60,
+        "statistic": "avg",
+        "threshold": 0.0,
+        "query": [],
+        "comparison_operator": "gt",
+        "exclude_outliers": false
+    },
+    "alarm_id": "8278b049-ca2b-4e05-99c9-641c0b692edd",
+    "state": "insufficient data",
+    "insufficient_data_actions": [],
+    "repeat_actions": false,
+    "user_id": "9953aae1953a4caab3cc278e3018cf68",
+    "project_id": "39bd0d0341484a1a88f8ecdb1b21311c",
+    "type": "threshold",
+    "name": "my_alarm"
+}

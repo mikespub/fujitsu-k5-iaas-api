@@ -1,0 +1,12 @@
+[
+    {
+        "on_behalf_of": "c52b2f54d96a4c28ba9a318eae9c843c",
+        "user_id": "2cc0568f5daf4ac694a49f3b32a42dfc",
+        "event_id": "02c06d0e-f78d-463c-a775-c63b337e771d",
+        "timestamp": "2015-07-18T00:01:00.182820",
+        "detail": "{\"notification_resource\": \"\", \"region\": \"jp-east-1\", \"action_state\": \"Succeeded\", \"reason\": \"Remaining as alarm due to 1 samples outside threshold, most recent: 0.0\", \"error\": \" \", \"action\": \"http://orchestration-cfn.jp-east-1.internal.cloud.global.fujitsu.com/v1/signal/arn%3Aopenstack%3Aheat%3A%3Acd1e2866ebda406bb16b8196022e2692%3Astacks%2Faz1_test_stack_vm3%2F548ae98a-a0bc-43bd-aff5-a4146f783585%2Fresources%2Fscalein_policy?Timestamp=2015-07-17T05%3A34%3A21Z&SignatureMethod=HmacSHA256&AWSAccessKeyId=cab5efa3009b4f00817b354b0744601e&SignatureVersion=2&Signature=FKLe2NApryuVZUCybV%2F%2Ffmd21xw%2BYApUSridiKE5M%2FE%3D\", \"alarm\": {\"alarm_actions\": [\"http://orchestration-cfn.jp-east-1.internal.cloud.global.fujitsu.com/v1/signal/arn%3Aopenstack%3Aheat%3A%3Acd1e2866ebda406bb16b8196022e2692%3Astacks%2Faz1_test_stack_vm3%2F548ae98a-a0bc-43bd-aff5-a4146f783585%2Fresources%2Fscalein_policy?Timestamp=2015-07-17T05%3A34%3A21Z&SignatureMethod=HmacSHA256&AWSAccessKeyId=cab5efa3009b4f00817b354b0744601e&SignatureVersion=2&Signature=FKLe2NApryuVZUCybV%2F%2Ffmd21xw%2BYApUSridiKE5M%2FE%3D\"], \"ok_actions\": [], \"description\": \"Scale-in if the average CPU < 15% for 1 minutes\", \"state \": \"alarm\", \"timestamp\": \"2015-07-17T05:34:28.674867\", \"enabled\": true, \"state_timestamp\": \"2015-07-17T05:35:52.188434\", \"rule\": {\"meter_name\": \"fcx.compute.cpu_util\", \"evaluation_periods\": 1,\"period\": 60, \"statistic\": \"avg\", \"threshold\": 15.0, \"query\": [{\"field\": \"metadata.user_metadata.groupname\", \"value\": \"az1_test_stack_vm3-auto_scaling_group- h5ve5jiy5pbf\", \"op\": \"eq\"}, {\"field\":\"project_id\", \"value\": \"c52b2f54d96a4c28ba9a318eae9c843c\", \"op\": \"eq\"}], \"comparison_operator\": \"lt\", \"exclude_outliers\": false}, \"alarm_id\": \"2a5d914d-ac5c-474d-8550-58098f668a66\", \"time_constraints \": [], \"insufficient_data_actions\": [], \"repeat_actions\": true, \"user_id\": \"2cc0568f5daf4ac694a49f3b32a42dfc\", \"project_id\": \"c52b2f54d96a4c28ba9a318eae9c843c\", \"type\": \"threshold\", \"name\": \"az1_test_stack_vm3-scalein_alarm-fzps2blpsiql \"}, \"previous\": \"alarm\"}",
+        "alarm_id": "2a5d914d-ac5c-474d-8550-58098f668a66",
+        "project_id": "c52b2f54d96a4c28ba9a318eae9c843c",
+        "type": "action"
+    }
+]

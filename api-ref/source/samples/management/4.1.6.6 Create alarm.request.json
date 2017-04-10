@@ -1,0 +1,12 @@
+{
+    "threshold_rule": {
+        "threshold": 99.0,
+        "meter_name": "my_meter"
+    },
+    "alarm_actions": [
+        "{\"service\": \"mail\", \"action\": \"send\", \"parameters\":{} }"
+    ],
+    "type": "threshold",
+    "name": "my_alarm ",
+    "repeat_actions": false
+}

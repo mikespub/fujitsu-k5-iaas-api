@@ -1,0 +1,2 @@
+GET /v1/charges/transition/2014/06?start_date=2014-06-01T00:00:00.000&end_date=2014-06-15T00:00:00.000&region_id=jpeast-1 HTTP/1.1 
+X-Auth-Token: “JpZCI6ICJjM2VlNzA4YTZhZTI0ZGRmOTJjMDc4...” 

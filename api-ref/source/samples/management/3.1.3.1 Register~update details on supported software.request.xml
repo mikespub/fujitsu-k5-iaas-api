@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<SupportSoftwares>
+  <SupportSoftware>
+    <InstanceID>instance1</InstanceID>
+    <SoftwareID>ws2012</SoftwareID>
+    <SupportID>nosupport</SupportID>
+  </SupportSoftware>
+  <SupportSoftware>
+    <InstanceID>instance1</InstanceID>
+    <SoftwareID>sq2012</SoftwareID>
+    <SupportID>spt_24h</SupportID>
+  </SupportSoftware>
+</SupportSoftwares>

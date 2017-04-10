@@ -1,0 +1,9 @@
+PATCH /v3/projects/--project-id-- 
+X-Auth-Token: MIIIHgYJKoZIhvcNAQcCoIIIDzCCCAsCAQExC... 
+{ 
+"project": { 
+"description": "my updated project", 
+"enabled": true, 
+"name": "myUpdatedProject" 
+} 
+} 

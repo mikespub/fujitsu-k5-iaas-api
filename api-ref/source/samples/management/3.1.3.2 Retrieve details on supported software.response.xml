@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<SupportSoftwares>
+  <SupportSoftware>
+    <TenantID>tenant1</TenantID>
+    <InstanceID>instance1</InstanceID>
+    <ImageID>image1</ImageID>
+    <SoftwareID>RHEL</SoftwareID>
+    <SupportID>nosupport</SupportID>
+    <UpdateDate>2014.8.31</UpdateDate>
+  </SupportSoftware>
+  <SupportSoftware>
+    <TenantID>tenant1</TenantID>
+    <InstanceID>instance1</InstanceID>
+    <ImageID>RHEL</ImageID>
+    <SoftwareID>sq2012</SoftwareID>
+    <SupportID>spt_24h</SupportID>
+    <UpdateDate>2014.8.31</UpdateDate>
+  </SupportSoftware>
+  <SupportSoftware>
+    <TenantID>tenant1</TenantID>
+    <InstanceID>instance1</InstanceID>
+    <ImageID>RHEL</ImageID>
+    <SoftwareID>sq2012</SoftwareID>
+    <SupportID>spt_daytime</SupportID>
+    <UpdateDate>2014.8.31</UpdateDate>
+  </SupportSoftware>
+</SupportSoftwares>

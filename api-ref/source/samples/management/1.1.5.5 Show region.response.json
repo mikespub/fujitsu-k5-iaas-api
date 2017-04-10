@@ -1,0 +1,10 @@
+{
+    "region": {
+        "parent_region_id": null,
+        "id": "jp-east-1",
+        "links": {
+            "self": "http://identity.jp-east-1.cloud.global.fujitsu.com/v3/regions/jp-east-1"
+        },
+        "description": "jp-east-1 region"
+    }
+}

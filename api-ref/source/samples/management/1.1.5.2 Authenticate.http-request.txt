@@ -1,0 +1,41 @@
+POST /v3/auth/tokens 
+Example 1: Password authentication 
+The domain ID and user name are specified, and the scope parameter is 
+omitted (therefore the result will be the same as if a project was 
+specified) 
+{ 
+"auth": { 
+"identity": { 
+"methods": [ 
+"password" 
+], 
+"password": { 
+"user": { 
+"domain": { 
+"id": "--domain-id--" 
+}, 
+"name": "username", 
+"password": "userpassword9999" 
+} 
+} 
+} 
+} 
+}
+Example 2: Token authentication 
+{ 
+"auth": { 
+"identity": { 
+"methods": [ 
+"token" 
+], 
+"token": { 
+"id": "(specify the authentication token)" 
+} 
+}, 
+"scope": { 
+"OS-TRUST:trust": { 
+"id": "--trust_id--"
+} 
+} 
+} 
+} 

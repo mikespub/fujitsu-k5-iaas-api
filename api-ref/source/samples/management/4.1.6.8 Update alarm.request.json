@@ -1,0 +1,10 @@
+{
+    "threshold_rule": {
+        "threshold": 0.0,
+        "meter_name": "my_meter",
+        "comparison_operator": "gt"
+    },
+    "type": "threshold",
+    "enabled": false,
+    "name": "my_alarm"
+}

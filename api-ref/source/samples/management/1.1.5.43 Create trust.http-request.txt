@@ -1,0 +1,16 @@
+POST /v3/OS-TRUST/trusts 
+X-Auth-Token: MIIIHgYJKoZIhvcNAQcCoIIIDzCCCAsCAQExC... 
+{ 
+"trust": { 
+"expires_at": "2015-02-27T18:30:59.999999Z", 
+"impersonation": true, 
+"project_id": "--project-id--", 
+"roles": [ 
+{ 
+"name": "--role-name--" 
+} 
+], 
+"trustee_user_id": "--trustee-user-id--", 
+"trustor_user_id": "--trustor-user-id--" 
+} 
+} 

@@ -1,0 +1,27 @@
+{
+    "links": {
+        "self": "http://identity.jp-east-1.cloud.global.fujitsu.com/v3/groups",
+        "next": null,
+        "previous": null
+    },
+    "groups": [
+        {
+            "id": "--group-id--",
+            "name": "Developers",
+            "description": "general projects",
+            "links": {
+                "self": "http://identity.jp-east-1.cloud.global.fujitsu.com/v3/groups/--group-id--"
+            },
+            "domain_id": "--domain-id--"
+        },
+        {
+            "id": "--group-id--",
+            "name": "Secure Developers",
+            "description": " secret projects",
+            "links": {
+                "self": "http://identity.jp-east-1.cloud.global.fujitsu.com/v3/groups/--group-id--"
+            },
+            "domain_id": "--domain-id--"
+        }
+    ]
+}

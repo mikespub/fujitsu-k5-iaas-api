@@ -1,0 +1,7 @@
+{
+    "payload_content_encoding": "base64",
+    "payload_content_type": "text/plain",
+    "payload": "-----BEGIN XXXX-----MIIEow ... Rwg7Jp-----END XXXX-----",
+    "name": "key1",
+    "expiration": "2015-02-28T19:14:44.180394"
+}

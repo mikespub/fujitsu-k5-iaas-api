@@ -1,0 +1,30 @@
+{
+    "alarm_actions": [
+        "{\"service\": \"mail\", \"action\": \"send\", \"parameters\":{} }",
+        "{\"service\": \"queue\", \"action\": \"send\", \"parameters\": { \"queue_name\": \"myqueue\" } }"
+    ],
+    "ok_actions": [],
+    "description": "Alarm when cpu_util is eq a avg of 99.0 over 60 seconds",
+    "timestamp": "2014-10-22T08:39:10.896493",
+    "time_constraints": [],
+    "enabled": true,
+    "state_timestamp": "2014-10-22T08:39:10.896493",
+    "threshold_rule": {
+        "meter_name": "my_meter",
+        "evaluation_periods": 1,
+        "period": 60,
+        "statistic": "avg",
+        "threshold": 99.0,
+        "query": [],
+        "comparison_operator": "eq",
+        "exclude_outliers": false
+    },
+    "alarm_id": "801bad91-1176-4143-8448-0f83ea755c88",
+    "state": "insufficient data",
+    "insufficient_data_actions": [],
+    "repeat_actions": false,
+    "user_id": "13d97e9c31454563b8aa78b0b2e92385",
+    "project_id": "22ef168c58d94872a66c90d74297136a",
+    "type": "threshold",
+    "name": "my_alarm"
+}

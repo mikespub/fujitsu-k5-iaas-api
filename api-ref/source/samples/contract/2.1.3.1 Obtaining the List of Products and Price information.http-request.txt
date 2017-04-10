@@ -1,0 +1,2 @@
+GET /v1.0/allproducts?Locale=en&Basedate=2014-08-31 
+X-Auth-Token:MIIZuwYJKoZIhvcNAQc…(Authentication Token ID is not mentioned). 

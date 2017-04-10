@@ -1,0 +1,11 @@
+{
+    "domain": {
+        "id": "--domain-id--",
+        "enabled": true,
+        "description": "keystone admin domain",
+        "links": {
+            "self": "http://identity.jp-east-1.cloud.global.fujitsu.com/v3/domains/--domain-id--"
+        },
+        "name": "admin"
+    }
+}

@@ -1,0 +1,14 @@
+{
+    "status": "ACTIVE",
+    "content_types": {
+        "default": "text/plain"
+    },
+    "updated": "2014-07-15T06:17:08.082912",
+    "name": "key1",
+    "algorithm": "aes",
+    "created": "2014-07-15T06:17:08.070916",
+    "secret_ref": "http://<host>:9311/v1/a759452216fd41cf8ee5aba321cfbd49/secrets/96e86d87-6602-4b99-ae41-5b737fe1288d",
+    "mode": "cbc",
+    "bit_length": 256,
+    "expiration": "2015-02-28T19:14:44.180394"
+}

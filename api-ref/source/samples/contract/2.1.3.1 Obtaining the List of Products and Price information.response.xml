@@ -1,0 +1,31 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<CatalogList>
+  <Catalog>
+    <ResellerId>jp.fujitsu.com</ResellerId>
+    <Region>
+      <RegionId>jp-east-1</RegionId>
+      <ServiceProvider>
+        <ServiceProviderId>fcx.fujitsu.com</ServiceProviderId>
+        <Service>
+          <ServiceName xml:lang="en">compute</ServiceName>
+          <Category>
+            <CategoryName xml:lang="en">VM Service</CategoryName>
+            <Product>
+              <ProductId>VM00001</ProductId>
+              <ProductName xml:lang="en">VM Service S-1Type</ProductName>
+              <UnitName xml:lang="en">hours</UnitName>
+              <InitialCharge>
+                <UnitPrice currencyid="JPY">0</UnitPrice>
+                <UnitPrice currencyid="AUD">0</UnitPrice>
+              </InitialCharge>
+              <MonthlyChargeInfo order="1">
+                <UnitPrice currencyid="JPY">10</UnitPrice>
+                <UnitPrice currencyid="AUD">0.01</UnitPrice>
+              </MonthlyChargeInfo>
+            </Product>
+          </Category>
+        </Service>
+      </ServiceProvider>
+    </Region>
+  </Catalog>
+</CatalogList>

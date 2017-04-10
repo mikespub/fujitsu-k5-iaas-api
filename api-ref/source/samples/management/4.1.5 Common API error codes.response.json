@@ -1,0 +1,7 @@
+{
+    "error_message": {
+        "debuginfo": null,
+        "faultcode": "Client",
+        "faultstring": "Invalid input for field/attribute limit. Value: 'a'. unable to convert to int"
+    }
+}

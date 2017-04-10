@@ -1,0 +1,15 @@
+[
+    {
+        "counter_name": "my_meter",
+        "resource_id": "my_resource",
+        "timestamp": "2014-06-12T07:01:07.428799",
+        "source": "my_source",
+        "counter_unit": "instance",
+        "counter_volume": 2.0,
+        "resource_metadata": {
+            "my_metadata2": "test2",
+            "my_metadata": "test"
+        },
+        "counter_type": "gauge"
+    }
+]

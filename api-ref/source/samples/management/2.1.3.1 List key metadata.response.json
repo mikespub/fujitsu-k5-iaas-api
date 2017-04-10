@@ -1,0 +1,21 @@
+{
+    "secrets": [
+        {
+            "status": "ACTIVE",
+            "content_types": {
+                "default": "text/plain"
+            },
+            "updated": "2014-07-15T06:04:23.502093",
+            "name": "key1",
+            "algorithm": null,
+            "created": "2014-07-15T06:04:23.490168",
+            "secret_ref": "http://<host>:9311/v1/a759452216fd41cf8ee5aba321cfbd49/secrets/82b63ed0-3ec7-4f3c-93b6-dde9a3c81b99",
+            "mode": null,
+            "bit_length": null,
+            "expiration": "2015-02-28T19:14:44.180394"
+        }
+    ],
+    "previous": "http://<host>:9311/v1/ a759452216fd41cf8ee5aba321cfbd49/secrets?limit=1&offset=1",
+    "total": 20,
+    "next": "http://<host>:9311/v1/ a759452216fd41cf8ee5aba321cfbd49/secrets?limit=1&offset=3"
+}

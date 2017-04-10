@@ -1,0 +1,4 @@
+GET /v1/a759452216fd41cf8ee5aba321cfbd49/secrets/96e86d87-6602-4b99- 
+ae41-5b737fe1288d 
+X-Auth-Token: "JpZCI6ICJjM2VlNzA4YTZhZTI0ZGRmOTJjMDc4..." 
+Accept: "text/plain" 

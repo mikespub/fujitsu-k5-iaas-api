@@ -1,0 +1,32 @@
+[
+    {
+        "counter_name": "my_meter",
+        "user_id": "22fa5e38788d40988b8aa28e749f7a84",
+        "resource_id": "my_resource",
+        "timestamp": "2014-10-22T00:02:49",
+        "recorded_at": "2014-10-22T00:02:50.171418",
+        "source": "bc835c72f50b48c89ad7ee8a89806bb1:my_source",
+        "counter_unit": "%",
+        "counter_volume": 0.0,
+        "project_id": "bc835c72f50b48c89ad7ee8a89806bb1",
+        "resource_metadata": {
+            "my_metadata": "test"
+        },
+        "counter_type": "gauge"
+    },
+    {
+        "counter_name": "my_meter",
+        "user_id": "22fa5e38788d40988b8aa28e749f7a84",
+        "resource_id": "my_resource",
+        "timestamp": "2014-10-22T00:01:12",
+        "recorded_at": "2014-10-22T00:01:12.511325",
+        "source": "bc835c72f50b48c89ad7ee8a89806bb1:my_source",
+        "counter_unit": "%",
+        "counter_volume": 10.0,
+        "project_id": "bc835c72f50b48c89ad7ee8a89806bb1",
+        "resource_metadata": {
+            "my_metadata": "test"
+        },
+        "counter_type": "gauge"
+    }
+]

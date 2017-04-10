@@ -1,0 +1,3 @@
+DELETE /v1/a759452216fd41cf8ee5aba321cfbd49/containers/ a5330b02-ee46-4883- 
+b8ea-4359925ebbf2 
+X-Auth-Token: "JpZCI6ICJjM2VlNzA4YTZhZTI0ZGRmOTJjMDc4..." 

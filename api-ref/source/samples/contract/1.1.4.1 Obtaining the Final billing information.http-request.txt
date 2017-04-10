@@ -1,0 +1,3 @@
+GET /v1/charges/2014/06 
+HTTP/1.1 
+X-Auth-Token: “JpZCI6ICJjM2VlNzA4YTZhZTI0ZGRmOTJjMDc4...” 

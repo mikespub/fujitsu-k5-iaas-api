@@ -8,101 +8,132 @@ Fujitsu K5 API Services
 List of K5 Portal Services
 --------------------------
 
-+-----------------+----------------------------------------------------------+
-| Name of Service | Endpoint                                                 |
-|                 |                                                          |
-+-----------------+----------------------------------------------------------+
-| Authentication  | https://auth-api.jp-east-1.paas.cloud.global.fujitsu.com |
-|                 |                                                          |
-+-----------------+----------------------------------------------------------+
-| User Management | https://k5-apiportal.paas.cloud.global.fujitsu.com       |
-|                 |                                                          |
-+-----------------+----------------------------------------------------------+
++-----------------------+----------------------------------------------------------+---------------+
+| Name of Service       | Endpoint                                                 | Swagger File  |
+|                       |                                                          |               |
++-----------------------+----------------------------------------------------------+---------------+
+| Get Portal Auth Token | https://auth-api.jp-east-1.paas.cloud.global.fujitsu.com | auth-api_     |
+|                       |                                                          |               |
++-----------------------+----------------------------------------------------------+---------------+
+| User Management       | https://k5-apiportal.paas.cloud.global.fujitsu.com       | k5-apiportal_ |
+|                       |                                                          |               |
++-----------------------+----------------------------------------------------------+---------------+
+
+.. _auth-api: swagger/auth-api.json
+.. _k5-apiportal: swagger/k5-apiportal.json
 
 List of K5 Global IaaS Services
 -------------------------------
 
-+----------------------------------+-----------------------------------------------+
-| Name of Service                  | Endpoint                                      |
-|                                  |                                               |
-+----------------------------------+-----------------------------------------------+
-| Subscription Management          | https://contract.gls.cloud.global.fujitsu.com |
-|                                  |                                               |
-+----------------------------------+-----------------------------------------------+
-| Global User Management           | https://identity.gls.cloud.global.fujitsu.com |
-|                                  |                                               |
-+----------------------------------+-----------------------------------------------+
-| Billing Management               | https://billing.gls.cloud.global.fujitsu.com  |
-|                                  |                                               |
-+----------------------------------+-----------------------------------------------+
-| DNS Service                      | https://dns.gls.cloud.global.fujitsu.com      |
-|                                  |                                               |
-+----------------------------------+-----------------------------------------------+
-| Product Management               | https://catalog.gls.cloud.global.fujitsu.com  |
-|                                  |                                               |
-+----------------------------------+-----------------------------------------------+
-| Content Delivery Network Service | https://cdn.gls.cloud.global.fujitsu.com      |
-|                                  |                                               |
-+----------------------------------+-----------------------------------------------+
++----------------------------------+-----------------------------------------------+---------------------+
+| Name of Service                  | Endpoint                                      | Swagger File        |
+|                                  |                                               |                     |
++----------------------------------+-----------------------------------------------+---------------------+
+| Get Global Auth Token            | https://identity.gls.cloud.global.fujitsu.com | auth-global_        |
+|                                  |                                               |                     |
++----------------------------------+-----------------------------------------------+---------------------+
+| Subscription Management          | https://contract.gls.cloud.global.fujitsu.com | contract_           |
+|                                  |                                               |                     |
++----------------------------------+-----------------------------------------------+---------------------+
+| Global User Management           | https://identity.gls.cloud.global.fujitsu.com | identity-ex.global_ |
+|                                  |                                               |                     |
++----------------------------------+-----------------------------------------------+---------------------+
+| Billing Management               | https://billing.gls.cloud.global.fujitsu.com  | billing_            |
+|                                  |                                               |                     |
++----------------------------------+-----------------------------------------------+---------------------+
+| DNS Service                      | https://dns.gls.cloud.global.fujitsu.com      | dns_                |
+|                                  |                                               |                     |
++----------------------------------+-----------------------------------------------+---------------------+
+| Product Management               | https://catalog.gls.cloud.global.fujitsu.com  | catalog_            |
+|                                  |                                               |                     |
++----------------------------------+-----------------------------------------------+---------------------+
+| Content Delivery Network Service | https://cdn.gls.cloud.global.fujitsu.com      | cdn_                |
+|                                  |                                               |                     |
++----------------------------------+-----------------------------------------------+---------------------+
+
+.. _auth-global: swagger/auth-global.json
+.. _contract: swagger/contract.json
+.. _identity-ex.global: swagger/identity-ex.global.json
+.. _billing: swagger/billing.json
+.. _dns: swagger/dns.json
+.. _catalog: swagger/catalog.json
+.. _cdn: swagger/cdn.json
 
 List of K5 Regional IaaS Services
 ---------------------------------
 
-+----------------------------+----------------------------------------------------+
-| Name of Service            | Endpoint (*** indicates the region identifier)     |
-|                            |                                                    |
-+----------------------------+----------------------------------------------------+
-| Regional User Management   | https://identity.***.cloud.global.fujitsu.com      |
-|                            |                                                    |
-+----------------------------+----------------------------------------------------+
-| Key Management             | https://keymanagement.***.cloud.global.fujitsu.com |
-|                            |                                                    |
-+----------------------------+----------------------------------------------------+
-| Software Management        | https://software.***.cloud.global.fujitsu.com      |
-|                            |                                                    |
-+----------------------------+----------------------------------------------------+
-| Compute (Standard Service) | https://compute.***.cloud.global.fujitsu.com       |
-|                            |                                                    |
-+----------------------------+----------------------------------------------------+
-| Image Management           | https://image.***.cloud.global.fujitsu.com         |
-|                            |                                                    |
-+----------------------------+----------------------------------------------------+
-| Virtual Server Import      | https://vmimport.***.cloud.global.fujitsu.com      |
-|                            |                                                    |
-+----------------------------+----------------------------------------------------+
-| Compute (Service for SAP)  | https://compute-w.***.cloud.global.fujitsu.com     |
-|                            |                                                    |
-+----------------------------+----------------------------------------------------+
-| Auto-Scaling               | https://autoscale.***.cloud.global.fujitsu.com     |
-|                            |                                                    |
-+----------------------------+----------------------------------------------------+
-| Block Storage              | https://blockstorage.***.cloud.global.fujitsu.com  |
-|                            |                                                    |
-+----------------------------+----------------------------------------------------+
-| Object Storage             | https://objectstorage.***.cloud.global.fujitsu.com |
-|                            |                                                    |
-+----------------------------+----------------------------------------------------+
-| Virtual Network            | https://networking.***.cloud.global.fujitsu.com    |
-|                            |                                                    |
-+----------------------------+----------------------------------------------------+
-| Virtual Network Extension  | https://networking-ex.***.cloud.global.fujitsu.com |
-|                            |                                                    |
-+----------------------------+----------------------------------------------------+
-| Load Balancer              | https://loadbalancing.***.cloud.global.fujitsu.com |
-|                            |                                                    |
-+----------------------------+----------------------------------------------------+
-| Database                   | https://database.***.cloud.global.fujitsu.com      |
-|                            |                                                    |
-+----------------------------+----------------------------------------------------+
-| Email Delivery             | https://mail.***.cloud.global.fujitsu.com          |
-|                            |                                                    |
-+----------------------------+----------------------------------------------------+
-| Orchestration              | https://orchestration.***.cloud.global.fujitsu.com |
-|                            |                                                    |
-+----------------------------+----------------------------------------------------+
-| Monitoring                 | https://telemetry.***.cloud.global.fujitsu.com     |
-|                            |                                                    |
-+----------------------------+----------------------------------------------------+
++----------------------------+----------------------------------------------------+------------------+
+| Name of Service            | Endpoint (\*** indicates the region identifier)    | Swagger File     |
+|                            |                                                    |                  |
++----------------------------+----------------------------------------------------+------------------+
+| Get Regional Auth Token    | https://identity.***.cloud.global.fujitsu.com      | auth-region_     |
+|                            |                                                    |                  |
++----------------------------+----------------------------------------------------+------------------+
+| Regional User Management   | https://identity.***.cloud.global.fujitsu.com      | identity-ex_     |
+|                            |                                                    |                  |
++----------------------------+----------------------------------------------------+------------------+
+| Key Management             | https://keymanagement.***.cloud.global.fujitsu.com | keymanagement_   |
+|                            |                                                    |                  |
++----------------------------+----------------------------------------------------+------------------+
+| Software Management        | https://software.***.cloud.global.fujitsu.com      | software_        |
+|                            |                                                    |                  |
++----------------------------+----------------------------------------------------+------------------+
+| Compute (Standard Service) | https://compute.***.cloud.global.fujitsu.com       | .                |
+|                            |                                                    |                  |
++----------------------------+----------------------------------------------------+------------------+
+| Image Management           | https://image.***.cloud.global.fujitsu.com         | image-ex_        |
+|                            |                                                    |                  |
++----------------------------+----------------------------------------------------+------------------+
+| Virtual Server Import      | https://vmimport.***.cloud.global.fujitsu.com      | vmimport_        |
+|                            |                                                    |                  |
++----------------------------+----------------------------------------------------+------------------+
+| Compute (Service for SAP)  | https://compute-w.***.cloud.global.fujitsu.com     | compute-w_       |
+|                            |                                                    |                  |
++----------------------------+----------------------------------------------------+------------------+
+| Auto-Scaling               | https://autoscale.***.cloud.global.fujitsu.com     | autoscale_       |
+|                            |                                                    |                  |
++----------------------------+----------------------------------------------------+------------------+
+| Block Storage              | https://blockstorage.***.cloud.global.fujitsu.com  | blockstorage-ex_ |
+|                            |                                                    |                  |
++----------------------------+----------------------------------------------------+------------------+
+| Object Storage             | https://objectstorage.***.cloud.global.fujitsu.com | .                |
+|                            |                                                    |                  |
++----------------------------+----------------------------------------------------+------------------+
+| Virtual Network            | https://networking.***.cloud.global.fujitsu.com    | .                |
+|                            |                                                    |                  |
++----------------------------+----------------------------------------------------+------------------+
+| Virtual Network Extension  | https://networking-ex.***.cloud.global.fujitsu.com | networking-ex_   |
+|                            |                                                    |                  |
++----------------------------+----------------------------------------------------+------------------+
+| Load Balancer              | https://loadbalancing.***.cloud.global.fujitsu.com | loadbalancing_   |
+|                            |                                                    |                  |
++----------------------------+----------------------------------------------------+------------------+
+| Database                   | https://database.***.cloud.global.fujitsu.com      | database_        |
+|                            |                                                    |                  |
++----------------------------+----------------------------------------------------+------------------+
+| Email Delivery             | https://mail.***.cloud.global.fujitsu.com          | mail_            |
+|                            |                                                    |                  |
++----------------------------+----------------------------------------------------+------------------+
+| Orchestration              | https://orchestration.***.cloud.global.fujitsu.com | .                |
+|                            |                                                    |                  |
++----------------------------+----------------------------------------------------+------------------+
+| Monitoring                 | https://telemetry.***.cloud.global.fujitsu.com     | .                |
+|                            |                                                    |                  |
++----------------------------+----------------------------------------------------+------------------+
+
+.. _auth-region: swagger/auth-region.json
+.. _identity-ex: swagger/identity-ex.json
+.. _keymanagement: swagger/keymanagement.json
+.. _software: swagger/software.json
+.. _image-ex: swagger/image-ex.json
+.. _vmimport: swagger/vmimport.json
+.. _compute-w: swagger/compute-w.json
+.. _autoscale: swagger/autoscale.json
+.. _blockstorage-ex: swagger/blockstorage-ex.json
+.. _networking-ex: swagger/networking-ex.json
+.. _loadbalancing: swagger/loadbalancing.json
+.. _database: swagger/database.json
+.. _mail: swagger/mail.json
 
 
 Using the draft swagger files
@@ -129,11 +160,11 @@ Source: `FUJITSU Cloud Service K5 IaaS Features Handbook <http://www.fujitsu.com
 
 In addition, the central **K5 portal** also has a separate authentication service. Please make sure to use the right authentication token when trying out one of the APIs...
 
+Swagger files
+=============
 
-Placeholder for generated HTML pages
+* `swagger <swagger>`_: Draft swagger files for Fujitsu K5 IaaS API Extensions (get an auth_token from identity.* first)
 
-* Draft swagger files for Fujitsu K5 IaaS API Extensions (get an auth_token from identity.* first)
+* `developer.openstack.org/draft/swagger <developer.openstack.org/draft/swagger>`_: Draft Swagger files generated by Openstack developer
 
-* Draft Swagger files generated by Openstack developer: see developer.openstack.org/draft/swagger
-
-* Old Swagger files converted from WADL by wadl2swagger: see rackerlabs-wadl2swagger/openstack
+* `rackerlabs-wadl2swagger/openstack <rackerlabs-wadl2swagger/openstack>`_: Old Swagger files converted from WADL by wadl2swagger

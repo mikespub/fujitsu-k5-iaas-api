@@ -24,7 +24,7 @@
     ], 
     "definitions": {}, 
     "paths": {
-        "/v1.0/allproducts": {
+        "/v1.0/allproducts?Locale={locale}": {
             "get": {
                 "produces": [
                     "application/xml"
@@ -37,7 +37,14 @@
                         }
                     }
                 }, 
-                "parameters": [], 
+                "parameters": [
+                    {
+                        "required": true, 
+                        "type": "string", 
+                        "name": "locale", 
+                        "in": "path"
+                    }
+                ], 
                 "summary": "Obtaining the List of Products and Price information"
             }
         }

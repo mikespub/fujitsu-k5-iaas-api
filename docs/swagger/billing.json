@@ -24,7 +24,7 @@
     ], 
     "definitions": {}, 
     "paths": {
-        "/v1/charges/YYYY/MM": {
+        "/v1/charges/{YYYY}/{MM}": {
             "get": {
                 "produces": [
                     "application/json"
@@ -158,11 +158,24 @@
                         }
                     }
                 }, 
-                "parameters": [], 
+                "parameters": [
+                    {
+                        "required": true, 
+                        "type": "string", 
+                        "name": "YYYY", 
+                        "in": "path"
+                    }, 
+                    {
+                        "required": true, 
+                        "type": "string", 
+                        "name": "MM", 
+                        "in": "path"
+                    }
+                ], 
                 "summary": "Obtaining the Final billing information"
             }
         }, 
-        "/v1/charges/transition/YYYY/MM": {
+        "/v1/charges/transition/{YYYY}/{MM}": {
             "get": {
                 "produces": [
                     "application/json"
@@ -298,7 +311,20 @@
                         }
                     }
                 }, 
-                "parameters": [], 
+                "parameters": [
+                    {
+                        "required": true, 
+                        "type": "string", 
+                        "name": "YYYY", 
+                        "in": "path"
+                    }, 
+                    {
+                        "required": true, 
+                        "type": "string", 
+                        "name": "MM", 
+                        "in": "path"
+                    }
+                ], 
                 "summary": "Obtaining the Interim Billing Information"
             }
         }

@@ -1,0 +1,86 @@
+{
+    "swagger": "2.0", 
+    "info": {
+        "version": "v1", 
+        "title": "Draft swagger file for Fujitsu K5 IaaS Identity API Extension", 
+        "x-service": "identity", 
+        "x-scope": "global"
+    }, 
+    "host": "identity.gls.cloud.global.fujitsu.com", 
+    "schemes": [
+        "https"
+    ], 
+    "securityDefinitions": {
+        "auth_global": {
+            "type": "apiKey", 
+            "name": "X-Auth-Token", 
+            "in": "header"
+        }
+    }, 
+    "security": [
+        {
+            "auth_global": []
+        }
+    ], 
+    "definitions": {}, 
+    "paths": {
+        "/v3/users/{user_id}/auth_type": {
+            "get": {
+                "produces": [
+                    "application/json"
+                ], 
+                "responses": {
+                    "200": {
+                        "description": "200 response", 
+                        "examples": {
+                            "application/json": {
+                                "user": {
+                                    "auth_type": "password"
+                                }
+                            }
+                        }
+                    }
+                }, 
+                "parameters": [
+                    {
+                        "required": true, 
+                        "type": "string", 
+                        "name": "user_id", 
+                        "in": "path"
+                    }
+                ], 
+                "summary": "Get user authentication method information"
+            }
+        }, 
+        "/v3/synchronous_regions": {
+            "get": {
+                "produces": [
+                    "application/json"
+                ], 
+                "responses": {
+                    "200": {
+                        "description": "200 response", 
+                        "examples": {
+                            "application/json": {
+                                "regions": [
+                                    {
+                                        "status": "ready", 
+                                        "region_id": "jp-east-1", 
+                                        "domain_id": "--domain-id--"
+                                    }
+                                ], 
+                                "links": {
+                                    "self": "http://identity.gls.cloud.global.fujitsu.com/v3/synchronous_regions", 
+                                    "previous": null, 
+                                    "next": null
+                                }
+                            }
+                        }
+                    }
+                }, 
+                "parameters": [], 
+                "summary": "Confirm inter-regional synchronization"
+            }
+        }
+    }
+}

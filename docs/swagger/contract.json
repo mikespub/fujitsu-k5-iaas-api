@@ -1,0 +1,204 @@
+{
+    "swagger": "2.0", 
+    "info": {
+        "version": "v1", 
+        "title": "Draft swagger file for Fujitsu K5 IaaS Contract API", 
+        "x-service": "contract", 
+        "x-scope": "global"
+    }, 
+    "host": "contract.gls.cloud.global.fujitsu.com", 
+    "schemes": [
+        "https"
+    ], 
+    "securityDefinitions": {
+        "auth_global": {
+            "type": "apiKey", 
+            "name": "X-Auth-Token", 
+            "in": "header"
+        }
+    }, 
+    "security": [
+        {
+            "auth_global": []
+        }
+    ], 
+    "definitions": {
+        "post{Domain_Id}?Action=Startregion": {
+            "type": "object", 
+            "example": {
+                "application/json": {
+                    "contract": {
+                        "regions": [
+                            {
+                                "id": "jp-east-1"
+                            }, 
+                            {
+                                "id": "uk-1"
+                            }
+                        ]
+                    }
+                }
+            }, 
+            "properties": {
+                "contract": {
+                    "type": "object", 
+                    "properties": {
+                        "regions": {
+                            "items": {
+                                "type": "object", 
+                                "properties": {
+                                    "id": {
+                                        "type": "string"
+                                    }
+                                }
+                            }, 
+                            "type": "array"
+                        }
+                    }
+                }
+            }
+        }
+    }, 
+    "paths": {
+        "/v1/confidential/domains/{domain_id}": {
+            "get": {
+                "produces": [
+                    "application/json"
+                ], 
+                "responses": {
+                    "200": {
+                        "description": "200 response", 
+                        "examples": {
+                            "application/json": {
+                                "secure": {
+                                    "company": {
+                                        "name": "a-company"
+                                    }, 
+                                    "name": {
+                                        "last": "FUJITSU", 
+                                        "first": "TARO"
+                                    }, 
+                                    "emergency": {
+                                        "email_announce": "fujitsu.taro@fujitsu.com", 
+                                        "tel": "000-000-0000"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }, 
+                "parameters": [
+                    {
+                        "required": true, 
+                        "type": "string", 
+                        "name": "domain_id", 
+                        "in": "path"
+                    }
+                ], 
+                "summary": "Obtaining the Confidential Information of Subscriber's organization"
+            }
+        }, 
+        "/v1/contracts/{domain_id}?action=startRegion": {
+            "post": {
+                "consumes": [
+                    "application/json"
+                ], 
+                "responses": {
+                    "200": {
+                        "description": "200 response", 
+                        "examples": {
+                            "text/plain": "HTTP/1.1 200 OK \\nContent-Length: 0 \\nContent-Type: application/json;charset=UTF-8 \\n"
+                        }
+                    }
+                }, 
+                "parameters": [
+                    {
+                        "required": true, 
+                        "type": "string", 
+                        "name": "domain_id", 
+                        "in": "path"
+                    }, 
+                    {
+                        "schema": {
+                            "$ref": "#/definitions/post{Domain_Id}?Action=Startregion"
+                        }, 
+                        "required": false, 
+                        "name": "body", 
+                        "in": "body"
+                    }
+                ], 
+                "summary": "Start Usage of Region"
+            }
+        }, 
+        "/v1/contracts/{domain_id}?action=getRegion": {
+            "get": {
+                "produces": [
+                    "application/json"
+                ], 
+                "responses": {
+                    "200": {
+                        "description": "200 response", 
+                        "examples": {
+                            "application/json": {
+                                "regions": [
+                                    {
+                                        "status": "active", 
+                                        "default": "true", 
+                                        "id": "jp-east-1"
+                                    }, 
+                                    {
+                                        "status": "ready", 
+                                        "default": "false", 
+                                        "id": "uk-1"
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                }, 
+                "parameters": [
+                    {
+                        "required": true, 
+                        "type": "string", 
+                        "name": "domain_id", 
+                        "in": "path"
+                    }
+                ], 
+                "summary": "Obtaining the Information from Region in Use"
+            }
+        }, 
+        "/v1/regions?region_id={region_id}": {
+            "get": {
+                "produces": [
+                    "application/json"
+                ], 
+                "responses": {
+                    "200": {
+                        "description": "200 response", 
+                        "examples": {
+                            "application/json": {
+                                "regions": [
+                                    {
+                                        "id": "jp-east-1"
+                                    }, 
+                                    {
+                                        "id": "uk-1"
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                }, 
+                "parameters": [
+                    {
+                        "required": true, 
+                        "type": "string", 
+                        "name": "region_id", 
+                        "in": "path"
+                    }
+                ], 
+                "summary": "Region List"
+            }
+        }
+    }
+}

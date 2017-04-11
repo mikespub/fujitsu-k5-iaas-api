@@ -1,0 +1,45 @@
+{
+    "swagger": "2.0", 
+    "info": {
+        "version": "v1", 
+        "title": "Draft swagger file for Fujitsu K5 IaaS Catalog API", 
+        "x-service": "catalog", 
+        "x-scope": "global"
+    }, 
+    "host": "catalog.gls.cloud.global.fujitsu.com", 
+    "schemes": [
+        "https"
+    ], 
+    "securityDefinitions": {
+        "auth_global": {
+            "type": "apiKey", 
+            "name": "X-Auth-Token", 
+            "in": "header"
+        }
+    }, 
+    "security": [
+        {
+            "auth_global": []
+        }
+    ], 
+    "definitions": {}, 
+    "paths": {
+        "/v1.0/allproducts": {
+            "get": {
+                "produces": [
+                    "application/xml"
+                ], 
+                "responses": {
+                    "200": {
+                        "description": "200 response", 
+                        "examples": {
+                            "application/xml": "<?xml version='1.0' encoding='UTF-8'?>\n<CatalogList>\n  <Catalog>\n    <ResellerId>jp.fujitsu.com</ResellerId>\n    <Region>\n      <RegionId>jp-east-1</RegionId>\n      <ServiceProvider>\n        <ServiceProviderId>fcx.fujitsu.com</ServiceProviderId>\n        <Service>\n          <ServiceName xml:lang=\"en\">compute</ServiceName>\n          <Category>\n            <CategoryName xml:lang=\"en\">VM Service</CategoryName>\n            <Product>\n              <ProductId>VM00001</ProductId>\n              <ProductName xml:lang=\"en\">VM Service S-1Type</ProductName>\n              <UnitName xml:lang=\"en\">hours</UnitName>\n              <InitialCharge>\n                <UnitPrice currencyid=\"JPY\">0</UnitPrice>\n                <UnitPrice currencyid=\"AUD\">0</UnitPrice>\n              </InitialCharge>\n              <MonthlyChargeInfo order=\"1\">\n                <UnitPrice currencyid=\"JPY\">10</UnitPrice>\n                <UnitPrice currencyid=\"AUD\">0.01</UnitPrice>\n              </MonthlyChargeInfo>\n            </Product>\n          </Category>\n        </Service>\n      </ServiceProvider>\n    </Region>\n  </Catalog>\n</CatalogList>\n"
+                        }
+                    }
+                }, 
+                "parameters": [], 
+                "summary": "Obtaining the List of Products and Price information"
+            }
+        }
+    }
+}

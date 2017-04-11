@@ -1,0 +1,306 @@
+{
+    "swagger": "2.0", 
+    "info": {
+        "version": "v1", 
+        "title": "Draft swagger file for Fujitsu K5 IaaS Billing API", 
+        "x-service": "billing", 
+        "x-scope": "global"
+    }, 
+    "host": "billing.gls.cloud.global.fujitsu.com", 
+    "schemes": [
+        "https"
+    ], 
+    "securityDefinitions": {
+        "auth_global": {
+            "type": "apiKey", 
+            "name": "X-Auth-Token", 
+            "in": "header"
+        }
+    }, 
+    "security": [
+        {
+            "auth_global": []
+        }
+    ], 
+    "definitions": {}, 
+    "paths": {
+        "/v1/charges/YYYY/MM": {
+            "get": {
+                "produces": [
+                    "application/json"
+                ], 
+                "responses": {
+                    "200": {
+                        "description": "200 response", 
+                        "examples": {
+                            "application/json": [
+                                {
+                                    "comment": [
+                                        {
+                                            "lang": "ja", 
+                                            "value": "bikou"
+                                        }, 
+                                        {
+                                            "lang": "en", 
+                                            "value": "Notes"
+                                        }, 
+                                        {
+                                            "lang": "de", 
+                                            "value": "Bemerkungen"
+                                        }
+                                    ], 
+                                    "unit_name": [
+                                        {
+                                            "lang": "ja", 
+                                            "value": "GB"
+                                        }, 
+                                        {
+                                            "lang": "en", 
+                                            "value": "GB"
+                                        }, 
+                                        {
+                                            "lang": "de", 
+                                            "value": "GB"
+                                        }
+                                    ], 
+                                    "detail_div": "01", 
+                                    "line_seq": 1, 
+                                    "reseller_id": "ResellerId", 
+                                    "service_provider_id": "fujitsu.com", 
+                                    "domain_id": "ca-1a2b3c4d5e", 
+                                    "sub_div": "D", 
+                                    "charge": 40000, 
+                                    "billing_month": "2014-06", 
+                                    "unit_price": 100, 
+                                    "last_modified": "2014-07-01T12:00:00.000", 
+                                    "usage": 400, 
+                                    "service_id": "compute", 
+                                    "project_id": "capj-1a2b3c4d5e", 
+                                    "product_id": "P01C010001", 
+                                    "product_name": [
+                                        {
+                                            "lang": "ja", 
+                                            "value": "syouhinmei"
+                                        }, 
+                                        {
+                                            "lang": "en", 
+                                            "value": "Product Name"
+                                        }, 
+                                        {
+                                            "lang": "de", 
+                                            "value": "Produktname"
+                                        }
+                                    ], 
+                                    "currency_code": "JPY", 
+                                    "region_id": "jp-east-1"
+                                }, 
+                                {
+                                    "comment": [
+                                        {
+                                            "lang": "ja", 
+                                            "value": "bikou"
+                                        }, 
+                                        {
+                                            "lang": "en", 
+                                            "value": "Notes"
+                                        }, 
+                                        {
+                                            "lang": "de", 
+                                            "value": "Bemerkungen"
+                                        }
+                                    ], 
+                                    "unit_name": [
+                                        {
+                                            "lang": "ja", 
+                                            "value": "GB"
+                                        }, 
+                                        {
+                                            "lang": "en", 
+                                            "value": "GB"
+                                        }, 
+                                        {
+                                            "lang": "de", 
+                                            "value": "GB"
+                                        }
+                                    ], 
+                                    "detail_div": "01", 
+                                    "line_seq": 2, 
+                                    "reseller_id": "ResellerId", 
+                                    "service_provider_id": "fujitsu.com", 
+                                    "domain_id": "ca-1a2b3c4d5e", 
+                                    "sub_div": "D", 
+                                    "charge": 20000, 
+                                    "billing_month": "2014-06", 
+                                    "unit_price": 100, 
+                                    "last_modified": "2014-07-01T12:00:00.000", 
+                                    "usage": 200, 
+                                    "service_id": "compute", 
+                                    "project_id": "capj-1a2b3c4d5e", 
+                                    "product_id": "P01C010001", 
+                                    "product_name": [
+                                        {
+                                            "lang": "ja", 
+                                            "value": "syouhinmei"
+                                        }, 
+                                        {
+                                            "lang": "en", 
+                                            "value": "Product Name"
+                                        }, 
+                                        {
+                                            "lang": "de", 
+                                            "value": "Produktname"
+                                        }
+                                    ], 
+                                    "currency_code": "JPY", 
+                                    "region_id": "uk-1"
+                                }
+                            ]
+                        }
+                    }
+                }, 
+                "parameters": [], 
+                "summary": "Obtaining the Final billing information"
+            }
+        }, 
+        "/v1/charges/transition/YYYY/MM": {
+            "get": {
+                "produces": [
+                    "application/json"
+                ], 
+                "responses": {
+                    "200": {
+                        "description": "200 response", 
+                        "examples": {
+                            "application/json": [
+                                {
+                                    "comment": [
+                                        {
+                                            "lang": "ja", 
+                                            "value": "bikou"
+                                        }, 
+                                        {
+                                            "lang": "en", 
+                                            "value": "Notes"
+                                        }, 
+                                        {
+                                            "lang": "de", 
+                                            "value": "Bemerkungen"
+                                        }
+                                    ], 
+                                    "unit_name": [
+                                        {
+                                            "lang": "ja", 
+                                            "value": "GB"
+                                        }, 
+                                        {
+                                            "lang": "en", 
+                                            "value": "GB"
+                                        }, 
+                                        {
+                                            "lang": "de", 
+                                            "value": "GB"
+                                        }
+                                    ], 
+                                    "detail_div": "01", 
+                                    "line_seq": 1, 
+                                    "reseller_id": "ResellerId", 
+                                    "service_provider_id": "fujitsu.com", 
+                                    "domain_id": "ca-1a2b3c4d5e", 
+                                    "sub_div": "D", 
+                                    "charge": 40000, 
+                                    "billing_month": "2014-06", 
+                                    "unit_price": 100, 
+                                    "last_modified": "2014-06-01T15:00:00.000", 
+                                    "collected_at": "2014-06-01T12:00:00.000", 
+                                    "usage": 400, 
+                                    "service_id": "compute", 
+                                    "project_id": "capj-1a2b3c4d5e", 
+                                    "product_id": "P01C010001", 
+                                    "product_name": [
+                                        {
+                                            "lang": "ja", 
+                                            "value": "syouhinmei"
+                                        }, 
+                                        {
+                                            "lang": "en", 
+                                            "value": "Product Name"
+                                        }, 
+                                        {
+                                            "lang": "de", 
+                                            "value": "Produktname"
+                                        }
+                                    ], 
+                                    "currency_code": "JPY", 
+                                    "region_id": "jp-east-1"
+                                }, 
+                                {
+                                    "comment": [
+                                        {
+                                            "lang": "ja", 
+                                            "value": "bikou"
+                                        }, 
+                                        {
+                                            "lang": "en", 
+                                            "value": "Notes"
+                                        }, 
+                                        {
+                                            "lang": "de", 
+                                            "value": "Bemerkungen"
+                                        }
+                                    ], 
+                                    "unit_name": [
+                                        {
+                                            "lang": "ja", 
+                                            "value": "GB"
+                                        }, 
+                                        {
+                                            "lang": "en", 
+                                            "value": "GB"
+                                        }, 
+                                        {
+                                            "lang": "de", 
+                                            "value": "GB"
+                                        }
+                                    ], 
+                                    "detail_div": "01", 
+                                    "line_seq": 2, 
+                                    "reseller_id": "ResellerId", 
+                                    "service_provider_id": "fujitsu.com", 
+                                    "domain_id": "ca-1a2b3c4d5e", 
+                                    "sub_div": "D", 
+                                    "charge": 20000, 
+                                    "billing_month": "2014-06", 
+                                    "unit_price": 100, 
+                                    "last_modified": "2014-06-02T03:00:00.000", 
+                                    "collected_at": "2014-06-02T00:00:00.000", 
+                                    "usage": 200, 
+                                    "service_id": "compute", 
+                                    "project_id": "capj-1a2b3c4d5e", 
+                                    "product_id": "P01C010001", 
+                                    "product_name": [
+                                        {
+                                            "lang": "ja", 
+                                            "value": "syouhinmei"
+                                        }, 
+                                        {
+                                            "lang": "en", 
+                                            "value": "Product Name"
+                                        }, 
+                                        {
+                                            "lang": "de", 
+                                            "value": "Produktname"
+                                        }
+                                    ], 
+                                    "currency_code": "JPY", 
+                                    "region_id": "uk-1"
+                                }
+                            ]
+                        }
+                    }
+                }, 
+                "parameters": [], 
+                "summary": "Obtaining the Interim Billing Information"
+            }
+        }
+    }
+}

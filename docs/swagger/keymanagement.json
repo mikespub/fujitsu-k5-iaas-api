@@ -1,0 +1,415 @@
+{
+    "swagger": "2.0", 
+    "info": {
+        "version": "v1", 
+        "title": "Draft swagger file for Fujitsu K5 IaaS Keymanagement API", 
+        "x-service": "keymanagement", 
+        "x-scope": "region"
+    }, 
+    "host": "keymanagement.uk-1.cloud.global.fujitsu.com", 
+    "schemes": [
+        "https"
+    ], 
+    "securityDefinitions": {
+        "auth_region": {
+            "type": "apiKey", 
+            "name": "X-Auth-Token", 
+            "in": "header"
+        }
+    }, 
+    "security": [
+        {
+            "auth_region": []
+        }
+    ], 
+    "definitions": {
+        "postSecrets": {
+            "type": "object", 
+            "example": {
+                "application/json": {
+                    "expiration": "2015-02-28T19:14:44.180394", 
+                    "payload_content_encoding": "base64", 
+                    "payload": "-----BEGIN XXXX-----MIIEow ... Rwg7Jp-----END XXXX-----", 
+                    "name": "key1", 
+                    "payload_content_type": "text/plain"
+                }
+            }, 
+            "properties": {
+                "payload_content_type": {
+                    "type": "string"
+                }, 
+                "payload_content_encoding": {
+                    "type": "string"
+                }, 
+                "expiration": {
+                    "type": "string"
+                }, 
+                "name": {
+                    "type": "string"
+                }, 
+                "payload": {
+                    "type": "string"
+                }
+            }
+        }, 
+        "postContainers": {
+            "type": "object", 
+            "example": {
+                "application/json": {
+                    "type": "certificate", 
+                    "name": "container1", 
+                    "secret_refs": [
+                        {
+                            "secret_ref": "http://<host>:9311/v1/a759452216fd41cf8ee5aba321cfbd49/secrets/087cf096-3947-4a54-8968-7b021cfe8196", 
+                            "name": "private_key"
+                        }, 
+                        {
+                            "secret_ref": "http://<host>:9311/v1/a759452216fd41cf8ee5aba321cfbd49/secrets/4bbcf05f-d15d-444c-ae9f-799746349a9f", 
+                            "name": "certificate"
+                        }, 
+                        {
+                            "secret_ref": "http://<host>:9311/v1/a759452216fd41cf8ee5aba321cfbd49/secrets/8573540e-ad7c-467a-a196-43cf6b5c3468", 
+                            "name": "intermediates"
+                        }
+                    ]
+                }
+            }, 
+            "properties": {
+                "type": {
+                    "type": "string"
+                }, 
+                "name": {
+                    "type": "string"
+                }, 
+                "secret_refs": {
+                    "items": {
+                        "type": "object", 
+                        "properties": {
+                            "secret_ref": {
+                                "type": "string"
+                            }, 
+                            "name": {
+                                "type": "string"
+                            }
+                        }
+                    }, 
+                    "type": "array"
+                }
+            }
+        }
+    }, 
+    "paths": {
+        "/v1/{tenant_id}/secrets": {
+            "post": {
+                "produces": [
+                    "application/json"
+                ], 
+                "consumes": [
+                    "application/json"
+                ], 
+                "responses": {
+                    "201": {
+                        "description": "201 response", 
+                        "examples": {
+                            "application/json": {
+                                "secret_ref": "http://<host>:9311/v1/a759452216fd41cf8ee5aba321cfbd49/secrets/a417d40d-cec7-4129-a5ad-afaac6fab603"
+                            }, 
+                            "text/plain": "Status Code: 201 Created \\nContent-Length: 118 \\nContent-Type: application/json; charset=UTF-8 \\nLocation: http://<host>:9311/ a759452216fd41cf8ee5aba321cfbd49/secrets/ \\na417d40d-cec7-4129-a5ad-afaac6fab603 \\n"
+                        }
+                    }
+                }, 
+                "parameters": [
+                    {
+                        "required": true, 
+                        "type": "string", 
+                        "name": "tenant_id", 
+                        "in": "path"
+                    }, 
+                    {
+                        "schema": {
+                            "$ref": "#/definitions/postSecrets"
+                        }, 
+                        "required": false, 
+                        "name": "body", 
+                        "in": "body"
+                    }
+                ], 
+                "summary": "Create key metadata"
+            }, 
+            "get": {
+                "produces": [
+                    "application/json"
+                ], 
+                "responses": {
+                    "200": {
+                        "description": "200 response", 
+                        "examples": {
+                            "application/json": {
+                                "secrets": [
+                                    {
+                                        "status": "ACTIVE", 
+                                        "secret_ref": "http://<host>:9311/v1/a759452216fd41cf8ee5aba321cfbd49/secrets/82b63ed0-3ec7-4f3c-93b6-dde9a3c81b99", 
+                                        "updated": "2014-07-15T06:04:23.502093", 
+                                        "name": "key1", 
+                                        "algorithm": null, 
+                                        "created": "2014-07-15T06:04:23.490168", 
+                                        "content_types": {
+                                            "default": "text/plain"
+                                        }, 
+                                        "mode": null, 
+                                        "bit_length": null, 
+                                        "expiration": "2015-02-28T19:14:44.180394"
+                                    }
+                                ], 
+                                "next": "http://<host>:9311/v1/ a759452216fd41cf8ee5aba321cfbd49/secrets?limit=1&offset=3", 
+                                "total": 20, 
+                                "previous": "http://<host>:9311/v1/ a759452216fd41cf8ee5aba321cfbd49/secrets?limit=1&offset=1"
+                            }
+                        }
+                    }
+                }, 
+                "parameters": [
+                    {
+                        "required": true, 
+                        "type": "string", 
+                        "name": "tenant_id", 
+                        "in": "path"
+                    }
+                ], 
+                "summary": "List key metadata"
+            }
+        }, 
+        "/v1/{tenant_id}/secrets/{resource_id}": {
+            "delete": {
+                "responses": {
+                    "204": {
+                        "description": "204 response", 
+                        "examples": {
+                            "text/plain": "Status Code: 204 No content \\nContent-Length: 0 \\n"
+                        }
+                    }
+                }, 
+                "parameters": [
+                    {
+                        "required": true, 
+                        "type": "string", 
+                        "name": "tenant_id", 
+                        "in": "path"
+                    }, 
+                    {
+                        "required": true, 
+                        "type": "string", 
+                        "name": "resource_id", 
+                        "in": "path"
+                    }
+                ], 
+                "summary": "Delete key metadata"
+            }, 
+            "get": {
+                "produces": [
+                    "application/json"
+                ], 
+                "responses": {
+                    "200": {
+                        "description": "200 response", 
+                        "examples": {
+                            "application/json": {
+                                "status": "ACTIVE", 
+                                "secret_ref": "http://<host>:9311/v1/a759452216fd41cf8ee5aba321cfbd49/secrets/96e86d87-6602-4b99-ae41-5b737fe1288d", 
+                                "updated": "2014-07-15T06:17:08.082912", 
+                                "name": "key1", 
+                                "algorithm": "aes", 
+                                "created": "2014-07-15T06:17:08.070916", 
+                                "content_types": {
+                                    "default": "text/plain"
+                                }, 
+                                "mode": "cbc", 
+                                "bit_length": 256, 
+                                "expiration": "2015-02-28T19:14:44.180394"
+                            }
+                        }
+                    }
+                }, 
+                "parameters": [
+                    {
+                        "required": true, 
+                        "type": "string", 
+                        "name": "tenant_id", 
+                        "in": "path"
+                    }, 
+                    {
+                        "required": true, 
+                        "type": "string", 
+                        "name": "resource_id", 
+                        "in": "path"
+                    }
+                ], 
+                "summary": "Retrieve key metadata"
+            }
+        }, 
+        "/v1/{tenant_id}/containers": {
+            "post": {
+                "produces": [
+                    "application/json"
+                ], 
+                "consumes": [
+                    "application/json"
+                ], 
+                "responses": {
+                    "201": {
+                        "description": "201 response", 
+                        "examples": {
+                            "application/json": {
+                                "container_ref": "http://<host>:9311/v1/ a759452216fd41cf8ee5aba321cfbd49/containers/a5330b02-ee46-4883-b8ea-4359925ebbf2"
+                            }, 
+                            "text/plain": "Status Code: 201 Created \\nContent-Length: 123 \\nContent-Type: application/json; charset=UTF-8\\nLocation: http://<host>:9311/ a759452216fd41cf8ee5aba321cfbd49/containers/ \\na5330b02-ee46-4883-b8ea-4359925ebbf2 \\n"
+                        }
+                    }
+                }, 
+                "parameters": [
+                    {
+                        "required": true, 
+                        "type": "string", 
+                        "name": "tenant_id", 
+                        "in": "path"
+                    }, 
+                    {
+                        "schema": {
+                            "$ref": "#/definitions/postContainers"
+                        }, 
+                        "required": false, 
+                        "name": "body", 
+                        "in": "body"
+                    }
+                ], 
+                "summary": "Create key metadata container"
+            }, 
+            "get": {
+                "produces": [
+                    "application/json"
+                ], 
+                "responses": {
+                    "200": {
+                        "description": "200 response", 
+                        "examples": {
+                            "application/json": {
+                                "next": "http://<host>:9311/v1/a759452216fd41cf8ee5aba321cfbd49/containers?limit=1&offset=3", 
+                                "total": 4, 
+                                "containers": [
+                                    {
+                                        "status": "ACTIVE", 
+                                        "updated": "2014-07-18T04:41:34.245613", 
+                                        "name": "container1", 
+                                        "created": "2014-07-18T04:41:34.245607", 
+                                        "container_ref": "http://<host>:9311/v1/a759452216fd41cf8ee5aba321cfbd49/containers/ce0b7fcc-5963-47babf44-3936e7b38381", 
+                                        "secret_refs": [
+                                            {
+                                                "secret_id": "82b63ed0-3ec7-4f3c-93b6-dde9a3c81b99", 
+                                                "name": "private_key"
+                                            }, 
+                                            {
+                                                "secret_id": "e2c1ef34-2dac-4e77-8f20-3cd6386f9d87", 
+                                                "name": "intermediates"
+                                            }, 
+                                            {
+                                                "secret_id": "e74530eb-0835-471a-ae05-392132ebce65", 
+                                                "name": "certificate"
+                                            }
+                                        ], 
+                                        "type": "certificate"
+                                    }
+                                ], 
+                                "previous": "http://<host>:9311/v1/a759452216fd41cf8ee5aba321cfbd49/containers?limit=1&offset=1"
+                            }
+                        }
+                    }
+                }, 
+                "parameters": [
+                    {
+                        "required": true, 
+                        "type": "string", 
+                        "name": "tenant_id", 
+                        "in": "path"
+                    }
+                ], 
+                "summary": "List key metadata containers"
+            }
+        }, 
+        "/v1/{tenant_id}/containers/{resource_id}": {
+            "delete": {
+                "responses": {
+                    "204": {
+                        "description": "204 response", 
+                        "examples": {
+                            "text/plain": "Status Code: 204 No content \\nContent-Length: 0 \\n"
+                        }
+                    }
+                }, 
+                "parameters": [
+                    {
+                        "required": true, 
+                        "type": "string", 
+                        "name": "tenant_id", 
+                        "in": "path"
+                    }, 
+                    {
+                        "required": true, 
+                        "type": "string", 
+                        "name": "resource_id", 
+                        "in": "path"
+                    }
+                ], 
+                "summary": "Delete key metadata container"
+            }, 
+            "get": {
+                "produces": [
+                    "application/json"
+                ], 
+                "responses": {
+                    "200": {
+                        "description": "200 response", 
+                        "examples": {
+                            "application/json": {
+                                "status": "ACTIVE", 
+                                "updated": "2014-08-01T08:04:25.038787", 
+                                "name": "container1", 
+                                "created": "2014-08-01T08:04:25.038781", 
+                                "container_ref": "http://<host>:9311/v1/a759452216fd41cf8ee5aba321cfbd49/containers/81d1dc32-019e-4caf-b04e-49471f4f3aaf", 
+                                "secret_refs": [
+                                    {
+                                        "secret_ref": "http://<host>:9311/v1/a759452216fd41cf8ee5aba321cfbd49/secrets/087cf096-3947-4a54-8968-7b021cfe8196", 
+                                        "name": "private_key"
+                                    }, 
+                                    {
+                                        "secret_ref": "http://<host>:9311/v1/a759452216fd41cf8ee5aba321cfbd49/secrets/4bbcf05f-d15d-444c-ae9f-799746349a9f", 
+                                        "name": "certificate"
+                                    }, 
+                                    {
+                                        "secret_ref": "http://<host>:9311/v1/a759452216fd41cf8ee5aba321cfbd49/secrets/8573540e-ad7c-467a-a196-43cf6b5c3468", 
+                                        "name": "intermediates"
+                                    }
+                                ], 
+                                "type": "certificate"
+                            }
+                        }
+                    }
+                }, 
+                "parameters": [
+                    {
+                        "required": true, 
+                        "type": "string", 
+                        "name": "tenant_id", 
+                        "in": "path"
+                    }, 
+                    {
+                        "required": true, 
+                        "type": "string", 
+                        "name": "resource_id", 
+                        "in": "path"
+                    }
+                ], 
+                "summary": "Retrieve key metadata container"
+            }
+        }
+    }
+}

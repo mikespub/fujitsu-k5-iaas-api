@@ -1,0 +1,305 @@
+{
+    "swagger": "2.0", 
+    "info": {
+        "version": "v1", 
+        "title": "Draft swagger file for Fujitsu K5 IaaS Identity API Extension", 
+        "x-service": "identity", 
+        "x-scope": "region"
+    }, 
+    "host": "identity.uk-1.cloud.global.fujitsu.com", 
+    "schemes": [
+        "https"
+    ], 
+    "securityDefinitions": {
+        "auth_region": {
+            "type": "apiKey", 
+            "name": "X-Auth-Token", 
+            "in": "header"
+        }
+    }, 
+    "security": [
+        {
+            "auth_region": []
+        }
+    ], 
+    "definitions": {}, 
+    "paths": {
+        "/v3": {
+            "get": {
+                "produces": [
+                    "application/json"
+                ], 
+                "responses": {
+                    "200": {
+                        "description": "200 response", 
+                        "examples": {
+                            "application/json": {
+                                "version": {
+                                    "status": "stable", 
+                                    "updated": "2013-03-06T00:00:00Z", 
+                                    "media-types": [
+                                        {
+                                            "base": "application/json", 
+                                            "type": "application/vnd.openstack.identity-v3+json"
+                                        }, 
+                                        {
+                                            "base": "application/xml", 
+                                            "type": "application/vnd.openstack.identity-v3+xml"
+                                        }
+                                    ], 
+                                    "id": "v3.0", 
+                                    "links": [
+                                        {
+                                            "href": "http://identity.jp-east-1.cloud.global.fujitsu.com/v3/", 
+                                            "rel": "self"
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                }, 
+                "parameters": [], 
+                "summary": "List API V3 versions"
+            }
+        }, 
+        "/v3/OS-TRUST/trusts": {
+            "post": {
+                "produces": [
+                    "application/json"
+                ], 
+                "responses": {
+                    "201": {
+                        "description": "201 response", 
+                        "examples": {
+                            "application/json": {
+                                "trust": {
+                                    "impersonation": true, 
+                                    "roles_links": {
+                                        "self": "http://identity.jp-east-1.cloud.global.fujitsu.com/v3/OS-TRUST/trusts/--trust_id--/roles", 
+                                        "previous": null, 
+                                        "next": null
+                                    }, 
+                                    "trustor_user_id": "--trustor_user_id--", 
+                                    "links": {
+                                        "self": "http://identity.jp-east-1.cloud.global.fujitsu.com/v3/OS-TRUST/trusts/--trust_id--"
+                                    }, 
+                                    "roles": [
+                                        {
+                                            "id": "--role_id--", 
+                                            "links": {
+                                                "self": "http://identity.jpeast-1.cloud.global.fujitsu.com/v3/roles/--role_id--"
+                                            }, 
+                                            "name": "--role_name--"
+                                        }
+                                    ], 
+                                    "remaining_uses": 5, 
+                                    "expires_at": "2015-02-27T18:30:59.999999Z", 
+                                    "trustee_user_id": "--trustee_user_id--", 
+                                    "project_id": "--project_id--", 
+                                    "id": "--trust_id--"
+                                }
+                            }
+                        }
+                    }
+                }, 
+                "parameters": [], 
+                "summary": "Create trust"
+            }, 
+            "get": {
+                "produces": [
+                    "application/json"
+                ], 
+                "responses": {
+                    "200": {
+                        "description": "200 response", 
+                        "examples": {
+                            "application/json": {
+                                "links": {
+                                    "self": "http://identity.jp-east-1.cloud.global.fujitsu.com/v3/OSTRUST/trusts", 
+                                    "previous": null, 
+                                    "next": null
+                                }, 
+                                "trusts": [
+                                    {
+                                        "impersonation": true, 
+                                        "trustor_user_id": "--trustor-user-id--", 
+                                        "links": {
+                                            "self": "http://identity.jp-east-1.cloud.global.fujitsu.com/v3/OS-TRUST/trusts"
+                                        }, 
+                                        "remaining_uses": null, 
+                                        "expires_at": "2015-02-27T18:30:59.000000Z", 
+                                        "trustee_user_id": "--trustee-user-id--", 
+                                        "project_id": "--project-id--", 
+                                        "id": "--trust-id--"
+                                    }, 
+                                    {
+                                        "impersonation": true, 
+                                        "trustor_user_id": "--trustor-user-id--", 
+                                        "links": {
+                                            "self": "http://identity.jp-east-1.cloud.global.fujitsu.com/v3/OS-TRUST/trusts"
+                                        }, 
+                                        "remaining_uses": null, 
+                                        "expires_at": null, 
+                                        "trustee_user_id": "--trustee-user-id--", 
+                                        "project_id": "--project-id--", 
+                                        "id": "--trust-id--"
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                }, 
+                "parameters": [], 
+                "summary": "List trusts"
+            }
+        }, 
+        "/v3/OS-TRUST/trusts/{trust_id}": {
+            "delete": {
+                "responses": {
+                    "204": {
+                        "description": "204 response", 
+                        "examples": {
+                            "text/plain": "HTTP/1.1 204 No Content \\nVary: X-Auth-Token \\nContent-Length: 0\\nDate: Fri, 05 Sep 2014 8:11:28 AM GMT \\n"
+                        }
+                    }
+                }, 
+                "parameters": [
+                    {
+                        "required": true, 
+                        "type": "string", 
+                        "name": "trust_id", 
+                        "in": "path"
+                    }
+                ], 
+                "summary": "Delete trust"
+            }, 
+            "get": {
+                "produces": [
+                    "application/json"
+                ], 
+                "responses": {
+                    "200": {
+                        "description": "200 response", 
+                        "examples": {
+                            "application/json": {
+                                "trust": {
+                                    "impersonation": true, 
+                                    "roles_links": {
+                                        "self": "http://identity.jp-east-1.cloud.global.fujitsu.com/v3/OS-TRUST/trusts/--trust-id--/roles", 
+                                        "previous": null, 
+                                        "next": null
+                                    }, 
+                                    "trustor_user_id": "--trustor-user-id--", 
+                                    "links": {
+                                        "self": "http://identity.jp-east-1.cloud.global.fujitsu.com/v3/OS-TRUST/trusts/--trust-id--"
+                                    }, 
+                                    "roles": [
+                                        {
+                                            "id": "--role-id--", 
+                                            "links": {
+                                                "self": "http://identity.jpeast-1.cloud.global.fujitsu.com/v3/roles/--role-id--"
+                                            }, 
+                                            "name": "--role-name--"
+                                        }
+                                    ], 
+                                    "remaining_uses": null, 
+                                    "expires_at": "2015-02-27T18:30:59.999999Z", 
+                                    "trustee_user_id": "--trustee-user-id--", 
+                                    "project_id": "--project-id--", 
+                                    "id": "--trust-id--"
+                                }
+                            }
+                        }
+                    }
+                }, 
+                "parameters": [
+                    {
+                        "required": true, 
+                        "type": "string", 
+                        "name": "trust_id", 
+                        "in": "path"
+                    }
+                ], 
+                "summary": "Show trust"
+            }
+        }, 
+        "/v3/OS-TRUST/trusts/{trust_id}/roles": {
+            "get": {
+                "produces": [
+                    "application/json"
+                ], 
+                "responses": {
+                    "200": {
+                        "description": "200 response", 
+                        "examples": {
+                            "application/json": {
+                                "links": {
+                                    "self": "http://identity.jp-east-1.cloud.global.fujitsu.com/v3/OSTRUST/trusts/--trust-id--/roles", 
+                                    "previous": null, 
+                                    "next": null
+                                }, 
+                                "roles": [
+                                    {
+                                        "id": "--role-id--", 
+                                        "links": {
+                                            "self": "http://identity.jp-east-1.cloud.global.fujitsu.com/v3/roles/--role-id--"
+                                        }, 
+                                        "name": "--role-name--"
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                }, 
+                "parameters": [
+                    {
+                        "required": true, 
+                        "type": "string", 
+                        "name": "trust_id", 
+                        "in": "path"
+                    }
+                ], 
+                "summary": "List trust roles"
+            }
+        }, 
+        "/v3/OS-TRUST/trusts/{trust_id}/roles/{role_id}": {
+            "get": {
+                "produces": [
+                    "application/json"
+                ], 
+                "responses": {
+                    "200": {
+                        "description": "200 response", 
+                        "examples": {
+                            "application/json": {
+                                "role": {
+                                    "id": "--role-id--", 
+                                    "links": {
+                                        "self": "http://identity.jp-east-1.cloud.global.fujitsu.com/v3/roles/--role-id--"
+                                    }, 
+                                    "name": "--role-name--"
+                                }
+                            }
+                        }
+                    }
+                }, 
+                "parameters": [
+                    {
+                        "required": true, 
+                        "type": "string", 
+                        "name": "trust_id", 
+                        "in": "path"
+                    }, 
+                    {
+                        "required": true, 
+                        "type": "string", 
+                        "name": "role_id", 
+                        "in": "path"
+                    }
+                ], 
+                "summary": "Show trust role"
+            }
+        }
+    }
+}

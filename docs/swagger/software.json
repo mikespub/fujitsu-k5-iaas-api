@@ -1,0 +1,79 @@
+{
+    "swagger": "2.0", 
+    "info": {
+        "version": "v1", 
+        "title": "Draft swagger file for Fujitsu K5 IaaS Software API", 
+        "x-service": "software", 
+        "x-scope": "region"
+    }, 
+    "host": "software.uk-1.cloud.global.fujitsu.com", 
+    "schemes": [
+        "https"
+    ], 
+    "securityDefinitions": {
+        "auth_region": {
+            "type": "apiKey", 
+            "name": "X-Auth-Token", 
+            "in": "header"
+        }
+    }, 
+    "security": [
+        {
+            "auth_region": []
+        }
+    ], 
+    "definitions": {
+        "putSoftware_Support": {
+            "type": "object", 
+            "example": {
+                "application/xml": "<?xml version='1.0' encoding='UTF-8'?>\n<SupportSoftwares>\n  <SupportSoftware>\n    <InstanceID>instance1</InstanceID>\n    <SoftwareID>ws2012</SoftwareID>\n    <SupportID>nosupport</SupportID>\n  </SupportSoftware>\n  <SupportSoftware>\n    <InstanceID>instance1</InstanceID>\n    <SoftwareID>sq2012</SoftwareID>\n    <SupportID>spt_24h</SupportID>\n  </SupportSoftware>\n</SupportSoftwares>\n"
+            }
+        }
+    }, 
+    "paths": {
+        "/v1.0/software_support": {
+            "put": {
+                "produces": [
+                    "application/xml"
+                ], 
+                "consumes": [
+                    "application/xml"
+                ], 
+                "responses": {
+                    "200": {
+                        "description": "200 response", 
+                        "examples": {
+                            "application/xml": "<?xml version='1.0' encoding='UTF-8'?>\n<SupportSoftwares>\n  <SupportSoftware>\n    <TenantID>tenant1</TenantID>\n    <RegionID>jp-east-1</RegionID>\n    <InstanceID>instance1</InstanceID>\n    <ImageID>image1</ImageID>\n    <SoftwareID>ws2012</SoftwareID>\n    <SupportID>nosupport</SupportID>\n    <UpdateDate>2015-09-11</UpdateDate>\n  </SupportSoftware>\n  <SupportSoftware>\n    <TenantID>tenant1</TenantID>\n    <RegionID>jp-east-1</RegionID>\n    <InstanceID>instance1</InstanceID>\n    <ImageID>image1</ImageID>\n    <SoftwareID>sq2012</SoftwareID>\n    <SupportID>spt_24h</SupportID>\n    <UpdateDate>2015-09-11</UpdateDate>\n  </SupportSoftware>\n</SupportSoftwares>\n"
+                        }
+                    }
+                }, 
+                "parameters": [
+                    {
+                        "schema": {
+                            "$ref": "#/definitions/putSoftware_Support"
+                        }, 
+                        "required": false, 
+                        "name": "body", 
+                        "in": "body"
+                    }
+                ], 
+                "summary": "Register/update details on supported software"
+            }, 
+            "get": {
+                "produces": [
+                    "application/xml"
+                ], 
+                "responses": {
+                    "200": {
+                        "description": "200 response", 
+                        "examples": {
+                            "application/xml": "<?xml version='1.0' encoding='UTF-8'?>\n<SupportSoftwares>\n  <SupportSoftware>\n    <TenantID>tenant1</TenantID>\n    <InstanceID>instance1</InstanceID>\n    <ImageID>image1</ImageID>\n    <SoftwareID>RHEL</SoftwareID>\n    <SupportID>nosupport</SupportID>\n    <UpdateDate>2014.8.31</UpdateDate>\n  </SupportSoftware>\n  <SupportSoftware>\n    <TenantID>tenant1</TenantID>\n    <InstanceID>instance1</InstanceID>\n    <ImageID>RHEL</ImageID>\n    <SoftwareID>sq2012</SoftwareID>\n    <SupportID>spt_24h</SupportID>\n    <UpdateDate>2014.8.31</UpdateDate>\n  </SupportSoftware>\n  <SupportSoftware>\n    <TenantID>tenant1</TenantID>\n    <InstanceID>instance1</InstanceID>\n    <ImageID>RHEL</ImageID>\n    <SoftwareID>sq2012</SoftwareID>\n    <SupportID>spt_daytime</SupportID>\n    <UpdateDate>2014.8.31</UpdateDate>\n  </SupportSoftware>\n</SupportSoftwares>\n"
+                        }
+                    }
+                }, 
+                "parameters": [], 
+                "summary": "Retrieve details on supported software"
+            }
+        }
+    }
+}

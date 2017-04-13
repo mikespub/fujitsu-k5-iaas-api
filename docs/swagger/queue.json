@@ -7,7 +7,7 @@
         "x-scope": "region"
     },
     "externalDocs": {
-        "description": "Amazon SQS API Reference",
+        "description": "Amazon SQS API Reference. In general, features released after 2013-06-18 are not supported (e.g. dead letter queues, message attributes, purge queues, FIFO, ...). See document history of SQS developer guide for details.",
         "url": "http://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_Operations.html"
     },
     "produces": [
@@ -57,6 +57,33 @@
                 }
             }
         },
+        "/?Action=GetQueueUrl": {
+            "get": {
+                "operationId": "getQueueUrl",
+                "summary": "Get queue url",
+                "description": "Returns the URL of an existing queue. This action provides a simple way to retrieve the URL of a queue.\n",
+                "parameters": [
+                    {
+                        "name": "QueueName",
+                        "required": true,
+                        "in": "query",
+                        "type": "string",
+                        "description": "The name of the queue whose URL must be fetched.\n"
+                    }
+                ],
+                "produces": [
+                    "application/xml"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "200 response",
+                        "examples": {
+                            "application/xml": "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"no\"?><GetQueueUrlResponse><GetQueueUrlResult>\n    <QueueUrl>https://queue.uk-1.cloud.global.fujitsu.com/3b15a0b8e8e1451b9212f255b416fad7/helloQueue</QueueUrl>\n</GetQueueUrlResult><ResponseMetadata>\n    <RequestId>21c17ea7-f3b9-48ed-879f-bac3d479e304</RequestId>\n</ResponseMetadata></GetQueueUrlResponse>"
+                        }
+                    }
+                }
+            }
+        },
         "/?Action=CreateQueue": {
             "get": {
                 "operationId": "createQueue",
@@ -79,6 +106,196 @@
                         "description": "200 response",
                         "examples": {
                             "application/xml": "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"no\"?><CreateQueueResponse><CreateQueueResult>\n    <QueueUrl>https://queue.uk-1.cloud.global.fujitsu.com/3b15a0b8e8e1451b9212f255b416fad7/helloQueue</QueueUrl>\n</CreateQueueResult><ResponseMetadata>\n    <RequestId>6dcfe4b2-7de7-40f7-b31c-d67619984394</RequestId>\n</ResponseMetadata></CreateQueueResponse>"
+                        }
+                    }
+                }
+            }
+        },
+        "/{tenant_id}/{QueueName}/?Action=GetQueueAttributes": {
+            "get": {
+                "operationId": "getQueueAttributes",
+                "summary": "Get queue attributes",
+                "description": "Gets attributes for the specified queue.\n",
+                "parameters": [
+                    {
+                        "name": "tenant_id",
+                        "required": true,
+                        "in": "path",
+                        "type": "string",
+                        "description": "The UUID of the tenant in a multi-tenancy cloud.\n"
+                    },
+                    {
+                        "name": "QueueName",
+                        "required": true,
+                        "in": "path",
+                        "type": "string",
+                        "description": "The name for the queue whose attribute information is retrieved.\n"
+                    },
+                    {
+                        "name": "AttributeName.1",
+                        "required": true,
+                        "in": "query",
+                        "type": "string",
+                        "default": "All",
+                        "description": "A list of attributes for which to retrieve information.\n"
+                    },
+                    {
+                        "name": "AttributeName.2",
+                        "required": false,
+                        "in": "query",
+                        "type": "string",
+                        "description": "A list of attributes for which to retrieve information.\n"
+                    }
+                ],
+                "produces": [
+                    "application/xml"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "200 response",
+                        "examples": {
+                            "application/xml": "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"no\"?><GetQueueAttributesResponse><GetQueueAttributesResult>\n    <Attribute>\n        <Name>Description</Name>\n        <Value/>\n    </Attribute>\n    <Attribute>\n        <Name>DelayTime</Name>\n        <Value>0</Value>\n    </Attribute>\n    <Attribute>\n        <Name>MaximumMessageCount</Name>\n        <Value>4100</Value>\n    </Attribute>\n    <Attribute>\n        <Name>CreatedTimestamp</Name>\n        <Value>1476642132</Value>\n    </Attribute>\n    <Attribute>\n        <Name>LockTime</Name>\n        <Value>30</Value>\n    </Attribute>\n    <Attribute>\n        <Name>ReceiveWaitTime</Name>\n        <Value>0</Value>\n    </Attribute>\n    <Attribute>\n        <Name>NumberOfMessages</Name>\n        <Value>0</Value>\n    </Attribute>\n    <Attribute>\n        <Name>NumberOfMessagesLocked</Name>\n        <Value>0</Value>\n    </Attribute>\n    <Attribute>\n        <Name>MessageRetentionPeriod</Name>\n        <Value>345600</Value>\n    </Attribute>\n    <Attribute>\n        <Name>NumberOfMessagesDelayed</Name>\n        <Value>0</Value>\n    </Attribute>\n    <Attribute>\n        <Name>MaximumMessageSize</Name>\n        <Value>32768</Value>\n    </Attribute>\n    <Attribute>\n        <Name>LastModifiedTimestamp</Name>\n        <Value>1476642132</Value>\n    </Attribute>\n    <Attribute>\n        <Name>QueueFRN</Name>\n        <Value>frn::queue:uk-1:3b15a0b8e8e1451b9212f255b416fad7:helloQueue</Value>\n    </Attribute>\n</GetQueueAttributesResult><ResponseMetadata>\n    <RequestId>92b2ca4d-e5ba-4834-9760-d1814aca6a6f</RequestId>\n</ResponseMetadata></GetQueueAttributesResponse>"
+                        }
+                    }
+                }
+            }
+        },
+        "/{tenant_id}/{QueueName}/?Action=SendMessage": {
+            "get": {
+                "operationId": "sendMessage",
+                "summary": "Send message",
+                "description": "Delivers a message to the specified queue.\n",
+                "parameters": [
+                    {
+                        "name": "tenant_id",
+                        "required": true,
+                        "in": "path",
+                        "type": "string",
+                        "description": "The UUID of the tenant in a multi-tenancy cloud.\n"
+                    },
+                    {
+                        "name": "QueueName",
+                        "required": true,
+                        "in": "path",
+                        "type": "string",
+                        "description": "The name for the queue whose attribute information is retrieved.\n"
+                    },
+                    {
+                        "name": "MessageBody",
+                        "required": true,
+                        "in": "query",
+                        "type": "string",
+                        "description": "The message to send. The maximum string size is 256 KB.\n"
+                    }
+                ],
+                "produces": [
+                    "application/xml"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "200 response",
+                        "examples": {
+                            "application/xml": "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"no\"?><SendMessageResponse><SendMessageResult>\n    <MD5OfMessageBody>5eb63bbbe01eeed093cb22bb8f5acdc3</MD5OfMessageBody>\n    <MessageId>6a780563-81d5-411b-b9dd-28703e3fbe21</MessageId>\n</SendMessageResult><ResponseMetadata>\n    <RequestId>6c896530-6e22-4174-a5fb-1c6c2418392f</RequestId>\n</ResponseMetadata></SendMessageResponse>"
+                        }
+                    }
+                }
+            }
+        },
+        "/{tenant_id}/{QueueName}/?Action=ReceiveMessage": {
+            "get": {
+                "operationId": "receiveMessage",
+                "summary": "Receive message",
+                "description": "Retrieves one or more messages (up to 10), from the specified queue. Using the WaitTimeSeconds parameter enables long-poll support.\n",
+                "parameters": [
+                    {
+                        "name": "tenant_id",
+                        "required": true,
+                        "in": "path",
+                        "type": "string",
+                        "description": "The UUID of the tenant in a multi-tenancy cloud.\n"
+                    },
+                    {
+                        "name": "QueueName",
+                        "required": true,
+                        "in": "path",
+                        "type": "string",
+                        "description": "The name for the queue whose attribute information is retrieved.\n"
+                    },
+                    {
+                        "name": "MaxNumberOfMessages",
+                        "required": false,
+                        "in": "query",
+                        "type": "integer",
+                        "minimum": 1,
+                        "maximum": 10,
+                        "default": 1,
+                        "description": "The maximum number of messages to return. Amazon SQS never returns more messages than this value (however, fewer messages might be returned). Valid values are 1 to 10. Default is 1.\n"
+                    },
+                    {
+                        "name": "VisibilityTimeout",
+                        "required": false,
+                        "in": "query",
+                        "type": "integer",
+                        "description": "The duration (in seconds) that the received messages are hidden from subsequent retrieve requests after being retrieved by a ReceiveMessage request.\n"
+                    },
+                    {
+                        "name": "AttributeName",
+                        "required": false,
+                        "in": "query",
+                        "type": "string",
+                        "default": "All",
+                        "description": "A list of attributes that need to be returned along with each message.\n"
+                    }
+                ],
+                "produces": [
+                    "application/xml"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "200 response",
+                        "examples": {
+                            "application/xml": "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"no\"?><ReceiveMessageResponse><ReceiveMessageResult>\n    <Message>\n        <Body>hello world</Body>\n        <MD5OfBody>5eb63bbbe01eeed093cb22bb8f5acdc3</MD5OfBody>\n        <MessageId>6a780563-81d5-411b-b9dd-28703e3fbe21</MessageId>\n        <ReceiptHandle>e7b687b8-3204-496f-9c8c-035eefbed223</ReceiptHandle>\n        <Attribute>\n            <Name>SentTimestamp</Name>\n            <Value>1492041653</Value>\n        </Attribute>\n        <Attribute>\n            <Name>ReceiveCount</Name>\n            <Value>1</Value>\n        </Attribute>\n        <Attribute>\n            <Name>SenderId</Name>\n            <Value>3b15a0b8e8e1451b9212f255b416fad7</Value>\n        </Attribute>\n        <Attribute>\n            <Name>FirstReceiveTimestamp</Name>\n            <Value>1492043018</Value>\n        </Attribute>\n    </Message>\n</ReceiveMessageResult><ResponseMetadata>\n    <RequestId>b2b38825-c995-4242-9d52-09d5da8c7845</RequestId>\n</ResponseMetadata></ReceiveMessageResponse>"
+                        }
+                    }
+                }
+            }
+        },
+        "/{tenant_id}/{QueueName}/?Action=DeleteMessage": {
+            "get": {
+                "operationId": "deleteMessage",
+                "summary": "Delete message",
+                "description": "Deletes the specified message from the specified queue. You specify the message by using the message's receipt handle and not the MessageId you receive when you send the message. Even if the message is locked by another reader due to the visibility timeout setting, it is still deleted from the queue. If you leave a message in the queue for longer than the queue's configured retention period, Amazon SQS automatically deletes the message.\n",
+                "parameters": [
+                    {
+                        "name": "tenant_id",
+                        "required": true,
+                        "in": "path",
+                        "type": "string",
+                        "description": "The UUID of the tenant in a multi-tenancy cloud.\n"
+                    },
+                    {
+                        "name": "QueueName",
+                        "required": true,
+                        "in": "path",
+                        "type": "string",
+                        "description": "The name for the queue to be deleted.\n"
+                    },
+                    {
+                        "name": "ReceiptHandle",
+                        "required": true,
+                        "in": "query",
+                        "type": "string",
+                        "description": "The receipt handle associated with the message to delete.\n"
+                    }
+                ],
+                "produces": [
+                    "application/xml"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "200 response",
+                        "examples": {
+                            "application/xml": "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"no\"?><DeleteMessageResponse><ResponseMetadata>\n    <RequestId>b805670b-0746-4900-82cf-913ca31bad48</RequestId>\n</ResponseMetadata></DeleteMessageResponse>"
                         }
                     }
                 }

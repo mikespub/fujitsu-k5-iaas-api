@@ -186,17 +186,17 @@ No. Title                                 Method Path Samples
 4   CreateLBCookieStickinessPolicy        GET    /    `Response JSON <./samples/network/1.6.5.4%20CreateLBCookieStickinessPolicy.response.json>`_ 
 5   CreateLoadBalancer                    GET    /    `Response JSON <./samples/network/1.6.5.5%20CreateLoadBalancer.response.json>`_ 
 6   CreateLoadBalancerListeners           GET    /    `Response JSON <./samples/network/1.6.5.6%20CreateLoadBalancerListeners.response.json>`_ 
-7   CreateSorryServerRedirectionPolicy    GET    /    `Response JSON <./samples/network/1.6.5.7%20CreateSorryServerRedirectionPolicy.response.json>`_ 
-8   DeleteLoadBalancer                    GET    /    `Response JSON <./samples/network/1.6.5.8%20DeleteLoadBalancer.response.json>`_ 
-9   DeleteLoadBalancerListeners           GET    /    `Response JSON <./samples/network/1.6.5.9%20DeleteLoadBalancerListeners.response.json>`_ 
-10  DeregisterInstancesFromLoadBalancer   GET    /    `Response JSON <./samples/network/1.6.5.10%20DeregisterInstancesFromLoadBalancer.response.json>`_ 
-11  DescribeLoadBalancerAttributes        GET    /    `Response JSON <./samples/network/1.6.5.11%20DescribeLoadBalancerAttributes.response.json>`_ 
-12  DescribeLoadBalancers                 GET    /    `Response JSON <./samples/network/1.6.5.12%20DescribeLoadBalancers.response.json>`_ 
-13  DetachLoadBalancerFromSubnets         GET    /    `Response JSON <./samples/network/1.6.5.13%20DetachLoadBalancerFromSubnets.response.json>`_ 
-14  ModifyLoadBalancerAttributes          GET    /    `Response JSON <./samples/network/1.6.5.14%20ModifyLoadBalancerAttributes.response.json>`_ 
-15  RegisterInstancesWithLoadBalancer     GET    /    `Response JSON <./samples/network/1.6.5.15%20RegisterInstancesWithLoadBalancer.response.json>`_ 
-16  SetLoadBalancerListenerSSLCertificate GET    /    `Response JSON <./samples/network/1.6.5.16%20SetLoadBalancerListenerSSLCertificate.response.json>`_ 
-17  SetLoadBalancerPoliciesOfListener     GET    /    `Response JSON <./samples/network/1.6.5.17%20SetLoadBalancerPoliciesOfListener.response.json>`_ 
+7   CreateSorryServerRedirectionPolicy    GET    /    `Response JSON <./samples/network/1.6.5.8%20CreateSorryServerRedirectionPolicy.response.json>`_ 
+8   DeleteLoadBalancer                    GET    /    `Response JSON <./samples/network/1.6.5.9%20DeleteLoadBalancer.response.json>`_ 
+9   DeleteLoadBalancerListeners           GET    /    `Response JSON <./samples/network/1.6.5.10%20DeleteLoadBalancerListeners.response.json>`_ 
+10  DeregisterInstancesFromLoadBalancer   GET    /    `Response JSON <./samples/network/1.6.5.12%20DeregisterInstancesFromLoadBalancer.response.json>`_ 
+11  DescribeLoadBalancerAttributes        GET    /    `Response JSON <./samples/network/1.6.5.13%20DescribeLoadBalancerAttributes.response.json>`_ 
+12  DescribeLoadBalancers                 GET    /    `Response JSON <./samples/network/1.6.5.15%20DescribeLoadBalancers.response.json>`_ 
+13  DetachLoadBalancerFromSubnets         GET    /    `Response JSON <./samples/network/1.6.5.16%20DetachLoadBalancerFromSubnets.response.json>`_ 
+14  ModifyLoadBalancerAttributes          GET    /    `Response JSON <./samples/network/1.6.5.17%20ModifyLoadBalancerAttributes.response.json>`_ 
+15  RegisterInstancesWithLoadBalancer     GET    /    `Response JSON <./samples/network/1.6.5.18%20RegisterInstancesWithLoadBalancer.response.json>`_ 
+16  SetLoadBalancerListenerSSLCertificate GET    /    `Response JSON <./samples/network/1.6.5.19%20SetLoadBalancerListenerSSLCertificate.response.json>`_ 
+17  SetLoadBalancerPoliciesOfListener     GET    /    `Response JSON <./samples/network/1.6.5.20%20SetLoadBalancerPoliciesOfListener.response.json>`_ 
 === ===================================== ====== ==== ======= 
 
 1.7 SSL-VPN connection
@@ -230,30 +230,30 @@ No. Title                   Samples
 === =================================== ====== =============================== ======= 
 No. Title                               Method Path                            Samples 
 === =================================== ====== =============================== ======= 
-1   Create zone                         POST   /v1.0/hostedzone                `HTTP Request <./samples/network/1.8.6.1%20Create%20zone.http-request.txt>`_ 
-.   .                                   .      .                               `HTTP Response <./samples/network/1.8.6.1%20Create%20zone.http-response.txt>`_ 
-.   .                                   .      .                               `Request XML <./samples/network/1.8.6.1%20Create%20zone.request.xml>`_ 
-.   .                                   .      .                               `Response XML <./samples/network/1.8.6.1%20Create%20zone.response.xml>`_ 
-1   Create zone (confirmation code)     POST   /v1.0/hostedzone                `Response XML <./samples/network/1.8.6.1%20Create%20zone%20(confirmation%20code).response.xml>`_ 
-2   Retrieve zone information           GET    /v1.0/hostedzone/{zoneId}       `HTTP Request <./samples/network/1.8.6.2%20Retrieve%20zone%20information.http-request.txt>`_ 
-.   .                                   .      .                               `HTTP Response <./samples/network/1.8.6.2%20Retrieve%20zone%20information.http-response.txt>`_ 
-.   .                                   .      .                               `Response XML <./samples/network/1.8.6.2%20Retrieve%20zone%20information.response.xml>`_ 
-3   List zone information               GET    /v1.0/hostedzone                `HTTP Request <./samples/network/1.8.6.3%20List%20zone%20information.http-request.txt>`_ 
-.   .                                   .      .                               `HTTP Response <./samples/network/1.8.6.3%20List%20zone%20information.http-response.txt>`_ 
-.   .                                   .      .                               `Response XML <./samples/network/1.8.6.3%20List%20zone%20information.response.xml>`_ 
-4   Delete zone                         DELETE /v1.0/hostedzone/{zoneId}       `HTTP Request <./samples/network/1.8.6.4%20Delete%20zone.http-request.txt>`_ 
-.   .                                   .      .                               `HTTP Response <./samples/network/1.8.6.4%20Delete%20zone.http-response.txt>`_ 
-.   .                                   .      .                               `Response XML <./samples/network/1.8.6.4%20Delete%20zone.response.xml>`_ 
-5   Create/delete record                POST   /v1.0/hostedzone/{zoneId}/rrset `HTTP Request <./samples/network/1.8.6.5%20Create~delete%20record.http-request.txt>`_ 
-.   .                                   .      .                               `HTTP Response <./samples/network/1.8.6.5%20Create~delete%20record.http-response.txt>`_ 
-.   .                                   .      .                               `Request XML <./samples/network/1.8.6.5%20Create~delete%20record.request.xml>`_ 
-.   .                                   .      .                               `Response XML <./samples/network/1.8.6.5%20Create~delete%20record.response.xml>`_ 
-6   List record information             GET    /v1.0/hostedzone/{zoneId}/rrset `HTTP Request <./samples/network/1.8.6.6%20List%20record%20information.http-request.txt>`_ 
-.   .                                   .      .                               `HTTP Response <./samples/network/1.8.6.6%20List%20record%20information.http-response.txt>`_ 
-.   .                                   .      .                               `Response XML <./samples/network/1.8.6.6%20List%20record%20information.response.xml>`_ 
-7   Retrieve update request information GET    /v1.0/change/{updateRequestId}  `HTTP Request <./samples/network/1.8.6.7%20Retrieve%20update%20request%20information.http-request.txt>`_ 
-.   .                                   .      .                               `HTTP Response <./samples/network/1.8.6.7%20Retrieve%20update%20request%20information.http-response.txt>`_ 
-.   .                                   .      .                               `Response XML <./samples/network/1.8.6.7%20Retrieve%20update%20request%20information.response.xml>`_ 
+1   Create zone                         POST   /v1.0/hostedzone                `HTTP Request <./samples/network/1.8.7.1%20Create%20zone.http-request.txt>`_ 
+.   .                                   .      .                               `HTTP Response <./samples/network/1.8.7.1%20Create%20zone.http-response.txt>`_ 
+.   .                                   .      .                               `Request XML <./samples/network/1.8.7.1%20Create%20zone.request.xml>`_ 
+.   .                                   .      .                               `Response XML <./samples/network/1.8.7.1%20Create%20zone.response.xml>`_ 
+1   Create zone (confirmation code)     POST   /v1.0/hostedzone                `Response XML <./samples/network/1.8.7.1%20Create%20zone%20(confirmation%20code).response.xml>`_ 
+2   Retrieve zone information           GET    /v1.0/hostedzone/{zoneId}       `HTTP Request <./samples/network/1.8.7.2%20Retrieve%20zone%20information.http-request.txt>`_ 
+.   .                                   .      .                               `HTTP Response <./samples/network/1.8.7.2%20Retrieve%20zone%20information.http-response.txt>`_ 
+.   .                                   .      .                               `Response XML <./samples/network/1.8.7.2%20Retrieve%20zone%20information.response.xml>`_ 
+3   List zone information               GET    /v1.0/hostedzone                `HTTP Request <./samples/network/1.8.7.3%20List%20zone%20information.http-request.txt>`_ 
+.   .                                   .      .                               `HTTP Response <./samples/network/1.8.7.3%20List%20zone%20information.http-response.txt>`_ 
+.   .                                   .      .                               `Response XML <./samples/network/1.8.7.3%20List%20zone%20information.response.xml>`_ 
+4   Delete zone                         DELETE /v1.0/hostedzone/{zoneId}       `HTTP Request <./samples/network/1.8.7.4%20Delete%20zone.http-request.txt>`_ 
+.   .                                   .      .                               `HTTP Response <./samples/network/1.8.7.4%20Delete%20zone.http-response.txt>`_ 
+.   .                                   .      .                               `Response XML <./samples/network/1.8.7.4%20Delete%20zone.response.xml>`_ 
+5   Create/delete record                POST   /v1.0/hostedzone/{zoneId}/rrset `HTTP Request <./samples/network/1.8.7.5%20Create~delete%20record.http-request.txt>`_ 
+.   .                                   .      .                               `HTTP Response <./samples/network/1.8.7.5%20Create~delete%20record.http-response.txt>`_ 
+.   .                                   .      .                               `Request XML <./samples/network/1.8.7.5%20Create~delete%20record.request.xml>`_ 
+.   .                                   .      .                               `Response XML <./samples/network/1.8.7.5%20Create~delete%20record.response.xml>`_ 
+6   List record information             GET    /v1.0/hostedzone/{zoneId}/rrset `HTTP Request <./samples/network/1.8.7.6%20List%20record%20information.http-request.txt>`_ 
+.   .                                   .      .                               `HTTP Response <./samples/network/1.8.7.6%20List%20record%20information.http-response.txt>`_ 
+.   .                                   .      .                               `Response XML <./samples/network/1.8.7.6%20List%20record%20information.response.xml>`_ 
+7   Retrieve update request information GET    /v1.0/change/{updateRequestId}  `HTTP Request <./samples/network/1.8.7.7%20Retrieve%20update%20request%20information.http-request.txt>`_ 
+.   .                                   .      .                               `HTTP Response <./samples/network/1.8.7.7%20Retrieve%20update%20request%20information.http-response.txt>`_ 
+.   .                                   .      .                               `Response XML <./samples/network/1.8.7.7%20Retrieve%20update%20request%20information.response.xml>`_ 
 === =================================== ====== =============================== ======= 
 
 1.9 Network connector expansion

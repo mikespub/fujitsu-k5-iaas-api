@@ -83,42 +83,42 @@ No. Title                                         Samples
 === ========================================================= ====== ==== ================================= ======= 
 No. Title                                                     Method Path Action                            Samples 
 === ========================================================= ====== ==== ================================= ======= 
-1   Delete sender ID                                          POST   /    DeleteIdentity                    `HTTP Request <./samples/platform/2.1.8.1%20Delete%20sender%20ID.http-request.txt>`_ 
-.   .                                                         .      .    .                                 `HTTP Response <./samples/platform/2.1.8.1%20Delete%20sender%20ID.http-response.txt>`_ 
-.   .                                                         .      .    .                                 `Response XML <./samples/platform/2.1.8.1%20Delete%20sender%20ID.response.xml>`_ 
-2   Show sender ID verification status and verification token POST   /    GetIdentityVerificationAttributes `HTTP Request <./samples/platform/2.1.8.2%20Show%20sender%20ID%20verification%20status%20and%20verification%20token.http-request.txt>`_ 
-.   .                                                         .      .    .                                 `HTTP Response <./samples/platform/2.1.8.2%20Show%20sender%20ID%20verification%20status%20and%20verification%20token.http-response.txt>`_ 
-.   .                                                         .      .    .                                 `Response XML <./samples/platform/2.1.8.2%20Show%20sender%20ID%20verification%20status%20and%20verification%20token.response.xml>`_ 
-3   Show email sending limits                                 POST   /    GetSendQuota                      `HTTP Request <./samples/platform/2.1.8.3%20Show%20email%20sending%20limits.http-request.txt>`_ 
-.   .                                                         .      .    .                                 `HTTP Response <./samples/platform/2.1.8.3%20Show%20email%20sending%20limits.http-response.txt>`_ 
-.   .                                                         .      .    .                                 `Response XML <./samples/platform/2.1.8.3%20Show%20email%20sending%20limits.response.xml>`_ 
-4   Show sent email statistics                                POST   /    GetSendStatistics                 `HTTP Request <./samples/platform/2.1.8.4%20Show%20sent%20email%20statistics.http-request.txt>`_ 
-.   .                                                         .      .    .                                 `HTTP Response <./samples/platform/2.1.8.4%20Show%20sent%20email%20statistics.http-response.txt>`_ 
-.   .                                                         .      .    .                                 `Response XML <./samples/platform/2.1.8.4%20Show%20sent%20email%20statistics.response.xml>`_ 
-5   List sender IDs                                           POST   /    ListIdentities                    `HTTP Request <./samples/platform/2.1.8.5%20List%20sender%20IDs.http-request.txt>`_ 
-.   .                                                         .      .    .                                 `HTTP Response <./samples/platform/2.1.8.5%20List%20sender%20IDs.http-response.txt>`_ 
-.   .                                                         .      .    .                                 `Response XML <./samples/platform/2.1.8.5%20List%20sender%20IDs.response.xml>`_ 
-6   Send email created from input data                        POST   /    SendEmail                         `HTTP Request <./samples/platform/2.1.8.6%20Send%20email%20created%20from%20input%20data.http-request.txt>`_ 
-.   .                                                         .      .    .                                 `HTTP Response <./samples/platform/2.1.8.6%20Send%20email%20created%20from%20input%20data.http-response.txt>`_ 
-.   .                                                         .      .    .                                 `Response XML <./samples/platform/2.1.8.6%20Send%20email%20created%20from%20input%20data.response.xml>`_ 
-7   Send raw text email                                       POST   /    SendRawEmail                      `HTTP Request <./samples/platform/2.1.8.7%20Send%20raw%20text%20email.http-request.txt>`_ 
-.   .                                                         .      .    .                                 `HTTP Response <./samples/platform/2.1.8.7%20Send%20raw%20text%20email.http-response.txt>`_ 
-.   .                                                         .      .    .                                 `Response XML <./samples/platform/2.1.8.7%20Send%20raw%20text%20email.response.xml>`_ 
-8   Verify domain                                             POST   /    VerifyDomainIdentity              `HTTP Request <./samples/platform/2.1.8.8%20Verify%20domain.http-request.txt>`_ 
-.   .                                                         .      .    .                                 `HTTP Response <./samples/platform/2.1.8.8%20Verify%20domain.http-response.txt>`_ 
-.   .                                                         .      .    .                                 `Response XML <./samples/platform/2.1.8.8%20Verify%20domain.response.xml>`_ 
-9   Verify email address                                      POST   /    VerifyEmailIdentity               `HTTP Request <./samples/platform/2.1.8.9%20Verify%20email%20address.http-request.txt>`_ 
-.   .                                                         .      .    .                                 `HTTP Response <./samples/platform/2.1.8.9%20Verify%20email%20address.http-response.txt>`_ 
-.   .                                                         .      .    .                                 `Response XML <./samples/platform/2.1.8.9%20Verify%20email%20address.response.xml>`_ 
-10  Create user for accessing SMTP server                     POST   /    CreateSMTPUser                    `HTTP Request <./samples/platform/2.1.8.10%20Create%20user%20for%20accessing%20SMTP%20server.http-request.txt>`_ 
-.   .                                                         .      .    .                                 `HTTP Response <./samples/platform/2.1.8.10%20Create%20user%20for%20accessing%20SMTP%20server.http-response.txt>`_ 
-.   .                                                         .      .    .                                 `Response XML <./samples/platform/2.1.8.10%20Create%20user%20for%20accessing%20SMTP%20server.response.xml>`_ 
-11  Delete user for accessing SMTP server                     POST   /    DeleteSMTPUser                    `HTTP Request <./samples/platform/2.1.8.11%20Delete%20user%20for%20accessing%20SMTP%20server.http-request.txt>`_ 
-.   .                                                         .      .    .                                 `HTTP Response <./samples/platform/2.1.8.11%20Delete%20user%20for%20accessing%20SMTP%20server.http-response.txt>`_ 
-.   .                                                         .      .    .                                 `Response XML <./samples/platform/2.1.8.11%20Delete%20user%20for%20accessing%20SMTP%20server.response.xml>`_ 
-12  Show user information for accessing SMTP server           POST   /    GetSMTPUserInfo                   `HTTP Request <./samples/platform/2.1.8.12%20Show%20user%20information%20for%20accessing%20SMTP%20server.http-request.txt>`_ 
-.   .                                                         .      .    .                                 `HTTP Response <./samples/platform/2.1.8.12%20Show%20user%20information%20for%20accessing%20SMTP%20server.http-response.txt>`_ 
-.   .                                                         .      .    .                                 `Response XML <./samples/platform/2.1.8.12%20Show%20user%20information%20for%20accessing%20SMTP%20server.response.xml>`_ 
+1   Delete sender ID                                          POST   /    DeleteIdentity                    `HTTP Request <./samples/platform/2.1.9.1%20Delete%20sender%20ID.http-request.txt>`_ 
+.   .                                                         .      .    .                                 `HTTP Response <./samples/platform/2.1.9.1%20Delete%20sender%20ID.http-response.txt>`_ 
+.   .                                                         .      .    .                                 `Response XML <./samples/platform/2.1.9.1%20Delete%20sender%20ID.response.xml>`_ 
+2   Show sender ID verification status and verification token POST   /    GetIdentityVerificationAttributes `HTTP Request <./samples/platform/2.1.9.2%20Show%20sender%20ID%20verification%20status%20and%20verification%20token.http-request.txt>`_ 
+.   .                                                         .      .    .                                 `HTTP Response <./samples/platform/2.1.9.2%20Show%20sender%20ID%20verification%20status%20and%20verification%20token.http-response.txt>`_ 
+.   .                                                         .      .    .                                 `Response XML <./samples/platform/2.1.9.2%20Show%20sender%20ID%20verification%20status%20and%20verification%20token.response.xml>`_ 
+3   Show email sending limits                                 POST   /    GetSendQuota                      `HTTP Request <./samples/platform/2.1.9.3%20Show%20email%20sending%20limits.http-request.txt>`_ 
+.   .                                                         .      .    .                                 `HTTP Response <./samples/platform/2.1.9.3%20Show%20email%20sending%20limits.http-response.txt>`_ 
+.   .                                                         .      .    .                                 `Response XML <./samples/platform/2.1.9.3%20Show%20email%20sending%20limits.response.xml>`_ 
+4   Show sent email statistics                                POST   /    GetSendStatistics                 `HTTP Request <./samples/platform/2.1.9.4%20Show%20sent%20email%20statistics.http-request.txt>`_ 
+.   .                                                         .      .    .                                 `HTTP Response <./samples/platform/2.1.9.4%20Show%20sent%20email%20statistics.http-response.txt>`_ 
+.   .                                                         .      .    .                                 `Response XML <./samples/platform/2.1.9.4%20Show%20sent%20email%20statistics.response.xml>`_ 
+5   List sender IDs                                           POST   /    ListIdentities                    `HTTP Request <./samples/platform/2.1.9.5%20List%20sender%20IDs.http-request.txt>`_ 
+.   .                                                         .      .    .                                 `HTTP Response <./samples/platform/2.1.9.5%20List%20sender%20IDs.http-response.txt>`_ 
+.   .                                                         .      .    .                                 `Response XML <./samples/platform/2.1.9.5%20List%20sender%20IDs.response.xml>`_ 
+6   Send email created from input data                        POST   /    SendEmail                         `HTTP Request <./samples/platform/2.1.9.6%20Send%20email%20created%20from%20input%20data.http-request.txt>`_ 
+.   .                                                         .      .    .                                 `HTTP Response <./samples/platform/2.1.9.6%20Send%20email%20created%20from%20input%20data.http-response.txt>`_ 
+.   .                                                         .      .    .                                 `Response XML <./samples/platform/2.1.9.6%20Send%20email%20created%20from%20input%20data.response.xml>`_ 
+7   Send raw text email                                       POST   /    SendRawEmail                      `HTTP Request <./samples/platform/2.1.9.7%20Send%20raw%20text%20email.http-request.txt>`_ 
+.   .                                                         .      .    .                                 `HTTP Response <./samples/platform/2.1.9.7%20Send%20raw%20text%20email.http-response.txt>`_ 
+.   .                                                         .      .    .                                 `Response XML <./samples/platform/2.1.9.7%20Send%20raw%20text%20email.response.xml>`_ 
+8   Verify domain                                             POST   /    VerifyDomainIdentity              `HTTP Request <./samples/platform/2.1.9.8%20Verify%20domain.http-request.txt>`_ 
+.   .                                                         .      .    .                                 `HTTP Response <./samples/platform/2.1.9.8%20Verify%20domain.http-response.txt>`_ 
+.   .                                                         .      .    .                                 `Response XML <./samples/platform/2.1.9.8%20Verify%20domain.response.xml>`_ 
+9   Verify email address                                      POST   /    VerifyEmailIdentity               `HTTP Request <./samples/platform/2.1.9.9%20Verify%20email%20address.http-request.txt>`_ 
+.   .                                                         .      .    .                                 `HTTP Response <./samples/platform/2.1.9.9%20Verify%20email%20address.http-response.txt>`_ 
+.   .                                                         .      .    .                                 `Response XML <./samples/platform/2.1.9.9%20Verify%20email%20address.response.xml>`_ 
+10  Create user for accessing SMTP server                     POST   /    CreateSMTPUser                    `HTTP Request <./samples/platform/2.1.9.10%20Create%20user%20for%20accessing%20SMTP%20server.http-request.txt>`_ 
+.   .                                                         .      .    .                                 `HTTP Response <./samples/platform/2.1.9.10%20Create%20user%20for%20accessing%20SMTP%20server.http-response.txt>`_ 
+.   .                                                         .      .    .                                 `Response XML <./samples/platform/2.1.9.10%20Create%20user%20for%20accessing%20SMTP%20server.response.xml>`_ 
+11  Delete user for accessing SMTP server                     POST   /    DeleteSMTPUser                    `HTTP Request <./samples/platform/2.1.9.11%20Delete%20user%20for%20accessing%20SMTP%20server.http-request.txt>`_ 
+.   .                                                         .      .    .                                 `HTTP Response <./samples/platform/2.1.9.11%20Delete%20user%20for%20accessing%20SMTP%20server.http-response.txt>`_ 
+.   .                                                         .      .    .                                 `Response XML <./samples/platform/2.1.9.11%20Delete%20user%20for%20accessing%20SMTP%20server.response.xml>`_ 
+12  Show user information for accessing SMTP server           POST   /    GetSMTPUserInfo                   `HTTP Request <./samples/platform/2.1.9.12%20Show%20user%20information%20for%20accessing%20SMTP%20server.http-request.txt>`_ 
+.   .                                                         .      .    .                                 `HTTP Response <./samples/platform/2.1.9.12%20Show%20user%20information%20for%20accessing%20SMTP%20server.http-response.txt>`_ 
+.   .                                                         .      .    .                                 `Response XML <./samples/platform/2.1.9.12%20Show%20user%20information%20for%20accessing%20SMTP%20server.response.xml>`_ 
 === ========================================================= ====== ==== ================================= ======= 
 
 2.2 Content delivery service
@@ -127,30 +127,30 @@ No. Title                                                     Method Path Action
 === =============================== ====== ====================================== ======= 
 No. Title                           Method Path                                   Samples 
 === =============================== ====== ====================================== ======= 
-1   List all services               GET    /v1/services                           `HTTP Request <./samples/platform/2.2.7.1%20List%20all%20services.http-request.txt>`_ 
-.   .                               .      .                                      `HTTP Response <./samples/platform/2.2.7.1%20List%20all%20services.http-response.txt>`_ 
-.   .                               .      .                                      `Response JSON <./samples/platform/2.2.7.1%20List%20all%20services.response.json>`_ 
-1   List all services (no services) GET    /v1/services                           `HTTP Response <./samples/platform/2.2.7.1%20List%20all%20services%20(no%20services).http-response.txt>`_ 
-.   .                               .      .                                      `Response JSON <./samples/platform/2.2.7.1%20List%20all%20services%20(no%20services).response.json>`_ 
-2   Create a service                POST   /v1/services                           `HTTP Request <./samples/platform/2.2.7.2%20Create%20a%20service.http-request.txt>`_ 
-.   .                               .      .                                      `HTTP Response <./samples/platform/2.2.7.2%20Create%20a%20service.http-response.txt>`_ 
-.   .                               .      .                                      `Request JSON <./samples/platform/2.2.7.2%20Create%20a%20service.request.json>`_ 
-3   Retrieve a service              GET    /v1/services                           `HTTP Request <./samples/platform/2.2.7.3%20Retrieve%20a%20service.http-request.txt>`_ 
-.   .                               .      .                                      `HTTP Response <./samples/platform/2.2.7.3%20Retrieve%20a%20service.http-response.txt>`_ 
-.   .                               .      .                                      `Response JSON <./samples/platform/2.2.7.3%20Retrieve%20a%20service.response.json>`_ 
-4   Edit a service                  PATCH  /v1/services/{service_id}/param        `HTTP Request <./samples/platform/2.2.7.4%20Edit%20a%20service.http-request.txt>`_ 
-.   .                               .      .                                      `HTTP Response <./samples/platform/2.2.7.4%20Edit%20a%20service.http-response.txt>`_ 
-5   Delete a service                DELETE /v1/services/{service_id}              `HTTP Request <./samples/platform/2.2.7.5%20Delete%20a%20service.http-request.txt>`_ 
-.   .                               .      .                                      `HTTP Response <./samples/platform/2.2.7.5%20Delete%20a%20service.http-response.txt>`_ 
-6   Purge a cached asset            DELETE /v1/services/{service_id}/assets{?url} `HTTP Request <./samples/platform/2.2.7.6%20Purge%20a%20cached%20asset.http-request.txt>`_ 
-.   .                               .      .                                      `HTTP Response <./samples/platform/2.2.7.6%20Purge%20a%20cached%20asset.http-response.txt>`_ 
-7   Create a report                 POST   /v1/reports                            `HTTP Request <./samples/platform/2.2.7.7%20Create%20a%20report.http-request.txt>`_ 
-.   .                               .      .                                      `HTTP Response <./samples/platform/2.2.7.7%20Create%20a%20report.http-response.txt>`_ 
-7   Create a report (429)           POST   /v1/reports                            `HTTP Response <./samples/platform/2.2.7.7%20Create%20a%20report%20(429).http-response.txt>`_ 
-8   Retrieve a report               GET    /v1/reports/{report_id}                `HTTP Request <./samples/platform/2.2.7.8%20Retrieve%20a%20report.http-request.txt>`_ 
-.   .                               .      .                                      `HTTP Response <./samples/platform/2.2.7.8%20Retrieve%20a%20report.http-response.txt>`_ 
-.   .                               .      .                                      `Response JSON <./samples/platform/2.2.7.8%20Retrieve%20a%20report.response.json>`_ 
-8   Retrieve a report (204)         GET    /v1/reports/{report_id}                `HTTP Response <./samples/platform/2.2.7.8%20Retrieve%20a%20report%20(204).http-response.txt>`_ 
+1   List all services               GET    /v1/services                           `HTTP Request <./samples/platform/3.1.7.1%20List%20all%20services.http-request.txt>`_ 
+.   .                               .      .                                      `HTTP Response <./samples/platform/3.1.7.1%20List%20all%20services.http-response.txt>`_ 
+.   .                               .      .                                      `Response JSON <./samples/platform/3.1.7.1%20List%20all%20services.response.json>`_ 
+1   List all services (no services) GET    /v1/services                           `HTTP Response <./samples/platform/3.1.7.1%20List%20all%20services%20(no%20services).http-response.txt>`_ 
+.   .                               .      .                                      `Response JSON <./samples/platform/3.1.7.1%20List%20all%20services%20(no%20services).response.json>`_ 
+2   Create a service                POST   /v1/services                           `HTTP Request <./samples/platform/3.1.7.2%20Create%20a%20service.http-request.txt>`_ 
+.   .                               .      .                                      `HTTP Response <./samples/platform/3.1.7.2%20Create%20a%20service.http-response.txt>`_ 
+.   .                               .      .                                      `Request JSON <./samples/platform/3.1.7.2%20Create%20a%20service.request.json>`_ 
+3   Retrieve a service              GET    /v1/services                           `HTTP Request <./samples/platform/3.1.7.3%20Retrieve%20a%20service.http-request.txt>`_ 
+.   .                               .      .                                      `HTTP Response <./samples/platform/3.1.7.3%20Retrieve%20a%20service.http-response.txt>`_ 
+.   .                               .      .                                      `Response JSON <./samples/platform/3.1.7.3%20Retrieve%20a%20service.response.json>`_ 
+4   Edit a service                  PATCH  /v1/services/{service_id}/param        `HTTP Request <./samples/platform/3.1.7.4%20Edit%20a%20service.http-request.txt>`_ 
+.   .                               .      .                                      `HTTP Response <./samples/platform/3.1.7.4%20Edit%20a%20service.http-response.txt>`_ 
+5   Delete a service                DELETE /v1/services/{service_id}              `HTTP Request <./samples/platform/3.1.7.5%20Delete%20a%20service.http-request.txt>`_ 
+.   .                               .      .                                      `HTTP Response <./samples/platform/3.1.7.5%20Delete%20a%20service.http-response.txt>`_ 
+6   Purge a cached asset            DELETE /v1/services/{service_id}/assets{?url} `HTTP Request <./samples/platform/3.1.7.6%20Purge%20a%20cached%20asset.http-request.txt>`_ 
+.   .                               .      .                                      `HTTP Response <./samples/platform/3.1.7.6%20Purge%20a%20cached%20asset.http-response.txt>`_ 
+7   Create a report                 POST   /v1/reports                            `HTTP Request <./samples/platform/3.1.7.7%20Create%20a%20report.http-request.txt>`_ 
+.   .                               .      .                                      `HTTP Response <./samples/platform/3.1.7.7%20Create%20a%20report.http-response.txt>`_ 
+7   Create a report (429)           POST   /v1/reports                            `HTTP Response <./samples/platform/3.1.7.7%20Create%20a%20report%20(429).http-response.txt>`_ 
+8   Retrieve a report               GET    /v1/reports/{report_id}                `HTTP Request <./samples/platform/3.1.7.8%20Retrieve%20a%20report.http-request.txt>`_ 
+.   .                               .      .                                      `HTTP Response <./samples/platform/3.1.7.8%20Retrieve%20a%20report.http-response.txt>`_ 
+.   .                               .      .                                      `Response JSON <./samples/platform/3.1.7.8%20Retrieve%20a%20report.response.json>`_ 
+8   Retrieve a report (204)         GET    /v1/reports/{report_id}                `HTTP Response <./samples/platform/3.1.7.8%20Retrieve%20a%20report%20(204).http-response.txt>`_ 
 === =============================== ====== ====================================== ======= 
 
 3 Template/development environment
@@ -162,12 +162,12 @@ No. Title                           Method Path                                 
 === ===================== ====== =============================================================================== ======= 
 No. Title                 Method Path                                                                            Samples 
 === ===================== ====== =============================================================================== ======= 
-1   Create stack          POST   /v1/{tenant_id}/stacks                                                          `Request JSON <./samples/platform/3.1.2.1%20Create%20stack.request.json>`_ 
-.   .                     .      .                                                                               `Response JSON <./samples/platform/3.1.2.1%20Create%20stack.response.json>`_ 
-2   List stack data       GET    /v1/{tenant_id}/stacks                                                          `Response JSON <./samples/platform/3.1.2.2%20List%20stack%20data.response.json>`_ 
+1   Create stack          POST   /v1/{tenant_id}/stacks                                                          `Request JSON <./samples/platform/4.1.2.1%20Create%20stack.request.json>`_ 
+.   .                     .      .                                                                               `Response JSON <./samples/platform/4.1.2.1%20Create%20stack.response.json>`_ 
+2   List stack data       GET    /v1/{tenant_id}/stacks                                                          `Response JSON <./samples/platform/4.1.2.2%20List%20stack%20data.response.json>`_ 
 3   Find stack            GET    /v1/{tenant_id}/stacks/{stack_name}                                                     
-4   Show stack details    GET    /v1/{tenant_id}/stacks/{stack_name}/{stack_id}                                  `Response JSON <./samples/platform/3.1.2.4%20Show%20stack%20details.response.json>`_ 
-5   Update stack          PUT    /v1/{tenant_id}/stacks/{stack_name}/{stack_id}                                  `Request JSON <./samples/platform/3.1.2.5%20Update%20stack.request.json>`_ 
+4   Show stack details    GET    /v1/{tenant_id}/stacks/{stack_name}/{stack_id}                                  `Response JSON <./samples/platform/4.1.2.4%20Show%20stack%20details.response.json>`_ 
+5   Update stack          PUT    /v1/{tenant_id}/stacks/{stack_name}/{stack_id}                                  `Request JSON <./samples/platform/4.1.2.5%20Update%20stack.request.json>`_ 
 6   Delete stack          DELETE /v1/{tenant_id}/stacks/{stack_name}/{stack_id}                                          
 7   Find stack resources  GET    /v1/{tenant_id}/stacks/{stack_name}/resources                                           
 8   List resources        GET    /v1/{tenant_id}/stacks/{stack_name}/{stack_id}/resources                                
@@ -176,6 +176,6 @@ No. Title                 Method Path                                           
 11  List stack events     GET    /v1/{tenant_id}/stacks/{stack_name}/{stack_id}/events                                   
 12  List resource events  GET    /v1/{tenant_id}/stacks/{stack_name}/{stack_id}/resources/{resource_name}/events         
 13  Get stack template    GET    /v1/{tenant_id}/stacks/{stack_name}/{stack_id}/template                                 
-14  Validate template     POST   /v1/{tenant_id}/validate                                                        `Request JSON <./samples/platform/3.1.2.14%20Validate%20template.request.json>`_ 
+14  Validate template     POST   /v1/{tenant_id}/validate                                                        `Request JSON <./samples/platform/4.1.2.14%20Validate%20template.request.json>`_ 
 === ===================== ====== =============================================================================== ======= 
 

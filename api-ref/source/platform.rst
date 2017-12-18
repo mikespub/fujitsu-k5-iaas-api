@@ -64,8 +64,8 @@ No. Title                                        Method Path                    
 40  Show flavor details                          GET    /v1.0/{tenantId}/flavors/{flavorId}                  `Response JSON <./samples/platform/1.1.3.40%20Show%20flavor%20details.response.json>`_ 
 === ============================================ ====== ==================================================== ======= 
 
-2 Message & contents delivery
-=============================
+2 Email delivery service
+========================
 
 2.1 Email delivery service
 --------------------------
@@ -121,7 +121,10 @@ No. Title                                                     Method Path Action
 .   .                                                         .      .    .                                 `Response XML <./samples/platform/2.1.9.12%20Show%20user%20information%20for%20accessing%20SMTP%20server.response.xml>`_ 
 === ========================================================= ====== ==== ================================= ======= 
 
-2.2 Content delivery service
+3 Content delivery service
+==========================
+
+3.1 Content delivery service
 ----------------------------
 
 === =============================== ====== ====================================== ======= 
@@ -153,10 +156,10 @@ No. Title                           Method Path                                 
 8   Retrieve a report (204)         GET    /v1/reports/{report_id}                `HTTP Response <./samples/platform/3.1.7.8%20Retrieve%20a%20report%20(204).http-response.txt>`_ 
 === =============================== ====== ====================================== ======= 
 
-3 Template/development environment
+4 Template/development environment
 ==================================
 
-3.1 Orchestration
+4.1 Orchestration
 -----------------
 
 === ===================== ====== =============================================================================== ======= 

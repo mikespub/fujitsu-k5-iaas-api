@@ -186,17 +186,20 @@ No. Title                                 Method Path Samples
 4   CreateLBCookieStickinessPolicy        GET    /    `Response JSON <./samples/network/1.6.5.4%20CreateLBCookieStickinessPolicy.response.json>`_ 
 5   CreateLoadBalancer                    GET    /    `Response JSON <./samples/network/1.6.5.5%20CreateLoadBalancer.response.json>`_ 
 6   CreateLoadBalancerListeners           GET    /    `Response JSON <./samples/network/1.6.5.6%20CreateLoadBalancerListeners.response.json>`_ 
-7   CreateSorryServerRedirectionPolicy    GET    /    `Response JSON <./samples/network/1.6.5.8%20CreateSorryServerRedirectionPolicy.response.json>`_ 
-8   DeleteLoadBalancer                    GET    /    `Response JSON <./samples/network/1.6.5.9%20DeleteLoadBalancer.response.json>`_ 
-9   DeleteLoadBalancerListeners           GET    /    `Response JSON <./samples/network/1.6.5.10%20DeleteLoadBalancerListeners.response.json>`_ 
-10  DeregisterInstancesFromLoadBalancer   GET    /    `Response JSON <./samples/network/1.6.5.12%20DeregisterInstancesFromLoadBalancer.response.json>`_ 
-11  DescribeLoadBalancerAttributes        GET    /    `Response JSON <./samples/network/1.6.5.13%20DescribeLoadBalancerAttributes.response.json>`_ 
-12  DescribeLoadBalancers                 GET    /    `Response JSON <./samples/network/1.6.5.15%20DescribeLoadBalancers.response.json>`_ 
-13  DetachLoadBalancerFromSubnets         GET    /    `Response JSON <./samples/network/1.6.5.16%20DetachLoadBalancerFromSubnets.response.json>`_ 
-14  ModifyLoadBalancerAttributes          GET    /    `Response JSON <./samples/network/1.6.5.17%20ModifyLoadBalancerAttributes.response.json>`_ 
-15  RegisterInstancesWithLoadBalancer     GET    /    `Response JSON <./samples/network/1.6.5.18%20RegisterInstancesWithLoadBalancer.response.json>`_ 
-16  SetLoadBalancerListenerSSLCertificate GET    /    `Response JSON <./samples/network/1.6.5.19%20SetLoadBalancerListenerSSLCertificate.response.json>`_ 
-17  SetLoadBalancerPoliciesOfListener     GET    /    `Response JSON <./samples/network/1.6.5.20%20SetLoadBalancerPoliciesOfListener.response.json>`_ 
+7   CreateLoadBalancerPolicy              GET    /            
+8   CreateSorryServerRedirectionPolicy    GET    /    `Response JSON <./samples/network/1.6.5.8%20CreateSorryServerRedirectionPolicy.response.json>`_ 
+9   DeleteLoadBalancer                    GET    /    `Response JSON <./samples/network/1.6.5.9%20DeleteLoadBalancer.response.json>`_ 
+10  DeleteLoadBalancerListeners           GET    /    `Response JSON <./samples/network/1.6.5.10%20DeleteLoadBalancerListeners.response.json>`_ 
+11  DeleteLoadBalancerPolicy              GET    /            
+12  DeregisterInstancesFromLoadBalancer   GET    /    `Response JSON <./samples/network/1.6.5.12%20DeregisterInstancesFromLoadBalancer.response.json>`_ 
+13  DescribeLoadBalancerAttributes        GET    /    `Response JSON <./samples/network/1.6.5.13%20DescribeLoadBalancerAttributes.response.json>`_ 
+14  DescribeLoadBalancerPolicies          GET    /            
+15  DescribeLoadBalancers                 GET    /    `Response JSON <./samples/network/1.6.5.15%20DescribeLoadBalancers.response.json>`_ 
+16  DetachLoadBalancerFromSubnets         GET    /    `Response JSON <./samples/network/1.6.5.16%20DetachLoadBalancerFromSubnets.response.json>`_ 
+17  ModifyLoadBalancerAttributes          GET    /    `Response JSON <./samples/network/1.6.5.17%20ModifyLoadBalancerAttributes.response.json>`_ 
+18  RegisterInstancesWithLoadBalancer     GET    /    `Response JSON <./samples/network/1.6.5.18%20RegisterInstancesWithLoadBalancer.response.json>`_ 
+19  SetLoadBalancerListenerSSLCertificate GET    /    `Response JSON <./samples/network/1.6.5.19%20SetLoadBalancerListenerSSLCertificate.response.json>`_ 
+20  SetLoadBalancerPoliciesOfListener     GET    /    `Response JSON <./samples/network/1.6.5.20%20SetLoadBalancerPoliciesOfListener.response.json>`_ 
 === ===================================== ====== ==== ======= 
 
 1.7 SSL-VPN connection

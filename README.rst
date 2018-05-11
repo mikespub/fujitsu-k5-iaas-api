@@ -2,6 +2,16 @@
 Fujitsu K5 IaaS API Reference & Tools
 =====================================
 
+Updated Documentation on Fujitsu K5 Portal
+==========================================
+
+* `K5 Guides and Manuals <https://k5-doc.jp-east-1.paas.cloud.global.fujitsu.com/doc/en/service_doc.html>`_
+* `Portal API Authentication <https://k5-doc.jp-east-1.paas.cloud.global.fujitsu.com/doc/en/apiauth/document/index.html>`_
+* `IaaS Documentation and Tools <https://k5-doc.jp-east-1.paas.cloud.global.fujitsu.com/doc/en/iaas/document/list/doclist_iaas.html>`_
+* `IaaS API Reference <https://k5-doc.jp-east-1.paas.cloud.global.fujitsu.com/doc/en/iaas/document/api-reference/index.html>`_
+* `IaaS API Endpoint List <https://k5-doc.jp-east-1.paas.cloud.global.fujitsu.com/doc/en/iaas/document/api-endpoint-list/index.html>`_
+* `Finally, an overview of all IaaS APIs <https://k5-doc.jp-east-1.paas.cloud.global.fujitsu.com/doc/en/iaas/document/api-presetrole/index.html>`_
+
 API Swagger Files
 =================
 
